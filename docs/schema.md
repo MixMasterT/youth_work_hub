@@ -1,3 +1,5 @@
+# Database Schema
+
 `Users Table`:
   - `id`
   - `name`
@@ -7,15 +9,15 @@
   - `password_digest`
   - `session_token`
 ## users
-  column name     | data type | details
-  ----------------|-----------|-----------------------
-  id              | integer   | not null, primary key
-  username        | string    | not null, indexed, unique
-  email           | string    | not null, indexed, unique
-  phone_number    | integer   |
-  picture_url     | string    | unique
-  password_digest | string    | not null
-  session_token   | string    | not null, indexed, unique
+column name     | data type | details
+----------------|-----------|-----------------------
+id              | integer   | not null, primary key
+username        | string    | not null, indexed, unique
+email           | string    | not null, indexed, unique
+phone_number    | integer   |
+picture_url     | string    | unique
+password_digest | string    | not null
+session_token   | string    | not null, indexed, unique
 
   `Jobs Table`:
    - `id`
@@ -30,18 +32,18 @@
    - `status` (fulfilled', 'unfulfilled', 'pending', or 'designated')
    - `worker_id` (set upon designation)
 ## Jobs
-   column name | data type | details
-   ------------|-----------|-----------------------
-   id          | integer   | not null, primary key
-   user_id     | string    | not null, foreign key (references user who posted job), indexed
-   description | text      | not null
-   location    | string    | not null, (address)
-   duration    | integer   | not null, number of hours
-   wage        | integer   | not null, dollars per hour
-   start_time  | date      | not null, start time of job
-   cost        | integer   | not null, total cost in dollars (wage * duration)
-   status      | string    | not null, default: 'pending' otherwise: 'designated'/'fulfilled'/"unfullfilled"
-   worker_id   | integer   | empty until 'designated' or 'fulfilled'
+ column name | data type | details
+ ------------|-----------|-----------------------
+ id          | integer   | not null, primary key
+ user_id     | string    | not null, foreign key (references user who posted job), indexed
+ description | text      | not null
+ location    | string    | not null, (address)
+ duration    | integer   | not null, number of hours
+ wage        | integer   | not null, dollars per hour
+ start_time  | date      | not null, start time of job
+ cost        | integer   | not null, total cost in dollars (wage * duration)
+ status      | string    | not null, only: 'pending','designated','fulfilled','unfullfilled'
+ worker_id   | integer   | empty until 'designated' or 'fulfilled'
 
 
    `Worker Table`:
