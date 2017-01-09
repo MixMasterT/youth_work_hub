@@ -45,12 +45,12 @@
 |-------|-------------|
 | "/sign-up" | "LoginFormContainer" |
 | "/sign-in" | "LoginFormContainer" |
-| "/api" | "AppContainer" |
-| "/api/workers" | "WorkersListContainer" |
-| "/api/workers/:workerId" | "WorkersShowContainer" |
-| "/api/workers/:workerId/reviews" | "WorkerReviewsContainer" |
-| "/api/jobs" | "JobsListContainer"
-| "/api/jobs/:jobId" | "JobShowContainer"
-| "/api/jobs/new" | "NewJobContainer" |
-| "/api/jobs/:jobId/edit" | "NewJobContainer" |
-| "/api/jobs/:jobId/review" | "NewReviewContainer" |
+| "/" | "AppContainer" |
+| "/workers" | "WorkersListContainer" |
+| "/workers/:workerId" | "WorkersShowContainer" |
+| "/workers/:workerId/reviews" | "WorkerReviewsContainer" |
+| "/jobs" | "JobsListContainer"
+| "/jobs/:jobId" | "JobShowContainer"
+| "/jobs/new" | "NewJobContainer" |
+| "/jobs/:jobId/edit" | "NewJobContainer" |
+| "/jobs/:jobId/review" | "NewReviewContainer" |
