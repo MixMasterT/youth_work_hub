@@ -127,31 +127,31 @@ Add a schedule to keep track of workers' availability.
 ## Implementation Timeline
 This time schedule will help keep the project moving forward.
 
-### Signup/Login/Logout (days 1 and 2)
+### Phase 1 Signup/Login/Logout (days 1 and 2)
 2 Days
 Day 1: Get User resource set up. Implement login/logout functionality. Set up header element to contain logo and Login component.
 Day 2: Add form for new User creation and editing User details.
 
-### Worker Resource Index/Show (days 3 and 4)
+### Phase 2 Worker Resource Index/Show (days 3 and 4)
 2 Days
 Day 1: Implement Users table. Build relevant React components for Worker Index and Show viewers
 Day 2: Add seed data with at least five fictional Workers, and style Index and Show view to look good with actual photos, and content.
 
-### Jobs Resource Index/Show (days 5 and 6)
+### Phase 3 Jobs Resource Index/Show (days 5 and 6)
 2 Days
 Day 1: Build React Components for Jobs Index and Show views. Add styles to make these look good.
 Day 2: Add form for New Job Posting, as well as confirmation Dialogue box.
 
-### Home Page and Navbar (day 7)
+### Phase 4 Home Page and Navbar (day 7)
 1 Day
 Create mission statement and testimonial content for home page.
 Add Navbar with links to
 
-### Job Reviews (days 8 and 9)
+### Phase 5 Job Reviews (days 8 and 9)
 2 Days
 Day 1: Add Reviews Table to database. Create form for user to post review.
 Day 2: Add average score and Review list to Workers' Index and Show views.
 
-### Schedules (day 10)
+### Phase 6 Schedules (day 10)
 1 Day
 Add Shedules data table containing to prevent workers from selecting jobs with time conflicts.
