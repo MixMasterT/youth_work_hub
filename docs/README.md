@@ -155,3 +155,7 @@ Day 2: Add average score and Review list to Workers' Index and Show views.
 ### Phase 6 Schedules (day 10)
 1 Day
 Add Shedules data table containing to prevent workers from selecting jobs with time conflicts.
+
+
+## Trello link
+[Trello]:https://trello.com/b/y6VRF3va/youth-work-hub
