@@ -9,7 +9,65 @@ YouthWorkHub
 YouthWorkHub is a full-stack web application inspired by TaskRabbit. It provides a platform for people
 to find young people who looking for work for domestic help and other types of odd jobs. This web application uses Ruby on Rails with Postgres for its backend, and React/Redux for its front end.
 
-## Minimum Viable Features
+## Minimum Viable Product
+
+- [ ] Hosting on Heroku
+- [ ] Login, and guest/demo login
+- [ ] Account creation and update
+- [ ] Post Jobs
+- [ ] View Jobs Index (only jobs posted by currentUser)
+- [ ] View Workers Index
+- [ ] View Individual Worker's Show page
+- [ ] Production README [sample](docs/production_readme.md)
+
+## Design Docs
+* [View Wireframes][wireframes]
+* [React Components][components]
+* [API endpoints][api-endpoints]
+* [DB schema][schema]
+* [Sample State][sample-state]
+
+[wireframes]: docs/wireframes
+[components]: docs/component-hierarchy.md
+[sample-state]: docs/sample-state.md
+[api-endpoints]: docs/api-endpoints.md
+[schema]: docs/schema.md
+
+## Implementation Timeline
+
+### Phase 1: Setup Rails Backend and implement front-end Authorization (2 days)
+
+**Objective:** Users can create accounts, Log-in, and Log-out
+
+### Phase 2: Navbar and Header Sections (1 day)
+
+**Objective:** Navigation available to switch between three views. Only 'home' and 'workers index' are available to users who are not logged in.
+
+### Phase 3: Home Page (1 day)
+
+**Objective:** The home page shows the site's mission statement and some testimonials.
+
+### Phase 3: Job Model (3 days)
+
+**Objective:** Jobs can be created, edited and destroyed. Confirmation dialogue box appears to confirm job posting after initial 'submit'.
+
+### Phase 4: Worker Model (2 day)
+
+**Objective:** Worker profiles can be viewed through index or show views.
+
+### Phase 5: Review of Job performance (1 day)
+
+**objective:** Users can post review of a worker's job performance. This requires a Review model and data table for Reviews
+
+### Phase 6: - Add recent reviews and average review score to Worker's Show Page (1 day)
+
+**objective:** Data from the reviews table will be pulled into the Worker's show page to provide useful information about past performance.
+
+### Bonus Features (TBD)
+- [ ] Mock Payment Processing
+- [ ] Worker Sign Up
+
+## Feature Details
 
 ### User Signup/Login/Logout
 Users must be logged in to post jobs. Without logging in, users may still visit the home page, and the 'available workers' list.
@@ -51,6 +109,7 @@ Add a schedule to keep track of workers' availability.
   - `user_id`
   - `job_type`
   - `description`
+  - `location`
   - `duration` (in hours as integers)
   - `wage` (in dollars per hour)
   - `time` (exact date and time for start of job)
@@ -66,6 +125,7 @@ Add a schedule to keep track of workers' availability.
   - `email`
   - `phone_number`
   - `bio`
+  - `skills` - like tags (limited number of possibilities) (BONUS)
   - `date_of_birth`
   - `zip_code`
   - `min_wage` (in dollars per hour)
@@ -75,6 +135,9 @@ Add a schedule to keep track of workers' availability.
   - `worker_id` (set upon designation)
 
 ## React Components
+
+### Header
+  Includes Logo and the 'Login Dialogue'
 
 ### Login Dialogue
   Appears in upper right corner. Contains logout button if logged in. Contains links to login when not logged in.
@@ -86,7 +149,7 @@ Add a schedule to keep track of workers' availability.
   Same as login form but includes more fields, such as email and phone number. Also includes 'guest login' link.
 
 ### Navbar
-  Contains a list of links to: 'Home', 'Workers', 'My Jobs', 'Profile' as well as the 'Login Dialogue'
+  Contains a list of links to: 'Home', 'Workers', 'My Jobs', 'Profile'
 
 ### User's Profile
   Show basic user's information including email, and phone number. Provide link to edit profile.
@@ -107,7 +170,7 @@ Add a schedule to keep track of workers' availability.
   Requires users to confirm before posting new job to database. Includes total cost, start_time, and end_time for user to review.
 
 ### Jobs List
-  List all of the jobs posted by current user in chronological order. Only show job_type, date, and status in list. List items are clickable and link to the Show view for each job.
+  List all of the jobs posted by current user in chronological order. Only show job_type, date, first twenty-five chars of description, and status in list. List items are clickable and link to the Show view for each job.
 
 ### Jobs Show
   The show view for each job has all of the information including the job description, and a link to a worker's view page if the job has been designated or fulfilled. As a bonus feature, a link to post or edit a review of the worker's performance will be added to the job's show view.
@@ -118,3 +181,39 @@ Add a schedule to keep track of workers' availability.
  Worker listing shows average rating score and list of reviews. This enhancement can pull data from the Reviews table to add useful information to the Worker's show page.
 
  worker schedules (updated as jobs are accepted). This would require a new 'Schedules' resource that would have a one to one association to Workers.
+
+## Implementation Timeline
+This time schedule will help keep the project moving forward.
+
+### Phase 1 Signup/Login/Logout (days 1 and 2)
+2 Days
+Day 1: Get User resource set up. Implement login/logout functionality. Set up header element to contain logo and Login component.
+Day 2: Add form for new User creation and editing User details.
+
+### Phase 2 Worker Resource Index/Show (days 3 and 4)
+2 Days
+Day 1: Implement Users table. Build relevant React components for Worker Index and Show viewers
+Day 2: Add seed data with at least five fictional Workers, and style Index and Show view to look good with actual photos, and content.
+
+### Phase 3 Jobs Resource Index/Show (days 5 and 6)
+2 Days
+Day 1: Build React Components for Jobs Index and Show views. Add styles to make these look good.
+Day 2: Add form for New Job Posting, as well as confirmation Dialogue box.
+
+### Phase 4 Home Page and Navbar (day 7)
+1 Day
+Create mission statement and testimonial content for home page.
+Add Navbar with links to
+
+### Phase 5 Job Reviews (days 8 and 9)
+2 Days
+Day 1: Add Reviews Table to database. Create form for user to post review.
+Day 2: Add average score and Review list to Workers' Index and Show views.
+
+### Phase 6 Schedules (day 10)
+1 Day
+Add Shedules data table to prevent workers from selecting jobs with time conflicts.
+
+
+## Trello link
+[Trello]: https://trello.com/b/y6VRF3va/youth-work-hub
