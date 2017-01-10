@@ -14,7 +14,7 @@ column name     | data type | details
 id              | integer   | not null, primary key
 username        | string    | not null, indexed, unique
 email           | string    | not null, indexed, unique
-phone_number    | integer   |
+phone_number    | string    |
 picture_url     | string    | unique
 password_digest | string    | not null
 session_token   | string    | not null, indexed, unique
@@ -61,7 +61,7 @@ column name  | data type | details
 -------------|-----------|-----------------------
 id           | integer   | not null, primary key
 email        | string    | not null, indexed, unique
-phone_number | integer   |
+phone_number | string    |
 bio          | text      | not null
 skills       | text      | csv list of skills that Worker claims
 date_of_birth| date      | not null
