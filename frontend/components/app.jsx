@@ -1,9 +1,9 @@
 import React from 'react';
-import LoginBoxContainer from './login_box/login_box_container';
+import Header from './header';
+
 const App = ({ children }) => (
   <div>
-    <h1>Youth Work Hub</h1>
-    <LoginBoxContainer />
+    <Header />
     { children }
   </div>
 );
