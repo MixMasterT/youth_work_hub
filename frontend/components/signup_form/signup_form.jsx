@@ -7,8 +7,8 @@ class SignupForm extends React.Component {
     this.state = {
       username: "",
       email: "",
-      phone: "",
-      photoLink: "",
+      phone_number: "",
+      picture_url: "",
       password: "",
       passwordCheck: ""
     };
@@ -41,6 +41,7 @@ class SignupForm extends React.Component {
       console.log("signup failed");
       this.props.router.push("signup");
     }
+    console.log("Submitted: ", this.state);
     this.props.signup(this.state);
   }
 
@@ -66,15 +67,15 @@ class SignupForm extends React.Component {
 
           <label>Phone
             <input type="text"
-              onChange={this.update('phone')}
-              value={this.state.phone}
+              onChange={this.update('phone_number')}
+              value={this.state.phone_number}
             />
           </label>
 
           <label>Photo Link
             <input type="text"
-              onChange={this.update('photo')}
-              value={this.state.photo}
+              onChange={this.update('picture_url')}
+              value={this.state.picture_url}
             />
           </label>
 
@@ -87,8 +88,8 @@ class SignupForm extends React.Component {
 
           <label>Confirm-Password
             <input type="password"
-              onChange={this.update('password')}
-              value={this.state.password}
+              onChange={this.update('passwordCheck')}
+              value={this.state.passwordCheck}
             />
           </label>
 
