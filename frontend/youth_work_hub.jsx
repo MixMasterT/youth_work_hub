@@ -8,8 +8,6 @@ import { login } from './actions/session_actions';
 
 document.addEventListener('DOMContentLoaded', () => {
   const store = configureStore();
-  window.login = login;
-  window.store = store;
  ReactDOM.render(<Root store={ store } />,
                   document.getElementById('root'));
 });
