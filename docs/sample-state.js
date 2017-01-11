@@ -1,8 +1,12 @@
 {
-  currentUser: {
-    id: 1,
-    username: "Joe Shmow"
-  },
+  session: {
+    currentUser: {
+      id: 1,
+      username: "Joe Shmow"
+    }
+    errors: []
+  }
+,
   forms: {
     signUp: {errors: []},
     logIn: {errors: []},
@@ -15,6 +19,7 @@
       description: "We need someone to look after our son Michael on Saturday evening from 6pm until 11pm. He goes to be at 9, so you can watch TV or do your homework from 9-11!",
       location: "380 Arlington St. San Francisco CA, 94131",
       duration: 5,
+      location: { lat: 122.3232, lng: 38.32322 }
       wage: 10,
       time: 1443432843783978,
       cost: 50,
