@@ -6,13 +6,13 @@ import SignupFormContainer from './signup_form/signup_form_container';
 
 import App from './app';
 
-const _redirectIfLoggedIn = (nextState, replace) => {
+const _redirectIfLoggedIn = store => (nextState, replace) => {
   const currentUser = store.getState().session.currentUser;
   if (currentUser) {
     replace('/');
   }
 };
-const _redirectUnlessLoggedIn = (nextState, replace) => {
+const _redirectUnlessLoggedIn = store => (nextState, replace) => {
   const currentUser = store.getState().session.currentUser;
   if (currentUser) {
     replace('/');
@@ -24,10 +24,10 @@ const Root = ({ store }) => (
     <Router history={ hashHistory }>
       <Route path="/" component={ App } >
         <Route path="/login" component={ LoginFormContainer }
-          onEnter={ _redirectIfLoggedIn}
+          onEnter={ _redirectIfLoggedIn(store)}
           />
         <Route path="/signup" component={ SignupFormContainer }
-          onEnter={ _redirectIfLoggedIn}
+          onEnter={ _redirectIfLoggedIn(store)}
         />
       </Route>
     </Router>
