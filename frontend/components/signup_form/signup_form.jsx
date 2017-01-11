@@ -40,9 +40,10 @@ class SignupForm extends React.Component {
     if (!(this.validatePassword())) {
       console.log("signup failed");
       this.props.router.push("signup");
+    } else {
+      console.log("Submitted: ", this.state);
+      this.props.signup(this.state);
     }
-    console.log("Submitted: ", this.state);
-    this.props.signup(this.state);
   }
 
   render() {
