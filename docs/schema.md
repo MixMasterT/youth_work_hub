@@ -41,6 +41,7 @@ session_token   | string    | not null, indexed, unique
  duration    | integer   | not null, number of hours
  wage        | integer   | not null, dollars per hour
  start_time  | date      | not null, start time of job
+ location    | PostGis   | not null, lat/lng for location
  cost        | integer   | not null, total cost in dollars (wage * duration)
  status      | string    | not null, only: 'pending','designated','fulfilled','unfullfilled'
  worker_id   | integer   | empty until 'designated' or 'fulfilled'
