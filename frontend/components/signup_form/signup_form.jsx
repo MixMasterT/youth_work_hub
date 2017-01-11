@@ -48,7 +48,7 @@ class SignupForm extends React.Component {
 
   render() {
     return(
-      <div>
+      <div className='form'>
         <h2>Signup</h2>
 
         <form onSubmit={this.handleSubmit}>
