@@ -22,3 +22,7 @@ const Header = () => (
 );
 
 export default Header;
+
+// <Modal open={this.props.signupModal}>
+//   <SignupFormContainer />
+// </Modal>

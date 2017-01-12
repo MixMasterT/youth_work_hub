@@ -50,5 +50,8 @@
       min_wage: 10
     }
     ...
+ },
+ presentation: {
+   loginModal: false
  }
 }
