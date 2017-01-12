@@ -36,20 +36,27 @@ class SignupForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    console.log("Signup clicked!");
-    if (!(this.validatePassword())) {
-      console.log("signup failed");
-      this.props.router.push("signup");
-    } else {
-      console.log("Submitted: ", this.state);
-      this.props.signup(this.state);
-    }
+    this.props.signup(this.state);
+    // console.log("Signup clicked!");
+    // if (!(this.validatePassword())) {
+    //   console.log("signup failed");
+    //   this.props.router.push("signup");
+    // } else {
+    //   console.log("Submitted: ", this.state);
+    //   this.props.signup(this.state);
+    // }
   }
 
   render() {
+    const errors = this.props.errors;
+    const errList = <ul>
+                      {errors.map((er) => <li key={er}>{er}</li>)}
+                    </ul>;
     return(
       <div className='form'>
         <h2>Signup</h2>
+
+        {(errors.length > 0) ? errList : null }
 
         <form onSubmit={this.handleSubmit}>
           <label>Username
@@ -94,7 +101,10 @@ class SignupForm extends React.Component {
             />
           </label>
 
-          <input type="submit" value="Signup" />
+          <input
+            type="submit"
+            value="Signup"
+          />
         </form>
         <Link to="login">Log in</Link>
       </div>

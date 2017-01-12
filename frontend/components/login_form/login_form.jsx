@@ -30,9 +30,12 @@ class LoginForm extends React.Component {
   }
 
   render() {
+    const errors = this.props.errors;
+    const errList = <ul>{errors.map((er) => <li>{er}</li>)}</ul>;
     return(
       <div className='form'>
         <h2>Login</h2>
+        {(errors.length > 0) ? errList : null }
         <form onSubmit={this.handleSubmit}>
           <label>Username
             <input type="text"
