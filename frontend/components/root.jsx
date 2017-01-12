@@ -5,6 +5,7 @@ import LoginFormContainer from './login_form/login_form_container';
 import SignupFormContainer from './signup_form/signup_form_container';
 
 import App from './app';
+import AppModal from './modal_test';
 
 const _redirectIfLoggedIn = store => (nextState, replace) => {
   const currentUser = store.getState().session.currentUser;
