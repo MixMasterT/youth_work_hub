@@ -10,16 +10,32 @@ class Api::UsersController < ApplicationController
   end
 
   def update
+    debugger
+    if (current_user.nil? || current_user.id != user_params[:id].to_i)
+      render json: ["Permission denied",
+                      current_user.username,
+                      current_user.id,
+                      user_params[:id]
+                    ], status: 404
+    else
+      @user = current_user;
+      if @user.update_attributes(user_params)
+        render :show
+      else
+        render json: @user.errors.full_messages, status: 401
+      end
+    end
   end
 
   def destroy
   end
 
   def user_params
-    params.require(:user).permit(:username,
+    params.require(:user).permit(:id,
+                                  :username,
                                   :password,
                                   :email,
                                   :picture_url,
-                                  :phone_number,)
+                                  :phone_number)
   end
 end

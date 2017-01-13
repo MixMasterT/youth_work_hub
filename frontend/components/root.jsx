@@ -28,7 +28,6 @@ const Root = ({ store }) => (
           onEnter={ _redirectIfLoggedIn(store)}
           />
         <Route path="/signup" component={ SignupFormContainer }
-          onEnter={ _redirectIfLoggedIn(store)}
         />
       </Route>
     </Router>
