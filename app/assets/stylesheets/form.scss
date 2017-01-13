@@ -1,4 +1,4 @@
-.form, .form form {
+.form, .form form, .form form div {
   background-color: grey;
   display: flex;
   flex-direction: column;
@@ -10,8 +10,17 @@
   h2 {
     margin-top: 20px;
   }
+  ul {
+    background-color: white;
+    color: darkred;
+
+    li {
+      list-style: disc;
+      padding: 20px;
+    }
+  }
 }
-.form form label {
+.field {
   margin-top: 25px;
   width: 250px;
   input {

@@ -48,7 +48,6 @@ class LoginModal extends React.Component {
   }
 
   closeModal() {
-    this.props.closeCurrentModal;
     this.setState({modalIsOpen: false});
   };
 

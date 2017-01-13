@@ -196,8 +196,8 @@ Day 2: Add form for new User creation and editing User details.
 
 ### Phase 2 Worker Resource Index/Show (days 3 and 4)
 2 Days
-Day 1: Implement Users table. Build relevant React components for Worker Index and Show viewers
-Day 2: Add seed data with at least five fictional Workers, and style Index and Show view to look good with actual photos, and content.
+Day 1: Implement Workers table. Build relevant React components for Worker Index and Show viewers
+Day 2: Add seed data with at least five fictional Workers, and style to Index and Show views to look good with actual photos, and content.
 
 ### Phase 3 Jobs Resource Index/Show (days 5 and 6)
 2 Days
@@ -207,7 +207,7 @@ Day 2: Add form for New Job Posting, as well as confirmation Dialogue box.
 ### Phase 4 Home Page and Navbar (day 7)
 1 Day
 Create mission statement and testimonial content for home page.
-Add Navbar with links to
+Add Navbar with links to Home, Workers, and Jobs.
 
 ### Phase 5 Job Reviews (days 8 and 9)
 2 Days

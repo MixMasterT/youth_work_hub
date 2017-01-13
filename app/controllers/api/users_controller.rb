@@ -10,7 +10,6 @@ class Api::UsersController < ApplicationController
   end
 
   def update
-    debugger
     if (current_user.nil? || current_user.id != user_params[:id].to_i)
       render json: ["Permission denied",
                       current_user.username,

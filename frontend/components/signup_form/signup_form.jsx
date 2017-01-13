@@ -43,7 +43,9 @@ class SignupForm extends React.Component {
       const params = {};
       paramsKeys.forEach((k) => { params[k] = state[k]; });
       params['id'] = this.state.id;
-      this.props.editUser(params);
+      this.props.editUser(params).then(() => {
+        hashHistory.push('/');
+      });
     } else {
       this.props.signup(this.state).then(() => {
         hashHistory.push('/');
@@ -52,11 +54,30 @@ class SignupForm extends React.Component {
   }
 
   render() {
-    const text = this.props.currentUser ? "Edit User" : "Sign Up";
     const errors = this.props.errors;
     const errList = <ul>
                       {errors.map((er) => <li key={er}>{er}</li>)}
                     </ul>;
+    let text = "Sign Up";
+    let password = <div>
+                      <label className='field'>Password<br/>
+                        <input type="password"
+                          onChange={this.update('password')}
+                          value={this.state.password}
+                          />
+                      </label>
+
+                      <label className='field'>Confirm-Password<br/>
+                        <input type="passwordCheck"
+                          onChange={this.update('password')}
+                          value={this.state.password}
+                          />
+                      </label>
+                    </div>;
+    if (this.props.currentUser) {
+      text = "Edit Account";
+      password = "";
+    }
     return(
       <div className='form'>
         <h2>{text}</h2>
@@ -64,47 +85,35 @@ class SignupForm extends React.Component {
         {(errors.length > 0) ? errList : null }
 
         <form onSubmit={this.handleSubmit}>
-          <label>Username<br/>
+          <label className='field'>Username<br/>
             <input type="text"
               onChange={this.update('username')}
               value={this.state.username}
             />
           </label>
 
-          <label>Email<br/>
+          <label className='field'>Email<br/>
             <input type="text"
               onChange={this.update('email')}
               value={this.state.email}
             />
           </label>
 
-          <label>Phone<br/>
+          <label className='field'>Phone<br/>
             <input type="text"
               onChange={this.update('phone_number')}
               value={this.state.phone_number}
             />
           </label>
 
-          <label>Photo Link<br/>
+          <label className='field'>Photo Link<br/>
             <input type="text"
               onChange={this.update('picture_url')}
               value={this.state.picture_url}
             />
           </label>
 
-          <label>Password<br/>
-            <input type="password"
-              onChange={this.update('password')}
-              value={this.state.password}
-            />
-          </label>
-
-          <label>Confirm-Password<br/>
-            <input type="password"
-              onChange={this.update('passwordCheck')}
-              value={this.state.passwordCheck}
-            />
-          </label>
+          { password }
 
           <input
             className="button"
