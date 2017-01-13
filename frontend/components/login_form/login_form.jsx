@@ -19,7 +19,7 @@ class LoginForm extends React.Component {
   componentDidUpdate() {
     const cu = this.props.currentUser;
     if (cu) {
-      this.props.router.push("/");
+      this.props.closeLoginModal();
     }
   }
 

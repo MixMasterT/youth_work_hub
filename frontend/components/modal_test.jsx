@@ -2,6 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import Modal from 'react-modal';
 import LoginFormContainer from './login_form/login_form_container';
+import SignupFormContainer from './signup_form/signup_form_container';
+
 /*
 The app element allows you to specify the portion of your app that should be hidden (via aria-hidden)
 to prevent assistive technologies such as screenreaders from reading content outside of the content of
@@ -12,7 +14,6 @@ Modal.setAppElement(appElement);
 
 * query selector - uses the first element found if you pass in a class.
 Modal.setAppElement('#your-app-element');
-
 */
 
 const customStyles = {
@@ -26,40 +27,48 @@ const customStyles = {
   }
 };
 class LoginModal extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
+    // console.log(`props = `, this.props);
 
     this.state = {
-      modalIsOpen: false
+      modalIsOpen: true
     };
 
     this.openModal = this.openModal.bind(this);
-    this.afterOpenModal = this.afterOpenModal.bind(this);
+    // this.afterOpenModal = this.afterOpenModal.bind(this);
     this.closeModal = this.closeModal.bind(this);
+  }
+
+  componentWillReceiveProps(newProps) {
+    console.log(newProps);
   }
 
   openModal() {
     this.setState({modalIsOpen: true});
   }
 
-  afterOpenModal() {
-    // references are now sync'd and can be accessed.
-    this.refs.subtitle.style.color = '#f00';
-  }
+  // afterOpenModal() {
+  //   // references are now sync'd and can be accessed.
+  //   this.refs.subtitle.style.color = '#f00';
+  // }
 
   closeModal() {
-    this.props.closeCurrentModal;
-    this.setState({modalIsOpen: false});
-  };
+    console.log("close modal requested");
+    console.log((this.props.closeModal));
+    this.props.closeModal('loginForm');
+  }
+
+
 
   render() {
+    console.log(this.props);
     return (
       <div>
-        <button onClick={this.openModal}>Open Modal</button>
         <Modal
-          isOpen={this.state.modalIsOpen}
+          isOpen={this.props.loginFormIsOpen}
           onAfterOpen={this.afterOpenModal}
-          onRequestClose={this.closeModal}
+          onRequestClose={this.props.closeModal}
           style={customStyles}
           contentLabel="Example Modal"
         >
