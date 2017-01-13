@@ -25,33 +25,32 @@ class LoginForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    console.log("Login clicked!");
     this.props.login(this.state);
   }
 
   render() {
     const errors = this.props.errors;
-    const errList = <ul>{errors.map((er) => <li>{er}</li>)}</ul>;
+    const errList = <ul>{errors.map((er) => <li key={er}>{er}</li>)}</ul>;
     return(
       <div className='form'>
+        <Link to="signup">Sign up</Link>
         <h2>Login</h2>
         {(errors.length > 0) ? errList : null }
         <form onSubmit={this.handleSubmit}>
-          <label>Username
+          <label>Username<br />
             <input type="text"
               onChange={this.update('username')}
               value={this.state.username}
             />
           </label>
-          <label>Password
+          <label>Password<br />
             <input type="password"
               onChange={this.update('password')}
               value={this.state.password}
             />
           </label>
-          <input type="submit" value="Login" />
+          <input className="button" type="submit" value="Login" />
         </form>
-        <Link to="signup">Sign up</Link>
       </div>
     );
   }

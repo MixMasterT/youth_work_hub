@@ -1,17 +1,18 @@
 import React from 'react';
-import { Link } from 'react-router';
+import { Link, hashHistory } from 'react-router';
+import merge from 'lodash/merge';
 
 class SignupForm extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
+    this.state = merge({
       username: "",
       email: "",
       phone_number: "",
       picture_url: "",
       password: "",
       passwordCheck: ""
-    };
+    }, this.props.currentUser);
     this.update = this.update.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.validatePassword = this.validatePassword.bind(this);
@@ -21,13 +22,6 @@ class SignupForm extends React.Component {
     return e => { this.setState({[field]: e.target.value}); };
   }
 
-  componentDidUpdate() {
-    const cu = this.props.currentUser;
-    if (cu) {
-      this.props.router.push("/");
-    }
-  }
-
   validatePassword() {
     const passCheck = this.state.passwordCheck;
     return (passCheck.length > 5 &&
@@ -35,66 +29,77 @@ class SignupForm extends React.Component {
   }
 
   handleSubmit(e) {
+
     e.preventDefault();
-    this.props.signup(this.state);
-    // console.log("Signup clicked!");
-    // if (!(this.validatePassword())) {
-    //   console.log("signup failed");
-    //   this.props.router.push("signup");
-    // } else {
-    //   console.log("Submitted: ", this.state);
-    //   this.props.signup(this.state);
-    // }
+
+    const state = this.state;
+    console.log(state);
+    if (this.props.currentUser) {
+      const paramsKeys = Object.keys(state).map((key) => {
+        if (state[key] !== "" && state[key] !== null) {
+          return key;
+        }
+      });
+      const params = {};
+      paramsKeys.forEach((k) => { params[k] = state[k]; });
+      params['id'] = this.state.id;
+      this.props.editUser(params);
+    } else {
+      this.props.signup(this.state).then(() => {
+        hashHistory.push('/');
+      });
+    }
   }
 
   render() {
+    const text = this.props.currentUser ? "Edit User" : "Sign Up";
     const errors = this.props.errors;
     const errList = <ul>
                       {errors.map((er) => <li key={er}>{er}</li>)}
                     </ul>;
     return(
       <div className='form'>
-        <h2>Signup</h2>
+        <h2>{text}</h2>
 
         {(errors.length > 0) ? errList : null }
 
         <form onSubmit={this.handleSubmit}>
-          <label>Username
+          <label>Username<br/>
             <input type="text"
               onChange={this.update('username')}
               value={this.state.username}
             />
           </label>
 
-          <label>Email
+          <label>Email<br/>
             <input type="text"
               onChange={this.update('email')}
               value={this.state.email}
             />
           </label>
 
-          <label>Phone
+          <label>Phone<br/>
             <input type="text"
               onChange={this.update('phone_number')}
               value={this.state.phone_number}
             />
           </label>
 
-          <label>Photo Link
+          <label>Photo Link<br/>
             <input type="text"
               onChange={this.update('picture_url')}
               value={this.state.picture_url}
             />
           </label>
 
-          <label>Password
+          <label>Password<br/>
             <input type="password"
               onChange={this.update('password')}
               value={this.state.password}
             />
           </label>
 
-          <label>Confirm-Password
+          <label>Confirm-Password<br/>
             <input type="password"
               onChange={this.update('passwordCheck')}
               value={this.state.passwordCheck}
@@ -102,8 +107,9 @@ class SignupForm extends React.Component {
           </label>
 
           <input
+            className="button"
             type="submit"
-            value="Signup"
+            value={text}
           />
         </form>
         <Link to="login">Log in</Link>

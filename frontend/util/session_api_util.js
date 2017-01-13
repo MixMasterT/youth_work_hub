@@ -5,6 +5,13 @@ export const signup = (user) => (
     data: { user }
   })
 );
+export const editAccount = (user) => (
+  $.ajax({
+    url: `/api/users/${user.id}`,
+    method: 'PATCH',
+    data: { user }
+  })
+);
 export const login = (cred) => (
   $.ajax({
     url: '/api/session',
