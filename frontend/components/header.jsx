@@ -11,7 +11,7 @@ const Tagline= () => (
 );
 
 const Header = () => (
-  <header>
+  <header className="header">
     <Logo />
     <div>
       <Title />
@@ -22,7 +22,3 @@ const Header = () => (
 );
 
 export default Header;
-
-// <Modal open={this.props.signupModal}>
-//   <SignupFormContainer />
-// </Modal>

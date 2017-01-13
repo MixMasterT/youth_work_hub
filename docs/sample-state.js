@@ -51,7 +51,9 @@
     }
     ...
  },
- presentation: {
-   loginModal: false
+ modals: {
+   loginModal: false,
+   userModal: false,
+   jobModal: false
  }
 }

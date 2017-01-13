@@ -1,6 +1,4 @@
 import React from 'react';
-import LoginBoxContainer from './login_box/login_box_container';
-import Testimonials from './logo';
 
 const MissionStatement = () => (
   <div className="mission-statement">
@@ -9,25 +7,42 @@ const MissionStatement = () => (
   </div>
 );
 
-const Testimonials = (testimonialArray) => {
-  { testimonialArray.map((tes) => (
-    <div className="testmimonial">
-      <h4>{tes.title}</h4>
-      <img src={tes.picture_url} />
-      <p>{tes.text}</p>
+
+const Testimonials = () => {
+  const testimons = [
+    {title: "Great Experience",
+      text: "WTF I put a string in here and it turned RED!",
+      picture_url: "balbalbal"},
+
+    {title: "Great Experience",
+      text: "WTF I put a string in here and it turned RED!",
+      picture_url: "balbalbal"},
+
+    {title: "Great Experience",
+      text: "WTF I put a string in here and it turned RED!",
+      picture_url: "balbalbal"}
+  ];
+  return (
+    <div className="testimonials">
+      {testimons.map((tes) => (
+        <div className="testmimonial">
+          <h4>{tes.title}</h4>
+          <img src={tes.picture_url} />
+          <p>{tes.text}</p>
+        </div>
+      ))}
     </div>
-  )}
+  );
 };
 
 const HomePage = () => (
-  <body>
-    <Logo />
+  <div className="home">
     <div>
       <MissionStatement />
-      <Tagline />
+      <Testimonials />
     </div>
-    <LoginBoxContainer />
-  </body>
+
+  </div>
 );
 
 export default HomePage;

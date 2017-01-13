@@ -5,6 +5,7 @@ import LoginFormContainer from './login_form/login_form_container';
 import SignupFormContainer from './signup_form/signup_form_container';
 
 import App from './app';
+import HomePage from './home_page/home_page';
 import AppModal from './modal_test';
 
 const _redirectIfLoggedIn = store => (nextState, replace) => {
@@ -29,6 +30,8 @@ const Root = ({ store }) => (
           />
         <Route path="/signup" component={ SignupFormContainer }
         />
+      <Route path="/modal" component={ AppModal } />
+      <Route path="/home" component={ HomePage } />
       </Route>
     </Router>
   </Provider>
