@@ -6,7 +6,9 @@ import SignupFormContainer from './signup_form/signup_form_container';
 
 import App from './app';
 import HomePage from './home_page/home_page';
-import AppModal from './modal_test';
+import LoginModal from './modal_test';
+import LoginModalContainer from './modal_test_container';
+import ModalManagerContainer from './modal_manager/modal_manager';
 
 const _redirectIfLoggedIn = store => (nextState, replace) => {
   const currentUser = store.getState().session.currentUser;
@@ -30,7 +32,7 @@ const Root = ({ store }) => (
           />
         <Route path="/signup" component={ SignupFormContainer }
         />
-      <Route path="/modal" component={ AppModal } />
+      <Route path="/modal" component={ LoginModalContainer } />
       <Route path="/home" component={ HomePage } />
       </Route>
     </Router>

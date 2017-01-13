@@ -30,6 +30,7 @@ gem 'cloudinary'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
+gem 'annotate'
 
 group :production do
   gem 'newrelic_rpm'

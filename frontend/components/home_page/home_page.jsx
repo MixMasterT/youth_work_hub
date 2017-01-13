@@ -24,8 +24,10 @@ const Testimonials = () => {
   ];
   return (
     <div className="testimonials">
-      {testimons.map((tes) => (
-        <div className="testmimonial">
+      {testimons.map((tes, id) => (
+        <div className="testmimonial"
+             key={id}
+        >
           <h4>{tes.title}</h4>
           <img src={tes.picture_url} />
           <p>{tes.text}</p>

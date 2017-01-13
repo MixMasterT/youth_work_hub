@@ -13,8 +13,15 @@
 #  updated_at      :datetime         not null
 #
 
-class User < ActiveRecord::Base
-  validates :username, :email, :password_digest, :session_token, null: false
+class Worker < ActiveRecord::Base
+  validates :username,
+            :email,
+            :password_digest,
+            :session_token,
+            presence: true
+
+  validate :has_zip_or_gps
+
   validates :username, length: { minimum: 1 }
   validates :email, length: { minimum: 7 }
   validates :password, length: { minimum: 6, allow_nil: true }
@@ -45,7 +52,13 @@ class User < ActiveRecord::Base
   end
 
   private
+  
     def ensure_token
       self.session_token ||= SecureRandom.urlsafe_base64(128)
+    end
+
+    def has_zip_or_gps
+      return false if zip_code.blank? && (lat.blank? || lng.blank?)
+      true
     end
 end

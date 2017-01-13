@@ -5,7 +5,16 @@ class LoginBox extends React.Component {
   constructor(props) {
     super(props);
   }
+  openModal(modalName) {
+    return (e) => {
+      e.preventDefault();
+      console.log(`${modalName} should open`);
+      console.log(`${this.props.openModal}`);
+      this.props.openModal(modalName);
+    };
+  }
   render() {
+    this.props.openModal('signupModal');
     if (this.props.currentUser) {
       return (
         <div id="login-box">
@@ -17,8 +26,9 @@ class LoginBox extends React.Component {
       const path = location.pathname; // WHY IS PATH = NULL ???
       return (
         <div id="login-box">
-          <Link to="login">Log In</Link>
-          <Link to="signup">Sign up</Link>
+          <button onClick={this.openModal('loginModal')}>Login</button>
+          <button onClick={this.openModal('signupModal')}>Sign Up</button>
+          <button onClick={this.props.closeModals}>Close Modals</button>
         </div>
       );
     }

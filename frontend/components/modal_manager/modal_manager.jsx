@@ -1,7 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Modal from 'react-modal';
-import LoginFormContainer from './login_form/login_form_container';
+import LoginFormContainer from '../login_form/login_form_container';
+import SignupFormContainer from '../signup_form/signup_form_container';
 /*
 The app element allows you to specify the portion of your app that should be hidden (via aria-hidden)
 to prevent assistive technologies such as screenreaders from reading content outside of the content of
@@ -25,22 +26,18 @@ const customStyles = {
     transform             : 'translate(-50%, -50%)'
   }
 };
-class LoginModal extends React.Component {
-  constructor() {
-    super();
+class ModalManager extends React.Component {
+  constructor(props) {
+    super(props);
 
-    this.state = {
-      modalIsOpen: false
-    };
-
-    this.openModal = this.openModal.bind(this);
+    // this.openModal = this.openModal.bind(this);
     this.afterOpenModal = this.afterOpenModal.bind(this);
     this.closeModal = this.closeModal.bind(this);
   }
-
-  openModal() {
-    this.setState({modalIsOpen: true});
-  }
+  //
+  // openModal() {
+  //   this.setState({modalIsOpen: true});
+  // }
 
   afterOpenModal() {
     // references are now sync'd and can be accessed.
@@ -48,25 +45,23 @@ class LoginModal extends React.Component {
   }
 
   closeModal() {
-    this.setState({modalIsOpen: false});
-  };
+    this.props.closeModal('loginModal');
+  }
 
   render() {
+    console.log(this.props);
     return (
-      <div>
-        <button onClick={this.openModal}>Open Modal</button>
-        <Modal
-          isOpen={this.state.modalIsOpen}
-          onAfterOpen={this.afterOpenModal}
-          onRequestClose={this.closeModal}
-          style={customStyles}
-          contentLabel="Example Modal"
-        >
+      <Modal
+        isOpen={true}
+        onAfterOpen={this.afterOpenModal}
+        onRequestClose={this.closeModal}
+        style={customStyles}
+        contentLabel="Example Modal"
+      >
         <LoginFormContainer />
-        </Modal>
-      </div>
+      </Modal>
     );
   }
 }
 
-export default LoginModal;
+export default ModalManager;

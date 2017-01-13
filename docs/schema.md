@@ -1,5 +1,4 @@
 # Database Schema
-
 `Users Table`:
   - `id`
   - `name`
@@ -8,6 +7,7 @@
   - `picture_url`
   - `password_digest`
   - `session_token`
+
 ## users
 column name     | data type | details
 ----------------|-----------|-----------------------
@@ -31,6 +31,7 @@ session_token   | string    | not null, indexed, unique
    - `cost` (set automatically upon confirmation of job posting)
    - `status` (fulfilled', 'unfulfilled', 'pending', or 'designated')
    - `worker_id` (set upon designation)
+
 ## Jobs
  column name | data type | details
  ------------|-----------|-----------------------
@@ -50,11 +51,14 @@ session_token   | string    | not null, indexed, unique
    `Worker Table`:
     - `id`
     - `email`
+    - `name`
     - `phone_number`
     - `bio`
-    - `skills` - like tags (limited number of possibilities)
+    <!-- - `skills` - like tags (limited number of possibilities) -->
     - `date_of_birth`
     - `zip_code`
+    - `lat`
+    - `lng`
     - `min_wage` (in dollars per hour)
 
 ## Workers
@@ -62,9 +66,12 @@ column name  | data type | details
 -------------|-----------|-----------------------
 id           | integer   | not null, primary key
 email        | string    | not null, indexed, unique
+name         | string    | not null, indexed, unique
 phone_number | string    |
 bio          | text      | not null
 skills       | text      | csv list of skills that Worker claims
 date_of_birth| date      | not null
 zip_code     | integer   | not null
+lat          | float     | not null
+lat          | float     | not null
 min_wage     | integer   | in dollars per hour

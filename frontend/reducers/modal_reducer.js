@@ -3,12 +3,11 @@ import { CLOSE_ALL_MODALS,
           OPEN_SINGLE
         } from '../actions/modal_actions';
 
-        import merge from 'lodash/merge';
+import merge from 'lodash/merge';
 
 const _allClosed = {
   loginModal: false,
   signupModal: false,
-  editAccountModal: false,
 };
 
 const ModalReducer = (state = _allClosed, action) => {
@@ -18,11 +17,10 @@ const ModalReducer = (state = _allClosed, action) => {
     case CLOSE_ALL_MODALS:
       return _allClosed;
     case CLOSE_CURRENT_MODAL:
-      const change = { modalName: false };
+      const change = { [action.modal]: false };
       return merge(newState, change);
-
     case OPEN_SINGLE:
-      const open = { modalName: true };
+      const open = { [action.modal]: true };
       return merge(newState, open);
     default:
       return state;

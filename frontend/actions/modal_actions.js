@@ -8,23 +8,23 @@ export const closeAllModals = () => ({
 
 export const closeThisModal = (modalName) => ({
   type: CLOSE_CURRENT_MODAL,
-  modalName
+  modal: modalName
 });
 
 export const openSingle = (modalName) => ({
   type: OPEN_SINGLE,
-  modalName
+  modal: modalName
 });
 
 export const closeModals = () => dispatch => (
-  () => (dispatch(closeAllModals()))
+  dispatch(closeAllModals())
 );
 
 
 export const closeModal = (modalName) => dispatch => (
-  () => (dispatch(closeThisModal(modalName)))
+  dispatch(closeThisModal(modalName))
 );
 
-export const openModal = (modalName) => dispatch => (
-  () => (dispatch(openSingle(modalName)))
-);
+export const openModal = (modalName) => dispatch => {
+   return dispatch(openSingle(modalName));
+};
