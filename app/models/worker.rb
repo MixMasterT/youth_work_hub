@@ -1,14 +1,19 @@
 # == Schema Information
 #
-# Table name: users
+# Table name: workers
 #
 #  id              :integer          not null, primary key
-#  username        :string           not null
-#  email           :string           not null
-#  phone_number    :string
-#  picture_url     :string
 #  password_digest :string           not null
 #  session_token   :string           not null
+#  email           :string           not null
+#  username        :string           not null
+#  phone_number    :string
+#  bio             :text
+#  birth_date      :date
+#  zip_code        :string
+#  lat             :float
+#  lng             :float
+#  min_wage        :integer
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
 #
@@ -31,9 +36,9 @@ class Worker < ActiveRecord::Base
   attr_reader :password
 
   def self.check_cred(username, password)
-    u = User.find_by(username: username)
-    return nil unless u
-    u.is_password?(password) ? u : nil
+    w = Worker.find_by(username: username)
+    return nil unless w
+    w.is_password?(password) ? w : nil
   end
 
   def password=(word)
@@ -51,14 +56,17 @@ class Worker < ActiveRecord::Base
     self.session_token
   end
 
+#THIS VALIDATION IS NOT WORKING!!!
+  def has_zip_or_gps
+    if zip_code.blank? && (lat.blank? || lng.blank?)
+      errors.add(:base, "Please provide either gps coords or zipcode")
+    end
+  end
+
   private
-  
+
     def ensure_token
       self.session_token ||= SecureRandom.urlsafe_base64(128)
     end
 
-    def has_zip_or_gps
-      return false if zip_code.blank? && (lat.blank? || lng.blank?)
-      true
-    end
 end

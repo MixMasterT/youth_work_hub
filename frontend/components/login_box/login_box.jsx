@@ -8,22 +8,26 @@ class LoginBox extends React.Component {
   openModal(modalName) {
     return (e) => {
       e.preventDefault();
-      console.log(`${modalName} should open`);
-      console.log(`${this.props.openModal}`);
+      // console.log(`${modalName} should open`);
+      // console.log(`${this.props.openModal}`);
       this.props.openModal(modalName);
     };
   }
   render() {
     this.props.openModal('signupModal');
-    if (this.props.currentUser) {
+    if (this.props.currentUser || this.props.currenWorker) {
+      const member = this.props.currentUser || this.props.currenWorker;
+      console.log("member = ", member);
       return (
         <div id="login-box">
-          <h3>Hello {this.props.currentUser.username}</h3>
-          <button onClick={this.props.logout}>Log out</button>
+          <h3>Hello {member.username}</h3>
+          <button onClick={(member.isWorker) ?
+                            this.props.logoutWorker :
+                            this.props.logout
+                          }>Log out</button>
         </div>
       );
     } else {
-      const path = location.pathname; // WHY IS PATH = NULL ???
       return (
         <div id="login-box">
           <button onClick={this.openModal('loginModal')}>Login</button>

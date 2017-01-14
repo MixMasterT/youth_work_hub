@@ -10,12 +10,12 @@ const receiveUser = (user) => ({
   user
 });
 
-const receiveErrors = (errors) => ({
+export const receiveErrors = (errors) => ({
   type: RECEIVE_ERRORS,
   errors
 });
 
-const receiveLogout = () => ({
+export const receiveLogout = () => ({
   type: RECEIVE_LOGOUT
 });
 
