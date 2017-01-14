@@ -40,9 +40,9 @@ class LoginModal extends React.Component {
     this.closeModal = this.closeModal.bind(this);
   }
 
-  componentWillReceiveProps(newProps) {
-    console.log(newProps);
-  }
+  // componentWillReceiveProps(newProps) {
+  //   console.log(newProps);
+  // }
 
   openModal() {
     this.setState({modalIsOpen: true});
@@ -54,21 +54,16 @@ class LoginModal extends React.Component {
   // }
 
   closeModal() {
-    console.log("close modal requested");
-    console.log((this.props.closeModal));
-    this.props.closeModal('loginForm');
+    this.props.closeModal('loginModal');
   }
 
-
-
   render() {
-    console.log(this.props);
     return (
       <div>
         <Modal
           isOpen={this.props.loginFormIsOpen}
           onAfterOpen={this.afterOpenModal}
-          onRequestClose={this.props.closeModal}
+          onRequestClose={this.closeModal.bind(this)}
           style={customStyles}
           contentLabel="Example Modal"
         >
