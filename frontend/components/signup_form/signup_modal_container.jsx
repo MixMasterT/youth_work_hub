@@ -1,12 +1,11 @@
 import { connect } from 'react-redux';
 
-// import { login, signup, logout } from '../../actions/session_actions';
-import { closeModal } from '../actions/modal_actions';
+import { closeModal } from '../../actions/modal_actions';
 
-import ModalTest from './modal_test';
+import SignupModal from './signup_modal';
 
 const mapStateToProps = state => ({
-  loginFormIsOpen: state.modals.loginModal,
+  signupFormIsOpen: state.modals.signupModal
 });
 
 const mapDispatchToProps = dispatch => ({
@@ -16,4 +15,4 @@ const mapDispatchToProps = dispatch => ({
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(ModalTest);
+)(SignupModal);

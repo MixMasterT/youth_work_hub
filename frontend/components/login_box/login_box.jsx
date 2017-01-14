@@ -8,16 +8,12 @@ class LoginBox extends React.Component {
   openModal(modalName) {
     return (e) => {
       e.preventDefault();
-      // console.log(`${modalName} should open`);
-      // console.log(`${this.props.openModal}`);
       this.props.openModal(modalName);
     };
   }
   render() {
-    this.props.openModal('signupModal');
     if (this.props.currentUser || this.props.currenWorker) {
       const member = this.props.currentUser || this.props.currenWorker;
-      console.log("member = ", member);
       return (
         <div id="login-box">
           <h3>Hello {member.username}</h3>
@@ -32,7 +28,6 @@ class LoginBox extends React.Component {
         <div id="login-box">
           <button onClick={this.openModal('loginModal')}>Login</button>
           <button onClick={this.openModal('signupModal')}>Sign Up</button>
-          <button onClick={this.props.closeModals}>Close Modals</button>
         </div>
       );
     }

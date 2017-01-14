@@ -7,8 +7,9 @@ import Root from './components/root';
 
 import { login } from './actions/session_actions';
 
-import { signupWorker, loginWorker, logoutWorker } from './actions/worker_actions';
-
+import { signupWorker,
+          loginWorker,
+          logoutWorker } from './actions/worker_actions';
 
 document.addEventListener('DOMContentLoaded', () => {
   let store;

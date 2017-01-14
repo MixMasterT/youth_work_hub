@@ -20,7 +20,6 @@ export const closeModals = () => dispatch => (
   dispatch(closeAllModals())
 );
 
-
 export const closeModal = (modalName) => dispatch => (
   dispatch(closeThisModal(modalName))
 );

@@ -13,7 +13,6 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
   openModal: (modalName) => dispatch(openModal(modalName)),
-  closeModals: () => dispatch(closeModals()),
   logout: () => dispatch(logout()),
   logoutWorker: () => dispatch(logoutWorker())
 });

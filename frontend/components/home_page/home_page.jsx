@@ -29,7 +29,7 @@ const Testimonials = () => {
              key={id}
         >
           <h4>{tes.title}</h4>
-          <img src={tes.picture_url} />
+          <img  />
           <p>{tes.text}</p>
         </div>
       ))}
