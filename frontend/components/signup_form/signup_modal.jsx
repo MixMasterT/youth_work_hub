@@ -1,8 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Modal from 'react-modal';
-import LoginFormContainer from './login_form/login_form_container';
-import SignupFormContainer from './signup_form/signup_form_container';
+
+import SignupFormContainer from './signup_form_container';
 
 const customStyles = {
   content : {
@@ -14,7 +14,7 @@ const customStyles = {
     transform             : 'translate(-50%, -50%)'
   }
 };
-class LoginModal extends React.Component {
+class SignupModal extends React.Component {
   constructor(props) {
     super(props);
     this.closeModal = this.closeModal.bind(this);
@@ -25,24 +25,25 @@ class LoginModal extends React.Component {
   }
 
   closeModal() {
-    this.props.closeModal('loginModal');
+    this.props.closeModal('signupModal');
   }
 
   render() {
+    console.log(this.props);
     return (
       <div>
         <Modal
-          isOpen={this.props.loginFormIsOpen}
+          isOpen={this.props.signupFormIsOpen}
           onAfterOpen={this.afterOpenModal}
           onRequestClose={this.closeModal.bind(this)}
           style={customStyles}
           contentLabel="Example Modal"
         >
-        <LoginFormContainer />
+        <SignupFormContainer />
         </Modal>
       </div>
     );
   }
 }
 
-export default LoginModal;
+export default SignupModal;
