@@ -14,6 +14,7 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = (dispatch) => ({
   editUser: (user) => dispatch(editUser(user)),
   signup: (user) => dispatch(signup(user)),
+  closeModal: (modalName) => dispatch(closeModal(modalName))
 });
 
 export default connect(

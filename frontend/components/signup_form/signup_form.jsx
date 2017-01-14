@@ -51,6 +51,7 @@ class SignupForm extends React.Component {
         hashHistory.push('/');
       });
     }
+    this.props.closeModal('signupModal');
   }
 
   render() {

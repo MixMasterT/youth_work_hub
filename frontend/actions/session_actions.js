@@ -4,10 +4,15 @@ export const RECEIVE_CURRENT_USER = "RECEIVE_CURRENT_USER";
 export const RECEIVE_ACCOUNT_CHANGE = "RECEIVE_ACCOUNT_CHANGE";
 export const RECEIVE_ERRORS = "RECEIVE_ERRORS";
 export const RECEIVE_LOGOUT = "RECEIVE_LOGOUT";
+export const RECEIVE_GUEST_USER = "RECEIVE_GUEST_USER";
 
 const receiveUser = (user) => ({
   type: RECEIVE_CURRENT_USER,
   user
+});
+
+const receiveGuestUser = () => ({
+  type: RECEIVE_GUEST_USER
 });
 
 export const receiveErrors = (errors) => ({
@@ -21,6 +26,12 @@ export const receiveLogout = () => ({
 
 export const login = (cred) => dispatch => (
   SessionUtils.login(cred).then((user) => dispatch(receiveUser(user)))
+    .fail((err) => dispatch(receiveErrors(err.responseJSON)))
+);
+
+export const guestLogin = () => dispatch => (
+  SessionUtils.login({username:"JoeShmow", password:"password"})
+    .then((user) => dispatch(receiveUser(user)))
     .fail((err) => dispatch(receiveErrors(err.responseJSON)))
 );
 
