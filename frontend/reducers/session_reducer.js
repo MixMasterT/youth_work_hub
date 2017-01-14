@@ -1,10 +1,16 @@
 import { RECEIVE_CURRENT_USER,
           RECEIVE_ERRORS,
-          RECEIVE_LOGOUT } from '../actions/session_actions';
+          RECEIVE_LOGOUT,
+          RECEIVE_GUEST_USER } from '../actions/session_actions';
 
 import { RECEIVE_CURRENT_WORKER } from '../actions/worker_actions';
 
 import merge from 'lodash/merge';
+
+const _guestUser = {
+  currentUser: null,
+  errors: []
+};
 
 const _nullUser = {
   currentUser: null,
@@ -26,6 +32,7 @@ const SessionReducer = (state = _nullUser, action) => {
         currentUser: action.user,
         errors: []
       });
+
     case RECEIVE_CURRENT_WORKER:
       const usr = merge(action.worker, { isWorker: true});
       window.currentUser = usr;
@@ -33,6 +40,10 @@ const SessionReducer = (state = _nullUser, action) => {
         currentUser: usr,
         errors: []
       });
+
+    case RECEIVE_GUEST_USER:
+      return merge(newState, _guestUser);
+
     case RECEIVE_ERRORS:
       newState['errors'] = action.errors;
       return newState;
