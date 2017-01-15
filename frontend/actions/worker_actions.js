@@ -10,6 +10,11 @@ const receiveWorker = (worker) => ({
   worker
 });
 
+const receiveWorkers = (workers) => ({
+  type: RECEIVE_CURRENT_WORKER,
+  workers
+});
+
 export const loginWorker = (cred) => dispatch => (
   WorkerUtils.login(cred).then((worker) => dispatch(receiveWorker(worker)))
     .fail((err) => dispatch(receiveErrors(err.responseJSON)))
@@ -29,5 +34,10 @@ export const signupWorker = (worker) => dispatch => (
 export const editWorker = (worker) => dispatch => (
   WorkerUtils.editAccount(worker).then((changedWorker) => (
     dispatch(receiveWorker(changedWorker))))
+    .fail((err) => dispatch(receiveErrors(err.responseJSON)))
+);
+export const getWorkers = () => dispatch => (
+  WorkerUtils.fetchWorkers()
+    .then((workers) => dispatch(receiveWorkers(workers)))
     .fail((err) => dispatch(receiveErrors(err.responseJSON)))
 );

@@ -9,6 +9,12 @@ class WorkerSignupForm extends React.Component {
       email: "",
       phone_number: "",
       picture_url: "",
+      bio: "",
+      birth_date: "",
+      zip_code: "",
+      lat: "",
+      lng: "",
+      min_wage: "",
       password: "",
       passwordCheck: ""
     }, this.props.currentUser);
@@ -133,8 +139,40 @@ class WorkerSignupForm extends React.Component {
             />
           </label>
 
+          <label className='field'>Brief Bio<br/>
+            <input type="textarea"
+                   onChange={this.update('bio')}
+                   placeholder="Tell a bit about yourself"
+                   value={this.state.bio}
+            />
+          </label>
+
+          <label className='field'>Date of Birth<br/>
+            <input type="date"
+                   onChange={this.update('birth_date')}
+                   value={this.state.birth_date}
+            />
+          </label>
+
+          <label className='field'>Zipcode<br/>
+            <input type="text"
+                   onChange={this.update('zip_code')}
+                   value={this.state.zip_code}
+            />
+          </label>
+
+          <label className='field'>Minimum wage (in dollars per hour)<br/>
+            <input type="number"
+                   min="0"
+                   step="1"
+                   onChange={this.update('min_wage')}
+                   value={this.state.min_wage}
+            />
+          </label>
+
           <label className='field'>Photo<br />
             <input onFocus={this.activateCloudinaryWidget}
+                   type="url"
                    onChange={this.update('picture_url')}
                    value={this.state.picture_url}
             />

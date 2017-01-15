@@ -16,6 +16,7 @@
 #  min_wage        :integer
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
+#  picture_url     :string
 #
 
 class Worker < ActiveRecord::Base
