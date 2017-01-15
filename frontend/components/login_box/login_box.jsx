@@ -17,6 +17,7 @@ class LoginBox extends React.Component {
       return (
         <div id="login-box">
           <h3>Hello {member.username}</h3>
+          <button onClick={this.openModal('signupModal')}>Edit Account</button>
           <button onClick={(member.isWorker) ?
                             this.props.logoutWorker :
                             this.props.logout

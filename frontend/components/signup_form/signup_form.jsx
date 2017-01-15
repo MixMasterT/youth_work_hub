@@ -140,7 +140,7 @@ class SignupForm extends React.Component {
 
           { password }
 
-          <button className="disabled" type="submit" disabled>{text}</button>
+          <button type="submit">{text}</button>
         </form>
         <Link to="login">Log in</Link>
       </div>
