@@ -1,0 +1,55 @@
+@import './base/colors.scss';
+
+form, form div {
+  width: 100%;
+  background-color: $dark;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px;
+  border-radius: 5%;
+
+  label {
+    margin: 0.8em;
+  }
+
+  input {
+    background-color: white;
+  }
+  input:focus {
+    background-color: $lightest;
+  }
+}
+
+
+// .form, .form form, .form form div {
+//   background-color: grey;
+//   display: flex;
+//   flex-direction: column;
+//   align-items: center;
+//   padding: 10px;
+//   .button {
+//     margin-top: 20px;
+//   }
+//   h2 {
+//     margin-top: 20px;
+//   }
+//   ul {
+//     background-color: white;
+//     color: darkred;
+//
+//     li {
+//       list-style: disc;
+//       padding: 20px;
+//     }
+//   }
+// }
+// .field {
+//   margin-top: 25px;
+//   width: 250px;
+//   input {
+//     width: 250px;
+//     height: 2.0em;
+//   }
+//
+// }

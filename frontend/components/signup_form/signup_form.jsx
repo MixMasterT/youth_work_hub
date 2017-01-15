@@ -61,17 +61,24 @@ class SignupForm extends React.Component {
                     </ul>;
     let text = "Sign Up";
     let password = <div>
-                      <label className='field'>Password<br/>
+                      <label className='field'>Password {
+                          this.state.password.length < 6 &&
+                          this.state.password.length > 0 ?
+                           "must be at least six characters long" :
+                           ""}
+                        }<br/>
                         <input type="password"
                           onChange={this.update('password')}
                           value={this.state.password}
+                          required
                           />
                       </label>
 
                       <label className='field'>Confirm-Password<br/>
-                        <input type="passwordCheck"
-                          onChange={this.update('password')}
-                          value={this.state.password}
+                        <input type="password"
+                          onChange={this.update('passwordCheck')}
+                          value={this.state.passwordCheck}
+                          required
                           />
                       </label>
                     </div>;
@@ -90,13 +97,15 @@ class SignupForm extends React.Component {
             <input type="text"
               onChange={this.update('username')}
               value={this.state.username}
+              required
             />
           </label>
 
           <label className='field'>Email<br/>
-            <input type="text"
+            <input type="email"
               onChange={this.update('email')}
               value={this.state.email}
+              required
             />
           </label>
 
@@ -116,11 +125,7 @@ class SignupForm extends React.Component {
 
           { password }
 
-          <input
-            className="button"
-            type="submit"
-            value={text}
-          />
+          <button type="submit">{text}</button>
         </form>
         <Link to="login">Log in</Link>
       </div>

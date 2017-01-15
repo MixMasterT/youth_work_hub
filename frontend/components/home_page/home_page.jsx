@@ -38,13 +38,13 @@ const Testimonials = () => {
 };
 
 const HomePage = () => (
-  <div className="home">
+  <main className="home">
     <div>
       <MissionStatement />
       <Testimonials />
     </div>
 
-  </div>
+  </main>
 );
 
 export default HomePage;
