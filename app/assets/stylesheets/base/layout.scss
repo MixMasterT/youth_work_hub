@@ -33,10 +33,13 @@ h5 {
   font-size: 1.2em;
 }
 
+.disabled {
+  background: linear-gradient(0deg, $grey-dark, $grey-lightest);
+}
+
 button {
   background: linear-gradient(180deg, $base-light, $base-darkest);
-  border-color: $base-darker;
-  border: 0.5px solid black;
+  border: 0.5px solid $base-darker;
   color: white;
   font-weight: bold;
   margin: 8px;
@@ -51,6 +54,7 @@ button:hover {
 }
 
 button:active {
+  background: linear-gradient(180deg, $base-light, $base-darkest);
   box-shadow: hsla(0,0,0,0.4) 2px 3px;
 }
 

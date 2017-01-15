@@ -1,8 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Modal from 'react-modal';
-import LoginFormContainer from './login_form/login_form_container';
-import SignupFormContainer from './signup_form/signup_form_container';
+import LoginFormContainer from './login_form_container';
 
 const customStyles = {
   content : {

@@ -16,6 +16,7 @@ class SignupForm extends React.Component {
     this.update = this.update.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.validatePassword = this.validatePassword.bind(this);
+    this.activateCloudinaryWidget = this.activateCloudinaryWidget.bind(this);
   }
 
   update(field) {
@@ -52,6 +53,20 @@ class SignupForm extends React.Component {
       });
     }
     this.props.closeModal('signupModal');
+  }
+
+  activateCloudinaryWidget() {
+    let url = "";
+    cloudinary.openUploadWidget({ cloud_name: 'youth-work-hub',
+                                  upload_preset: 'to_png' },
+                                  (error, result) => {
+        console.log("error = ", error);
+        console.log("result = ", result);
+        url = result[0].url;
+        this.setState({picture_url: url});
+        console.log("url = ", url);
+        console.log(this.state);
+      });
   }
 
   render() {
@@ -116,16 +131,16 @@ class SignupForm extends React.Component {
             />
           </label>
 
-          <label className='field'>Photo Link<br/>
-            <input type="text"
-              onChange={this.update('picture_url')}
-              value={this.state.picture_url}
+          <label className='field'>Photo<br />
+            <input onFocus={this.activateCloudinaryWidget}
+                   onChange={this.update('picture_url')}
+                   value={this.state.picture_url}
             />
           </label>
 
           { password }
 
-          <button type="submit">{text}</button>
+          <button className="disabled" type="submit" disabled>{text}</button>
         </form>
         <Link to="login">Log in</Link>
       </div>
