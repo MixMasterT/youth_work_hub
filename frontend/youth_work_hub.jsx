@@ -10,7 +10,7 @@ import { login } from './actions/session_actions';
 import { signupWorker,
           loginWorker,
           logoutWorker } from './actions/worker_actions';
-
+import { openModal } from './actions/modal_actions';
 document.addEventListener('DOMContentLoaded', () => {
   let store;
   if (window.currentUser) {
@@ -23,6 +23,7 @@ document.addEventListener('DOMContentLoaded', () => {
   } else {
     store = configureStore();
   }
+  window.openModal = openModal;
   window.signupWorker = signupWorker;
   window.loginWorker = loginWorker;
   window.logoutWorker = logoutWorker;

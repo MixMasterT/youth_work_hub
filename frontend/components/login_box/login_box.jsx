@@ -25,11 +25,11 @@ class LoginBox extends React.Component {
         </div>
       );
     } else {
-      console.log("GuestLogin: ", this.props.guestLogin);
       return (
         <div id="login-box">
           <button onClick={this.openModal('loginModal')}>Login</button>
           <button onClick={this.openModal('signupModal')}>Sign Up</button>
+          <button onClick={this.openModal('workerSignupModal')}>Sign Up as Worker</button>
           <button onClick={this.props.guestLogin.bind(this)}>Guest Login</button>
         </div>
       );
