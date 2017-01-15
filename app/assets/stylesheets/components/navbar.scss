@@ -1,13 +1,18 @@
-.navbar {
+nav {
   margin: 0 auto;
   background-color: grey;
   padding: 1px;
   border-bottom: solid black 2px;
 
+  .inner {
+    width: 75%;
+    margin: 0 auto;
+  }
+
   ul {
     display: flex;
     flex-direction: row;
-    justify-content: center;
+    justify-content: space-around;
   }
   li {
     padding: 15px;
