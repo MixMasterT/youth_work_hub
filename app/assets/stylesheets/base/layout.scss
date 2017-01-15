@@ -8,10 +8,10 @@ html {
 
 body {
   text-align: center;
-  width: 80%;
-  margin: 0, auto;
+  width: 100%;
   font-family: $normal;
   font-size: 1em;
+  min-width: 800px;
 }
 
 h1,h2,h3,h4,h5 {
@@ -34,8 +34,8 @@ h5 {
 }
 
 button {
-  background: linear-gradient(180deg, $light, $darkest);
-  border-color: $darker;
+  background: linear-gradient(180deg, $base-light, $base-darkest);
+  border-color: $base-darker;
   border: 0.5px solid black;
   color: white;
   font-weight: bold;
@@ -47,7 +47,7 @@ button {
 }
 
 button:hover {
-  background: linear-gradient(180deg, $lighter, $dark);
+  background: linear-gradient(180deg, $base-lighter, $base-dark);
 }
 
 button:active {

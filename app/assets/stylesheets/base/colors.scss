@@ -1,8 +1,15 @@
-$lightest: hsla(180, 80%, 85%, 1);
-$lighter: hsla(180, 75%, 70%, 1);
-$light: hsla(180, 50%, 50%, 1);
-$dark: hsla(180, 50%, 30%, 1);
-$darker: hsla(180, 50%, 30%, 1);
-$darkest: hsla(180, 50%, 15%, 1);
+$base-lightest: hsla(205, 85%, 75%, 1);
+$base-lighter: hsla(205, 75%, 55%, 1);
+$base-light: hsla(205, 65%, 45%, 1);
+$base-dark: hsla(205, 50%, 30%, 1);
+$base-darker: hsla(205, 50%, 25%, 1);
+$base-darkest: hsla(205, 50%, 15%, 1);
 
-$overlay: hsla(180, 75%, 75%, 0.3);
+$contrast-lightest: hsla(49, 95%, 65%, 1);
+$contrast-lighter: hsla(49, 85%, 55%, 1);
+$contrast-light: hsla(49, 75%, 45%, 1);
+$contrast-dark: hsla(49, 55%, 35%, 1);
+$contrast-darker: hsla(49, 45%, 30%, 1);
+$contrast-darkest: hsla(49, 65%, 15%, 1);
+
+$overlay: hsla(205, 75%, 75%, 0.3);

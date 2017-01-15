@@ -1,8 +1,8 @@
 @import './base/colors.scss';
 
-form, form div {
+.form, form, form div {
   width: 100%;
-  background-color: $dark;
+  background-color: $base-light;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -13,12 +13,28 @@ form, form div {
     margin: 0.8em;
   }
 
+  button {
+    background: linear-gradient(180deg,
+    $contrast-lighter,
+    $contrast-darker);
+  }
+
+  button:hover {
+    background: linear-gradient(0deg, $contrast-dark, $contrast-lightest)
+  }
+
+  h2 {
+
+  }
+
   input {
     background-color: white;
   }
+
   input:focus {
-    background-color: $lightest;
+    background-color: $contrast-lightest;
   }
+
 }
 
 
