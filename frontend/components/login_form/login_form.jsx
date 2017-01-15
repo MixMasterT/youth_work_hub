@@ -43,12 +43,14 @@ class LoginForm extends React.Component {
             <input type="text"
               onChange={this.update('username')}
               value={this.state.username}
+              required
             />
           </label>
           <label>Password<br />
             <input type="password"
               onChange={this.update('password')}
               value={this.state.password}
+              required
             />
           </label>
           <input className="button" type="submit" value="Login" />
