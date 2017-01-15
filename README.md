@@ -8,7 +8,7 @@ YouthWorkHub
 
 [Trello Link][trello]
 
-[trello]: https://youth-work-hub.herokuapp.com/#/
+[trello]: https://trello.com/b/y6VRF3va
 
 YouthWorkHub is a full-stack web application inspired by TaskRabbit. It provides a platform for people
 to find young people who looking for work for domestic help and other types of odd jobs. This web application uses Ruby on Rails with Postgres for its backend, and React/Redux for its front end.
