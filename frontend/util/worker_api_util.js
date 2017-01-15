@@ -25,3 +25,8 @@ export const logout = () => (
     method: 'DELETE'
   })
 );
+export const fetchWorkers = () => (
+  $.ajax({
+    url: '/api/workers'
+  })
+)

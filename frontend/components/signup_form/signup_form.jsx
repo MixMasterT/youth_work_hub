@@ -6,9 +6,11 @@ class SignupForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = merge({
-      username: "",
+      name: "",
       email: "",
       phone_number: "",
+      bio: "",
+      zip_code: "",
       picture_url: "",
       password: "",
       passwordCheck: ""
@@ -62,7 +64,7 @@ class SignupForm extends React.Component {
                                   (error, result) => {
         // console.log("error = ", error);
         // console.log("result = ", result);
-        url = result[0].url;
+        url = result[0].secure_url;
         this.setState({picture_url: url});
         // console.log("url = ", url);
         // console.log(this.state);
@@ -102,6 +104,7 @@ class SignupForm extends React.Component {
       text = "Edit Account";
       password = "";
     }
+
     return(
       <div className='form'>
         <h2>{text}</h2>
@@ -131,6 +134,7 @@ class SignupForm extends React.Component {
               value={this.state.phone_number}
             />
           </label>
+
 
           <label className='field'>Photo<br />
             <input onFocus={this.activateCloudinaryWidget}
