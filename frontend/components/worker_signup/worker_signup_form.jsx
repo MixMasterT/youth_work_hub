@@ -1,8 +1,7 @@
 import React from 'react';
-import { Link, hashHistory } from 'react-router';
 import merge from 'lodash/merge';
 
-class SignupForm extends React.Component {
+class WorkerSignupForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = merge({
@@ -14,9 +13,9 @@ class SignupForm extends React.Component {
       passwordCheck: ""
     }, this.props.currentUser);
     this.update = this.update.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
     this.validatePassword = this.validatePassword.bind(this);
     this.activateCloudinaryWidget = this.activateCloudinaryWidget.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   update(field) {
@@ -34,7 +33,6 @@ class SignupForm extends React.Component {
     e.preventDefault();
 
     const state = this.state;
-    console.log(state);
     if (this.props.currentUser) {
       const paramsKeys = Object.keys(state).map((key) => {
         if (state[key] !== "" && state[key] !== null) {
@@ -44,15 +42,15 @@ class SignupForm extends React.Component {
       const params = {};
       paramsKeys.forEach((k) => { params[k] = state[k]; });
       params['id'] = this.state.id;
-      this.props.editUser(params).then(() => {
-        hashHistory.push('/');
+      this.props.edit(params).then(() => {
+        this.props.closeModal();
       });
     } else {
-      this.props.signup(this.state).then(() => {
-        hashHistory.push('/');
+      this.props.signup(this.state).then((worker) => {
+        this.props.login(worker);
+        this.props.closeModal();
       });
     }
-    this.props.closeModal('signupModal');
   }
 
   activateCloudinaryWidget() {
@@ -60,21 +58,18 @@ class SignupForm extends React.Component {
     cloudinary.openUploadWidget({ cloud_name: 'youth-work-hub',
                                   upload_preset: 'to_png' },
                                   (error, result) => {
-        // console.log("error = ", error);
-        // console.log("result = ", result);
         url = result[0].url;
         this.setState({picture_url: url});
         // console.log("url = ", url);
         // console.log(this.state);
       });
   }
-
   render() {
     const errors = this.props.errors;
     const errList = <ul>
                       {errors.map((er) => <li key={er}>{er}</li>)}
                     </ul>;
-    let text = "Sign Up";
+    let text = "Sign Up Worker";
     let password =
           <div>
             <label className='field'>Password {
@@ -98,12 +93,18 @@ class SignupForm extends React.Component {
                 />
             </label>
           </div>;
-    if (this.props.currentUser) {
+
+    if (this.props.currentUser && this.props.currentUser.isWorker) {
       text = "Edit Account";
       password = "";
     }
     return(
       <div className='form'>
+        <div className='modal-link'
+             onClick={this.props.closeModal}>
+          <h5>Already joined Login here</h5>
+        </div>
+
         <h2>{text}</h2>
 
         {(errors.length > 0) ? errList : null }
@@ -143,10 +144,9 @@ class SignupForm extends React.Component {
 
           <button type="submit">{text}</button>
         </form>
-        <Link to="login">Log in</Link>
       </div>
     );
   }
 }
 
-export default SignupForm;
+export default WorkerSignupForm;

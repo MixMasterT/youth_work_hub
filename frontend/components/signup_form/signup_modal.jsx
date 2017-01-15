@@ -20,10 +20,6 @@ class SignupModal extends React.Component {
     this.closeModal = this.closeModal.bind(this);
   }
 
-  openModal() {
-    this.setState({modalIsOpen: true});
-  }
-
   closeModal() {
     this.props.closeModal('signupModal');
   }
@@ -38,7 +34,7 @@ class SignupModal extends React.Component {
           style={customStyles}
           contentLabel="Example Modal"
         >
-        <SignupFormContainer />
+          <SignupFormContainer />
         </Modal>
       </div>
     );

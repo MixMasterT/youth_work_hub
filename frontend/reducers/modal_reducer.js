@@ -8,6 +8,7 @@ import merge from 'lodash/merge';
 const _allClosed = {
   loginModal: false,
   signupModal: false,
+  workerSignupModal: false
 };
 
 const ModalReducer = (state = _allClosed, action) => {
