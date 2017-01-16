@@ -3,7 +3,10 @@ import { connect } from 'react-redux';
 import { loginWorker,
          editWorker,
          signupWorker } from '../../actions/worker_actions';
+
 import { openModal, closeModal } from '../../actions/modal_actions';
+
+import { resetErrors } from '../../actions/session_actions';
 
 import WorkerSignupModal from './worker_signup_form_modal';
 
@@ -17,6 +20,7 @@ const mapDispatchToProps = dispatch => ({
   login: (cred) => dispatch(loginWorker(cred)),
   signup: (user) => dispatch(signupWorker(user)),
   edit: (worker) => dispatch(editWorker(worker)),
+  resetErrors: () => dispatch(resetErrors()),
   openModal: (modalName) => dispatch(openModal(modalName)),
   closeModal: () => dispatch(closeModal('workerSignupModal'))
 });

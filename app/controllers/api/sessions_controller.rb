@@ -6,7 +6,14 @@ class Api::SessionsController < ApplicationController
       login!(@user)
       render "api/users/show"
     else
-      render json: ["Invalid username or password"], status: 401
+      @worker = Worker.check_cred(session_params[:username],
+                                  session_params[:password])
+      if @worker
+        login!(@worker)
+        render "api/workers/show"
+      else
+        render json: ["Invalid username or password"], status: 401
+      end
     end
   end
 

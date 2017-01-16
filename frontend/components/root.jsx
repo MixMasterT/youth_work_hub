@@ -4,6 +4,7 @@ import { Router, Route, IndexRoute, hashHistory } from 'react-router';
 
 import App from './app';
 import HomePage from './home_page/home_page';
+import WorkersIndexContainer from './workers_index/workers_index_container';
 
 const _redirectIfLoggedIn = store => (nextState, replace) => {
   const currentUser = store.getState().session.currentUser;
@@ -22,6 +23,7 @@ const Root = ({ store }) => (
     <Router history={ hashHistory }>
       <Route path="/" component={ App } >
         <Route path="/home" component={ HomePage } />
+        <Route path="/workers" component={ WorkersIndexContainer } />
       </Route>
     </Router>
   </Provider>

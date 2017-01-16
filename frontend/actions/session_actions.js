@@ -3,6 +3,7 @@ import * as SessionUtils from '../util/session_api_util.js';
 export const RECEIVE_CURRENT_USER = "RECEIVE_CURRENT_USER";
 export const RECEIVE_ACCOUNT_CHANGE = "RECEIVE_ACCOUNT_CHANGE";
 export const RECEIVE_ERRORS = "RECEIVE_ERRORS";
+export const RESET_ERRORS = "RESET_ERRORS";
 export const RECEIVE_LOGOUT = "RECEIVE_LOGOUT";
 export const RECEIVE_GUEST_USER = "RECEIVE_GUEST_USER";
 
@@ -22,6 +23,9 @@ export const receiveErrors = (errors) => ({
 
 export const receiveLogout = () => ({
   type: RECEIVE_LOGOUT
+});
+export const resetErrors = () => ({
+  type: RESET_ERRORS
 });
 
 export const login = (cred) => dispatch => (
