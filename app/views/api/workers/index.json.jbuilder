@@ -1,1 +1,5 @@
-json.partial! 'api/workers/worker', collection: @workers, as: :worker
+@workers.each do |worker|
+  json.set! worker.id do
+    json.partial! 'api/workers/worker', worker: worker
+  end
+end

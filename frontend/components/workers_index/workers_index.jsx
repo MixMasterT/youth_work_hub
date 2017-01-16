@@ -1,5 +1,13 @@
 import React from 'react';
 
+const WorkersIndexItem = ({worker}) => (
+  <div className="workers-index-item">
+    <h3>{worker.username}</h3>
+    <img src={worker.picture_url} />
+    <p>{worker.bio}</p>
+  </div>
+);
+
 class WorkersIndex extends React.Component {
   constructor(props) {
     super(props);
@@ -10,22 +18,19 @@ class WorkersIndex extends React.Component {
   }
 
   render() {
-    console.log(this.props.workers);
-    let workersArray = [];
-    if (this.props.workers) {
-      workersArray = this.props.workers.map((w) => (
-        <div key={w.id}>
-          <h3>{w.username}</h3>
-          <img src={w.picture_url} />
-          <p>{w.bio}</p>
-        </div>
-      ));  
-    }
+    const workers = this.props.workers;
+    let workerIds = Object.keys(workers);
+    console.log(workers);
+
+    const  workersArray = workerIds.map((id) => (
+      <WorkersIndexItem key={id} worker={workers[id]} />
+    ));
+
     return (
-      <main>
+      <div className="workers-index">
         <h1>We offer the best young workers around!</h1>
         { workersArray }
-      </main>
+      </div>
     );
   }
 }

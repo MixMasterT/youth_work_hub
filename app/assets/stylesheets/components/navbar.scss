@@ -20,12 +20,15 @@ nav {
     flex-direction: row;
     justify-content: space-around;
   }
-  li {
+
+  a {
+    display: inline-block;
     padding: 15px;
     margin-right: 10px;
     border-radius: 20px;
   }
-  li:hover {
+  
+  a:hover {
     background-color: $overlay;
     color: white;
   }

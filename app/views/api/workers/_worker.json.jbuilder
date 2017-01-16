@@ -1,11 +1,11 @@
 json.extract! worker, :id,
                       :username,
                       :email,
-                      :picture_url,
                       :phone_number,
                       :bio,
                       :lat,
                       :lng,
+                      :picture_url,
                       :zip_code,
                       :birth_date,
                       :min_wage
