@@ -29,4 +29,4 @@ export const fetchWorkers = () => (
   $.ajax({
     url: '/api/workers'
   })
-)
+);
