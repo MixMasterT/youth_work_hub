@@ -2,17 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import Modal from 'react-modal';
 import LoginFormContainer from './login_form_container';
+import { smallModalStyles } from '../../util/form_util';
 
-const customStyles = {
-  content : {
-    top                   : '50%',
-    left                  : '50%',
-    right                 : 'auto',
-    bottom                : 'auto',
-    marginRight           : '-50%',
-    transform             : 'translate(-50%, -50%)'
-  }
-};
 class LoginModal extends React.Component {
   constructor(props) {
     super(props);
@@ -25,12 +16,12 @@ class LoginModal extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className='modal-wrapper'>
         <Modal
           isOpen={this.props.loginFormIsOpen}
           onAfterOpen={this.afterOpenModal}
           onRequestClose={this.closeModal.bind(this)}
-          style={customStyles}
+          style={smallModalStyles}
           contentLabel="Example Modal"
         >
           <LoginFormContainer />

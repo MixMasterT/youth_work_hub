@@ -1,19 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Modal from 'react-modal';
+import { largeModalStyles } from '../../util/form_util';
 
 import WorkerSignupForm from './worker_signup_form';
-
-const customStyles = {
-  content : {
-    top                   : '50%',
-    left                  : '50%',
-    right                 : 'auto',
-    bottom                : 'auto',
-    marginRight           : '-50%',
-    transform             : 'translate(-50%, -50%)'
-  }
-};
 
 class WorkerSignupModal extends React.Component {
   constructor(props) {
@@ -25,15 +15,15 @@ class WorkerSignupModal extends React.Component {
     this.props.closeModal('workerSignupModal');
   }
 
-
   render() {
     return (
       <div>
         <Modal
+          className='modal-wrapper'
           isOpen={this.props.workerSignupFormIsOpen}
           onAfterOpen={this.afterOpenModal}
           onRequestClose={this.closeModal.bind(this)}
-          style={customStyles}
+          style={largeModalStyles}
           contentLabel="Worker Signup Form"
         >
           <WorkerSignupForm
