@@ -23,7 +23,6 @@ header {
   }
 
   #login-box {
-    width: 20%;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -31,25 +30,31 @@ header {
 
     img {
       border-radius: 25%;
+      float: right;
     }
-    .popup {
+
+    .fa {
+      margin-right: 20px;
+    }
+
+    .popup, .popup-buttons {
       position: relative;
-      top: -100px;
-      height: 0;
-      display: none;
-      button {
-        padding: 10px;
-      }
-    }
-    .popup-buttons {
       display: none;
     }
   }
   #login-box section:hover .popup {
+    position: absolute;
+    top: 70px;
     display: block;
   }
   #login-box section:hover .popup-buttons {
+    position: absolute;
+    right: 60px;
     display: flex;
     flex-direction: column;
+    align-items: flex-start;
+    button {
+      width: 100%;
+    }
   }
 }
