@@ -3,6 +3,7 @@ import * as WorkerUtils from '../util/worker_api_util.js';
 import { receiveErrors, receiveLogout } from './session_actions';
 
 export const RECEIVE_CURRENT_WORKER = "RECEIVE_CURRENT_WORKER";
+export const RECEIVE_ALL_WORKERS = "RECEIVE_ALL_WORKERS";
 export const LOGOUT_WORKER = "LOGOUT_WORKER";
 
 const receiveWorker = (worker) => ({
@@ -11,7 +12,7 @@ const receiveWorker = (worker) => ({
 });
 
 const receiveWorkers = (workers) => ({
-  type: RECEIVE_CURRENT_WORKER,
+  type: RECEIVE_ALL_WORKERS,
   workers
 });
 

@@ -32,7 +32,9 @@ class LoginForm extends React.Component {
 
   render() {
     const errors = this.props.errors;
-    const errList = <ul>{errors.map((er) => <li key={er}>{er}</li>)}</ul>;
+    const errList = <ul className="error-list">
+                      {errors.map((er) => <li key={er}>{er}</li>)}
+                    </ul>;
     return(
       <div className='form'>
         <Link to="signup">Sign up</Link>

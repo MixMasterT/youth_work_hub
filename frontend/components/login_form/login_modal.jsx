@@ -11,6 +11,7 @@ class LoginModal extends React.Component {
   }
 
   closeModal() {
+    this.props.resetErrors();
     this.props.closeModal('loginModal');
   }
 

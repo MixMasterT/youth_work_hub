@@ -3,6 +3,8 @@ import { connect } from 'react-redux';
 // import { login, signup, logout } from '../../actions/session_actions';
 import { closeModal } from '../../actions/modal_actions';
 
+import { resetErrors } from '../../actions/session_actions';
+
 import LoginModal from './login_modal';
 
 const mapStateToProps = state => ({
@@ -10,7 +12,8 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  closeModal: (modalName) => dispatch(closeModal(modalName))
+  closeModal: (modalName) => dispatch(closeModal(modalName)),
+  resetErrors: () => dispatch(resetErrors())
 });
 
 export default connect(

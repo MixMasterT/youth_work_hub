@@ -64,15 +64,14 @@ class WorkerSignupForm extends React.Component {
     cloudinary.openUploadWidget({ cloud_name: 'youth-work-hub',
                                   upload_preset: 'to_png' },
                                   (error, result) => {
-        url = result[0].url;
+        url = result[0].secure_url;
         this.setState({picture_url: url});
         // console.log("url = ", url);
-        // console.log(this.state);
       });
   }
   render() {
     const errors = this.props.errors;
-    const errList = <ul>
+    const errList = <ul className="error-list">
                       {errors.map((er) => <li key={er}>{er}</li>)}
                     </ul>;
     let text = "Sign Up Worker";
@@ -82,7 +81,7 @@ class WorkerSignupForm extends React.Component {
                 this.state.password.length < 6 &&
                 this.state.password.length > 0 ?
                  "must be at least six characters long" :
-                 ""}
+                 ""
               }<br/>
               <input type="password"
                 onChange={this.update('password')}

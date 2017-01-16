@@ -30,8 +30,15 @@ class Api::WorkersController < ApplicationController
                                     :zip_code,
                                     :lat,
                                     :lng,
+                                    :phone_number,
+                                    :bio,
+                                    :birth_date,
+                                    :lat,
+                                    :lng,
+                                    :min_wage,
                                     :username,
                                     :password,
-                                    :email)
+                                    :email,
+                                    :picture_url)
   end
 end

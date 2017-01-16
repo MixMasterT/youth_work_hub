@@ -13,7 +13,7 @@ class LoginBox extends React.Component {
   }
   render() {
     if (this.props.currentUser) {
-      const member = this.props.currentUser || this.props.currenWorker;
+      const member = this.props.currentUser;
       return (
         <div id="login-box">
           <section>

@@ -1,5 +1,6 @@
-import { RECEIVE_CURRENT_USER,
+import {  RECEIVE_CURRENT_USER,
           RECEIVE_ERRORS,
+          RESET_ERRORS,
           RECEIVE_LOGOUT,
           RECEIVE_GUEST_USER } from '../actions/session_actions';
 
@@ -47,6 +48,11 @@ const SessionReducer = (state = _nullUser, action) => {
     case RECEIVE_ERRORS:
       newState['errors'] = action.errors;
       return newState;
+
+    case RESET_ERRORS:
+      newState['errors'] = [];
+      return newState;
+
     case RECEIVE_LOGOUT:
       return _nullUser;
     default:

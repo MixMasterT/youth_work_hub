@@ -10,8 +10,7 @@ import { openModal, closeModals } from '../../actions/modal_actions';
 import LoginBox from './login_box';
 
 const mapStateToProps = state => ({
-  currentUser: state.session.currentUser,
-  currentWorker: state.session.currentWorker
+  currentUser: state.session.currentUser
 });
 
 const mapDispatchToProps = dispatch => ({
