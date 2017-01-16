@@ -16,21 +16,34 @@ class LoginBox extends React.Component {
       const member = this.props.currentUser || this.props.currenWorker;
       return (
         <div id="login-box">
-          <h3>Hello {member.username}</h3>
-          <button onClick={this.openModal('signupModal')}>Edit Account</button>
-          <button onClick={(member.isWorker) ?
-                            this.props.logoutWorker :
-                            this.props.logout
-                          }>Log out</button>
+          <section>
+            <img alt="profile picture" src={member.picture_url} />
+            <h3>Hello {member.username}</h3>
+            <section className="popup logged-in">
+              <button onClick={this.openModal('signupModal')}>Edit Account</button>
+              <button onClick={(member.isWorker) ?
+                  this.props.logoutWorker :
+                  this.props.logout
+                }>Log out</button>
+              </section>
+          </section>
         </div>
       );
     } else {
       return (
         <div id="login-box">
-          <button onClick={this.openModal('loginModal')}>Login</button>
-          <button onClick={this.openModal('signupModal')}>Sign Up</button>
-          <button onClick={this.openModal('workerSignupModal')}>Sign Up as Worker</button>
-          <button onClick={this.props.guestLogin.bind(this)}>Guest Login</button>
+          <section>
+            <i className="fa fa-user-plus fa-5x"
+               aria-hidden="true"
+               id="user-icon"
+            ></i>
+          <section className="popup-buttons">
+              <button onClick={this.openModal('loginModal')}>Login</button>
+              <button onClick={this.openModal('signupModal')}>Signup</button>
+              <button onClick={this.openModal('workerSignupModal')}>Worker</button>
+              <button onClick={this.props.guestLogin.bind(this)}>Guest</button>
+            </section>
+          </section>
         </div>
       );
     }

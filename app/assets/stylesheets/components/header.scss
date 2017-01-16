@@ -23,8 +23,33 @@ header {
   }
 
   #login-box {
+    width: 20%;
     display: flex;
     flex-direction: column;
     justify-content: center;
+    text-align: center;
+
+    img {
+      border-radius: 25%;
+    }
+    .popup {
+      position: relative;
+      top: -100px;
+      height: 0;
+      display: none;
+      button {
+        padding: 10px;
+      }
+    }
+    .popup-buttons {
+      display: none;
+    }
+  }
+  #login-box section:hover .popup {
+    display: block;
+  }
+  #login-box section:hover .popup-buttons {
+    display: flex;
+    flex-direction: column;
   }
 }
