@@ -60,12 +60,10 @@ class WorkerSignupForm extends React.Component {
   }
 
   activateCloudinaryWidget() {
-    let url = "";
     cloudinary.openUploadWidget({ cloud_name: 'youth-work-hub',
-                                  upload_preset: 'to_png' },
+                                  upload_preset: 'profile_pic' },
                                   (error, result) => {
-        url = result[0].secure_url;
-        this.setState({picture_url: url});
+        this.setState({picture_url: result[0].secure_url});
         // console.log("url = ", url);
       });
   }
