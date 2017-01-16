@@ -9,6 +9,11 @@ class Api::WorkersController < ApplicationController
     end
   end
 
+  def index
+    @workers = Worker.all
+    render :index
+  end
+
   def update
     if (current_user.nil? || current_user.id != user_params[:id].to_i)
       render json: ["Permission denied"], status: 404

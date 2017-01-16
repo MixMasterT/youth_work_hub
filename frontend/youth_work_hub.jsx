@@ -9,7 +9,9 @@ import { login } from './actions/session_actions';
 
 import { signupWorker,
           loginWorker,
-          logoutWorker } from './actions/worker_actions';
+          logoutWorker,
+          getWorkers } from './actions/worker_actions';
+import { fetchWorkers } from './util/worker_api_util';
 import { openModal } from './actions/modal_actions';
 document.addEventListener('DOMContentLoaded', () => {
   let store;
@@ -23,6 +25,8 @@ document.addEventListener('DOMContentLoaded', () => {
   } else {
     store = configureStore();
   }
+  window.fetchWorkers = fetchWorkers;
+  window.getWorkers = getWorkers;
   window.openModal = openModal;
   window.signupWorker = signupWorker;
   window.loginWorker = loginWorker;

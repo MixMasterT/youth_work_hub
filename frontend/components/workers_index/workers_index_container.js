@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 
-import { fetchWorkers } from '../../actions/worker_actions';
+import { getWorkers } from '../../actions/worker_actions';
 
 import WorkersIndex from './workers_index';
 
@@ -9,7 +9,7 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  fetchWorkers: () => fetchWorkers()
+  getWorkers: () => dispatch(getWorkers())
 });
 
 export default connect(
