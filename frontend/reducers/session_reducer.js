@@ -8,18 +8,8 @@ import { RECEIVE_CURRENT_WORKER } from '../actions/worker_actions';
 
 import merge from 'lodash/merge';
 
-const _guestUser = {
-  currentUser: null,
-  errors: []
-};
-
 const _nullUser = {
   currentUser: null,
-  errors: []
-};
-
-const _nullWorker = {
-  currentWorker: null,
   errors: []
 };
 
@@ -42,8 +32,8 @@ const SessionReducer = (state = _nullUser, action) => {
         errors: []
       });
 
-    case RECEIVE_GUEST_USER:
-      return merge(newState, _guestUser);
+    // case RECEIVE_GUEST_USER:
+    //   return merge(newState, _guestUser);
 
     case RECEIVE_ERRORS:
       newState['errors'] = action.errors;

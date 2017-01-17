@@ -11,10 +11,10 @@ const receiveUser = (user) => ({
   type: RECEIVE_CURRENT_USER,
   user
 });
-
-const receiveGuestUser = () => ({
-  type: RECEIVE_GUEST_USER
-});
+// 
+// const receiveGuestUser = () => ({
+//   type: RECEIVE_GUEST_USER
+// });
 
 export const receiveErrors = (errors) => ({
   type: RECEIVE_ERRORS,

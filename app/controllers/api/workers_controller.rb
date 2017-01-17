@@ -24,7 +24,7 @@ class Api::WorkersController < ApplicationController
   end
 
   def update
-    if (current_worker.nil? || current_worker.id != user_params[:id].to_i)
+    if (current_worker.nil? || current_worker.id != worker_params[:id].to_i)
       render json: ["Permission denied"], status: 404
     else
       @worker = current_worker
