@@ -106,7 +106,7 @@ class WorkerSignupForm extends React.Component {
     return (
       <div className='form'>
         <div className='modal-link'>
-          <p>Already joined <span onClick={this.goToLogin}>login here</span></p>
+          <p>Already joined ? <span onClick={this.goToLogin}>login here</span></p>
         </div>
 
         <h2>{text}</h2>
@@ -159,7 +159,7 @@ class WorkerSignupForm extends React.Component {
               onChange={this.update('birth_date')}
               value={this.state.birth_date}
             />
-            <label for='date-of-birth'>Date of birth</label>
+          <label for='date-of-birth'>Birthdate</label>
           </div>
 
           <div className='text-input'>
@@ -179,7 +179,7 @@ class WorkerSignupForm extends React.Component {
               min="0"
               step="1"
             />
-            <label for='min_wage'>Minimum Wage (dollars per hour)</label>
+          <label for='min_wage'>Minimum Wage ($/hr)</label>
           </div>
 
           <div className='photo-input'>
