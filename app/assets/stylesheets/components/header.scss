@@ -1,3 +1,5 @@
+@import './base/colors';
+
 header {
   font-weight: normal;
   display: flex;
@@ -41,6 +43,17 @@ header {
     .popup, .popup-buttons {
       position: relative;
       display: none;
+
+      .highlight {
+        background: linear-gradient(180deg,
+                                    $contrast-light,
+                                    $contrast-darkest);
+      }
+      .highlight:hover {
+        background: linear-gradient(180deg,
+                                    $contrast-lighter,
+                                    $contrast-dark);
+      }
     }
   }
   #login-box section:hover .popup-buttons,
@@ -55,6 +68,7 @@ header {
     button {
       margin: 0;
       width: 50%;
+      min-width: 120px;
       padding: 20px 0 20px 0;
     }
   }
