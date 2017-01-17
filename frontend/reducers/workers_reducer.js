@@ -9,12 +9,10 @@ const WorkersReducer = (state = {}, action) => {
   switch(action.type) {
     case RECEIVE_ALL_WORKERS:
       return action.workers;
-
-    case RECEIVE_CURRENT_WORKER:
-      const cw = {[action.worker.id]: action.worker};
-      console.log("the current worker is ");
-      console.log(cw);
-      return merge(newState, cw);
+    //
+    // case RECEIVE_CURRENT_WORKER:
+    //   const cw = {[action.worker.id]: action.worker};
+    //   return merge(newState, cw);
 
     default:
       return state;
