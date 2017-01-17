@@ -108,7 +108,7 @@ class SignupForm extends React.Component {
     return (
       <div className='form'>
         <div className='modal-link'>
-          <p>Already a member <span onClick={this.goToLogin}>login here</span></p>
+          <p>Already a member ? <span onClick={this.goToLogin}>login here</span></p>
         </div>
         <h2>{text}</h2>
         {(errors.length > 0) ? errList : null }

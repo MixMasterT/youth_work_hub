@@ -29,7 +29,11 @@
     }
   }
 
-  .text-input, .textarea-input {
+  .date-input {
+    background-color: white;
+  }
+
+  .text-input, .textarea-input, .date-input, .number-input {
     position: relative;
     top: 0.2em;
     margin: 15px auto;
@@ -41,9 +45,29 @@
       background-color: white;
     }
 
+    > textarea {
+      width: 100%;
+      height: 4em;
+      background-color: white;
+      &:focus {
+        & + label {
+          opacity: 0;
+        }
+      }
+      &:valid::before {
+        content: ""
+      }
+    }
+
+    .number-input {
+      width: 40%;
+    }
+
     > input[type="text"],
     > input[type="email"],
-    > input[type="password"] {
+    > input[type="password"],
+    > input[type="date"],
+    > input[type='number'] {
       &:focus {
         & + label {
           opacity: 0;
