@@ -12,6 +12,7 @@ class LoginForm extends React.Component {
     };
     this.update = this.update.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.goToSignup = this.goToSignup.bind(this);
   }
 
   update(field) {
@@ -23,6 +24,11 @@ class LoginForm extends React.Component {
     if (cu) {
       this.props.closeLoginModal();
     }
+  }
+
+  goToSignup() {
+    this.props.closeLoginModal();
+    this.props.openModal('signupModal');
   }
 
   handleSubmit(e) {
@@ -37,24 +43,34 @@ class LoginForm extends React.Component {
                     </ul>;
     return(
       <div className='form'>
-        <Link to="signup">Sign up</Link>
+
+        <div className='modal-link'>
+          <p>Not yet a member? <span onClick={this.goToSignup}>signup here</span></p>
+        </div>
+
         <h2>Login</h2>
         {(errors.length > 0) ? errList : null }
         <form onSubmit={this.handleSubmit}>
-          <label>Username<br />
+
+          <div className='text-input'>
             <input type="text"
+              id="username"
               onChange={this.update('username')}
               value={this.state.username}
               required
             />
-          </label>
-          <label>Password<br />
+            <label for='userame'>Name</label>
+          </div>
+
+          <div className='text-input'>
             <input type="password"
               onChange={this.update('password')}
               value={this.state.password}
               required
-            />
-          </label>
+              />
+            <label for='password'>Password</label>
+          </div>
+
           <button type="submit">Login</button>
         </form>
       </div>

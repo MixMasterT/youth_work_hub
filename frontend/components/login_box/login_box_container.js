@@ -5,7 +5,7 @@ import { login,
           guestLogin,
           logout} from '../../actions/session_actions';
 import { logoutWorker } from '../../actions/worker_actions';
-import { openModal, closeModals } from '../../actions/modal_actions';
+import { openModal, closeModal } from '../../actions/modal_actions';
 
 import LoginBox from './login_box';
 
@@ -17,10 +17,7 @@ const mapDispatchToProps = dispatch => ({
   openModal: (modalName) => dispatch(openModal(modalName)),
   logout: () => dispatch(logout()),
   logoutWorker: () => dispatch(logoutWorker()),
-  guestLogin: () => {
-    // console.log("Dispatch of guestLogin called!");
-    return (dispatch(guestLogin()));
-  }
+  guestLogin: () => dispatch(guestLogin())
 });
 
 export default connect(

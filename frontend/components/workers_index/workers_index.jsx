@@ -1,4 +1,5 @@
 import React from 'react';
+import { hashHistory } from 'react-router';
 
 const WorkersIndexItem = ({worker}) => (
   <div className="workers-index-item">
@@ -11,10 +12,18 @@ const WorkersIndexItem = ({worker}) => (
 class WorkersIndex extends React.Component {
   constructor(props) {
     super(props);
+    this.redirectTo = this.redirectTo.bind(this);
   }
 
   componentDidMount() {
     this.props.getWorkers();
+  }
+
+  redirectTo(str) {
+    return () => {
+      hashHistory.push(`/workers/${str}`);
+      console.log("redirectTo called");
+    };
   }
 
   render() {
@@ -23,7 +32,9 @@ class WorkersIndex extends React.Component {
     console.log(workers);
 
     const  workersArray = workerIds.map((id) => (
-      <WorkersIndexItem key={id} worker={workers[id]} />
+      <WorkersIndexItem key={id}
+                        worker={workers[id]}
+                        onClick={this.redirectTo(id)}/>
     ));
 
     return (

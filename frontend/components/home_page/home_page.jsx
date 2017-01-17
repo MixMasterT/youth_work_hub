@@ -2,8 +2,24 @@ import React from 'react';
 
 const MissionStatement = () => (
   <div className="mission-statement">
-    <h3>Getting Jobs Done Within the Community</h3>
-    <p>Non Profit organization. Please support! Much love in 2017...</p>
+    <h2>Become an Employer</h2>
+    <h3>Help young people learn responsibility and get your jobs done in
+      the process</h3>
+    <p>
+      Youth Work Hub is a non-profit organization dedicated to enhancing
+      communities by hooking young people up with jobs that need to be
+      completed in their communities.
+    </p>
+    <p>
+      Our regular users are employers who hire young people from the
+      community to do odd jobs. Join up to become an employer. You can
+      post jobs that you need to get done, and let young people i
+    </p>
+    <p>
+      Do you need someone to mow your lawn? How about getting a baby-sitter
+      or a tutor for your children? Youth Work Hub makes it easy to find
+      young people in your community who are willing to help.
+    </p>
   </div>
 );
 
@@ -39,6 +55,7 @@ const Testimonials = () => {
 
 const HomePage = () => (
   <div className="home">
+    <h1>Build Your Community</h1>
     <div>
       <MissionStatement />
       <Testimonials />

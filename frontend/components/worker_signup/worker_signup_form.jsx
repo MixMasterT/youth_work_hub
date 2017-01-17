@@ -20,6 +20,7 @@ class WorkerSignupForm extends React.Component {
     }, this.props.currentUser);
     this.update = this.update.bind(this);
     this.validatePassword = this.validatePassword.bind(this);
+    this.goToLogin = this.goToLogin.bind(this);
     this.activateCloudinaryWidget = this.activateCloudinaryWidget.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
@@ -32,6 +33,11 @@ class WorkerSignupForm extends React.Component {
     const passCheck = this.state.passwordCheck;
     return (passCheck.length > 5 &&
       this.state.password === this.state.passwordCheck);
+  }
+
+  goToLogin() {
+    this.props.closeModal('signupModal');
+    this.props.openModal('loginModal');
   }
 
   handleSubmit(e) {
@@ -75,37 +81,33 @@ class WorkerSignupForm extends React.Component {
     let text = "Sign Up Worker";
     let password =
           <div>
-            <label className='field'>Password {
-                this.state.password.length < 6 &&
-                this.state.password.length > 0 ?
-                 "must be at least six characters long" :
-                 ""
-              }<br/>
+            <div className='text-input'>
               <input type="password"
                 onChange={this.update('password')}
                 value={this.state.password}
                 required
                 />
-            </label>
+              <label for='password'>Password</label>
+            </div>
 
-            <label className='field'>Confirm-Password<br/>
+            <div className='text-input'>
               <input type="password"
                 onChange={this.update('passwordCheck')}
                 value={this.state.passwordCheck}
                 required
                 />
-            </label>
+              <label for='passwordCheck'>Confirm Password</label>
+            </div>
           </div>;
 
     if (this.props.currentUser && this.props.currentUser.isWorker) {
       text = "Edit Account";
       password = "";
     }
-    return(
+    return (
       <div className='form'>
-        <div className='modal-link'
-             onClick={this.props.closeModal}>
-          <h5>Already joined Login here</h5>
+        <div className='modal-link'>
+          <p>Already joined <span onClick={this.goToLogin}>login here</span></p>
         </div>
 
         <h2>{text}</h2>
@@ -113,71 +115,87 @@ class WorkerSignupForm extends React.Component {
         {(errors.length > 0) ? errList : null }
 
         <form onSubmit={this.handleSubmit}>
-          <label className='field'>Username<br/>
+
+          <div className='text-input'>
             <input type="text"
+              id="username"
               onChange={this.update('username')}
               value={this.state.username}
               required
-            />
-          </label>
+              />
+            <label for='userame'>Name</label>
+          </div>
 
-          <label className='field'>Email<br/>
+          <div className='text-input'>
             <input type="email"
+              id="email"
               onChange={this.update('email')}
               value={this.state.email}
               required
-            />
-          </label>
+              />
+            <label for='email'>Email</label>
+          </div>
 
-          <label className='field'>Phone<br/>
+          <div className='text-input'>
             <input type="text"
+              id="phone"
               onChange={this.update('phone_number')}
               value={this.state.phone_number}
-            />
-          </label>
+              required
+              />
+            <label for='phone_number'>Phone</label>
+          </div>
 
-          <label className='field'>Brief Bio<br/>
+          <div className='textarea-input'>
             <input type="textarea"
-                   onChange={this.update('bio')}
-                   placeholder="Tell a bit about yourself"
-                   value={this.state.bio}
-            />
-          </label>
+              id="bio"
+              onChange={this.update('bio')}
+              value={this.state.bio}
+              />
+            <label for='bio'>Brief bio</label>
+          </div>
 
-          <label className='field'>Date of Birth<br/>
+
+
+          <div className='date-input'>
             <input type="date"
-                   onChange={this.update('birth_date')}
-                   value={this.state.birth_date}
-            />
-          </label>
+              id="date-of-birth"
+              onChange={this.update('birth_date')}
+              value={this.state.birth_date}
+              />
+            <label for='date-of-birth'>Date of birth</label>
+          </div>
 
-          <label className='field'>Zipcode<br/>
+          <div className='text-input'>
             <input type="text"
-                   onChange={this.update('zip_code')}
-                   value={this.state.zip_code}
-            />
-          </label>
+              id="zipcode"
+              onChange={this.update('zip_code')}
+              value={this.state.zip_code}
+              />
+            <label for='zipcode'>Zipcode</label>
+          </div>
 
-          <label className='field'>Minimum wage (in dollars per hour)<br/>
+          <div className='number-input'>
             <input type="number"
-                   min="0"
-                   step="1"
-                   onChange={this.update('min_wage')}
-                   value={this.state.min_wage}
-            />
-          </label>
+              id="min_wage"
+              onChange={this.update('min_wage')}
+              value={this.state.min_wage}
+              min="0"
+              step="1"
+              />
+            <label for='min_wage'>Minimum Wage (dollars per hour)</label>
+          </div>
 
-          <label className='field'>Photo<br />
-            <input onFocus={this.activateCloudinaryWidget}
-                   type="url"
-                   onChange={this.update('picture_url')}
-                   value={this.state.picture_url}
-            />
-          </label>
+          <div className='photo-input'>
+            <button className='photo-button' onClick={this.activateCloudinaryWidget}>
+              Upload Photo
+            </button>
+          </div>
 
           { password }
 
           <button type="submit">{text}</button>
+
         </form>
       </div>
     );

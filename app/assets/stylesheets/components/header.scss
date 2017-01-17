@@ -35,6 +35,7 @@ header {
 
     .fa {
       margin-right: 20px;
+      float: right;
     }
 
     .popup, .popup-buttons {
@@ -42,18 +43,16 @@ header {
       display: none;
     }
   }
+  #login-box section:hover .popup-buttons,
   #login-box section:hover .popup {
     position: absolute;
-    top: 70px;
-    display: block;
-  }
-  #login-box section:hover .popup-buttons {
-    position: absolute;
-    right: 60px;
+    width: 15%;
+    right: 80px;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     button {
+      margin: 0;
       width: 100%;
     }
   }
