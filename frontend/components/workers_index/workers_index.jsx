@@ -1,11 +1,19 @@
 import React from 'react';
 import { hashHistory } from 'react-router';
 
-const WorkersIndexItem = ({worker}) => (
-  <div className="workers-index-item">
-    <h3>{worker.username}</h3>
+const WorkersIndexItem = ({worker, onClick}) => (
+  <div className="workers-index-item" onClick={onClick}>
     <img src={worker.picture_url} />
-    <p>{worker.bio}</p>
+    <div className='details'>
+      <div className='name'>
+        <label>Name:</label>
+        <h3>{worker.username}</h3>
+      </div>
+      <div className='bio'>
+        <label>bio:</label>
+        <p>{worker.bio}</p>
+      </div>
+    </div>
   </div>
 );
 
@@ -22,14 +30,13 @@ class WorkersIndex extends React.Component {
   redirectTo(str) {
     return () => {
       hashHistory.push(`/workers/${str}`);
-      console.log("redirectTo called");
     };
   }
 
   render() {
     const workers = this.props.workers;
     let workerIds = Object.keys(workers);
-    console.log(workers);
+    console.log(workerIds);
 
     const  workersArray = workerIds.map((id) => (
       <WorkersIndexItem key={id}
