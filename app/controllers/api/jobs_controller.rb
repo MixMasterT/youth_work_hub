@@ -29,7 +29,9 @@ class Api::JobsController < ApplicationController
     else
       @job = Job.find_by(id: params[:id]);
       if @job
-        if @job.update_attributes(job_params)
+        if @job.status != 'PENDING'
+          render json: ["A worker has already accepted this job!"], status: 404
+        elsif @job.update_attributes(job_params)
           render :show
         else
           render json: @job.errors.full_messages, status: 401

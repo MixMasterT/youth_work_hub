@@ -32,9 +32,6 @@ const SessionReducer = (state = _nullUser, action) => {
         errors: []
       });
 
-    // case RECEIVE_GUEST_USER:
-    //   return merge(newState, _guestUser);
-
     case RECEIVE_ERRORS:
       newState['errors'] = action.errors;
       return newState;

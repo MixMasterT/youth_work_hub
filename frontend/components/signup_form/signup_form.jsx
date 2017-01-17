@@ -42,7 +42,6 @@ class SignupForm extends React.Component {
     e.preventDefault();
 
     const state = this.state;
-    console.log(state);
     if (this.props.currentUser) {
       const paramsKeys = Object.keys(state).map((key) => {
         if (state[key] !== "" && state[key] !== null) {
