@@ -11,7 +11,8 @@ const WorkersReducer = (state = {}, action) => {
       return action.workers;
 
     case RECEIVE_CURRENT_WORKER:
-      return merge(newState, action.worker);
+      const cw = {[action.worker.id]: action.worker};
+      return merge(newState, cw);
 
     default:
       return state;
