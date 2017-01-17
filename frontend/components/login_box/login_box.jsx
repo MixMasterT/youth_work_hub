@@ -21,7 +21,10 @@ class LoginBox extends React.Component {
             <img alt="profile picture" src={member.picture_url} />
             <h3>Hello {member.username}</h3>
             <section className="popup logged-in">
-              <button onClick={this.openModal('signupModal')}>Edit Account</button>
+              <button onClick={(member.isWorker) ?
+                  this.openModal('workerSignupModal') :
+                  this.openModal('signupModal')
+              }>Edit Account</button>
               <button onClick={(member.isWorker) ?
                   this.props.logoutWorker :
                   this.props.logout

@@ -16,14 +16,18 @@ class Api::WorkersController < ApplicationController
 
   def show
     @worker = Worker.find_by(id: params[:id])
-    render :show
+    if @worker
+      render :show
+    else
+      render json: @worker.errors.full_messages
+    end
   end
 
   def update
-    if (current_user.nil? || current_user.id != user_params[:id].to_i)
+    if (current_worker.nil? || current_worker.id != user_params[:id].to_i)
       render json: ["Permission denied"], status: 404
     else
-      @worker = current_user;
+      @worker = current_worker
       if @worker.update_attributes(worker_params)
         render :show
       else
