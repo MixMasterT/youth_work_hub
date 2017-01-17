@@ -6,7 +6,7 @@ export const RECEIVE_CURRENT_WORKER = "RECEIVE_CURRENT_WORKER";
 export const RECEIVE_ALL_WORKERS = "RECEIVE_ALL_WORKERS";
 export const LOGOUT_WORKER = "LOGOUT_WORKER";
 
-const receiveWorker = (worker) => ({
+export const receiveWorker = (worker) => ({
   type: RECEIVE_CURRENT_WORKER,
   worker
 });

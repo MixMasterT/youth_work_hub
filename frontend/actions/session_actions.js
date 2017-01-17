@@ -1,5 +1,7 @@
 import * as SessionUtils from '../util/session_api_util.js';
 
+import { receiveWorker } from './worker_actions';
+
 export const RECEIVE_CURRENT_USER = "RECEIVE_CURRENT_USER";
 export const RECEIVE_ACCOUNT_CHANGE = "RECEIVE_ACCOUNT_CHANGE";
 export const RECEIVE_ERRORS = "RECEIVE_ERRORS";
@@ -11,10 +13,6 @@ const receiveUser = (user) => ({
   type: RECEIVE_CURRENT_USER,
   user
 });
-// 
-// const receiveGuestUser = () => ({
-//   type: RECEIVE_GUEST_USER
-// });
 
 export const receiveErrors = (errors) => ({
   type: RECEIVE_ERRORS,
@@ -36,6 +34,12 @@ export const login = (cred) => dispatch => (
 export const guestLogin = () => dispatch => (
   SessionUtils.login({username:"Joe Shmoe", password:"password"})
     .then((user) => dispatch(receiveUser(user)))
+    .fail((err) => dispatch(receiveErrors(err.responseJSON)))
+);
+
+export const guestWorkerLogin = () => dispatch => (
+  SessionUtils.login({username:"Timmy", password:"password"})
+    .then((worker) => dispatch(receiveUser(worker)))
     .fail((err) => dispatch(receiveErrors(err.responseJSON)))
 );
 
