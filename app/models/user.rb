@@ -21,6 +21,8 @@ class User < ActiveRecord::Base
 
   before_validation :ensure_token
 
+  has_many :jobs
+
   attr_reader :password
 
   def self.check_cred(username, password)

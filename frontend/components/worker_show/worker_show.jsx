@@ -1,7 +1,6 @@
 import React from 'react';
 
 const WorkerShow = ({worker, getWorkers}) => {
-  console.log(worker);
   if (worker) {
     return (
       <div className='worker-show'>

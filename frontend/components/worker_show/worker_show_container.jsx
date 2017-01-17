@@ -6,8 +6,6 @@ import WorkerShow from './worker_show';
 
 const mapStateToProps = (state, { params }) => {
   getWorkers();
-  console.log("params = ", params);
-  console.log("params = ", params['workerId']);
   return ({
     worker: state.workers[params['workerId']]
   });

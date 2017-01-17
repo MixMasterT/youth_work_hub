@@ -57,7 +57,6 @@ class Worker < ActiveRecord::Base
     self.session_token
   end
 
-#THIS VALIDATION IS NOT WORKING!!!
   def has_zip_or_gps
     if zip_code.blank? && (lat.blank? || lng.blank?)
       errors.add(:base, "Please provide either gps coords or zipcode")
@@ -69,5 +68,4 @@ class Worker < ActiveRecord::Base
     def ensure_token
       self.session_token ||= SecureRandom.urlsafe_base64(128)
     end
-
 end
