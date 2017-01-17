@@ -43,9 +43,10 @@ class LoginBox extends React.Component {
             ></i>
           <section className="popup-buttons">
               <button onClick={this.openModal('loginModal')}>Login</button>
+              <button onClick={this.props.guestLogin.bind(this)}>Guest</button>
               <button onClick={this.openModal('signupModal')}>Signup</button>
               <button onClick={this.openModal('workerSignupModal')}>Worker</button>
-              <button onClick={this.props.guestLogin.bind(this)}>Guest</button>
+              <button onClick={this.props.guestWorkerLogin.bind(this)}>Guest Worker</button>
             </section>
           </section>
         </div>
