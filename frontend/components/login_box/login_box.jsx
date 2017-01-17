@@ -14,7 +14,6 @@ class LoginBox extends React.Component {
   render() {
     if (this.props.currentUser) {
       const member = this.props.currentUser;
-      console.log(member);
       return (
         <div id="login-box">
           <section>

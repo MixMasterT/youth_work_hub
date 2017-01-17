@@ -36,7 +36,6 @@ class WorkersIndex extends React.Component {
   render() {
     const workers = this.props.workers;
     let workerIds = Object.keys(workers);
-    console.log(workerIds);
 
     const  workersArray = workerIds.map((id) => (
       <WorkersIndexItem key={id}
