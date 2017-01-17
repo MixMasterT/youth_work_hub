@@ -34,7 +34,7 @@ export const login = (cred) => dispatch => (
 );
 
 export const guestLogin = () => dispatch => (
-  SessionUtils.login({username:"JoeShmow", password:"password"})
+  SessionUtils.login({username:"Joe Shmoe", password:"password"})
     .then((user) => dispatch(receiveUser(user)))
     .fail((err) => dispatch(receiveErrors(err.responseJSON)))
 );

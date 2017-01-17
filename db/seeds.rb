@@ -7,9 +7,18 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 # Add guest User
-User.create(username:"JoeShmow",
+User.create(username:"Joe Shmoe",
             password:"password",
             email:"joe@shmow.com",
+            picture_url: "http://res.cloudinary.com/youth-work-hub/image/upload/v1484531943/ihtivxsbxovc8xo6xfva.png");
+
+
+# Add guest Worker
+Worker.create(username:"Timmy",
+            password:"password",
+            email:"timmy@oldtimey.com",
+            bio:"I love riding my bike, so make a good delivery boy. I have worked delivering newspapers and groceries. If you need anything delivered, I'm your man. I can also do yard work. I hope that I can save up enough money to buy a new bicycle soon!",
+            birth_date:"11/21/2004",
             picture_url: "http://res.cloudinary.com/youth-work-hub/image/upload/v1484531943/ihtivxsbxovc8xo6xfva.png");
 
 five_users = (1..5).to_a

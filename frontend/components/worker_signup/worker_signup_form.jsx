@@ -59,7 +59,6 @@ class WorkerSignupForm extends React.Component {
       });
     } else {
       this.props.signup(this.state).then((worker) => {
-        // this.props.login(worker);
         this.props.closeModal();
       });
     }
@@ -70,7 +69,6 @@ class WorkerSignupForm extends React.Component {
                                   upload_preset: 'profile_pic' },
                                   (error, result) => {
         this.setState({picture_url: result[0].secure_url});
-        // console.log("url = ", url);
       });
   }
 
