@@ -16,6 +16,7 @@ class SignupForm extends React.Component {
       passwordCheck: ""
     }, this.props.currentUser);
     this.update = this.update.bind(this);
+    this.goToLogin = this.goToLogin.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.validatePassword = this.validatePassword.bind(this);
     this.activateCloudinaryWidget = this.activateCloudinaryWidget.bind(this);
@@ -29,6 +30,11 @@ class SignupForm extends React.Component {
     const passCheck = this.state.passwordCheck;
     return (passCheck.length > 5 &&
       this.state.password === this.state.passwordCheck);
+  }
+
+  goToLogin() {
+    this.props.closeModal('signupModal');
+    this.props.openModal('loginModal');
   }
 
   handleSubmit(e) {
@@ -57,7 +63,8 @@ class SignupForm extends React.Component {
     this.props.closeModal('signupModal');
   }
 
-  activateCloudinaryWidget() {
+  activateCloudinaryWidget(e) {
+    e.preventDefault();
     cloudinary.openUploadWidget({ cloud_name: 'youth-work-hub',
                                   upload_preset: 'profile_pic' },
                                   (error, result) => {
@@ -74,75 +81,80 @@ class SignupForm extends React.Component {
     let text = "Sign Up";
     let password =
           <div>
-            <label className='field'>Password
-              { this.state.password.length < 6 &&
-                this.state.password.length > 0 ?
-                "- at least six characters long" :
-                ""
-              }<br/>
+            <div className='text-input'>
               <input type="password"
                 onChange={this.update('password')}
                 value={this.state.password}
                 required
                 />
-            </label>
+              <label for='password'>Password</label>
+            </div>
 
-            <label className='field'>Confirm-Password<br/>
+            <div className='text-input'>
               <input type="password"
                 onChange={this.update('passwordCheck')}
                 value={this.state.passwordCheck}
                 required
                 />
-            </label>
+              <label for='passwordCheck'>Confirm Password</label>
+            </div>
           </div>;
+
     if (this.props.currentUser) {
       text = "Edit Account";
       password = "";
     }
 
-    return(
+    return (
       <div className='form'>
+        <div className='modal-link'>
+          <p>Already a member <span onClick={this.goToLogin}>login here</span></p>
+        </div>
         <h2>{text}</h2>
-
         {(errors.length > 0) ? errList : null }
 
         <form onSubmit={this.handleSubmit}>
-          <label className='field'>Username<br/>
+          <div className='text-input'>
             <input type="text"
+              id="username"
               onChange={this.update('username')}
               value={this.state.username}
               required
-            />
-          </label>
+              />
+            <label for='userame'>Name</label>
+          </div>
 
-          <label className='field'>Email<br/>
+          <div className='text-input'>
             <input type="email"
+              id="email"
               onChange={this.update('email')}
               value={this.state.email}
               required
-            />
-          </label>
+              />
+            <label for='email'>Email</label>
+          </div>
 
-          <label className='field'>Phone<br/>
+          <div className='text-input'>
             <input type="text"
+              id="phone"
               onChange={this.update('phone_number')}
               value={this.state.phone_number}
-            />
-          </label>
+              required
+              />
+            <label for='phone_number'>Phone</label>
+          </div>
 
-
-          <label className='field'>Photo<br />
-            <input onFocus={this.activateCloudinaryWidget}
-                   onChange={this.update('picture_url')}
-                   value={this.state.picture_url}
-            />
-          </label>
+          <div className='photo-input'>
+            <button className='photo-button' onClick={this.activateCloudinaryWidget}>
+              Upload Photo
+            </button>
+          </div>
 
           { password }
 
           <button type="submit">{text}</button>
         </form>
-        <Link to="login">Log in</Link>
+
       </div>
     );
   }
