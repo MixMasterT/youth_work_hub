@@ -11,11 +11,7 @@ class Api::UsersController < ApplicationController
 
   def update
     if (current_user.nil? || current_user.id != user_params[:id].to_i)
-      render json: ["Permission denied",
-                      current_user.username,
-                      current_user.id,
-                      user_params[:id]
-                    ], status: 404
+      render json: ["Permission denied"], status: 404
     else
       @user = current_user;
       if @user.update_attributes(user_params)
