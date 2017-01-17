@@ -73,6 +73,7 @@ class WorkerSignupForm extends React.Component {
         // console.log("url = ", url);
       });
   }
+  
   render() {
     const errors = this.props.errors;
     const errList = <ul className="error-list">
