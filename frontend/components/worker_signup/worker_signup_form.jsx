@@ -59,7 +59,7 @@ class WorkerSignupForm extends React.Component {
       });
     } else {
       this.props.signup(this.state).then((worker) => {
-        this.props.login(worker);
+        // this.props.login(worker);
         this.props.closeModal();
       });
     }
@@ -73,7 +73,7 @@ class WorkerSignupForm extends React.Component {
         // console.log("url = ", url);
       });
   }
-  
+
   render() {
     const errors = this.props.errors;
     const errList = <ul className="error-list">
@@ -143,27 +143,24 @@ class WorkerSignupForm extends React.Component {
               onChange={this.update('phone_number')}
               value={this.state.phone_number}
               required
-              />
+            />
             <label for='phone_number'>Phone</label>
           </div>
 
           <div className='textarea-input'>
-            <input type="textarea"
-              id="bio"
+            <textarea id="bio"
               onChange={this.update('bio')}
-              value={this.state.bio}
-              />
+              value={this.props.bio}
+            />
             <label for='bio'>Brief bio</label>
           </div>
-
-
 
           <div className='date-input'>
             <input type="date"
               id="date-of-birth"
               onChange={this.update('birth_date')}
               value={this.state.birth_date}
-              />
+            />
             <label for='date-of-birth'>Date of birth</label>
           </div>
 
@@ -172,7 +169,7 @@ class WorkerSignupForm extends React.Component {
               id="zipcode"
               onChange={this.update('zip_code')}
               value={this.state.zip_code}
-              />
+            />
             <label for='zipcode'>Zipcode</label>
           </div>
 
@@ -183,7 +180,7 @@ class WorkerSignupForm extends React.Component {
               value={this.state.min_wage}
               min="0"
               step="1"
-              />
+            />
             <label for='min_wage'>Minimum Wage (dollars per hour)</label>
           </div>
 
