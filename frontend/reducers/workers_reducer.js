@@ -12,6 +12,8 @@ const WorkersReducer = (state = {}, action) => {
 
     case RECEIVE_CURRENT_WORKER:
       const cw = {[action.worker.id]: action.worker};
+      console.log("the current worker is ");
+      console.log(cw);
       return merge(newState, cw);
 
     default:
