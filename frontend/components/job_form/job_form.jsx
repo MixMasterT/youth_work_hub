@@ -39,12 +39,13 @@ class JobForm extends React.Component {
 
     const state = this.state;
     if (this.props.currentJob) {
-      this.props.editJob(this.state);
+      this.props.editJob(this.state)
+        .then(this.props.closeModal('jobFormModal'));
     } else {
       const id = this.props.currentUser.id;
-      this.props.addJob(merge(this.state, { user_id: id}));
+      this.props.addJob(merge(this.state, { user_id: id}))
+        .then(this.props.closeModal('jobFormModal'));
     }
-    this.props.closeModal('jobFormModal');
   }
 
   // activateCloudinaryWidget() {

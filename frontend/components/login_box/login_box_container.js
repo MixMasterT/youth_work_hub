@@ -7,6 +7,7 @@ import { login,
           logout} from '../../actions/session_actions';
 import { logoutWorker } from '../../actions/worker_actions';
 import { openModal, closeModal } from '../../actions/modal_actions';
+import { resetJobs } from '../../actions/job_actions';
 
 import LoginBox from './login_box';
 
@@ -15,6 +16,7 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
+  resetJobs: () => dispatch(resetJobs()),
   openModal: (modalName) => dispatch(openModal(modalName)),
   logout: () => dispatch(logout()),
   logoutWorker: () => dispatch(logoutWorker()),

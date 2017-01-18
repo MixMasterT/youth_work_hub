@@ -1,6 +1,7 @@
 import { RECEIVE_JOBS,
          ADD_JOB,
          EDIT_JOB,
+         RESET_JOBS,
          ACCEPT_JOB } from '../actions/job_actions';
 
 import merge from 'lodash/merge';
@@ -19,6 +20,9 @@ const JobsReducer = (state = {}, action) => {
     case EDIT_JOB:
       const changedJob = { [action.job.id]: action.job };
       return merge(newState, changedJob);
+
+    case RESET_JOBS:
+      return {};
 
     // case ACCEPT_JOB:
     //   const acceptedJob = { [action.job.id]: action.job };
