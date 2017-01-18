@@ -1,4 +1,16 @@
 class Job < ActiveRecord::Base
+
+  JOB_TYPES = ["art",
+               "baby-sitting",
+               "cleaning",
+               "computer work",
+               "gardening",
+               "kitchen work",
+               "lawn-mowing",
+               "music",
+               "tutoring",
+               "yard-work"]
+               
   validates :user_id,
             :description,
             :job_type,

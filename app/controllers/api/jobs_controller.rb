@@ -1,13 +1,12 @@
 class Api::JobsController < ApplicationController
   def index
-    @jobs = Jobs.all
+    @jobs = Job.all
     render :index
   end
 
   def create
     @job = Job.new(job_params)
     if @job.save
-      login!(@job)
       render :show
     else
       render json: @job.errors.full_messages, status: 401
@@ -24,7 +23,17 @@ class Api::JobsController < ApplicationController
   end
 
   def update
-    if (current_user.nil? || current_user.id != job_params[:user_id].to_i)
+    # if job_params[:type] == 'ACCEPT'
+    #   @job = Job.find_by(job_params[:id])
+    #   if @job
+    #     @job.update_attributes(status: 'DESIGNATED',
+    #                             worker_id: current_worker.id)
+    #     render :show
+    #   else
+    #     render json @job.errors.full_messages, status: 422
+    #   end
+    # els
+    if current_user.nil? || current_user.id != job_params[:user_id].to_i
       render json: ["Permission denied"], status: 404
     else
       @job = Job.find_by(id: params[:id]);
@@ -55,6 +64,7 @@ class Api::JobsController < ApplicationController
                                 :lng,
                                 :cost,
                                 :status,
-                                :worker_id)
+                                :worker_id,
+                                :type)
   end
 end
