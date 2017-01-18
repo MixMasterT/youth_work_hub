@@ -104,11 +104,18 @@ class SignupForm extends React.Component {
       password = "";
     }
 
+    const modalLink =
+      <div className='modal-link'>
+        <p>Already a member ? <span
+          onClick={this.goToLogin}>login here</span>
+        </p>
+      </div>;
+
     return (
       <div className='form'>
-        <div className='modal-link'>
-          <p>Already a member ? <span onClick={this.goToLogin}>login here</span></p>
-        </div>
+
+        {this.props.currentUser ? "" : modalLink}
+
         <h2>{text}</h2>
         {(errors.length > 0) ? errList : null }
 

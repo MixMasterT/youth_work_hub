@@ -41,6 +41,7 @@ const SessionReducer = (state = _nullUser, action) => {
       return newState;
 
     case RECEIVE_LOGOUT:
+      window.currentUser = null;
       return _nullUser;
     default:
       return state;

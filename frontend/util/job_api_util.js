@@ -24,6 +24,6 @@ export const takeJob = (job_id, worker_id ) => (
   $.ajax({
     url: `/api/jobs/${job_id}`,
     method: `PATCH`,
-    data: { worker_id }
+    data: { type: 'ACCEPT', worker_id }
   })
 );

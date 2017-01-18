@@ -6,6 +6,7 @@ import App from './app';
 import HomePage from './home_page/home_page';
 import WorkersIndexContainer from './workers_index/workers_index_container';
 import WorkerShowContainer from './worker_show/worker_show_container';
+import JobsIndexContainer from './jobs/jobs_index_container';
 
 const _redirectIfLoggedIn = store => (nextState, replace) => {
   const currentUser = store.getState().session.currentUser;
@@ -26,6 +27,7 @@ const Root = ({ store }) => (
         <Route path="/home" component={ HomePage } />
         <Route path="/workers" component={ WorkersIndexContainer } />
         <Route path="/workers/:workerId" component={ WorkerShowContainer } />
+        <Route path="/jobs" component={ JobsIndexContainer } />
       </Route>
     </Router>
   </Provider>
