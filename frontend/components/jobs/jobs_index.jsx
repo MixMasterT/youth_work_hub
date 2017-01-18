@@ -1,21 +1,7 @@
 import React from 'react';
 import { hashHistory } from 'react-router';
 
-// const JobsIndexItem = ({job, onClick}) => (
-//   <div className="workers-index-item" onClick={onClick}>
-//     <img src={worker.picture_url} />
-//     <div className='details'>
-//       <div className='name'>
-//         <label>Name:</label>
-//         <h3>{worker.username}</h3>
-//       </div>
-//       <div className='bio'>
-//         <label>bio:</label>
-//         <p>{worker.bio}</p>
-//       </div>
-//     </div>
-//   </div>
-// );
+import JobsIndexItem from './jobs_index_item';
 
 class JobsIndex extends React.Component {
   constructor(props) {
@@ -34,14 +20,16 @@ class JobsIndex extends React.Component {
   }
 
   render() {
-    // const workers = this.props.workers;
-    // let workerIds = Object.keys(workers);
-    //
-    // const  workersArray = workerIds.map((id) => (
-    //   <JobsIndexItem key={id}
-    //                     worker={workers[id]}
-    //                     onClick={this.redirectTo(id)}/>
-    // ));
+    const jobs = this.props.jobs;
+    let jobIds = Object.keys(jobs);
+    console.log(jobIds.map((id) => jobs[id]));
+
+    const  jobsArray = jobIds.map((id) => (
+      <JobsIndexItem key={id}
+                     job={jobs[id]}
+                     onClick={this.redirectTo(id)}/>
+    ));
+
     if (this.props.currentUser) {
       const text = this.props.currentUser.isWorker ?
       "Jobs Available to You" :
@@ -50,6 +38,7 @@ class JobsIndex extends React.Component {
       return (
         <div className="workers-index">
           <h1>{text}</h1>
+          { jobsArray }
           <button className='add-job'
                   onClick={this.props.openJobForm}>Post New Job
           </button>

@@ -1,6 +1,13 @@
 class Api::JobsController < ApplicationController
+
   def index
-    @jobs = Job.all
+    if current_user
+      @jobs = Job.all.where(user_id: current_user.id)
+    elsif current_worker
+      @jobs = Job.all.where(status: 'pending')
+    else
+      render json: ["Log in to view jobs."]
+    end
     render :index
   end
 

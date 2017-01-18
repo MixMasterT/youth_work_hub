@@ -12,8 +12,8 @@ import { signupWorker,
           logoutWorker,
           getWorkers } from './actions/worker_actions';
 
-import { addJob } from './actions/job_actions';
-import { postJob, fetchJobs } from './util/job_api_util';
+import { fetchJobs } from './actions/job_actions';
+
 
 import { fetchWorkers } from './util/worker_api_util';
 import { openModal } from './actions/modal_actions';
@@ -35,8 +35,7 @@ document.addEventListener('DOMContentLoaded', () => {
   window.signupWorker = signupWorker;
   window.loginWorker = loginWorker;
   window.logoutWorker = logoutWorker;
-  window.addJob = addJob;
-  window.postJob = postJob;
+
   window.fetchJobs = fetchJobs;
   Modal.setAppElement(document.getElementById('root'));
   window.store = store;

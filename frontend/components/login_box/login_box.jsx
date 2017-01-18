@@ -4,13 +4,26 @@ import { Link } from 'react-router';
 class LoginBox extends React.Component {
   constructor(props) {
     super(props);
+    this.openModal = this.openModal.bind(this);
+    this.handleLogout = this.handleLogout.bind(this);
   }
+
+  handleLogout() {
+    if (this.props.currentUser.isWorker) {
+      this.props.logoutWorker();
+    } else {
+      this.props.logout();
+    }
+    this.props.resetJobs();
+  }
+
   openModal(modalName) {
     return (e) => {
       e.preventDefault();
       this.props.openModal(modalName);
     };
   }
+
   render() {
     if (this.props.currentUser) {
       const member = this.props.currentUser;
@@ -24,10 +37,7 @@ class LoginBox extends React.Component {
                   this.openModal('workerSignupModal') :
                   this.openModal('signupModal')
               }>Edit Account</button>
-              <button onClick={(member.isWorker) ?
-                  this.props.logoutWorker :
-                  this.props.logout
-                }>Log out</button>
+            <button onClick={this.handleLogout}>Log out</button>
               </section>
           </section>
         </div>
