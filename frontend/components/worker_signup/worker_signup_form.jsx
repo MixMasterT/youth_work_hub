@@ -83,6 +83,7 @@ class WorkerSignupForm extends React.Component {
             <div className='text-input'>
               <input type="password"
                 onChange={this.update('password')}
+                placeholder=" "
                 value={this.state.password}
                 required
                 />
@@ -91,6 +92,7 @@ class WorkerSignupForm extends React.Component {
 
             <div className='text-input'>
               <input type="password"
+                placeholder=" "
                 onChange={this.update('passwordCheck')}
                 value={this.state.passwordCheck}
                 required
@@ -109,7 +111,10 @@ class WorkerSignupForm extends React.Component {
           onClick={this.goToLogin}>login here</span>
         </p>
       </div>;
-      
+    const today = new Date();
+    const minBirth = `${today.getFullYear()}-${today.getMonth()
+                      }-${today.getDate() + 1}`;
+
     return (
       <div className='form'>
 
@@ -124,6 +129,7 @@ class WorkerSignupForm extends React.Component {
           <div className='text-input'>
             <input type="text"
               id="username"
+              placeholder=" "
               onChange={this.update('username')}
               value={this.state.username}
               required
@@ -134,6 +140,7 @@ class WorkerSignupForm extends React.Component {
           <div className='text-input'>
             <input type="email"
               id="email"
+              placeholder=" "
               onChange={this.update('email')}
               value={this.state.email}
               required
@@ -144,6 +151,7 @@ class WorkerSignupForm extends React.Component {
           <div className='text-input'>
             <input type="text"
               id="phone"
+              placeholder=" "
               onChange={this.update('phone_number')}
               value={this.state.phone_number}
               required
@@ -155,6 +163,7 @@ class WorkerSignupForm extends React.Component {
             <textarea id="bio"
               onChange={this.update('bio')}
               value={this.props.bio}
+              placeholder=" "
             />
             <label for='bio'>Brief bio</label>
           </div>
@@ -164,13 +173,16 @@ class WorkerSignupForm extends React.Component {
               id="date-of-birth"
               onChange={this.update('birth_date')}
               value={this.state.birth_date}
+              placeholder=" "
+              min={minBirth}
             />
-          <label for='date-of-birth'>Birthdate</label>
+            <label for='date-of-birth'>Birthdate</label>
           </div>
 
           <div className='text-input'>
             <input type="text"
               id="zipcode"
+              placeholder=" "
               onChange={this.update('zip_code')}
               value={this.state.zip_code}
             />
@@ -179,13 +191,14 @@ class WorkerSignupForm extends React.Component {
 
           <div className='number-input'>
             <input type="number"
-              id="min_wage"
+              id="min-wage"
+              placeholder=" "
               onChange={this.update('min_wage')}
               value={this.state.min_wage}
               min="0"
               step="1"
             />
-          <label for='min_wage'>Minimum Wage ($/hr)</label>
+            <label for='min-wage'>Minimum Wage ($/hr)</label>
           </div>
 
           <div className='photo-input'>

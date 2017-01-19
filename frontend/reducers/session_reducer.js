@@ -25,7 +25,8 @@ const SessionReducer = (state = _nullUser, action) => {
       });
 
     case RECEIVE_CURRENT_WORKER:
-      const usr = merge(action.worker, { isWorker: true});
+      console.log(action.worker);
+      const usr = merge({}, action.worker);
       window.currentUser = usr;
       return ({
         currentUser: usr,

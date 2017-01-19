@@ -9,7 +9,7 @@ class LoginBox extends React.Component {
   }
 
   handleLogout() {
-    if (this.props.currentUser.isWorker) {
+    if (this.props.currentUser.zip_code) {
       this.props.logoutWorker();
     } else {
       this.props.logout();
@@ -31,9 +31,9 @@ class LoginBox extends React.Component {
         <div id="login-box">
           <section>
             <img alt="profile picture" src={member.picture_url} />
-            <h3>Hello {member.username}</h3>
+            <h3>Logout {member.username}</h3>
             <section className="popup logged-in">
-              <button onClick={(member.isWorker) ?
+              <button onClick={(member.zip_code) ?
                   this.openModal('workerSignupModal') :
                   this.openModal('signupModal')
               }>Edit Account</button>
@@ -50,6 +50,7 @@ class LoginBox extends React.Component {
                aria-hidden="true"
                id="user-icon"
             ></i>
+          <h3>Login</h3>
           <section className="popup-buttons">
               <button
                 onClick={this.openModal('loginModal')}
@@ -62,11 +63,11 @@ class LoginBox extends React.Component {
               </button>
               <button
                 onClick={this.openModal('signupModal')}
-                >Signup
+                >Employer Signup
               </button>
               <button
                 onClick={this.openModal('workerSignupModal')}
-                >Worker
+                >Worker Signup
               </button>
               <button
                 className='highlight'

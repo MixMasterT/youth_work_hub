@@ -5,17 +5,12 @@
       username: "Joe Shmow"
     }
     errors: []
-  }
-,
-  forms: {
-    signUp: {errors: []},
-    logIn: {errors: []},
-    addJob: {errors: ["body can't be blank"]}
   },
   Jobs: {
     1: {
+      id: 1,
       user_id: 3,
-      job_type: "child charged",
+      job_type: "child care",
       description: "We need someone to look after our son Michael on Saturday evening from 6pm until 11pm. He goes to be at 9, so you can watch TV or do your homework from 9-11!",
       location: "380 Arlington St. San Francisco CA, 94131",
       duration: 5,

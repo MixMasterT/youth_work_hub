@@ -1,5 +1,4 @@
-import { RECEIVE_ALL_WORKERS,
-         RECEIVE_CURRENT_WORKER } from '../actions/worker_actions';
+import { RECEIVE_ALL_WORKERS } from '../actions/worker_actions';
 
 import merge from 'lodash/merge';
 
@@ -9,11 +8,6 @@ const WorkersReducer = (state = {}, action) => {
   switch(action.type) {
     case RECEIVE_ALL_WORKERS:
       return action.workers;
-    //
-    // case RECEIVE_CURRENT_WORKER:
-    //   const cw = {[action.worker.id]: action.worker};
-    //   return merge(newState, cw);
-
     default:
       return state;
   }
