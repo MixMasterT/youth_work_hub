@@ -19,6 +19,15 @@
 
 .worker-show, .job-show {
   background: linear-gradient(90deg, $base-darker, $base-lighter);
+  width: 80%;
+  margin: 0 auto;
+
+  img {
+    width: 40%;
+    margin: 20px;
+    padding: 20px;
+    float: right;
+  }
 
   .job-show-details {
     p {
@@ -47,12 +56,6 @@
     p {
       margin: 20px;
       text-align: left;
-    }
-
-    img {
-      width: 30%;
-      margin: 20px;
-      padding: 20px;
     }
   }
 }

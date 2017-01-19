@@ -22,15 +22,21 @@ class JobForm extends React.Component {
 
   update(field) {
     return e => {
-      this.setState({[field]: e.target.value});
-      if (parseInt(this.state.wage) !== 0 && !isNaN(this.state.wage) &&
-          parseInt(this.state.duration) !== 0 && !isNaN(this.state.duration)) {
+      this.setState({[field]: e.target.value}, () => {
+        const wage = parseInt(this.state.wage);
+        const duration = parseInt(this.state.duration);
+        if (wage !== 0 && !isNaN(wage) &&
+        duration !== 0 && !isNaN(duration)) {
 
-        const cost = parseInt(this.state.wage) * parseInt(this.state.duration);
-        this.setState({ cost });
-        console.log(cost);
-      }
+          const cost = wage * duration;
+          this.setState({ cost });
+        }
+      });
     };
+  }
+
+  updateCost() {
+
   }
 
   handleSubmit(e) {
@@ -47,14 +53,6 @@ class JobForm extends React.Component {
         .then(this.props.closeModal('jobFormModal'));
     }
   }
-
-  // activateCloudinaryWidget() {
-  //   cloudinary.openUploadWidget({ cloud_name: 'youth-work-hub',
-  //                                 upload_preset: 'profile_pic' },
-  //                                 (error, result) => {
-  //       this.setState({picture_url: result[0].secure_url});
-  //     });
-  // }
 
   render() {
     const errors = this.props.errors;
@@ -143,7 +141,6 @@ class JobForm extends React.Component {
             <input type="checkbox"
               id="accept-cost"
               required
-              value={this.state.zip_code}
             />
             <label for='accept-cost'>Check to agree that you will pay
               this amount when the service is rendered.

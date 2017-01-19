@@ -4,11 +4,15 @@ export const validatePassword = (password, passCheck) => (
   passCheck.length > 5 && password === passCheck
 );
 
-export const errorsList = ({ errors }) => (
-  <ul className="error-list">
-    {errors.map((er) => <li key={er}>{er}</li>)}
-  </ul>
-);
+export const errorsList = ({ errors }) => {
+  // console.log("erros = ", errors);
+  return (
+    <ul className="error-list">
+      {errors.map((er) => <li key={er}>{er}</li>)}
+    </ul>
+  );
+};
+
 
 export const largeModalStyles = {
   overlay : {
@@ -17,10 +21,10 @@ export const largeModalStyles = {
   content : {
     height                     : 'auto',
     position                   : 'absolute',
-    top                        : '15%',
-    left                       : '15%',
-    right                      : '15%',
-    bottom                     : '15%',
+    top                        : '10%',
+    left                       : '25%',
+    right                      : '25%',
+    bottom                     : '10%',
     border                     : 'none',
     background                 : 'rgba(0,0,0,0)',
     overflow                   : 'auto',
@@ -37,9 +41,9 @@ export const smallModalStyles = {
   content : {
     height                     : 'auto',
     position                   : 'absolute',
-    top                        : '15%',
-    left                       : '15%',
-    right                      : '15%',
+    top                        : '25%',
+    left                       : '25%',
+    right                      : '25%',
     bottom                     : 'auto',
     border                     : 'none',
     background                 : 'rgba(0,0,0,0)',

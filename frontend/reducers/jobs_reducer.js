@@ -24,9 +24,9 @@ const JobsReducer = (state = {}, action) => {
     case RESET_JOBS:
       return {};
 
-    // case ACCEPT_JOB:
-    //   const acceptedJob = { [action.job.id]: action.job };
-    //   return merge(newState, acceptedJob);
+    case ACCEPT_JOB:
+      const acceptedJob = { [action.job.id]: action.job };
+      return merge(newState, acceptedJob);
 
     default:
       return state;

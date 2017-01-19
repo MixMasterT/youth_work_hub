@@ -18,16 +18,13 @@ const SessionReducer = (state = _nullUser, action) => {
   let newState = merge({}, state);
   switch (action.type) {
     case RECEIVE_CURRENT_USER:
-      window.currentUser = action.user;
       return ({
         currentUser: action.user,
         errors: []
       });
 
     case RECEIVE_CURRENT_WORKER:
-      console.log(action.worker);
       const usr = merge({}, action.worker);
-      window.currentUser = usr;
       return ({
         currentUser: usr,
         errors: []
@@ -42,7 +39,6 @@ const SessionReducer = (state = _nullUser, action) => {
       return newState;
 
     case RECEIVE_LOGOUT:
-      window.currentUser = null;
       return _nullUser;
     default:
       return state;

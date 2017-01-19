@@ -9,7 +9,7 @@ class JobShow extends React.Component {
   }
 
   componentDidMount() {
-    this.props.fetchJob(this.props.jobId);
+    this.props.fetchJob();
   }
 
   takeJob() {
@@ -18,7 +18,6 @@ class JobShow extends React.Component {
 
   render() {
     const job = this.props.job;
-    console.log(job);
     if (job.id) {
       const date = new Date(job.start_time);
       const dateString = date.toDateString();

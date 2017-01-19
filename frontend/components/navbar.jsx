@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, hashHistory, Router, Route } from 'react-router';
+import { Link, withRouter } from 'react-router';
 
 import classnames from 'classnames';
 
@@ -9,22 +9,24 @@ class Navbar extends React.Component {
   }
 
   render() {
-    console.log(this.props);
-
+    const path = this.props.router.location.pathname;
+    const home = (path.match(/\/home\//)) ? 'current' : '';
+    const workers = (path.match(/\/workers\//)) ? 'current' : '';
+    const jobs = (path.match(/\/jobs\//)) ? 'current' : '';
     return (
       <nav className='navbar'>
         <div className='inner'>
           <ul>
             <li>
-              <Link className={`h`} to={"/home"}>Home</Link>
+              <Link className={home} to={"/home"}>Home</Link>
             </li>
 
             <li>
-              <Link className={`w`} to={"/workers"}>Workers</Link>
+              <Link className={workers} to={"/workers"}>Workers</Link>
             </li>
 
             <li>
-              <Link className={`j`} to={"/jobs"}>Jobs</Link>
+              <Link className={jobs} to={"/jobs"}>Jobs</Link>
             </li>
           </ul>
         </div>
@@ -35,4 +37,4 @@ class Navbar extends React.Component {
 
 
 
-export default Navbar;
+export default withRouter(Navbar);

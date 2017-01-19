@@ -30,17 +30,18 @@ class Api::JobsController < ApplicationController
   end
 
   def update
-    # if job_params[:type] == 'ACCEPT'
-    #   @job = Job.find_by(job_params[:id])
-    #   if @job
-    #     @job.update_attributes(status: 'DESIGNATED',
-    #                             worker_id: current_worker.id)
-    #     render :show
-    #   else
-    #     render json @job.errors.full_messages, status: 422
-    #   end
-    # els
-    if current_user.nil? || current_user.id != job_params[:user_id].to_i
+    if params[:type] == 'ACCEPT' && current_worker
+      @job = Job.find_by(job_id: accept_job_params[:job_id])
+      if current_worker.id == accept_job_params[:worker_id]
+        if @job
+          @job.update_attributes(status: 'DESIGNATED',
+                                  worker_id: current_worker.id)
+          render :show
+        else
+          render json @job.errors.full_messages, status: 422
+        end
+      end
+    elsif current_user.nil? || current_user.id != job_params[:user_id].to_i
       render json: ["Permission denied"], status: 404
     else
       @job = Job.find_by(id: params[:id]);
@@ -56,6 +57,10 @@ class Api::JobsController < ApplicationController
         render json: ["No job record to modify"], status: 422
       end
     end
+  end
+
+  def accept_job_params
+    params.require(:acceptance).permit(:job_id, :worker_id)
   end
 
   def job_params

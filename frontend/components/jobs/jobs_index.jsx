@@ -13,6 +13,14 @@ class JobsIndex extends React.Component {
     this.props.fetchJobs();
   }
 
+  componentWillReceiveProps(newProps) {
+    console.log("currentUser is ", this.props.currentUser);
+    if(this.props.currentUser &&
+      this.props.currentUser.id !== newProps.currentUser.id) {
+      this.props.fetchJobs();
+    }
+  }
+
   redirectTo(str) {
     return () => {
       hashHistory.push(`/jobs/${str}`);
@@ -20,27 +28,29 @@ class JobsIndex extends React.Component {
   }
 
   render() {
-    const jobs = this.props.jobs;
-    let jobIds = Object.keys(jobs);
-
-    const  jobsArray = jobIds.map((id) => (
-      <JobsIndexItem key={id}
-                     job={jobs[id]}
-                     onClick={this.redirectTo(id)}/>
+    const  jobsArray = this.props.jobs.map((job) => (
+      <JobsIndexItem key={job.id}
+                     job={job}
+                     onClick={this.redirectTo(job.id)}/>
     ));
 
-    if (this.props.currentUser) {
-      const text = this.props.currentUser.isWorker ?
-      "Jobs Available to You" :
-      "Jobs You Have Posted";
+    let postJobButton =
+      <button className='add-job'
+        onClick={this.props.openJobForm}>Post New Job
+      </button>;
 
+    let text = "Jobs You Have Posted";
+
+    if (this.props.currentUser) {
+      if(this.props.currentUser.zip_code) {
+        postJobButton = "";
+        text = "Jobs Available to You";
+      }
       return (
         <div className="workers-index">
           <h1>{text}</h1>
           { jobsArray }
-          <button className='add-job'
-                  onClick={this.props.openJobForm}>Post New Job
-          </button>
+          { postJobButton }
         </div>
       );
     } else {

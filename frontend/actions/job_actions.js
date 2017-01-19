@@ -5,9 +5,8 @@ export const RECEIVE_JOBS = "RECEIVE_JOBS";
 export const RECEIVE_JOB = "RECEIVE_JOB";
 export const ADD_JOB = "ADD_JOB";
 export const EDIT_JOB = "EDIT_JOB";
-export const RESET_JOBS = "RESET_JOBS";
-
 export const ACCEPT_JOB = "ACCEPT_JOB";
+export const RESET_JOBS = "RESET_JOBS";
 
 const receiveJobs = (jobs) => ({
   type: RECEIVE_JOBS,
@@ -33,9 +32,9 @@ const clearJobs = () => ({
   type: RESET_JOBS
 });
 
-const takeJob = (workerId) => ({
-  type: EDIT_JOB,
-  workerId
+const takeJob = (job) => ({
+  type: ACCEPT_JOB,
+  job
 });
 
 export const fetchJobs = () => dispatch => (

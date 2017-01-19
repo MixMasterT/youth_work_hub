@@ -19,8 +19,10 @@ class AcceptJobForm extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     this.props.takeJob(this.props.job.id, this.props.currentUser.id)
-      .then(() => this.props.closeModal('acceptJobModal'))
-      .fail(() => this.props.receiveErrors('Unable to designate job'));
+      .then(() => {
+        this.props.resetErrors();
+        this.props.closeModal('acceptJobModal');
+      }).fail((err) => this.props.receiveErrors(err));
   }
 
   render() {
