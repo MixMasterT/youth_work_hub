@@ -4,10 +4,12 @@ import { openModal } from '../../actions/modal_actions';
 
 import { fetchJobs } from '../../actions/job_actions';
 
+import { jobsArray } from '../../reducers/selectors';
+
 import JobsIndex from './jobs_index';
 
 const mapStateToProps = state => ({
-  jobs: state.jobs,
+  jobs: jobsArray(state),
   currentUser: state.session.currentUser
 });
 

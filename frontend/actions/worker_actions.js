@@ -5,6 +5,7 @@ import { receiveErrors, receiveLogout } from './session_actions';
 export const RECEIVE_CURRENT_WORKER = "RECEIVE_CURRENT_WORKER";
 export const RECEIVE_ALL_WORKERS = "RECEIVE_ALL_WORKERS";
 export const LOGOUT_WORKER = "LOGOUT_WORKER";
+export const RECEIVE_SINGLE_WORKER = "RECEIVE_SINGLE_WORKER";
 
 export const receiveWorker = (worker) => ({
   type: RECEIVE_CURRENT_WORKER,
@@ -14,6 +15,11 @@ export const receiveWorker = (worker) => ({
 const receiveWorkers = (workers) => ({
   type: RECEIVE_ALL_WORKERS,
   workers
+});
+
+const receiveSingleWorker = (worker) => ({
+  type: RECEIVE_SINGLE_WORKER,
+  worker
 });
 
 export const loginWorker = (cred) => dispatch => (
@@ -40,5 +46,11 @@ export const editWorker = (worker) => dispatch => (
 export const getWorkers = () => dispatch => (
   WorkerUtils.fetchWorkers()
     .then((workers) => dispatch(receiveWorkers(workers)))
+    .fail((err) => dispatch(receiveErrors(err.responseJSON)))
+);
+
+export const getSingleWorker = (id) => dispatch => (
+  WorkerUtils.fetchWorker(id)
+    .then((worker) => dispatch(receiveSingleWorker(worker)))
     .fail((err) => dispatch(receiveErrors(err.responseJSON)))
 );

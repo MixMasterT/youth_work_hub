@@ -4,6 +4,12 @@ export const fetchJobs = () => (
   })
 );
 
+export const fetchJob = (id) => (
+  $.ajax({
+    url: `/api/jobs/${id}`
+  })
+);
+
 export const postJob = (job) => (
   $.ajax({
     url:'/api/jobs',

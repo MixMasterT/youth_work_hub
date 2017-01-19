@@ -52,14 +52,13 @@ class SignupForm extends React.Component {
       paramsKeys.forEach((k) => { params[k] = state[k]; });
       params['id'] = this.state.id;
       this.props.editUser(params).then(() => {
-        hashHistory.push('/');
+        this.props.closeModal('signupModal');
       });
     } else {
       this.props.signup(this.state).then(() => {
-        hashHistory.push('/');
+        this.props.closeModal('signupModal');
       });
     }
-    this.props.closeModal('signupModal');
   }
 
   activateCloudinaryWidget(e) {
@@ -82,6 +81,7 @@ class SignupForm extends React.Component {
           <div>
             <div className='text-input'>
               <input type="password"
+                placeholder=" "
                 onChange={this.update('password')}
                 value={this.state.password}
                 required
@@ -91,6 +91,7 @@ class SignupForm extends React.Component {
 
             <div className='text-input'>
               <input type="password"
+                placeholder=" "
                 onChange={this.update('passwordCheck')}
                 value={this.state.passwordCheck}
                 required
@@ -122,6 +123,7 @@ class SignupForm extends React.Component {
         <form onSubmit={this.handleSubmit}>
           <div className='text-input'>
             <input type="text"
+              placeholder=" "
               id="username"
               onChange={this.update('username')}
               value={this.state.username}
@@ -133,6 +135,7 @@ class SignupForm extends React.Component {
           <div className='text-input'>
             <input type="email"
               id="email"
+              placeholder=" "
               onChange={this.update('email')}
               value={this.state.email}
               required
@@ -143,6 +146,7 @@ class SignupForm extends React.Component {
           <div className='text-input'>
             <input type="text"
               id="phone"
+              placeholder=" "
               onChange={this.update('phone_number')}
               value={this.state.phone_number}
               required

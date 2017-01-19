@@ -54,6 +54,7 @@ class LoginForm extends React.Component {
 
           <div className='text-input'>
             <input type="text"
+              placeholder=" "
               id="username"
               onChange={this.update('username')}
               value={this.state.username}
@@ -64,6 +65,7 @@ class LoginForm extends React.Component {
 
           <div className='text-input'>
             <input type="password"
+              placeholder=" "              
               onChange={this.update('password')}
               value={this.state.password}
               required
