@@ -1,5 +1,13 @@
+import React from 'react';
+
 export const validatePassword = (password, passCheck) => (
   passCheck.length > 5 && password === passCheck
+);
+
+export const errorsList = ({ errors }) => (
+  <ul className="error-list">
+    {errors.map((er) => <li key={er}>{er}</li>)}
+  </ul>
 );
 
 export const largeModalStyles = {
