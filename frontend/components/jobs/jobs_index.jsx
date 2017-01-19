@@ -22,7 +22,6 @@ class JobsIndex extends React.Component {
   render() {
     const jobs = this.props.jobs;
     let jobIds = Object.keys(jobs);
-    console.log(jobIds.map((id) => jobs[id]));
 
     const  jobsArray = jobIds.map((id) => (
       <JobsIndexItem key={id}
