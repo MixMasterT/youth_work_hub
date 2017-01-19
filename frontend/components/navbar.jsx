@@ -1,24 +1,38 @@
 import React from 'react';
-import { Link } from 'react-router';
+import { Link, hashHistory, Router, Route } from 'react-router';
 
-const Navbar = () => (
-  <nav className='navbar'>
-    <div className='inner'>      
-      <ul>
-        <li>
-          <Link to={"/home"}>Home</Link>
-        </li>
+import classnames from 'classnames';
 
-        <li>
-          <Link to={"/workers"}>Workers</Link>
-        </li>
+class Navbar extends React.Component {
+  constructor(props) {
+    super(props);
+  }
 
-        <li>
-          <Link to={"/jobs"}>Jobs</Link>
-        </li>
-      </ul>
-    </div>
-  </nav>
-);
+  render() {
+    console.log(this.props);
+
+    return (
+      <nav className='navbar'>
+        <div className='inner'>
+          <ul>
+            <li>
+              <Link className={`h`} to={"/home"}>Home</Link>
+            </li>
+
+            <li>
+              <Link className={`w`} to={"/workers"}>Workers</Link>
+            </li>
+
+            <li>
+              <Link className={`j`} to={"/jobs"}>Jobs</Link>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    );
+  }
+}
+
+
 
 export default Navbar;

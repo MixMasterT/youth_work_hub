@@ -9,7 +9,8 @@ const _allClosed = {
   loginModal: false,
   signupModal: false,
   workerSignupModal: false,
-  jobFormModal: false
+  jobFormModal: false,
+  acceptJobModal: false
 };
 
 const ModalReducer = (state = _allClosed, action) => {

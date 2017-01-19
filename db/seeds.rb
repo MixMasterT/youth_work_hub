@@ -60,3 +60,9 @@ five_workers.each do |n|
                   email:"W#{n}@w.com",
                   zip_code: "94131")
 end
+
+# job_descriptions = { description: "clean my kicthen",
+#                      job_type: "cleaning",
+#                      duration: 2,
+#                      start_time: ,
+#                      }

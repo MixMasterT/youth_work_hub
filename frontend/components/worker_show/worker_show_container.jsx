@@ -1,6 +1,7 @@
 import { connect } from 'react-redux';
 
 import { getSingleWorker } from '../../actions/worker_actions';
+import { fetchJob } from '../../actions/job_actions';
 
 import WorkerShow from './worker_show';
 
@@ -14,6 +15,7 @@ const mapStateToProps = (state, { params }) => {
 };
 
 const mapDispatchToProps = dispatch => ({
+  fetchJob: dispatch(fetchJob()),
   getSingleWorker: (id) => dispatch(getSingleWorker(id))
 });
 
