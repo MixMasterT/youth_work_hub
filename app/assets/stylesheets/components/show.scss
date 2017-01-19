@@ -1,0 +1,58 @@
+@import './base/colors';
+
+.worker-show {
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+.job-show {
+  display: flex;
+  flex-direction: column;
+
+  button {
+    background: linear-gradient(0deg, $contrast-darkest, $contrast-light);
+    width: 100px;
+    margin: 0 auto;
+    margin-bottom: 50px;
+  }
+}
+
+.worker-show, .job-show {
+  background: linear-gradient(90deg, $base-darker, $base-lighter);
+
+  .job-show-details {
+    p {
+      color: $contrast-lighter;
+      position: relative;
+      left: 100px;
+    }
+  }
+  div {
+    padding: 20px;
+    margin:20px;
+
+    h2 {
+      margin-top: 25px;
+    }
+
+    h4 {
+      margin-top: 20px;
+    }
+
+    h5 {
+      text-align: left;
+      text-indent: 40px;
+    }
+
+    p {
+      margin: 20px;
+      text-align: left;
+    }
+
+    img {
+      width: 30%;
+      margin: 20px;
+      padding: 20px;
+    }
+  }
+}
