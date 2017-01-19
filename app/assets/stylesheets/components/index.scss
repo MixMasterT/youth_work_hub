@@ -1,8 +1,9 @@
 @import './base/colors.scss';
 
-.workers-index {
+.workers-index, .jobs-index {
   margin: 0 auto;
   margin-top: 20px;
+  cursor: pointer;
   border: 3px solid $base-dark;
   width: 80%;
   display: flex;
@@ -13,9 +14,9 @@
     margin: 20px;
   }
 
-  .workers-index-item {
+  .workers-index-item, .jobs-index-item {
     padding: 20px;
-    background-color: $base-darker;
+    background: linear-gradient(45deg, $base-light, $base-dark);
     width: 90%;
     margin: 20px;
 
@@ -29,6 +30,17 @@
     .details {
       display: flex;
       flex-direction: row;
+      justify-content: space-around;
+
+      h4, h5 {
+        margin-top: 20px;
+      }
+
+      p {
+        background-color: white;
+        padding: 20px;
+        margin: 20px;
+      }
 
       .name {
         width: 30%;
@@ -37,14 +49,14 @@
         }
       }
 
-      .bio {
-        p {
-          background-color: white;
-          margin: 20px;
-        }
+      .bio, .description {
+
       }
 
     }
 
   }
+}
+.workers-index-item:hover, .jobs-index-item:hover {
+  background: linear-gradient(45deg, $base-lighter, $base-light);
 }

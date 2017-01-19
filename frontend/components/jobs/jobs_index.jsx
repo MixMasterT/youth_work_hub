@@ -14,8 +14,6 @@ class JobsIndex extends React.Component {
   }
 
   componentWillReceiveProps(newProps) {
-    console.log(this.props.currentUser);
-    console.log(newProps.currentUser);
     if(this.props.currentUser &&
       this.props.currentUser.id !== newProps.currentUser.id) {
       this.props.fetchJobs();
@@ -30,7 +28,8 @@ class JobsIndex extends React.Component {
 
   render() {
     const  jobsArray = this.props.jobs.map((job) => (
-      <JobsIndexItem key={job.id}
+      <JobsIndexItem className='jobs-index-item'
+                     key={job.id}
                      job={job}
                      onClick={this.redirectTo(job.id)}/>
     ));
@@ -41,14 +40,15 @@ class JobsIndex extends React.Component {
       </button>;
 
     let text = "Jobs You Have Posted";
-
+    console.log("currentUser is ", this.props.currentUser);
     if (this.props.currentUser) {
-      if(this.props.currentUser.zip_code) {
+
+      if(this.props.currentUser.isWorker) {
         postJobButton = "";
         text = "Jobs Available to You";
       }
       return (
-        <div className="workers-index">
+        <div className="jobs-index">
           <h1>{text}</h1>
           { jobsArray }
           { postJobButton }

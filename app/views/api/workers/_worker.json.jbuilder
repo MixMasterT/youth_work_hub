@@ -9,3 +9,4 @@ json.extract! worker, :id,
                       :zip_code,
                       :birth_date,
                       :min_wage
+json.isWorker true

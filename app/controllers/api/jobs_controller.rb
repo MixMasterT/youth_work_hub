@@ -32,14 +32,14 @@ class Api::JobsController < ApplicationController
 
   def update
     if params[:type] == 'ACCEPT' && current_worker
-      @job = Job.find_by(job_id: accept_job_params[:job_id])
+      @job = Job.find_by(id: accept_job_params[:job_id])
       if current_worker.id == accept_job_params[:worker_id]
         if @job
           @job.update_attributes(status: 'DESIGNATED',
                                   worker_id: current_worker.id)
           render :show
         else
-          render json @job.errors.full_messages, status: 422
+          render json: @job.errors.full_messages, status: 422
         end
       end
     elsif current_user.nil? || current_user.id != job_params[:user_id].to_i

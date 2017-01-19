@@ -22,11 +22,14 @@ class JobShow extends React.Component {
       const date = new Date(job.start_time);
       const dateString = date.toDateString();
       const time = date.toTimeString().split(/\s/)[0];
-      const acceptButton = this.props.currentUser.zip_code ?
-        (<button className='accept-job'
-          onClick={this.takeJob}
-          >Accept Job</button>) :
-           "";
+
+      let acceptButton = "";
+
+      if (this.props.currentUser && this.props.currentUser.isWorker) {
+        acceptButton = <button className='accept-job'
+                          onClick={this.takeJob}
+                       >Accept Job</button>;
+      }
 
       return (
         <div className='job-show'>
@@ -60,7 +63,7 @@ class JobShow extends React.Component {
             </div>
 
           </div>
-          { this.props.currentUser.zip_code ? acceptButton : "" }
+          { this.props.currentUser.isWorker ? acceptButton : "" }
         </div>
       );
     } else {

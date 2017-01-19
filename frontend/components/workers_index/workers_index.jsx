@@ -6,11 +6,11 @@ const WorkersIndexItem = ({worker, onClick}) => (
     <img src={worker.picture_url} />
     <div className='details'>
       <div className='name'>
-        <label>Name:</label>
+        <h4>Name:</h4>
         <h3>{worker.username}</h3>
       </div>
       <div className='bio'>
-        <label>bio:</label>
+        <h4>Bio:</h4>
         <p>{worker.bio}</p>
       </div>
     </div>
