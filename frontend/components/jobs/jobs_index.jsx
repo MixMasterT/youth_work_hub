@@ -14,7 +14,6 @@ class JobsIndex extends React.Component {
   }
 
   componentWillReceiveProps(newProps) {
-    console.log("currentUser is ", this.props.currentUser);
     if(this.props.currentUser &&
       this.props.currentUser.id !== newProps.currentUser.id) {
       this.props.fetchJobs();

@@ -21,7 +21,8 @@ nav {
     justify-content: space-around;
 
     .current {
-      color: $base-lighter;
+      color: $base-lightest;
+      background-color: $overlay;
     }
   }
 

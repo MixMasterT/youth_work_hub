@@ -10,9 +10,13 @@ class Navbar extends React.Component {
 
   render() {
     const path = this.props.router.location.pathname;
-    const home = (path.match(/\/home\//)) ? 'current' : '';
-    const workers = (path.match(/\/workers\//)) ? 'current' : '';
-    const jobs = (path.match(/\/jobs\//)) ? 'current' : '';
+    console.log("path is: ", path);
+    const home = (path.match(/\/home/)) ? 'current' : '';
+    const workers = (path.match(/\/workers/)) ? 'current' : '';
+    const jobs = (path.match(/\/jobs/)) ? 'current' : '';
+    console.log("home class = ", home);
+    console.log("workers class = ", workers);
+    console.log("jobs class = ", jobs);
     return (
       <nav className='navbar'>
         <div className='inner'>
