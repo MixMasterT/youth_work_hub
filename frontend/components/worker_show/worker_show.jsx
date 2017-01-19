@@ -11,30 +11,33 @@ class WorkerShow extends React.Component {
 
   render() {
     const worker = this.props.worker;
-    if (worker) {
+    if (worker.id) {
       return (
         <div className='worker-show'>
-          <h2>Worker Profile</h2>
           <img src={worker.picture_url} />
           <div className='worker-show-text'>
+            <h2>Worker Profile</h2>
             <h4>{worker.username}</h4>
-            <label>bio:
+            <div>
+              <h5>bio:</h5>
               <p>{(worker.bio) ? worker.bio :
                     "This worker has not provided a biography."}
               </p>
-            </label>
-            <label>birth_date:
+            </div>
+            <div>
+              <h5>birth_date:</h5>
               <p>{(worker.birth_date) ? worker.birth_date :
                     "This worker's date is not in our records."}</p>
-            </label>
-            <label>zip_code:
-              <p>{(worker.zip_code) ? worker.zip_code :
-                    "This worker's zipcode is not available'."}</p>
-            </label>
-            <label>minimum desired wage:
-              <p>{(worker.min_wage) ? worker.min_wage :
-                    "This worker has not chosen a minimum wage."}</p>
-            </label>
+                </div>
+            <div>
+              <h5>zip_code: {(worker.zip_code) ? worker.zip_code :
+                  "information unavailable."}</h5>
+
+            </div>
+            <div>
+              <h5>minimum desired wage: {(worker.min_wage) ? worker.min_wage :
+                    "information unavailable."}</h5>
+              </div>
           </div>
         </div>
       );
