@@ -38,7 +38,7 @@ class JobShow extends React.Component {
           <div className='job-show-details'>
             <Link to="/jobs">Back to all Jobs</Link>
             <h2><span>{job.job_type}
-            </span> Job on: <span>{dateString}</span></h2>
+            </span> Job <span>{dateString}</span></h2>
 
             <table>
               <tr>
@@ -78,7 +78,7 @@ class JobShow extends React.Component {
               </tr>
               <tr>
                 <td>status: </td>
-                <td>${job.status}</td>
+                <td>{job.status}</td>
               </tr>
 
             </table>

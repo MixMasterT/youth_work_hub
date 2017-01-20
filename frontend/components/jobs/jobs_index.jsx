@@ -49,7 +49,7 @@ class JobsIndex extends React.Component {
       return (
         <div className="jobs-index">
           <h1>{text}</h1>
-          <h3>Click job for more information!</h3>
+          <h3>Click on each job for more information!</h3>
           { jobsArray }
           { postJobButton }
         </div>

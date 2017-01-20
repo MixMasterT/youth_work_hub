@@ -36,6 +36,15 @@
     float: right;
   }
 
+  a {
+    font-size: 1.2em;
+    color: $base-lightest;
+    cursor: pointer;
+  }
+  a:hover {
+    text-decoration: underline;
+  }
+
   .job-show-details {
     span {
       color: $contrast-lighter;
@@ -43,7 +52,7 @@
     }
     table {
       margin: 30px auto;
-
+      border: 2px $contrast-dark solid;
     }
 
     th {
@@ -57,7 +66,7 @@
       vertical-align: center;
     }
     tr:nth-child(odd) {
-      background-color: $contrast-lighter;
+      background-color: $contrast-light;
     }
     tr:nth-child(even) {
       background-color: white;
