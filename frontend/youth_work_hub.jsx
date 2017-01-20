@@ -5,7 +5,7 @@ import Modal from 'react-modal';
 
 import Root from './components/root';
 
-import { login } from './actions/session_actions';
+import { login, frontendErrors } from './actions/session_actions';
 
 import { signupWorker,
           loginWorker,
@@ -35,6 +35,7 @@ document.addEventListener('DOMContentLoaded', () => {
   window.signupWorker = signupWorker;
   window.loginWorker = loginWorker;
   window.logoutWorker = logoutWorker;
+  window.frontendErrors = frontendErrors;
 
   window.fetchJobs = fetchJobs;
   Modal.setAppElement(document.getElementById('root'));

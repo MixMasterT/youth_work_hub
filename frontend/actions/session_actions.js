@@ -58,3 +58,7 @@ export const logout = () => dispatch => (
   SessionUtils.logout().then((user) => dispatch(receiveLogout()))
     .fail((err) => dispatch(receiveErrors(err.responseJSON)))
 );
+
+export const frontendErrors = (errs) => dispatch => (
+  dispatch(receiveErrors(errs))
+);

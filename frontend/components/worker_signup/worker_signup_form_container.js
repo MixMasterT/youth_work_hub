@@ -6,7 +6,7 @@ import { loginWorker,
 
 import { openModal, closeModal } from '../../actions/modal_actions';
 
-import { resetErrors } from '../../actions/session_actions';
+import { resetErrors, frontendErrors } from '../../actions/session_actions';
 
 import WorkerSignupModal from './worker_signup_form_modal';
 
@@ -17,6 +17,7 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
+  frontendErrors: (errs) => dispatch(frontendErrors(errs)),
   login: (cred) => dispatch(loginWorker(cred)),
   signup: (user) => dispatch(signupWorker(user)),
   edit: (worker) => dispatch(editWorker(worker)),

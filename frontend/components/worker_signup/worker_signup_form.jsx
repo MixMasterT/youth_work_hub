@@ -42,25 +42,29 @@ class WorkerSignupForm extends React.Component {
 
   handleSubmit(e) {
 
-    e.preventDefault();
-
-    const state = this.state;
-    if (this.props.currentUser) {
-      const paramsKeys = Object.keys(state).map((key) => {
-        if (state[key] !== "" && state[key] !== null) {
-          return key;
-        }
-      });
-      const params = {};
-      paramsKeys.forEach((k) => { params[k] = state[k]; });
-      params['id'] = this.state.id;
-      this.props.edit(params).then(() => {
-        this.props.closeModal();
-      });
+    if(this.state.password !== this.state.passwordCheck) {
+      this.props.frontendErrors(["Passwords do not match"]);
     } else {
-      this.props.signup(this.state).then((worker) => {
-        this.props.closeModal();
-      });
+      e.preventDefault();
+
+      const state = this.state;
+      if (this.props.currentUser) {
+        const paramsKeys = Object.keys(state).map((key) => {
+          if (state[key] !== "" && state[key] !== null) {
+            return key;
+          }
+        });
+        const params = {};
+        paramsKeys.forEach((k) => { params[k] = state[k]; });
+        params['id'] = this.state.id;
+        this.props.edit(params).then(() => {
+          this.props.closeModal();
+        });
+      } else {
+        this.props.signup(this.state).then((worker) => {
+          this.props.closeModal();
+        });
+      }
     }
   }
 

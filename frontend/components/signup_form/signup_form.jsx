@@ -38,26 +38,31 @@ class SignupForm extends React.Component {
   }
 
   handleSubmit(e) {
-
-    e.preventDefault();
-
-    const state = this.state;
-    if (this.props.currentUser) {
-      const paramsKeys = Object.keys(state).map((key) => {
-        if (state[key] !== "" && state[key] !== null) {
-          return key;
-        }
-      });
-      const params = {};
-      paramsKeys.forEach((k) => { params[k] = state[k]; });
-      params['id'] = this.state.id;
-      this.props.editUser(params).then(() => {
-        this.props.closeModal('signupModal');
-      });
+    console.log(this.state.password);
+    console.log(this.state.passwordCheck);
+    if(this.state.password !== this.state.passwordCheck) {
+      this.props.frontendErrors(["passwords do not match"]);
     } else {
-      this.props.signup(this.state).then(() => {
-        this.props.closeModal('signupModal');
-      });
+      e.preventDefault();
+
+      const state = this.state;
+      if (this.props.currentUser) {
+        const paramsKeys = Object.keys(state).map((key) => {
+          if (state[key] !== "" && state[key] !== null) {
+            return key;
+          }
+        });
+        const params = {};
+        paramsKeys.forEach((k) => { params[k] = state[k]; });
+        params['id'] = this.state.id;
+        this.props.editUser(params).then(() => {
+          this.props.closeModal('signupModal');
+        });
+      } else {
+        this.props.signup(this.state).then(() => {
+          this.props.closeModal('signupModal');
+        });
+      }
     }
   }
 

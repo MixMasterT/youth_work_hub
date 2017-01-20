@@ -10,7 +10,7 @@
 User.create(username:"Joe Shmoe",
             password:"password",
             email:"joe@shmow.com",
-            picture_url: "http://res.cloudinary.com/youth-work-hub/image/upload/v1484531943/ihtivxsbxovc8xo6xfva.png");
+            picture_url: "http://res.cloudinary.com/youth-work-hub/image/upload/v1484531943/ihtivxsbxovc8xo6xfva.png")
 
 
 # Add guest Worker
@@ -20,7 +20,7 @@ Worker.create(username:"Timmy",
             bio:"I love riding my bike, so make a good delivery boy. I have worked delivering newspapers and groceries. If you need anything delivered, I'm your man. I can also do yard work. I hope that I can save up enough money to buy a new bicycle soon!",
             birth_date:"11/21/2004",
             zip_code:"94314",
-            picture_url: "http://res.cloudinary.com/youth-work-hub/image/upload/v1484624792/almzrlg2cjyapu3zocss.png");
+            picture_url: "http://res.cloudinary.com/youth-work-hub/image/upload/v1484624792/almzrlg2cjyapu3zocss.png")
 
 Worker.create(username:"Arnold",
             password:"password",
@@ -28,7 +28,7 @@ Worker.create(username:"Arnold",
             bio:"I love skateboarding. I will entertain you with my excellent skateboarding skills. Hire me as a pro rider!",
             birth_date:"11/21/2004",
             zip_code:"94235",
-            picture_url: "https://res.cloudinary.com/youth-work-hub/image/upload/v1484626488/dfw4azklc4beac7ecqkt.png");
+            picture_url: "https://res.cloudinary.com/youth-work-hub/image/upload/v1484626488/dfw4azklc4beac7ecqkt.png")
 
 Worker.create(username:"Sam",
             password:"password",
@@ -46,7 +46,7 @@ Worker.create(username:"Sarah",
             birth_date:"5/28/2004",
             zip_code:"97212",
             min_wage: "12",
-            picture_url: "http://res.cloudinary.com/youth-work-hub/image/upload/v1484588140/txto2vhpouerfnfo52uh.png");
+            picture_url: "http://res.cloudinary.com/youth-work-hub/image/upload/v1484588140/txto2vhpouerfnfo52uh.png")
 
 
 Worker.create(username: 'Ariana',
