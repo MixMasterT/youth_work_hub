@@ -6,7 +6,10 @@ const JobsIndexItem = ({job, onClick}) => {
   const time = date.toTimeString().split(/\s/)[0];
   return (
     <div className="jobs-index-item" onClick={onClick}>
-      <h3>{job.job_type}</h3>
+      <div className='job-index-item-heading'>
+        <h5>status: {job.status}</h5>
+        <h3>{job.job_type}</h3>
+      </div>
       <div className='details'>
         <div className='descrition'>
           <h5>Date: {dateString}</h5>
