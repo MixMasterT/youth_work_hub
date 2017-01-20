@@ -32,25 +32,26 @@ class Api::JobsController < ApplicationController
 
   def update
     if params[:type] == 'ACCEPT' && current_worker
-      @job = Job.find_by(id: accept_job_params[:job_id])
-      if current_worker.id == accept_job_params[:worker_id]
-        if @job
-          @job.update_attributes(status: 'DESIGNATED',
-                                  worker_id: current_worker.id)
-          render :show
+      @job = Job.find_by(id: params[:id])
+      if @job
+        if @job.update_attributes(status: 'designated',
+                                worker_id: current_worker.id)
+          render json: ["Success! You are booked to do this job!"]
         else
           render json: @job.errors.full_messages, status: 422
         end
+      else
+        render json: ["No job record to modify"], status: 422
       end
     elsif current_user.nil? || current_user.id != job_params[:user_id].to_i
       render json: ["Permission denied"], status: 404
     else
       @job = Job.find_by(id: params[:id]);
       if @job
-        if @job.status != 'PENDING'
+        if @job.status != 'pending'
           render json: ["A worker has already accepted this job!"], status: 404
         elsif @job.update_attributes(job_params)
-          render :show
+          render json: ["success! This job posting has been updated."]
         else
           render json: @job.errors.full_messages, status: 401
         end

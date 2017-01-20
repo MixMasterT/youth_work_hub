@@ -8,10 +8,13 @@ import { jobsArray } from '../../reducers/selectors';
 
 import JobsIndex from './jobs_index';
 
-const mapStateToProps = state => ({
-  jobs: jobsArray(state),
-  currentUser: state.session.currentUser
-});
+const mapStateToProps = state => {
+  return ({
+    jobsArray: jobsArray(state),
+    jobs: state.jobs,
+    currentUser: state.session.currentUser
+  });
+};
 
 const mapDispatchToProps = dispatch => ({
   openJobForm: () => dispatch(openModal('jobFormModal')),

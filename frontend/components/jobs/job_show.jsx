@@ -1,5 +1,7 @@
 import React from 'react';
 
+import { Link } from 'react-router';
+
 import { takeJob } from '../../util/job_api_util';
 
 class JobShow extends React.Component {
@@ -34,34 +36,52 @@ class JobShow extends React.Component {
       return (
         <div className='job-show'>
           <div className='job-show-details'>
-            <h2>Job on: {dateString}</h2>
-            <h4>Type of work: {job.job_type}</h4>
-            <div>
-              <h5>description:</h5>
-              <p>{job.description}</p>
-            </div>
-            <div>
-              <h5>time:</h5>
-              <p>{time}</p>
-            </div>
-            <div>
-              <h5>address:</h5>
-              <p>{(job.address) ? job.address :
-                    "This job's address was not specified'."}</p>
-                </div>
-            <div>
-              <h5>hourly wage:</h5>
-              <p>${job.wage} per hour</p>
-            </div>
-            <div>
-              <h5>duration of job:</h5>
-              <p>${job.duration} hours</p>
-            </div>
-            <div>
-              <h5>total cost::</h5>
-              <p>${job.cost}</p>
-            </div>
+            <Link to="/jobs">Back to all Jobs</Link>
+            <h2><span>{job.job_type}
+            </span> Job on: <span>{dateString}</span></h2>
 
+            <table>
+              <tr>
+                <th>Type of work</th>
+                <th>{job.job_type}</th>
+              </tr>
+
+              <tr>
+                <td>description: </td>
+                <td>{job.description}</td>
+              </tr>
+
+              <tr>
+                <td>address: </td>
+                <td>{(job.address) ? job.address :
+                      "This job's address was not specified'."}</td>
+              </tr>
+
+              <tr>
+                <td>time: </td>
+                <td>{time}</td>
+              </tr>
+
+              <tr>
+                <td>hourly wage: </td>
+                <td>${job.wage} per hour</td>
+              </tr>
+
+              <tr>
+                <td>duration of job: </td>
+                <td>{job.duration} hours</td>
+              </tr>
+
+              <tr>
+                <td>total cost: </td>
+                <td>${job.cost}</td>
+              </tr>
+              <tr>
+                <td>status: </td>
+                <td>${job.status}</td>
+              </tr>
+
+            </table>
           </div>
           { this.props.currentUser.isWorker ? acceptButton : "" }
         </div>

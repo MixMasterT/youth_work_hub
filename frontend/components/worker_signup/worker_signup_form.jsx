@@ -169,6 +169,7 @@ class WorkerSignupForm extends React.Component {
           </div>
 
           <div className='date-input'>
+            <label for='date-of-birth'>Birthdate</label>
             <input type="date"
               id="date-of-birth"
               onChange={this.update('birth_date')}
@@ -176,7 +177,6 @@ class WorkerSignupForm extends React.Component {
               placeholder=" "
               min={minBirth}
             />
-            <label for='date-of-birth'>Birthdate</label>
           </div>
 
           <div className='text-input'>
@@ -190,6 +190,7 @@ class WorkerSignupForm extends React.Component {
           </div>
 
           <div className='number-input'>
+            <label for='min-wage'>Min Wage ($/hr)</label>
             <input type="number"
               id="min-wage"
               placeholder=" "
@@ -198,7 +199,6 @@ class WorkerSignupForm extends React.Component {
               min="0"
               step="1"
             />
-            <label for='min-wage'>Minimum Wage ($/hr)</label>
           </div>
 
           <div className='photo-input'>

@@ -9,6 +9,13 @@
   display: flex;
   flex-direction: column;
 
+  .job-show-details {
+    div {
+      display: flex;
+      flex-direction: row;
+    }
+  }
+
   button {
     background: linear-gradient(0deg, $contrast-darkest, $contrast-light);
     width: 100px;
@@ -30,10 +37,30 @@
   }
 
   .job-show-details {
-    p {
+    span {
       color: $contrast-lighter;
-      position: relative;
-      left: 100px;
+      position:relative;
+    }
+    table {
+      margin: 30px auto;
+
+    }
+
+    th {
+      font-size: 150%;
+      padding: 25px;
+    }
+
+    td {
+      padding: 20px;
+      height: 200%;
+      vertical-align: center;
+    }
+    tr:nth-child(odd) {
+      background-color: $contrast-lighter;
+    }
+    tr:nth-child(even) {
+      background-color: white;
     }
   }
   div {
@@ -41,7 +68,7 @@
     margin:20px;
 
     h2 {
-      margin-top: 25px;
+      margin: 25px;
     }
 
     h4 {

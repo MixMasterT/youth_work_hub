@@ -18,7 +18,7 @@ class AcceptJobForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    this.props.acceptJob(this.props.job.id, this.props.currentUser.id)
+    this.props.acceptJob(this.props.job, this.props.currentUser.id)
       .then(() => {
         this.props.resetErrors();
         this.props.closeModal('acceptJobModal');

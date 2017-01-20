@@ -1,5 +1,7 @@
 import React from 'react';
 
+import { Link } from 'react-router';
+
 class WorkerShow extends React.Component {
   constructor(props) {
     super(props);
@@ -18,26 +20,32 @@ class WorkerShow extends React.Component {
           <div className='worker-show-text'>
             <h2>Worker Profile</h2>
             <h4>{worker.username}</h4>
-            <div>
-              <h5>bio:</h5>
-              <p>{(worker.bio) ? worker.bio :
-                    "This worker has not provided a biography."}
-              </p>
-            </div>
-            <div>
-              <h5>birth_date:</h5>
-              <p>{(worker.birth_date) ? worker.birth_date :
-                    "This worker's date is not in our records."}</p>
-                </div>
-            <div>
-              <h5>zip_code: {(worker.zip_code) ? worker.zip_code :
-                  "information unavailable."}</h5>
 
-            </div>
-            <div>
-              <h5>minimum desired wage: {(worker.min_wage) ? worker.min_wage :
-                    "information unavailable."}</h5>
-              </div>
+              <table>
+                <tr>
+                  <th>Bio:</th>
+                  <tr>{(worker.bio) ? worker.bio :
+                        "This worker has not provided a biography."}</tr>
+                </tr>
+                <tr>
+                  <th>birth_date:</th>
+                  <tr>{(worker.birth_date) ? worker.birth_date :
+                        "This worker's date is not in our records."}</tr>
+                </tr>
+
+                <tr>
+                  <th>zipcode: </th>
+                  <tr>{(worker.zip_code) ? worker.zip_code :
+                      "information unavailable."}</tr>
+                </tr>
+
+                <tr>
+                  <th>minimum desired wage: </th>
+                  <tr>{(worker.min_wage) ? worker.min_wage :
+                        "information unavailable."}</tr>
+                </tr>
+              </table>
+              <Link to="/workers">Back to all Workers</Link>
           </div>
         </div>
       );

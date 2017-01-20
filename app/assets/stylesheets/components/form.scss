@@ -1,6 +1,7 @@
 @import './base/colors.scss';
 
-.form, form, .password {
+.form, form {
+  min-width: 250px;
   background-color: $base-light;
   text-align: center;
   padding: 25px;
@@ -29,7 +30,7 @@
     }
   }
 
-  .text-input, .textarea-input, .date-input, .number-input {
+  .text-input, .textarea-input, .number-input {
     position: relative;
     top: 0.2em;
     margin: 15px auto;
@@ -53,6 +54,11 @@
       &:valid::before {
         content: ""
       }
+    }
+
+    > input[type="number"] {
+      position: relative;
+      left: 70px;
     }
 
     > input[type="text"],
@@ -88,6 +94,12 @@
       position: relative;
       left: 40px;
     }
+  }
+
+  .photo-input button {
+    font-size: 80%;
+    text-shadow: 2px 2px black;
+    width: 20%;
   }
 
   // .date-input input[type='date']{

@@ -64,7 +64,7 @@ class SignupForm extends React.Component {
   activateCloudinaryWidget(e) {
     e.preventDefault();
     cloudinary.openUploadWidget({ cloud_name: 'youth-work-hub',
-                                  upload_preset: 'profile_pic' },
+                                  upload_preset: 'cropped_profile' },
                                   (error, result) => {
         this.setState({picture_url: result[0].secure_url});
       }
@@ -155,6 +155,7 @@ class SignupForm extends React.Component {
           </div>
 
           <div className='photo-input'>
+            <i class="fa fa-camera fa-3x" aria-hidden="true"></i>
             <button className='photo-button' onClick={this.activateCloudinaryWidget}>
               Upload Photo
             </button>
