@@ -12,7 +12,18 @@ class Navbar extends React.Component {
     const path = this.props.router.location.pathname;
     const home = (path.match(/\/home/)) ? 'current' : '';
     const workers = (path.match(/\/workers/)) ? 'current' : '';
-    const jobs = (path.match(/\/jobs/)) ? 'current' : '';
+    let jobs = (path.match(/\/jobs/)) ? 'current' : '';
+    let myJobs = "";
+    if(this.props.currentUser) {
+      if(this.props.currentUser.isWorker) {
+        myJobs =
+                <ul>
+                  <li>
+                    <Link to={"/jobs/myJobs"}>My Jobs</Link>
+                  </li>
+                </ul>;
+      }
+    }
     return (
       <nav className='navbar'>
         <div className='inner'>
@@ -25,8 +36,11 @@ class Navbar extends React.Component {
               <Link className={workers} to={"/workers"}>Workers</Link>
             </li>
 
-            <li>
+            <li className='dropper'>
               <Link className={jobs} to={"/jobs"}>Jobs</Link>
+              <div className='drop-down'>
+                {myJobs}
+              </div>
             </li>
           </ul>
         </div>

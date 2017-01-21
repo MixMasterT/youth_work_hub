@@ -25,6 +25,19 @@ nav {
       background-color: $overlay;
     }
   }
+  .drop-down {
+    background-color: hsla(0,0,15%,1);
+    display: none;
+    border-radius: 20%;
+  }
+  .dropper {
+    position: relative;
+  }
+
+  .dropper:hover .drop-down {
+    position: absolute;
+    display: block;
+  }
 
   a {
     display: inline-block;

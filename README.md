@@ -1,3 +1,6 @@
+git filter-branch -f --env-filter "GIT_AUTHOR_NAME='MixMasterT'; GIT_AUTHOR_EMAIL='torahlight@gmail.com'; GIT_COMMITTER_NAME='MixMasterT'; GIT_COMMITTER_EMAIL='torahlight@gmail.com';" HEAD
+
+
 YouthWorkHub
 
 # YouthWorkHub

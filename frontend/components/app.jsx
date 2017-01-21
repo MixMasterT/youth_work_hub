@@ -1,6 +1,6 @@
 import React from 'react';
 import Header from './header';
-import Navbar from './navbar';
+import NavbarContainer from './navbar_container';
 import LoginModalContainer from './login_form/login_modal_container';
 import SignupModalContainer from './signup_form/signup_modal_container';
 import JobFormContainer from './job_form/job_form_container';
@@ -15,7 +15,7 @@ const App = ({ children }) => (
     <JobFormContainer />
     <AcceptJobContainer />
     <Header />
-    <Navbar />
+    <NavbarContainer />
     { children }
   </div>
 );
