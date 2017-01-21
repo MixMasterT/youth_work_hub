@@ -30,7 +30,7 @@ class JobsIndex extends React.Component {
     const orderedJobs = this.props.jobsArray.sort((a, b) => {
       const aDate = new Date(a.start_time);
       const bDate = new Date(b.start_time);
-      return  aDate < bDate;
+      return  aDate > bDate;
     });
     const  jobsArray = orderedJobs.map((job) => (
       <JobsIndexItem className='jobs-index-item'

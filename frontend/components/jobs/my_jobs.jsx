@@ -31,7 +31,7 @@ class MyJobs extends React.Component {
     const myOrderedJobs = this.props.myJobsArray.sort((a, b) => {
       const aDate = new Date(a.start_time);
       const bDate = new Date(b.start_time);
-      return  aDate < bDate;
+      return  aDate > bDate;
     });
     console.log(myOrderedJobs);
     const  myJobsArray = myOrderedJobs.map((job) => (
@@ -41,10 +41,12 @@ class MyJobs extends React.Component {
                      onClick={this.redirectTo(job.id)}/>
     ));
 
-    let text = "";
+    let text = "You haven't accepted any jobs yet.";
     if (this.props.currentUser) {
       if(this.props.currentUser.isWorker) {
-        text = "Jobs You Have Agreed to Do";
+        if(myJobsArray.length > 0) {
+          text = "Jobs You Have Agreed to Do";
+        }
       }
       return (
         <div className="jobs-index">
