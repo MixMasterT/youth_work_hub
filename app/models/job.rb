@@ -10,14 +10,14 @@ class Job < ActiveRecord::Base
                "music",
                "tutoring",
                "yard-work"]
-               
+
   validates :user_id,
             :description,
             :job_type,
             :wage,
             :start_time,
             :cost, presence: true
-
+  validates :job_type, inclusion: { in: JOB_TYPES }
   validate :has_address_or_gps
 
   belongs_to :user

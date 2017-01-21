@@ -4,7 +4,8 @@ import { addJob, editJob } from '../../actions/job_actions';
 
 import { closeModal } from '../../actions/modal_actions';
 
-import { resetErrors, receiveErrors } from '../../actions/session_actions';
+import { resetErrors,
+         frontendErrors } from '../../actions/session_actions';
 
 import JobFormModal from './job_form_modal';
 
@@ -17,6 +18,7 @@ const mapStateToProps = (state, {params}) => ({
 const mapDispatchToProps = dispatch => ({
   closeModal: (modalName) => dispatch(closeModal(modalName)),
   resetErrors: () => dispatch(resetErrors()),
+  frontendErrors: (err) => dispatch(frontendErrors(err)),
   addJob: (job) => dispatch(addJob(job)),
   editJob: (job) => dispatch(editJob(job))
 });

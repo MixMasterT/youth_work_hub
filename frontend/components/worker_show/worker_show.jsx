@@ -13,40 +13,34 @@ class WorkerShow extends React.Component {
 
   render() {
     const worker = this.props.worker;
+    let picUrl = worker.picture_url;
+    if(picUrl === null) {
+      picUrl = "http://res.cloudinary.com/youth-work-hub/image/upload/v1484946674/default-user_frye7s.png";
+    }
     if (worker.id) {
       return (
-        <div className='worker-show'>
-          <img src={worker.picture_url} />
-          <div className='worker-show-text'>
-            <h2>Worker Profile</h2>
-            <h4>{worker.username}</h4>
-
-              <table>
-                <tr>
-                  <th>Bio:</th>
-                  <tr>{(worker.bio) ? worker.bio :
-                        "This worker has not provided a biography."}</tr>
-                </tr>
-                <tr>
-                  <th>birth_date:</th>
-                  <tr>{(worker.birth_date) ? worker.birth_date :
-                        "This worker's date is not in our records."}</tr>
-                </tr>
-
-                <tr>
-                  <th>zipcode: </th>
-                  <tr>{(worker.zip_code) ? worker.zip_code :
-                      "information unavailable."}</tr>
-                </tr>
-
-                <tr>
-                  <th>minimum desired wage: </th>
-                  <tr>{(worker.min_wage) ? worker.min_wage :
-                        "information unavailable."}</tr>
-                </tr>
-              </table>
-              <Link to="/workers">Back to all Workers</Link>
+        <div className='worker-show-wrapper'>
+          <div className='worker-show'>
+            <div className="name-bio">
+              <h2>{worker.username}</h2>
+              <h3>bio:</h3>
+              <p>{(worker.bio) ? worker.bio :
+                    "This worker has not provided a biography."}</p>
+              <h3>birth_date:</h3>
+              <h4>{(worker.birth_date) ? worker.birth_date :
+                    "This worker's birth date is not in our records."}</h4>
+            </div>
+            <div className="details">
+              <img src={picUrl} />
+              <h3>zipcode:</h3>
+              <h4>{(worker.zip_code) ? worker.zip_code :
+                  "information unavailable."}</h4>
+              <h3>minimum desired wage: </h3>
+              <h4>${(worker.min_wage) ? worker.min_wage :
+                    "information unavailable."} per hour</h4>
+            </div>
           </div>
+          <Link to="/workers">Back to all Workers</Link>
         </div>
       );
     } else {

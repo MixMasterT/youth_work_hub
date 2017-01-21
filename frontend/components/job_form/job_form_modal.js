@@ -33,6 +33,7 @@ class JobFormModal extends React.Component {
             currentUser={this.props.currentUser}
             errors={this.props.errors}
             currentJob={this.props.currentJob}
+            frontendErrors={this.props.frontendErrors}
             addJob={this.props.addJob}
             editJob={this.props.editJob}
           />

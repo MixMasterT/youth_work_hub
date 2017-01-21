@@ -23,18 +23,27 @@
     margin-bottom: 50px;
   }
 }
+.worker-show-wrapper {
+  display: flex;
+  flex-direction: column;
+}
 
-.worker-show, .job-show {
+.worker-show {
+  display: flex;
+  flex-direction: row;
+  .name-bio {
+    width: 40%;
+  }
+  .details {
+    width: 40%;
+  }
+}
+
+
+.job-show, .worker-show{
   background: linear-gradient(90deg, $base-darker, $base-lighter);
   width: 80%;
   margin: 0 auto;
-
-  img {
-    width: 40%;
-    margin: 20px;
-    padding: 20px;
-    float: right;
-  }
 
   a {
     font-size: 1.2em;

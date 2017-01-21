@@ -6,6 +6,9 @@ class Api::JobsController < ApplicationController
       render :index
     elsif current_worker
       @jobs = Job.all.where(status: 'pending')
+      my_jobs = Job.all.where(status: 'designated')
+                        .where(worker_id: current_worker.id)
+      @jobs += my_jobs
       render :index
     else
       render json: ["Log in to view jobs."]

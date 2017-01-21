@@ -27,10 +27,15 @@ class LoginBox extends React.Component {
   render() {
     if (this.props.currentUser) {
       const member = this.props.currentUser;
+      let picUrl = member.picture_url;
+      if(picUrl === null) {
+        picUrl = "http://res.cloudinary.com/youth-work-hub/image/upload/v1484946674/default-user_frye7s.png";
+      }
+      console.log(picUrl);
       return (
         <div id="login-box">
           <section>
-            <img alt="profile picture" src={member.picture_url} />
+            <img alt="profile picture" src={picUrl} />
             <h3>Logout {member.username}</h3>
             <section className="popup logged-in">
               <button onClick={(member.isWorker) ?

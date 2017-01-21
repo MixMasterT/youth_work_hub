@@ -40,18 +40,28 @@ class JobForm extends React.Component {
   }
 
   handleSubmit(e) {
-
-    e.preventDefault();
-
-    const state = this.state;
-    if (this.props.currentJob) {
-      this.props.editJob(this.state)
-        .then(this.props.closeModal('jobFormModal'));
+    if(   this.state.description === ""||
+          this.state.job_type === ""||
+          this.state.address === ""||
+          this.state.duration === ""||
+          this.state.wage === ""||
+          this.state.start_time === ""||
+          this.state.cost === "") {
+      this.props.frontendErrors(["form field can't be blank"]);
     } else {
-      const id = this.props.currentUser.id;
-      this.props.addJob(merge(this.state, { user_id: id}))
+      e.preventDefault();
+
+      const state = this.state;
+      if (this.props.currentJob) {
+        this.props.editJob(this.state)
         .then(this.props.closeModal('jobFormModal'));
+      } else {
+        const id = this.props.currentUser.id;
+        this.props.addJob(merge(this.state, { user_id: id}))
+        .then(this.props.closeModal('jobFormModal'));
+      }
     }
+
   }
 
   render() {
@@ -74,6 +84,7 @@ class JobForm extends React.Component {
             <textarea id="description"
               onChange={this.update('description')}
               value={this.props.description}
+              placeholder=" "
             />
             <label for='description'>Describe Job</label>
           </div>
@@ -81,6 +92,7 @@ class JobForm extends React.Component {
           <div className='select-input'>
             <select name="job_type"
                     onChange={this.update('job_type')}>
+              <option>select one</option>
               <option value="art">art</option>
               <option value="baby-sitting">baby-sitting</option>
               <option value="cleaning">cleaning</option>
@@ -97,6 +109,7 @@ class JobForm extends React.Component {
           <div className='text-input'>
             <input type="text"
               id="address"
+              placeholder=" "
               onChange={this.update('address')}
               value={this.state.address}
               />
