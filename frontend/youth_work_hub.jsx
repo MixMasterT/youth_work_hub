@@ -12,7 +12,9 @@ import { signupWorker,
           logoutWorker,
           getWorkers } from './actions/worker_actions';
 
-import { fetchJobs } from './actions/job_actions';
+import { fetchJobs,
+         giveFeedback,
+         updateFeedback } from './actions/job_actions';
 
 
 import { fetchWorkers } from './util/worker_api_util';
@@ -29,9 +31,8 @@ document.addEventListener('DOMContentLoaded', () => {
   } else {
     store = configureStore();
   }
-  window.fetchWorkers = fetchWorkers;
-  window.getWorkers = getWorkers;
-  window.openModal = openModal;
+  window.updateFeedback = updateFeedback;
+  window.giveFeedback = giveFeedback;
   window.signupWorker = signupWorker;
   window.loginWorker = loginWorker;
   window.logoutWorker = logoutWorker;

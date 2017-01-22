@@ -7,6 +7,7 @@ export const ADD_JOB = "ADD_JOB";
 export const EDIT_JOB = "EDIT_JOB";
 export const ACCEPT_JOB = "ACCEPT_JOB";
 export const RESET_JOBS = "RESET_JOBS";
+export const LEAVE_FEEDBACK = "LEAVE_FEEDBACK";
 
 const receiveJobs = (jobs) => ({
   type: RECEIVE_JOBS,
@@ -26,6 +27,11 @@ const postJob = (job) => ({
 const modifyJob = (job) => ({
   type: EDIT_JOB,
   job
+});
+
+const leaveFeedback = (feedback) => ({
+  type: LEAVE_FEEDBACK,
+  feedback
 });
 
 const clearJobs = () => ({
@@ -62,5 +68,17 @@ export const resetJobs = () => dispatch => dispatch(clearJobs());
 export const acceptJob = (job, workerId) => dispatch => (
   JobUtils.takeJob(job.id, workerId)
     .then((takenJob) => dispatch(takeJob(takenJob)))
+    .fail((err) => dispatch(receiveErrors(err.responseJSON)))
+);
+
+export const giveFeedback = (feedback) => dispatch => (
+  JobUtils.leaveFeedback(feedback)
+    .then((review) => dispatch(leaveFeedback(review)))
+    .fail((err) => dispatch(receiveErrors(err.responseJSON)))
+);
+
+export const updateFeedback = (feedback) => dispatch => (
+  JobUtils.updateFeedback(feedback)
+    .then((review) => dispatch(leaveFeedback(review)))
     .fail((err) => dispatch(receiveErrors(err.responseJSON)))
 );

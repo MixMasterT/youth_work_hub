@@ -1,3 +1,24 @@
+# == Schema Information
+#
+# Table name: jobs
+#
+#  id          :integer          not null, primary key
+#  user_id     :integer          not null
+#  description :text             not null
+#  job_type    :string           not null
+#  address     :string
+#  duration    :integer
+#  wage        :integer          not null
+#  start_time  :datetime         not null
+#  lat         :float
+#  lng         :float
+#  cost        :integer          not null
+#  status      :string           default("pending")
+#  worker_id   :integer
+#  created_at  :datetime
+#  updated_at  :datetime
+#
+
 class Job < ActiveRecord::Base
 
   JOB_TYPES = ["art",
@@ -21,6 +42,8 @@ class Job < ActiveRecord::Base
   validate :has_address_or_gps
 
   belongs_to :user
+
+  has_one :review
 
   def has_address_or_gps
     if address.blank? && (lat.blank? || lng.blank?)

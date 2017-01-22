@@ -2,7 +2,8 @@ import { RECEIVE_JOBS,
          ADD_JOB,
          EDIT_JOB,
          RESET_JOBS,
-         ACCEPT_JOB } from '../actions/job_actions';
+         ACCEPT_JOB,
+         LEAVE_FEEDBACK } from '../actions/job_actions';
 
 import merge from 'lodash/merge';
 

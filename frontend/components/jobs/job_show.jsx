@@ -33,6 +33,15 @@ class JobShow extends React.Component {
                        >Accept Job</button>;
       }
 
+      let feedbackButton = "";
+
+      if (this.props.currentUser &&
+          this.props.job.status != 'pending') {
+        feedbackButton = <button className='give-feedback'
+                          onClick={this.giveFeedback}
+                       >Give Feedback</button>;
+      }
+
       return (
         <div className='job-show'>
           <div className='job-show-details'>
@@ -83,7 +92,9 @@ class JobShow extends React.Component {
 
             </table>
           </div>
-          { this.props.currentUser.isWorker ? acceptButton : "" }
+          { this.props.currentUser.isWorker ?
+            acceptButton :
+            feedbackButton }
         </div>
       );
     } else {

@@ -34,6 +34,9 @@ class Worker < ActiveRecord::Base
 
   before_validation :ensure_token
 
+  has_many :jobs
+  has_many :reviews, through: :jobs
+
   attr_reader :password
 
   def self.check_cred(username, password)

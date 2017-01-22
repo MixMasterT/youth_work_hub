@@ -2,7 +2,7 @@ import { connect } from 'react-redux';
 
 import { openModal } from '../../actions/modal_actions';
 
-import { fetchJob, fetchJobs } from '../../actions/job_actions';
+import { fetchJob, giveFeedback } from '../../actions/job_actions';
 
 import JobShow from './job_show';
 

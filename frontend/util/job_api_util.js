@@ -33,3 +33,19 @@ export const takeJob = (job_id, worker_id ) => (
     data: { type: 'ACCEPT', acceptance: { job_id, worker_id } }
   })
 );
+
+export const leaveFeedback = (review) => (
+  $.ajax({
+    url: `/api/reviews`,
+    method: `POST`,
+    data: { review }
+  })
+);
+
+export const updateFeedback = (review) => (
+  $.ajax({
+    url: `/api/jobs/${review.job_id}/reviews`,
+    method: `PATCH`,
+    data: { review }
+  })
+);

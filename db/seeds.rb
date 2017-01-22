@@ -17,7 +17,7 @@ User.create(username:"Joe Shmoe",
 Worker.create(username: "Timmy",
             password: "password",
             email: "timmy@oldtimey.com",
-            phone_number: '415-641-3619',            
+            phone_number: '415-641-3619',
             bio: "I love riding my bike, so make a good delivery boy. I have worked delivering newspapers and groceries. If you need anything delivered, I'm your man. I can also do yard work. I hope that I can save up enough money to buy a new bicycle soon!",
             birth_date: "2004-11-16",
             min_wage: 8,
@@ -326,6 +326,21 @@ Job.create( description: 'Make a giant card for my anniversary. My wife and I wi
             wage: 15,
             start_time: '2017-03-10T17:00:00.000Z',
             cost: 45)
+
+Job.create( description: 'Help me fix my roof',
+            user_id: 2,
+            job_type: 'yard-work',
+            status: 'fulfilled',
+            address: '6520 Hart Dr.',
+            duration: 3,
+            wage: 15,
+            start_time: '2017-01-10T14:00:00.000Z',
+            cost: 45)
+
+Review.create( user_id: 2,
+               job_id: 12,
+               body: "He did a great job!",
+               rating: 5)
 
 five_users = (1..5).to_a
 five_users.each do |n|

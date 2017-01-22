@@ -44,6 +44,7 @@ for better javascript support.
 - Youth Work Hub depends on a Postres database
 - The live demo version of the site is hosted on heroku
 - Version control is managed on Github
+- Data is handed off to the frontend as JSON objects via the Jbuilder Ruby Gem
 - Cloudinary is used to handle photo storage
 
 ### Frontend
