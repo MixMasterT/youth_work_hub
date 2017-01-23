@@ -27,7 +27,9 @@ class JobShow extends React.Component {
 
       let acceptButton = "";
 
-      if (this.props.currentUser && this.props.currentUser.isWorker) {
+      if (this.props.currentUser &&
+          this.props.currentUser.isWorker &&
+          this.props.job.status === 'pending') {
         acceptButton = <button className='accept-job'
                           onClick={this.takeJob}
                        >Accept Job</button>;
