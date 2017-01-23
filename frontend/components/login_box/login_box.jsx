@@ -36,7 +36,7 @@ class LoginBox extends React.Component {
         <div id="login-box">
           <section>
             <img alt="profile picture" src={picUrl} />
-            <h3>Logout {member.username}</h3>
+            <h5 className='logout'>Logout</h5>
             <section className="popup logged-in">
               <button onClick={(member.isWorker) ?
                   this.openModal('workerSignupModal') :
@@ -51,11 +51,11 @@ class LoginBox extends React.Component {
       return (
         <div id="login-box">
           <section>
-            <i className="fa fa-user-plus fa-5x"
+            <i className="fa fa-user-plus fa-3x"
                aria-hidden="true"
                id="user-icon"
             ></i>
-          <h3>Login/Signup</h3>
+          <h5>Login/Signup</h5>
           <section className="popup-buttons">
               <button
                 onClick={this.openModal('loginModal')}

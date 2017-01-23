@@ -1,0 +1,30 @@
+@import './base/colors';
+
+footer {
+  font-weight: normal;
+  text-align: center;
+  border-bottom: 2px solid black;
+  border-top: 2px solid black;
+  margin-top: 10px;
+  text-align: left;
+
+  img {
+    float: left;
+    margin: 10px;
+    max-width: 220px;
+    max-height: 240px;
+  }
+
+  .footer-text {
+    font-family: 'Fredoka One', cursive;
+    margin-top: 75px;
+    position: relative;
+    left: 20px;
+  }
+
+  .tagline {
+    margin-top: 5px;
+    position: relative;
+    left: 10%;
+  }
+}

@@ -61,9 +61,12 @@ class JobsIndex extends React.Component {
       );
     } else {
       return (
-        <div className="workers-index">
-          <h1>Please log in or sign up to post or view jobs.</h1>
+        <div className="empty">
+          <div className="workers-index">
+            <h1>Please log in or sign up to post or view jobs.</h1>
+          </div>
         </div>
+
       );
     }
   }

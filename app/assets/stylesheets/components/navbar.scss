@@ -3,26 +3,52 @@
 
 nav {
   margin: 0 auto;
+  margin-top: 20px;
   background-color: hsla(0,0,15%,1);
+  height: 120px;
   padding: 1px;
   border-bottom: solid black 2px;
   font: $normal;
   font-size: 1.3em;
 
-  .inner {
-    width: 75%;
-    margin: 0 auto;
-    color: $grey-lightest;
+  .logo img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    float: left;
+    position: relative;
+    top: 35px;
   }
 
-  ul {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
+  .login-box {
+    width: 180px;
+    height: 180px;
+    float: right;
+    position: relative;
+    top: 60px;
+  }
 
-    .current {
-      color: $base-lightest;
-      background-color: $overlay;
+  .inner {
+    width: 90%;
+    margin: 0 auto;
+    margin-top: -50px;
+    color: $grey-lightest;
+    height: 140px;
+    display: flex;
+    justify-content: space-between;
+
+
+    ul {
+      width: 50%;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: flex-end;
+
+      .current {
+        color: $base-lightest;
+        background-color: $overlay;
+      }
     }
   }
   .drop-down {
@@ -49,5 +75,60 @@ nav {
   a:hover {
     background-color: $overlay;
     color: white;
+  }
+
+  #login-box {
+    float: right;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    img {
+      border-radius: 25%;
+      width: 50%;
+      height: 50%;
+    }
+
+    .logout {
+      position: relative;
+      left: 22px;
+    }
+
+    .fa, img {
+      margin-right: 20px;
+      float: right;
+    }
+
+    .popup, .popup-buttons {
+      position: relative;
+      display: none;
+
+      .highlight {
+        background: linear-gradient(180deg,
+                                    $contrast-light,
+                                    $contrast-darkest);
+      }
+      .highlight:hover {
+        background: linear-gradient(180deg,
+                                    $contrast-lighter,
+                                    $contrast-dark);
+      }
+    }
+  }
+
+  #login-box section:hover .popup-buttons,
+  #login-box section:hover .popup {
+    position: absolute;
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    button {
+      margin: 0;
+      width: 50%;
+      min-width: 120px;
+      padding: 20px;
+    }
   }
 }

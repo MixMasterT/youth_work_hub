@@ -3,6 +3,10 @@ import { Link, withRouter } from 'react-router';
 
 import classnames from 'classnames';
 
+import LoginBoxContainer from './login_box/login_box_container';
+
+import Logo from './logo';
+
 class Navbar extends React.Component {
   constructor(props) {
     super(props);
@@ -27,7 +31,13 @@ class Navbar extends React.Component {
     return (
       <nav className='navbar'>
         <div className='inner'>
+
+          <div className="logo">
+              <Logo />
+          </div>
+
           <ul>
+
             <li>
               <Link className={home} to={"/home"}>Home</Link>
             </li>
@@ -43,6 +53,10 @@ class Navbar extends React.Component {
               </div>
             </li>
           </ul>
+
+          <div className="login-box">
+            <LoginBoxContainer />
+          </div>
         </div>
       </nav>
     );

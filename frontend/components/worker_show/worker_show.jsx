@@ -45,7 +45,9 @@ class WorkerShow extends React.Component {
       );
     } else {
       return (
-        <h2>Information about the worker you seek is not available.</h2>
+        <div className="worker-show-wrapper empty">
+          <h2>Information about the worker you seek is not available.</h2>
+        </div>
       );
     }
   }

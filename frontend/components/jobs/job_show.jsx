@@ -67,7 +67,7 @@ class JobShow extends React.Component {
               </tr>
 
               <tr>
-                <td>time: </td>
+                <td>start time: </td>
                 <td>{time}</td>
               </tr>
 
@@ -99,7 +99,9 @@ class JobShow extends React.Component {
       );
     } else {
       return (
-        <h2>Information about the job you seek is not available.</h2>
+        <div className="job-show empty">
+          <h2>Information about the job you seek is not available.</h2>
+        </div>
       );
     }
   }
