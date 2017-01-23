@@ -8,6 +8,7 @@ class JobShow extends React.Component {
   constructor(props) {
     super(props);
     this.takeJob = this.takeJob.bind(this);
+    this.giveFeedback = this.giveFeedback.bind(this);
   }
 
   componentDidMount() {
@@ -16,6 +17,10 @@ class JobShow extends React.Component {
 
   takeJob() {
     this.props.openModal('acceptJobModal');
+  }
+
+  giveFeedback() {
+    this.props.openModal('jobFeedbackModal');
   }
 
   render() {
@@ -33,14 +38,15 @@ class JobShow extends React.Component {
             acceptButton = <button className='accept-job'
               onClick={this.takeJob}
               >Accept Job</button>;
-        }        
+        }
       }
 
       let feedbackButton = "";
 
       if (this.props.currentUser &&
-          this.props.job.status != 'pending') {
+          this.props.job.status !== 'pending') {
         feedbackButton = <button className='give-feedback'
+                          key="1"
                           onClick={this.giveFeedback}
                        >Give Feedback</button>;
       }

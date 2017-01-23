@@ -10,6 +10,7 @@ const _allClosed = {
   signupModal: false,
   workerSignupModal: false,
   jobFormModal: false,
+  jobFeedbackModal: false,
   acceptJobModal: false
 };
 

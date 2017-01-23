@@ -2,6 +2,8 @@ import React from 'react';
 
 import { Link } from 'react-router';
 
+import JobReview from '../jobs/job_review';
+
 class WorkerShow extends React.Component {
   constructor(props) {
     super(props);
@@ -20,18 +22,12 @@ class WorkerShow extends React.Component {
     let reviews = "";
 
     if (worker.id) {
-      console.log("worker reviews = ", worker.reviews);
-      console.log(worker.reviews.length);
       if(worker.reviews.length > 0) {
+        console.log("reviews = ", worker.reviews);
         reviews = worker.reviews.map((r) => {
-          return (
-            <div className='review'>
-              <h3>{r.rating} stars</h3>
-              <p>{r.body}</p>
-            </div>
-          );
+          return <JobReview key={r.job_id} review={r} />;
         });
-      }      
+      }
       return (
         <div className='worker-show-wrapper'>
           <div className='worker-show'>
