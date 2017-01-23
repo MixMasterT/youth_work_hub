@@ -4,6 +4,8 @@ import { Link } from 'react-router';
 
 import { takeJob } from '../../util/job_api_util';
 
+import JobReview from './job_review';
+
 class JobShow extends React.Component {
   constructor(props) {
     super(props);
@@ -20,6 +22,7 @@ class JobShow extends React.Component {
   }
 
   giveFeedback() {
+    console.log("open modal called");
     this.props.openModal('jobFeedbackModal');
   }
 
@@ -46,9 +49,16 @@ class JobShow extends React.Component {
       if (this.props.currentUser &&
           this.props.job.status !== 'pending') {
         feedbackButton = <button className='give-feedback'
-                          key="1"
                           onClick={this.giveFeedback}
-                       >Give Feedback</button>;
+                          >{this.props.job.review ?
+                           "Edit Review" :
+                           "Give Feedback"}
+                         </button>;
+      }
+
+      let review = "";
+      if(this.props.job.review) {
+        review = <JobReview review={this.props.job.review} />;
       }
 
       return (
@@ -103,6 +113,7 @@ class JobShow extends React.Component {
 
             </table>
           </div>
+          { review }
           { this.props.currentUser.isWorker ?
             acceptButton :
             feedbackButton }

@@ -40,6 +40,7 @@ class JobsIndex extends React.Component {
 
     let postJobButton =
       <button className='add-job'
+        key="1"
         onClick={this.props.openJobForm}>Post New Job
       </button>;
 

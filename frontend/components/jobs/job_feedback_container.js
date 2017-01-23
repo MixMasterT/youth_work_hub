@@ -6,7 +6,7 @@ import { closeModal } from '../../actions/modal_actions';
 
 import { resetErrors, receiveErrors } from '../../actions/session_actions';
 
-import jobFeedbackModal from './accept_job_form';
+import JobFeedbackModal from './job_feedback_modal';
 
 const mapStateToProps = (state, {params}) => ({
   currentUser: state.session.currentUser,
@@ -25,4 +25,4 @@ const mapDispatchToProps = dispatch => ({
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(jobFeedbackModal);
+)(JobFeedbackModal);
