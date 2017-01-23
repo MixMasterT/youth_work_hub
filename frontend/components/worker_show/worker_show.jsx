@@ -17,7 +17,21 @@ class WorkerShow extends React.Component {
     if(picUrl === null) {
       picUrl = "http://res.cloudinary.com/youth-work-hub/image/upload/v1484946674/default-user_frye7s.png";
     }
+    let reviews = "";
+
     if (worker.id) {
+      console.log("worker reviews = ", worker.reviews);
+      console.log(worker.reviews.length);
+      if(worker.reviews.length > 0) {
+        reviews = worker.reviews.map((r) => {
+          return (
+            <div className='review'>
+              <h3>{r.rating} stars</h3>
+              <p>{r.body}</p>
+            </div>
+          );
+        });
+      }      
       return (
         <div className='worker-show-wrapper'>
           <div className='worker-show'>
@@ -40,6 +54,7 @@ class WorkerShow extends React.Component {
                     "information unavailable."} per hour</h4>
             </div>
           </div>
+          { reviews }
           <Link to="/workers">Back to all Workers</Link>
         </div>
       );
