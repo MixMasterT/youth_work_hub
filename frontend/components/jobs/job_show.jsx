@@ -27,12 +27,13 @@ class JobShow extends React.Component {
 
       let acceptButton = "";
 
-      if (this.props.currentUser &&
-          this.props.currentUser.isWorker &&
-          this.props.job.status === 'pending') {
-        acceptButton = <button className='accept-job'
-                          onClick={this.takeJob}
-                       >Accept Job</button>;
+      if (this.props.currentUser) {
+        if (this.props.currentUser.isWorker &&
+            this.props.job.status === 'pending') {
+            acceptButton = <button className='accept-job'
+              onClick={this.takeJob}
+              >Accept Job</button>;
+        }        
       }
 
       let feedbackButton = "";
@@ -52,45 +53,47 @@ class JobShow extends React.Component {
             </span> Job <span>{dateString}</span></h2>
 
             <table>
-              <tr>
-                <th>Type of work</th>
-                <th>{job.job_type}</th>
-              </tr>
+              <tbody>
+                <tr>
+                  <th>Type of work</th>
+                  <th>{job.job_type}</th>
+                </tr>
 
-              <tr>
-                <td>description: </td>
-                <td>{job.description}</td>
-              </tr>
+                <tr>
+                  <td>description: </td>
+                  <td>{job.description}</td>
+                </tr>
 
-              <tr>
-                <td>address: </td>
-                <td>{(job.address) ? job.address :
+                <tr>
+                  <td>address: </td>
+                  <td>{(job.address) ? job.address :
                       "This job's address was not specified'."}</td>
-              </tr>
+                  </tr>
 
-              <tr>
-                <td>start time: </td>
-                <td>{time}</td>
-              </tr>
+                  <tr>
+                    <td>start time: </td>
+                    <td>{time}</td>
+                  </tr>
 
-              <tr>
-                <td>hourly wage: </td>
-                <td>${job.wage} per hour</td>
-              </tr>
+                  <tr>
+                    <td>hourly wage: </td>
+                    <td>${job.wage} per hour</td>
+                  </tr>
 
-              <tr>
-                <td>duration of job: </td>
-                <td>{job.duration} hours</td>
-              </tr>
+                  <tr>
+                    <td>duration of job: </td>
+                    <td>{job.duration} hours</td>
+                  </tr>
 
-              <tr>
-                <td>total cost: </td>
-                <td>${job.cost}</td>
-              </tr>
-              <tr>
-                <td>status: </td>
-                <td>{job.status}</td>
-              </tr>
+                  <tr>
+                    <td>total cost: </td>
+                    <td>${job.cost}</td>
+                  </tr>
+                  <tr>
+                    <td>status: </td>
+                    <td>{job.status}</td>
+                  </tr>
+              </tbody>
 
             </table>
           </div>

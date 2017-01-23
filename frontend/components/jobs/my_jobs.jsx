@@ -27,13 +27,11 @@ class MyJobs extends React.Component {
   }
 
   render() {
-    console.log("I am rendering");
     const myOrderedJobs = this.props.myJobsArray.sort((a, b) => {
       const aDate = new Date(a.start_time);
       const bDate = new Date(b.start_time);
       return  aDate > bDate;
     });
-    console.log(myOrderedJobs);
     const  myJobsArray = myOrderedJobs.map((job) => (
       <JobsIndexItem className='jobs-index-item'
                      key={job.id}

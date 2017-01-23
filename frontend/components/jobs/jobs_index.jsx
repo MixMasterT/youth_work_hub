@@ -26,7 +26,6 @@ class JobsIndex extends React.Component {
   }
 
   render() {
-    console.log("I am rendering");
     const orderedJobs = this.props.jobsArray.sort((a, b) => {
       const aDate = new Date(a.start_time);
       const bDate = new Date(b.start_time);
@@ -66,7 +65,6 @@ class JobsIndex extends React.Component {
             <h1>Please log in or sign up to post or view jobs.</h1>
           </div>
         </div>
-
       );
     }
   }
