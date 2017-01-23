@@ -29,6 +29,7 @@ class Job < ActiveRecord::Base
                "kitchen work",
                "lawn-mowing",
                "music",
+               "pet-care",
                "tutoring",
                "yard-work"]
 

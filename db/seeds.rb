@@ -329,6 +329,7 @@ Job.create( description: 'Make a giant card for my anniversary. My wife and I wi
 
 Job.create( description: 'Help me fix my roof',
             user_id: 2,
+            worker_id: 2,
             job_type: 'yard-work',
             status: 'fulfilled',
             address: '6520 Hart Dr.',
@@ -337,9 +338,41 @@ Job.create( description: 'Help me fix my roof',
             start_time: '2017-01-10T14:00:00.000Z',
             cost: 45)
 
+Job.create( description: 'Walk my dogs',
+            user_id: 1,
+            worker_id: 1,
+            job_type: 'pet-care',
+            status: 'fulfilled',
+            address: '6520 Hart Dr.',
+            duration: 1,
+            wage: 15,
+            start_time: '2017-01-05T14:00:00.000Z',
+            cost: 15)
+
+Job.create( description: 'Rake leaves out of front and back yards',
+            user_id: 1,
+            worker_id: 1,
+            job_type: 'yard-work',
+            status: 'fulfilled',
+            address: '6520 Hart Dr.',
+            duration: 2,
+            wage: 15,
+            start_time: '2016-11-05T14:00:00.000Z',
+            cost: 30)
+
 Review.create( user_id: 2,
                job_id: 12,
                body: "He did a great job!",
+               rating: 5)
+
+Review.create( user_id: 1,
+               job_id: 13,
+               body: "Dogs seemed happy!",
+               rating: 5)
+
+Review.create( user_id: 1,
+               job_id: 14,
+               body: "Excellent work! Yard looks great...",
                rating: 5)
 
 five_users = (1..5).to_a

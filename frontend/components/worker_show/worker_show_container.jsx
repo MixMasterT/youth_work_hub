@@ -15,7 +15,6 @@ const mapStateToProps = (state, { params }) => {
 };
 
 const mapDispatchToProps = dispatch => ({
-  fetchJob: dispatch(fetchJob()),
   getSingleWorker: (id) => dispatch(getSingleWorker(id))
 });
 

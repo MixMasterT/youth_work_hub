@@ -101,6 +101,7 @@ class JobForm extends React.Component {
               <option value="kitchen work">kitchen work</option>
               <option value="lawn-mowing">lawn-mowing</option>
               <option value="music">music</option>
+              <option value="pet-care">pet-care</option>
               <option value="tutoring">tutoring</option>
               <option value="yard-work">yard-work</option>
             </select>
