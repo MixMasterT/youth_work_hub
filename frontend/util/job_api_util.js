@@ -44,7 +44,7 @@ export const leaveFeedback = (review) => (
 
 export const updateFeedback = (review) => (
   $.ajax({
-    url: `/api/jobs/${review.job_id}/reviews`,
+    url: `/api/jobs/${review.job_id}/reviews/${review.id}`,
     method: `PATCH`,
     data: { review }
   })

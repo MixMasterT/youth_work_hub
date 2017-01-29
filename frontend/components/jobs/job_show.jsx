@@ -22,7 +22,6 @@ class JobShow extends React.Component {
   }
 
   giveFeedback() {
-    console.log("open modal called");
     this.props.openModal('jobFeedbackModal');
   }
 

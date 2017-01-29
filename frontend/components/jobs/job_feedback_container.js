@@ -12,7 +12,7 @@ const mapStateToProps = (state, {params}) => ({
   currentUser: state.session.currentUser,
   errors: state.session.errors,
   jobFeedbackModalIsOpen: state.modals.jobFeedbackModal,
-  job: state.jobDetail
+  job: state
 });
 
 const mapDispatchToProps = dispatch => ({

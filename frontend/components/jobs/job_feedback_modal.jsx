@@ -3,25 +3,38 @@ import ReactDOM from 'react-dom';
 import Modal from 'react-modal';
 import { smallModalStyles, errorsList } from '../../util/form_util';
 
+import JobFeedbackForm from './job_feedback_form';
+
 import merge from 'lodash/merge';
 
 class JobFeedbackModal extends React.Component {
   constructor(props) {
     super(props);
+    console.log(this.props);
     this.state = merge(({
-      user_id: this.props.currentUser.id,
+      user_id: this.props.currentUser ? this.props.currentUser.id : "",
       job_id: this.props.job.id,
       body: "",
       rating: "",
       job_status: this.props.job.status
     }), this.props.job.review);
     this.closeModal = this.closeModal.bind(this);
+    this.update = this.update.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   closeModal() {
     this.props.resetErrors();
     this.props.closeModal('jobFeedbackModal');
+  }
+
+  update(field) {
+    return e => {
+      if(field === 'rating') {
+        console.log(e.target.value);
+
+        this.setState({[field]: e.target.value})}
+      }
   }
 
   handleSubmit(e) {
@@ -42,7 +55,6 @@ class JobFeedbackModal extends React.Component {
   }
 
   render() {
-    console.log(this.props.jobFeedbackModalIsOpen);
     const errors = errorsList(this.props);
     return (
       <div>
@@ -54,39 +66,7 @@ class JobFeedbackModal extends React.Component {
           style={smallModalStyles}
           contentLabel="Feedback Form"
         >
-          <div className='form'>
-
-            <h2>Agree to Accept</h2>
-
-            {(this.props.errors.length > 0) ? errors : null }
-
-            <form onSubmit={this.handleSubmit} id='job-feedback-form'>
-
-              <div className='number-input'>
-                <input type="number"
-                  id="rating"
-                  onChange={this.update('rating')}
-                  value={this.state.rating}
-                  min="1"
-                  max="5"
-                  step="1"
-                />
-              <label for='rating'>Wage ($/hr)</label>
-              </div>
-
-              <div className='textarea-input'>
-                <textarea id="body"
-                  onChange={this.update('body')}
-                  value={this.props.body}
-                  placeholder=" "
-                />
-              <label for='body'>Review Comment</label>
-              </div>
-
-              <button type="submit">Leave Review</button>
-
-            </form>
-          </div>
+          <JobFeedbackForm />
 
         </Modal>
       </div>

@@ -20,10 +20,12 @@ class Api::ReviewsController < ApplicationController
   end
 
   def update
-    job = Job.find_by(id: review_params.job_id)
-    if @job
+    job = Job.find_by(id: params[:job_id])
+    if job
+      job.status = review_params[:job_status];
       @review = job.review
-      if @review.update_attributes(review_params)
+      if @review.update_attributes(body: review_params[:body],
+                                    rating: review_params[:rating])
         render :show
       else
         render json: @review.errors.full_messages, status: 401
@@ -41,7 +43,9 @@ class Api::ReviewsController < ApplicationController
       params.require(:review).permit(:user_id,
                                      :job_id,
                                      :rating,
-                                     :body)
+                                     :body,
+                                     :id,
+                                     :job_status)
     end
 
 end

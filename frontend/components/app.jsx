@@ -16,6 +16,7 @@ const App = ({ children }) => (
     <JobFormContainer />
     <AcceptJobContainer />
     <JobFeedbackContainer />
+    
     <NavbarContainer />
     { children }
     <Footer />
