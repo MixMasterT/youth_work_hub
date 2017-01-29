@@ -10,7 +10,6 @@ import merge from 'lodash/merge';
 class JobFeedbackModal extends React.Component {
   constructor(props) {
     super(props);
-    console.log(this.props);
     this.state = merge(({
       user_id: this.props.currentUser ? this.props.currentUser.id : "",
       job_id: this.props.job.id,

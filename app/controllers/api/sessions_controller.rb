@@ -23,7 +23,13 @@ class Api::SessionsController < ApplicationController
       logout!
       render "api/users/show"
     else
-      render json: ["Not logged in. Logout failed!"], status: 404
+      @worker = current_worker
+      if @worker
+        logout!
+        render "api/workers/show"
+      else
+        render json: ["Not logged in. Logout failed!"], status: 404
+      end
     end
   end
 

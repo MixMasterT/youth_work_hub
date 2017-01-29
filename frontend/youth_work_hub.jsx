@@ -5,7 +5,7 @@ import Modal from 'react-modal';
 
 import Root from './components/root';
 
-import { login, frontendErrors } from './actions/session_actions';
+import { login, frontendErrors, logout } from './actions/session_actions';
 
 import { signupWorker,
           loginWorker,
@@ -33,9 +33,8 @@ document.addEventListener('DOMContentLoaded', () => {
   }
   window.updateFeedback = updateFeedback;
   window.giveFeedback = giveFeedback;
-  window.signupWorker = signupWorker;
-  window.loginWorker = loginWorker;
   window.logoutWorker = logoutWorker;
+  window.logout = logout;
   window.frontendErrors = frontendErrors;
 
   window.fetchJobs = fetchJobs;

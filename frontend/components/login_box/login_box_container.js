@@ -19,7 +19,6 @@ const mapDispatchToProps = dispatch => ({
   resetJobs: () => dispatch(resetJobs()),
   openModal: (modalName) => dispatch(openModal(modalName)),
   logout: () => dispatch(logout()),
-  logoutWorker: () => dispatch(logoutWorker()),
   guestLogin: () => dispatch(guestLogin()),
   guestWorkerLogin: () => dispatch(guestWorkerLogin())
 });

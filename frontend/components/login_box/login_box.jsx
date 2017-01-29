@@ -9,11 +9,7 @@ class LoginBox extends React.Component {
   }
 
   handleLogout() {
-    if (this.props.currentUser.isWorker) {
-      this.props.logoutWorker();
-    } else {
-      this.props.logout();
-    }
+    this.props.logout();
     this.props.resetJobs();
   }
 

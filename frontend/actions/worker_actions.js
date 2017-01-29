@@ -4,7 +4,7 @@ import { receiveErrors, receiveLogout } from './session_actions';
 
 export const RECEIVE_CURRENT_WORKER = "RECEIVE_CURRENT_WORKER";
 export const RECEIVE_ALL_WORKERS = "RECEIVE_ALL_WORKERS";
-export const LOGOUT_WORKER = "LOGOUT_WORKER";
+// export const LOGOUT_WORKER = "LOGOUT_WORKER";
 export const RECEIVE_SINGLE_WORKER = "RECEIVE_SINGLE_WORKER";
 
 export const receiveWorker = (worker) => ({
@@ -24,11 +24,6 @@ const receiveSingleWorker = (worker) => ({
 
 export const loginWorker = (cred) => dispatch => (
   WorkerUtils.login(cred).then((worker) => dispatch(receiveWorker(worker)))
-    .fail((err) => dispatch(receiveErrors(err.responseJSON)))
-);
-
-export const logoutWorker = () => dispatch => (
-  WorkerUtils.logout().then(() => dispatch(receiveLogout()))
     .fail((err) => dispatch(receiveErrors(err.responseJSON)))
 );
 

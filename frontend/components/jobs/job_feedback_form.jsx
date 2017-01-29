@@ -46,11 +46,6 @@ class JobFeedbackForm extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  // closeModal() {
-  //   this.props.resetErrors();
-  //   this.props.closeModal('jobFeedbackModal');
-  // }
-
   update(field) {
     return e => {
       if(field === 'rating') {
