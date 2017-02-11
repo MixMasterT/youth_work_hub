@@ -38,7 +38,7 @@ class JobFeedbackForm extends React.Component {
       user_id: this.props.currentUser ? this.props.currentUser.id : "",
       job_id: this.props.job.id,
       body: "",
-      rating: "",
+      rating: "5",
       job_status: this.props.job.status
     }), this.props.job.review);
     console.log(this.state);
@@ -48,11 +48,8 @@ class JobFeedbackForm extends React.Component {
 
   update(field) {
     return e => {
-      if(field === 'rating') {
-        console.log(e.target.value);
 
-        this.setState({[field]: e.target.value})}
-      }
+      this.setState({[field]: e.target.value})}
   }
 
   handleSubmit(e) {
@@ -77,15 +74,24 @@ class JobFeedbackForm extends React.Component {
   render() {
     const errors = errorsList(this.props);
     const rating = this.state.rating;
-    console.log(`The rating is ${rating}`);
+    console.log(`The body is ${this.state.body}`);
     return (
       <div className='form'>
 
-        <h2>Agree to Accept</h2>
+        <h2>Leave Feedback</h2>
 
         {(this.props.errors.length > 0) ? errors : null }
 
         <form onSubmit={this.handleSubmit} id='job-feedback-form'>
+
+          <div className='fulfillment'>
+
+
+          </div>
+
+          <div className='rating-clarifier'>
+            <h4>You are giving this job {rating} stars</h4>
+          </div>
 
           <div className='rating-stars'>
 
@@ -93,26 +99,35 @@ class JobFeedbackForm extends React.Component {
               onChange={this.update('rating')} value="1"  name="rating-score"
               defaultChecked={rating === 1}>
             </input>
+            <span></span>
             <label htmlFor="one" className="rating-star"></label>
 
             <input type="radio" className="rating-input" id='two'
               onChange={this.update('rating')} value="2" name="rating-score"
-              defaultChecked={rating === 2}></input>
+              defaultChecked={rating === 2}>
+            </input>
+            <span></span>
             <label htmlFor="two" className="rating-star"></label>
 
             <input type="radio" className="rating-input" id='three'
               onChange={this.update('rating')} value="3" name="rating-score"
-              defaultChecked={rating === 3}></input>
+              defaultChecked={rating === 3}>
+            </input>
+            <span></span>
             <label htmlFor='three' className="rating-star"></label>
 
             <input type="radio" className="rating-input" id='four'
               onChange={this.update('rating')} value="4"  name="rating-score"
-              defaultChecked={rating === 4}></input>
+              defaultChecked={rating === 4}>
+            </input>
+            <span></span>
             <label htmlFor='four' className="rating-star"></label>
 
             <input type="radio" className="rating-input" id='five'
               onChange={this.update('rating')} value="5" name="rating-score"
-              defaultChecked={rating === 5}></input>
+              defaultChecked={rating === 5 || rating === ""}>
+            </input>
+            <span></span>
             <label htmlFor='five' className="rating-star"></label>
 
           </div>
@@ -121,7 +136,6 @@ class JobFeedbackForm extends React.Component {
           <div className='textarea-input'>
             <textarea id="body"
               onChange={this.update('body')}
-              value={this.state.body}
               placeholder=" "
             />
             <label htmlFor='body'>Review Comment</label>

@@ -10,7 +10,8 @@ class Api::ReviewsController < ApplicationController
     if current_user.id != review_params[:user_id].to_i
       render json: ["Unauthorized!"]
     else
-      @review = Review.new(review_params)
+      params = review_params.select { |param, val| param != "job_status" }
+      @review = Review.new(params)
       if @review.save
         render :show
       else

@@ -86,7 +86,7 @@ class JobForm extends React.Component {
               value={this.props.description}
               placeholder=" "
             />
-            <label for='description'>Describe Job</label>
+            <label htmlFor='description'>Describe Job</label>
           </div>
 
           <div className='select-input'>
@@ -114,7 +114,7 @@ class JobForm extends React.Component {
               onChange={this.update('address')}
               value={this.state.address}
               />
-            <label for='address'>Address</label>
+            <label htmlFor='address'>Address</label>
           </div>
 
           <div className='number-input'>
@@ -125,7 +125,7 @@ class JobForm extends React.Component {
               min="1"
               step="1"
             />
-            <label for='duration'>Duration (in hrs)</label>
+            <label htmlFor='duration'>Duration (in hrs)</label>
           </div>
 
           <div className='number-input'>
@@ -136,7 +136,7 @@ class JobForm extends React.Component {
               min="1"
               step="1"
             />
-            <label for='wage'>Wage ($/hr)</label>
+            <label htmlFor='wage'>Wage ($/hr)</label>
           </div>
 
           <div className='date-input'>
@@ -145,7 +145,7 @@ class JobForm extends React.Component {
               onChange={this.update('start_time')}
               value={this.state.start_time}
             />
-            <label for='start-time'>Start time</label>
+            <label htmlFor='start-time'>Start time</label>
           </div>
 
           <div className='checkbox-input'>
@@ -156,7 +156,7 @@ class JobForm extends React.Component {
               id="accept-cost"
               required
             />
-            <label for='accept-cost'>Check to agree that you will pay
+            <label htmlFor='accept-cost'>Check to agree that you will pay
               this amount when the service is rendered.
             </label>
           </div>

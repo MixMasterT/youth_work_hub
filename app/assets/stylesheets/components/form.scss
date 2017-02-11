@@ -20,6 +20,8 @@
     margin-top: 40px;
   }
 
+  /* For links at top left of form modals */
+
   .modal-link {
     float: right;
     span {
@@ -29,6 +31,8 @@
       cursor: pointer;
     }
   }
+
+  /* Make labels appear as placeholders */
 
   .text-input, .textarea-input, .number-input {
     position: relative;
@@ -80,6 +84,34 @@
       left: 0.8em;
       opacity: 0.3;
       font-weight: bold;
+    }
+  }
+
+  /* Make checkboxes appear as stars for ratings */
+  .rating-stars {
+    position: relative;
+
+    input[type="radio"] {
+      opacity: 0;
+      position: relative;
+      margin-right: 10px;
+      width: 22px;
+      height: 22px;
+      left: 8px;
+      z-index: 2;
+    }
+
+    input[type="radio"] + span:before {
+      position: relative;
+      left: -20px;
+      font-family: 'FontAwesome';
+      padding-right: 3px;
+      font-size: 20px;
+      content: "\f005"; /* filled-in star for stars up to checked */
+    }
+
+    input[type="radio"]:checked ~ input[type="radio"] + span:before {
+      content: "\f006"; /* hollow star for stars after checked star */
     }
   }
 
