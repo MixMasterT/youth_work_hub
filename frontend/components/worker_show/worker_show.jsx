@@ -2,7 +2,8 @@ import React from 'react';
 
 import { Link } from 'react-router';
 
-import JobReview from '../jobs/job_review';
+// import JobReview from '../jobs/job_review';
+import ReviewList from '../reviews/review_list';
 
 class WorkerShow extends React.Component {
   constructor(props) {
@@ -24,9 +25,7 @@ class WorkerShow extends React.Component {
     if (worker.id) {
       if(worker.reviews.length > 0) {
         console.log("reviews = ", worker.reviews);
-        reviews = worker.reviews.map((r) => {
-          return <JobReview key={r.job_id} review={r} />;
-        });
+        reviews = <ReviewList />
       }
       return (
         <div className='worker-show-wrapper'>
