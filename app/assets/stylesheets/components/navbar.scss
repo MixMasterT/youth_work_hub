@@ -5,23 +5,21 @@ nav {
   background-color: hsla(0,0,15%,1);
   font: $normal;
   font-size: 1.3em;
-  padding-top: 10px;
 
 
   .inner {
     width: 90%;
     margin: 0 auto;
-    margin-top: -50px;
     color: $grey-lightest;
     height: 140px;
     display: flex;
     justify-content: space-between;
-    align-items: baseline;
+    align-items: center;
 
     .logo img {
-      width: 110px;
-      height: 110px;
+      width: 120px;
       border-radius: 10%;
+      position: relative;
     }
 
     ul {
@@ -69,6 +67,7 @@ nav {
     align-items: center;
     width: 110px;
     height: 110px;
+    position: relative;
 
     img {
       border-radius: 25%;
@@ -103,8 +102,8 @@ nav {
     }
   }
 
-  #login-box section:hover .popup-buttons,
-  #login-box section:hover .popup {
+  #login-box div:hover .popup-buttons,
+  #login-box div:hover .popup {
     position: absolute;
 
     display: flex;

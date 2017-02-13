@@ -30,29 +30,29 @@ class LoginBox extends React.Component {
       console.log(picUrl);
       return (
         <div id="login-box">
-          <section>
+          <div>
             <img alt="profile picture" src={picUrl} />
             <h5 className='logout'>Logout</h5>
-            <section className="popup logged-in">
+            <div className="popup logged-in">
               <button onClick={(member.isWorker) ?
                   this.openModal('workerSignupModal') :
                   this.openModal('signupModal')
               }>Edit Account</button>
             <button onClick={this.handleLogout}>Log out</button>
-              </section>
-          </section>
+              </div>
+          </div>
         </div>
       );
     } else {
       return (
         <div id="login-box">
-          <section>
+          <div>
             <i className="fa fa-user-plus fa-3x"
                aria-hidden="true"
                id="user-icon"
             ></i>
-          <h5>Login/Signup</h5>
-          <section className="popup-buttons">
+            <h5>Login/Signup</h5>
+          <div className="popup-buttons">
               <button
                 onClick={this.openModal('loginModal')}
                 >Login
@@ -75,8 +75,8 @@ class LoginBox extends React.Component {
                 onClick={this.props.guestWorkerLogin.bind(this)}
                 >Guest Worker
               </button>
-            </section>
-          </section>
+            </div>
+          </div>
         </div>
       );
     }

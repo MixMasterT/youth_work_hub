@@ -57,6 +57,7 @@ class Navbar extends React.Component {
           <div className="login-box">
             <LoginBoxContainer />
           </div>
+
         </div>
       </nav>
     );
