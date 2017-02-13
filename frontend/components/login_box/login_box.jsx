@@ -46,13 +46,13 @@ class LoginBox extends React.Component {
     } else {
       return (
         <div id="login-box">
-          <div>
-            <i className="fa fa-user-plus fa-3x"
+          <div className="unlogged">
+            <i className="fa fa-user-plus fa-2x"
                aria-hidden="true"
                id="user-icon"
             ></i>
             <h5>Login/Signup</h5>
-          <div className="popup-buttons">
+            <div className="popup-buttons">
               <button
                 onClick={this.openModal('loginModal')}
                 >Login
