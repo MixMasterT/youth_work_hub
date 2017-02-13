@@ -14,14 +14,15 @@ class ReviewList extends React.Component {
 
   render() {
     const reviewArray = this.props.reviewArray;
-    console.log(reviewArray[0].rating + reviewArray[1].rating);
-    console.log(reviewArray.reduce((r1,r2) => parseInt(r1.rating) + parseInt(r2.rating)));
+
     if (reviewArray.length === 0) {
       return ("");
     } else {
-      const avgRating = reviewArray.reduce((r1, r2) => {
-        return parseInt(r1.rating) + parseInt(r2.rating);
-      }) / reviewArray.length;
+      let sum = 0;
+      reviewArray.forEach((r) => {
+        sum += r.rating;
+      })
+      const avg = (sum / reviewArray.length).toFixed(1);
 
       const visibleReviews = reviewArray.slice(0, this.state.showing);
 
@@ -32,7 +33,7 @@ class ReviewList extends React.Component {
 
       return (
         <div className='review-list'>
-          <h3>Average Rating:{avgRating}</h3>
+          <h3>Average Rating: {avg} / 5 stars</h3>
           {reviews}
         </div>
       );
