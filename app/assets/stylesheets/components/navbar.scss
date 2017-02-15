@@ -91,7 +91,7 @@ nav {
       width: 80%;
       height: auto;
     }
-    // 
+    //
     // .logout {
     //   position: relative;
     // }
@@ -116,6 +116,7 @@ nav {
   #login-box div:hover .popup-buttons,
   #login-box div:hover .popup {
     position: absolute;
+    right: -15px;
 
     display: flex;
     flex-direction: column;
