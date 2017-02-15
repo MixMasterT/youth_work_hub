@@ -1,5 +1,9 @@
 @import './base/colors.scss';
 
+.workers-index-wrapper h1 {
+  margin-top: 25px;
+}
+
 .workers-index, .jobs-index {
   margin: 0 auto;
   margin-top: 20px;
@@ -19,26 +23,21 @@
     margin-top: 25px;
   }
 
-  .workers-index-item, .jobs-index-item {
+  .jobs-index-item .workers-index-item {
     padding: 2em;
     min-height: 250px;
     background: linear-gradient(45deg, $base-light, $base-dark);
     width: 90%;
     display: flex;
-    flex-direction: row-reverse;
+    flex-direction: column;
+    align-items: center;
     justify-content: space-around;
-
-    img {
-      margin: 15px;
-      width: 30%;
-      float: left;
-      border-radius: 10%;
-    }
   }
   .cost-details, .status-details {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
+    align-items: center;
   }
 }
 
@@ -53,6 +52,7 @@
     background-color: white;
     padding: 20px;
     margin: 20px;
+    border-radius: 4px;
   }
 
   .name {
@@ -63,6 +63,31 @@
     justify-content: space-around;
     h3 {
       margin-left: 6px;
+    }
+  }
+}
+
+.workers-index {
+  display: flex;
+  flex-direction: row;
+  flex-wrap:wrap;
+  justify-content: center;
+
+  .workers-index-item {
+    width: 400px;
+    border-radius: 5px;
+    margin:10px 5px 5px 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    background: linear-gradient(45deg, $base-light, $base-dark);
+
+    img {
+      margin: 15px;
+      border-radius: 10%;
+      width: 300px;
+      height: auto;
     }
   }
 }

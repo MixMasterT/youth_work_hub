@@ -6,16 +6,19 @@ const WorkersIndexItem = ({worker, onClick}) => {
   if(picUrl === null) {
     picUrl = "http://res.cloudinary.com/youth-work-hub/image/upload/v1484946674/default-user_frye7s.png";
   }
+  let bioStart = "";
+  if (worker.bio) {
+    bioStart = worker.bio.slice(0, 30) + "..."
+  }
   return(
     <div className="workers-index-item" onClick={onClick}>
       <img src={picUrl} />
       <div className='details'>
         <div className='name'>
-          <h3>Name:</h3><h3>{worker.username}</h3>
+          <h3>{worker.username}</h3>
         </div>
         <div className='bio'>
-          <h4>Bio:</h4>
-          <p>{worker.bio}</p>
+          <p>{bioStart}</p>
         </div>
       </div>
     </div>
@@ -50,9 +53,11 @@ class WorkersIndex extends React.Component {
     ));
 
     return (
-      <div className="workers-index">
+      <div className="workers-index-wrapper">
         <h1>We offer the best young workers around!</h1>
-        { workersArray }
+        <div className="workers-index">
+          { workersArray }
+        </div>
       </div>
     );
   }
