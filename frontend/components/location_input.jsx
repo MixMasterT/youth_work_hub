@@ -1,8 +1,15 @@
 import React from 'react'
 
+const _getCoordsObj = latLng => ({
+  lat: latLng.lat(),
+  lng: latLng.lng()
+});
+
 class LocationInput extends React.Component {
   constructor(props) {
     super(props);
+
+    this.addMarker = this.addMarker.bind(this);
   }
 
   componentDidMount() {
@@ -12,6 +19,20 @@ class LocationInput extends React.Component {
     }
 
     this.map = new google.maps.Map(this.mapNode, mapOptions);
+
+    google.maps.event.addListener(this.map, 'click', event => {
+      const coords = _getCoordsObj(event.latLng);
+      this.addMarker(event.latLng);
+    });
+  }
+
+  addMarker(coords) {
+    console.log(coords);
+    const marker = new google.maps.Marker({
+      position: coords,
+      map: this.map,
+      title: "Test"
+    })
   }
 
   render() {
@@ -19,7 +40,9 @@ class LocationInput extends React.Component {
     return (
       <div className='map-wrapper'>
         <h1> TEST MAPS </h1>
-        <div className="map" ref={ map => this.mapNode = map }></div>
+        <div className="map" ref={ map => this.mapNode = map }
+             onClick ={ this.handleMapClick }
+        ></div>
       </div>
     )
   }
