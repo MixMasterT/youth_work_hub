@@ -9,6 +9,7 @@ import WorkerShowContainer from './worker_show/worker_show_container';
 import JobsIndexContainer from './jobs/jobs_index_container';
 import JobShowContainer from './jobs/job_show_container';
 import MyJobsContainer from './jobs/my_jobs_container';
+import LocationInput from './location_input';
 
 const _redirectIfLoggedIn = store => (nextState, replace) => {
   const currentUser = store.getState().session.currentUser;
@@ -26,6 +27,7 @@ const Root = ({ store }) => (
   <Provider store={ store }>
     <Router history={ hashHistory }>
       <Route path="/" component={ App } >
+        <Route path="/map" component={ LocationInput } />
         <Route path="/home" component={ HomePage } />
         <Route path="/workers/:workerId" component={ WorkerShowContainer } />
         <Route path="/workers" component={ WorkersIndexContainer } />
