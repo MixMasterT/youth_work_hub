@@ -1,6 +1,8 @@
 import React from 'react';
 import merge from 'lodash/merge';
 
+import LocationInput from '../maps/location_input';
+
 class JobForm extends React.Component {
   constructor(props) {
     super(props);
@@ -18,6 +20,7 @@ class JobForm extends React.Component {
     }, this.props.currentJob);
     this.update = this.update.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.setLocation = this.setLocation.bind(this);
   }
 
   update(field) {
@@ -35,8 +38,9 @@ class JobForm extends React.Component {
     };
   }
 
-  updateCost() {
-
+  setLocation(coords) {
+    console.log(coords);
+    this.setState({ lat: coords.lat, lng: coords.lng })
   }
 
   handleSubmit(e) {
@@ -107,6 +111,15 @@ class JobForm extends React.Component {
             </select>
           </div>
 
+          <h3>Click on the map or type in address below</h3>
+
+          <div className='location-input'>
+            <LocationInput
+              markerTitle='Job Location'
+              onMapClick={this.setLocation}
+            />
+          </div>
+
           <div className='text-input'>
             <input type="text"
               id="address"
@@ -115,6 +128,15 @@ class JobForm extends React.Component {
               value={this.state.address}
               />
             <label htmlFor='address'>Address</label>
+          </div>
+
+          <div className='date-input'>
+            <input type="datetime-local"
+              id="start-time"
+              onChange={this.update('start_time')}
+              value={this.state.start_time}
+            />
+            <label htmlFor='start-time'>Start time</label>
           </div>
 
           <div className='number-input'>
@@ -139,24 +161,17 @@ class JobForm extends React.Component {
             <label htmlFor='wage'>Wage ($/hr)</label>
           </div>
 
-          <div className='date-input'>
-            <input type="datetime-local"
-              id="start-time"
-              onChange={this.update('start_time')}
-              value={this.state.start_time}
-            />
-            <label htmlFor='start-time'>Start time</label>
-          </div>
-
           <div className='checkbox-input'>
             <div className='cost-amount'>
-              total cost: ${this.state.cost}
+              <h3>total cost: ${this.state.cost}</h3>
             </div>
+
             <input type="checkbox"
               id="accept-cost"
               required
             />
-            <label htmlFor='accept-cost'>Check to agree that you will pay
+
+            <label htmlFor='accept-cost'>Check to agree: you will pay
               this amount when the service is rendered.
             </label>
           </div>

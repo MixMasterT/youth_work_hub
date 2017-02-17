@@ -35,12 +35,12 @@ class JobsIndex extends React.Component {
       <JobsIndexItem className='jobs-index-item'
                      key={job.id}
                      job={job}
-                     onClick={this.redirectTo(job.id)}/>
+                     onClick={this.redirectTo(job.id)}
+      />
     ));
 
     let postJobButton =
       <button className='add-job'
-        key="1"
         onClick={this.props.openJobForm}>Post New Job
       </button>;
 

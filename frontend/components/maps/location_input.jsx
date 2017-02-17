@@ -29,6 +29,7 @@ class LocationInput extends React.Component {
   }
 
   addMarker(coords) {
+    console.log(coords);
     if (this.state.marker) { this.state.marker.setMap(null); }
     const marker = new google.maps.Marker({
       position: coords,
@@ -36,15 +37,13 @@ class LocationInput extends React.Component {
       title: this.props.markerTitle
     })
     this.setState({ marker })
+    this.props.onMapClick(getCoordsObj(coords))
   }
 
   render() {
     return (
       <div className='map-wrapper'>
-        <h1> TEST MAPS </h1>
-        <div className="map" ref={ map => this.mapNode = map }
-             onClick ={ this.handleMapClick }
-        ></div>
+        <div className="map" ref={ map => this.mapNode = map }></div>
       </div>
     )
   }
