@@ -9,7 +9,7 @@ import WorkerShowContainer from './worker_show/worker_show_container';
 import JobsIndexContainer from './jobs/jobs_index_container';
 import JobShowContainer from './jobs/job_show_container';
 import MyJobsContainer from './jobs/my_jobs_container';
-import LocationInput from './location_input';
+import LocationInput from './maps/location_input';
 
 const _redirectIfLoggedIn = store => (nextState, replace) => {
   const currentUser = store.getState().session.currentUser;

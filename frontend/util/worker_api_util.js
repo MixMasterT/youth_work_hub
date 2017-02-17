@@ -19,12 +19,6 @@ export const login = (cred) => (
     data: { cred }
   })
 );
-export const logout = () => (
-  $.ajax({
-    url: '/api/worker_session',
-    method: 'DELETE'
-  })
-);
 
 export const fetchWorker = (id) => (
   $.ajax({
@@ -37,3 +31,9 @@ export const fetchWorkers = () => (
     url: '/api/workers'
   })
 );
+
+export const fetchLocation = (zip) => (
+  $.ajax({
+    url: `http://maps.googleapis.com/maps/api/geocode/json?address=${zip}`
+  })
+)

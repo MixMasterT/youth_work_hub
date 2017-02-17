@@ -8,6 +8,8 @@ import { openModal, closeModal } from '../../actions/modal_actions';
 
 import { resetErrors, frontendErrors } from '../../actions/session_actions';
 
+import { fetchLocation } from '../../util/worker_api_util';
+
 import WorkerSignupModal from './worker_signup_form_modal';
 
 const mapStateToProps = state => ({
@@ -23,7 +25,8 @@ const mapDispatchToProps = dispatch => ({
   edit: (worker) => dispatch(editWorker(worker)),
   resetErrors: () => dispatch(resetErrors()),
   openModal: (modalName) => dispatch(openModal(modalName)),
-  closeModal: () => dispatch(closeModal('workerSignupModal'))
+  closeModal: () => dispatch(closeModal('workerSignupModal')),
+  fetchLocation: (zip) => fetchLocation(zip)
 });
 
 export default connect(

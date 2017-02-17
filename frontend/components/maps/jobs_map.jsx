@@ -1,13 +1,16 @@
 import React from 'react'
 
-const _getCoordsObj = latLng => ({
+const getCoordsObj = latLng => ({
   lat: latLng.lat(),
   lng: latLng.lng()
 });
 
-class LocationInput extends React.Component {
+class JobsMap extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {
+      marker: null
+    }
 
     this.addMarker = this.addMarker.bind(this);
   }
@@ -21,22 +24,21 @@ class LocationInput extends React.Component {
     this.map = new google.maps.Map(this.mapNode, mapOptions);
 
     google.maps.event.addListener(this.map, 'click', event => {
-      const coords = _getCoordsObj(event.latLng);
       this.addMarker(event.latLng);
     });
   }
 
   addMarker(coords) {
-    console.log(coords);
+    if (this.state.marker) { this.state.marker.setMap(null); }
     const marker = new google.maps.Marker({
       position: coords,
       map: this.map,
-      title: "Test"
+      title: this.props.markerTitle
     })
+    this.setState({ marker })
   }
 
   render() {
-
     return (
       <div className='map-wrapper'>
         <h1> TEST MAPS </h1>
@@ -48,4 +50,4 @@ class LocationInput extends React.Component {
   }
 }
 
-export default LocationInput;
+export default JobsMap;

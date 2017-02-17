@@ -19,6 +19,8 @@ class WorkerSignupForm extends React.Component {
       passwordCheck: ""
     }, this.props.currentUser);
     this.update = this.update.bind(this);
+    this.updateZip = this.updateZip.bind(this);
+    this.updateLoc = this.updateLoc.bind(this);
     this.validatePassword = this.validatePassword.bind(this);
     this.goToLogin = this.goToLogin.bind(this);
     this.activateCloudinaryWidget = this.activateCloudinaryWidget.bind(this);
@@ -27,6 +29,22 @@ class WorkerSignupForm extends React.Component {
 
   update(field) {
     return e => { this.setState({[field]: e.target.value}); };
+  }
+
+  updateZip(e) {
+    this.props.fetchLocation(e.target.value).then((res) => {
+      console.log(res.results[0].geometry.location.lat);
+      const latitude = res.results[0].geometry.location.lat;
+      const longitude = res.results[0].geometry.location.lng;
+
+      this.setState({ lat: latitude, lng: longitude })
+      console.log(latitude, longitude);
+    })
+    this.setState({ zip_code: e.target.value })
+  }
+
+  updateLoc(e) {
+
   }
 
   validatePassword() {
@@ -91,7 +109,7 @@ class WorkerSignupForm extends React.Component {
                 value={this.state.password}
                 required
                 />
-              <label for='password'>Password</label>
+              <label htmlFor='password'>Password</label>
             </div>
 
             <div className='text-input'>
@@ -101,7 +119,7 @@ class WorkerSignupForm extends React.Component {
                 value={this.state.passwordCheck}
                 required
                 />
-              <label for='passwordCheck'>Confirm Password</label>
+              <label htmlFor='passwordCheck'>Confirm Password</label>
             </div>
           </div>;
 
@@ -138,7 +156,7 @@ class WorkerSignupForm extends React.Component {
               value={this.state.username}
               required
               />
-            <label for='userame'>Name</label>
+            <label htmlFor='userame'>Name</label>
           </div>
 
           <div className='text-input'>
@@ -149,7 +167,7 @@ class WorkerSignupForm extends React.Component {
               value={this.state.email}
               required
               />
-            <label for='email'>Email</label>
+            <label htmlFor='email'>Email</label>
           </div>
 
           <div className='text-input'>
@@ -160,7 +178,7 @@ class WorkerSignupForm extends React.Component {
               value={this.state.phone_number}
               required
             />
-            <label for='phone_number'>Phone</label>
+            <label htmlFor='phone_number'>Phone</label>
           </div>
 
           <div className='textarea-input'>
@@ -169,11 +187,11 @@ class WorkerSignupForm extends React.Component {
               value={this.props.bio}
               placeholder=" "
             />
-            <label for='bio'>Brief bio</label>
+            <label htmlFor='bio'>Brief bio</label>
           </div>
 
           <div className='date-input'>
-            <label for='date-of-birth'>Birthdate</label>
+            <label htmlFor='date-of-birth'>Birthdate</label>
             <input type="date"
               id="date-of-birth"
               onChange={this.update('birth_date')}
@@ -188,13 +206,14 @@ class WorkerSignupForm extends React.Component {
               id="zipcode"
               placeholder=" "
               onChange={this.update('zip_code')}
+              onBlur={this.updateZip}
               value={this.state.zip_code}
             />
-            <label for='zipcode'>Zipcode</label>
+            <label htmlFor='zipcode'>Zipcode</label>
           </div>
 
           <div className='number-input'>
-            <label for='min-wage'>Min Wage ($/hr)</label>
+            <label htmlFor='min-wage'>Min Wage ($/hr)</label>
             <input type="number"
               id="min-wage"
               placeholder=" "

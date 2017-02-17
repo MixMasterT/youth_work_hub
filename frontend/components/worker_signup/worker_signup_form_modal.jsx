@@ -36,6 +36,7 @@ class WorkerSignupModal extends React.Component {
             signup={this.props.signup}
             login={this.props.login}
             frontendErrors={this.props.frontendErrors}
+            fetchLocation={this.props.fetchLocation}
           />
         </Modal>
       </div>

@@ -13,7 +13,6 @@ export const errorsList = ({ errors }) => {
   );
 };
 
-
 export const largeModalStyles = {
   overlay : {
     backgroundColor   : 'rgba(0, 0, 0, 0.75)'
