@@ -21,6 +21,8 @@ class JobForm extends React.Component {
 
     this.geocoder = new google.maps.Geocoder();
 
+    this.markerPos = null;
+
     this.update = this.update.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.setLocation = this.setLocation.bind(this);
@@ -125,6 +127,7 @@ class JobForm extends React.Component {
             <LocationInput
               markerTitle='Job Location'
               onMapClick={this.setLocation}
+              markerPos={this.markerPos}
             />
           </div>
 
