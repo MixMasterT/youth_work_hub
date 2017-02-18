@@ -20,12 +20,16 @@ class JobForm extends React.Component {
     }, this.props.currentJob);
 
     this.geocoder = new google.maps.Geocoder();
+    // this.autocomplete = new google.maps.places.Autocomplete(
+    //   document.getElementById('address'), {types: ['geocode']}
+    // );
 
     this.markerPos = null;
 
     this.update = this.update.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.setLocation = this.setLocation.bind(this);
+    this.setAddress = this.setAddress.bind(this);
   }
 
   update(field) {
@@ -41,6 +45,14 @@ class JobForm extends React.Component {
         }
       });
     };
+  }
+
+  setAddress(e) {
+    this.autocomplete(e.target.value, (res, status) => {
+      if (status == "OK") {
+        console.log(res);
+      }
+    })
   }
 
   setLocation(coords) {
@@ -75,7 +87,6 @@ class JobForm extends React.Component {
         .then(this.props.closeModal('jobFormModal'));
       }
     }
-
   }
 
   render() {
@@ -136,6 +147,7 @@ class JobForm extends React.Component {
               id="address"
               placeholder=" "
               onChange={this.update('address')}
+              onBlur={this.setAddress}
               value={this.state.address}
               />
             <label htmlFor='address'>Address</label>
