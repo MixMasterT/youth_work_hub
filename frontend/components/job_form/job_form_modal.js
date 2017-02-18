@@ -36,6 +36,7 @@ class JobFormModal extends React.Component {
             frontendErrors={this.props.frontendErrors}
             addJob={this.props.addJob}
             editJob={this.props.editJob}
+            fetchAddress={this.props.fetchAddress}
           />
         </Modal>
       </div>

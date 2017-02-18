@@ -49,3 +49,10 @@ export const updateFeedback = (review) => (
     data: { review }
   })
 );
+
+export const fetchAddress = (latLng) => (
+  $.ajax({
+    url: `https://maps.googleapis.com/maps/api/geocode/json?latlng=${latLng.lat
+    },${latLng.lng}&key=AIzaSyAn-cgC4Fw4G8rHDvZfbjUnjzzv-U7uefs`
+  })
+);

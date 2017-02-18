@@ -18,6 +18,9 @@ class JobForm extends React.Component {
       lng: "",
       cost: ""
     }, this.props.currentJob);
+
+    this.geocoder = new google.maps.Geocoder();
+
     this.update = this.update.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.setLocation = this.setLocation.bind(this);
@@ -39,7 +42,12 @@ class JobForm extends React.Component {
   }
 
   setLocation(coords) {
-    console.log(coords);
+    this.geocoder.geocode(({ latLng:coords }), (res, status) => {
+      if (status === "OK") {
+        this.setState({ address: res[0].formatted_address });
+      }
+    })
+
     this.setState({ lat: coords.lat, lng: coords.lng })
   }
 

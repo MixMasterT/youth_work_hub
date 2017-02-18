@@ -7,6 +7,8 @@ import { closeModal } from '../../actions/modal_actions';
 import { resetErrors,
          frontendErrors } from '../../actions/session_actions';
 
+import { fetchAddress } from '../../util/job_api_util';
+
 import JobFormModal from './job_form_modal';
 
 const mapStateToProps = (state, {params}) => ({
@@ -20,7 +22,8 @@ const mapDispatchToProps = dispatch => ({
   resetErrors: () => dispatch(resetErrors()),
   frontendErrors: (err) => dispatch(frontendErrors(err)),
   addJob: (job) => dispatch(addJob(job)),
-  editJob: (job) => dispatch(editJob(job))
+  editJob: (job) => dispatch(editJob(job)),
+  fetchAddress: (latLng) => fetchAddress(latLng)
 });
 
 export default connect(
