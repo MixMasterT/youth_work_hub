@@ -11,10 +11,12 @@ class JobsMap extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      marker: null
+      homeMarker: null,
+      jobsMarkers: []
     }
 
-    this.addMarker = this.addMarker.bind(this);
+    this.addHomeMarker = this.addHomeMarker.bind(this);
+    this.updateJobsMarker = this.updateJobsMarker.bind(this);
   }
 
   componentDidMount() {
@@ -23,32 +25,41 @@ class JobsMap extends React.Component {
       zoom: 13
     }
 
+    //set current position for user orientation
     navigator.geolocation.getCurrentPosition((loc) => {
       if (loc.coords.latitude) {
         this.map.setCenter(new google.maps.LatLng(loc.coords.latitude,
                                                 loc.coords.longitude));
-        this.addMarker(loc.coords.latitude, loc.coords.longitude);
+        this.addHomeMarker(loc.coords.latitude, loc.coords.longitude);
       }
     });
 
 
     this.map = new google.maps.Map(this.mapNode, mapOptions);
 
-    google.maps.event.addListener(this.map, 'click', event => {
-      this.addMarker(event.latLng);
-    });
+    // google.maps.event.addListener(this.map, 'click', event => {
+    //   this.addHomeMarker(event.latLng);
+    // });
 
     this.markerManager = new MarkerManager(this.map);
   }
 
-  addMarker(lat, lng) {
+  addHomeMarker(lat, lng) {
     if (this.state.marker) { this.state.marker.setMap(null); }
-    const marker = new google.maps.Marker({
-      position: { lat, lng },
+    const color = "00GGFF";
+    const pin = new google.maps.MarkerImage("http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=%E2%80%A2|" + color);
+    const image = 'http://maps.google.com/mapfiles/ms/icons/blue-dot.png';
+    const otherImage = new google.maps.Marker({
       map: this.map,
-      title: this.props.markerTitle
+      animation: google.maps.Animation.BOUNCE,
+      position: { lat, lng },
+      icon: image
     })
-    this.setState({ marker })
+    this.setState({ homeMarker: otherImage })
+  }
+
+  updateJobsMarkers(jobsArray) {
+
   }
 
   render() {
