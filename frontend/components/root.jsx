@@ -6,7 +6,7 @@ import App from './app';
 import HomePage from './home_page/home_page';
 import WorkersIndexContainer from './workers_index/workers_index_container';
 import WorkerShowContainer from './worker_show/worker_show_container';
-import JobsIndexContainer from './jobs/jobs_index_container';
+import JobsSearchContainer from './jobs/jobs_search_container';
 import JobShowContainer from './jobs/job_show_container';
 import MyJobsContainer from './jobs/my_jobs_container';
 import LocationInput from './maps/location_input';
@@ -33,7 +33,7 @@ const Root = ({ store }) => (
         <Route path="/workers" component={ WorkersIndexContainer } />
         <Route path="/jobs/myJobs" component={ MyJobsContainer } />
         <Route path="/jobs/:jobId" component={ JobShowContainer } />
-        <Route path="/jobs" component={ JobsIndexContainer } />
+        <Route path="/jobs" component={ JobsSearchContainer } />
       </Route>
     </Router>
   </Provider>

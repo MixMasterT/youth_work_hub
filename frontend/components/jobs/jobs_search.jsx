@@ -10,7 +10,16 @@ class JobsSearch extends React.Component {
 
   }
   render() {
-
+    <div className='jobs-search'>
+      <JobsMap />
+      <JobsIndex
+        jobsArray={this.props.jobsArray}
+        jobs={this.props.jobs}
+        currentUser={this.props.currentUser}
+        openJobForm={this.props.openJobForm}
+        fetchJobs={this.props.fetchJobs}
+      />
+    </div>
   }
 }
 
