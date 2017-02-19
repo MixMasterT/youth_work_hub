@@ -28,7 +28,8 @@ class JobsMap extends React.Component {
     });
   }
 
-  addMarker(coords) {
+  addMarker(lat, lng) {
+
     if (this.state.marker) { this.state.marker.setMap(null); }
     const marker = new google.maps.Marker({
       position: coords,
@@ -41,9 +42,8 @@ class JobsMap extends React.Component {
   render() {
     return (
       <div className='map-wrapper'>
-        <h1> TEST MAPS </h1>
+        <h1> JOBS MAP </h1>
         <div className="map" ref={ map => this.mapNode = map }
-             onClick ={ this.handleMapClick }
         ></div>
       </div>
     )

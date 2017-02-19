@@ -20,16 +20,28 @@ class JobForm extends React.Component {
     }, this.props.currentJob);
 
     this.geocoder = new google.maps.Geocoder();
-    // this.autocomplete = new google.maps.places.Autocomplete(
-    //   document.getElementById('address'), {types: ['geocode']}
-    // );
-
     this.markerPos = null;
 
     this.update = this.update.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.setLocation = this.setLocation.bind(this);
-    this.setAddress = this.setAddress.bind(this);
+  }
+
+  componentDidMount() {
+    if (!this.hasOwnProperty('autocomplete')) {
+      this.autocomplete = new google.maps.places.Autocomplete(
+        this.refs.addressInput, {types: ['geocode']}
+      );
+    }
+    google.maps.event.addListener(this.autocomplete, 'place_changed', () => {
+      const place = this.autocomplete.getPlace();
+      const loc = place.geometry.location;
+      this.markerPos = loc;
+
+      this.setState({ lat: loc.lat(),
+                      lng: loc.lng(),
+                      address: place.formatted_address })
+    })
   }
 
   update(field) {
@@ -47,22 +59,13 @@ class JobForm extends React.Component {
     };
   }
 
-  setAddress(e) {
-    this.autocomplete(e.target.value, (res, status) => {
-      if (status == "OK") {
-        console.log(res);
-      }
-    })
-  }
-
   setLocation(coords) {
     this.geocoder.geocode(({ latLng:coords }), (res, status) => {
       if (status === "OK") {
         this.setState({ address: res[0].formatted_address });
+        this.setState({ lat: coords.lat, lng: coords.lng });
       }
     })
-
-    this.setState({ lat: coords.lat, lng: coords.lng })
   }
 
   handleSubmit(e) {
@@ -145,9 +148,9 @@ class JobForm extends React.Component {
           <div className='text-input'>
             <input type="text"
               id="address"
+              ref="addressInput"
               placeholder=" "
               onChange={this.update('address')}
-              onBlur={this.setAddress}
               value={this.state.address}
               />
             <label htmlFor='address'>Address</label>

@@ -29,6 +29,14 @@ class LocationInput extends React.Component {
     });
   }
 
+  componentWillReceiveProps(nextProps) {
+    const coords = nextProps.markerPos;
+    if (coords) {
+      this.placeMarker(coords);
+      this.map.setCenter(coords);
+    }
+  }
+
   placeMarker(coords) {
     if (this.state.marker) { this.state.marker.setMap(null); }
     const marker = new google.maps.Marker({
@@ -45,9 +53,6 @@ class LocationInput extends React.Component {
   }
 
   render() {
-    if (this.props.markerPos) {
-      this.placeMarker(this.props.markerPos);
-    }
     return (
       <div className='map-wrapper'>
         <div className="map" ref={ map => this.mapNode = map }></div>

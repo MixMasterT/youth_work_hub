@@ -3,6 +3,8 @@ import { hashHistory } from 'react-router';
 
 import JobsIndexItem from './jobs_index_item';
 
+import JobsMap from '../maps/jobs_map';
+
 class JobsIndex extends React.Component {
   constructor(props) {
     super(props);
@@ -53,10 +55,12 @@ class JobsIndex extends React.Component {
       }
       return (
         <div className="jobs-index">
+          <JobsMap />
           <h1>{text}</h1>
           <h3>Click on each job for more information!</h3>
-          { jobsArray }
           { postJobButton }
+          { jobsArray }
+
         </div>
       );
     } else {
