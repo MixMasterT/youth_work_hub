@@ -1,5 +1,5 @@
 export default class MarkerManager {
-  constructor(map, handleClick, handleHover) {
+  constructor(map, handleClick) {
     this.map = map;
     this.markers = [];
     this.jobs = [];
@@ -48,7 +48,6 @@ export default class MarkerManager {
       title: job.job_type + ", " + dateString
     });
     marker.addListener('click', () => this.handleClick(job));
-    marker.addListener('mouseover', () => this.handleHover(job));
     this.markers.push(marker);
   }
 }

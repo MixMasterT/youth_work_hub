@@ -1,46 +1,8 @@
 @import './base/colors';
 
-.worker-show {
-  display: flex;
-  flex-direction: row-reverse;
-}
-
 .job-show {
   display: flex;
   flex-direction: column;
-
-  .job-show-details {
-    div {
-      display: flex;
-      flex-direction: row;
-    }
-  }
-
-  button {
-    background: linear-gradient(0deg, $contrast-darkest, $contrast-light);
-    width: 100px;
-    margin: 0 auto;
-    margin-bottom: 50px;
-  }
-}
-.worker-show-wrapper {
-  display: flex;
-  flex-direction: column;
-}
-
-.worker-show {
-  display: flex;
-  flex-direction: row;
-  .name-bio {
-    width: 40%;
-  }
-  .details {
-    width: 40%;
-  }
-}
-
-
-.job-show, .worker-show, .worker-show-wrapper {
   background: linear-gradient(90deg, $base-darker, $base-lighter);
   width: 80%;
   margin: 0 auto;
@@ -101,6 +63,13 @@
     p {
       margin: 20px;
       text-align: left;
+    }
+  }
+
+  .job-show-details {
+    div {
+      display: flex;
+      flex-direction: row;
     }
   }
 }

@@ -1,8 +1,8 @@
-export const fetchJobs = (filters) => (
+export const fetchJobs = (data) => (
   $.ajax({
     method: 'GET',
     url: `/api/jobs`,
-    data: filters
+    data
   })
 );
 
