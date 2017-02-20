@@ -12,7 +12,7 @@ class JobsMap extends React.Component {
     super(props);
     this.state = {
       homeMarker: null,
-      jobsMarkers: []
+      jobMarkers: []
     }
 
     this.addHomeMarker = this.addHomeMarker.bind(this);
@@ -52,6 +52,7 @@ class JobsMap extends React.Component {
       map: this.map,
       animation: google.maps.Animation.BOUNCE,
       position: { lat, lng },
+      label: 'H',
       icon: image
     })
     this.setState({ homeMarker: otherImage })
@@ -62,7 +63,8 @@ class JobsMap extends React.Component {
     const marker = new google.maps.Marker({
       position: coords,
       map: this.map,
-      title: title
+      title: title,
+      label: 'J'
     })
     return marker;
   }
@@ -81,28 +83,8 @@ class JobsMap extends React.Component {
         }
       }
     })
-    this.state.jobsMarkers.concat(newMarkers);
+    this.state.jobMarkers.concat(newMarkers);
     console.log(this.state);
-    // console.log(allJobs);
-    // console.log("updateJobsMarkers called");
-    // console.log(bounds.b);
-    // console.log(this.props.currentUser);
-    // Object.keys(allJobs).forEach((key) => {
-    //   const job = this.props.jobs[key];
-    //   if (job.lat) {
-    //     const jobLoc = { lat: job.lat, lng: job.lng }
-    //     if bounds.contains(jobLoc) {
-    //       newJobs.push()
-    //       console.log(newJobs);
-    //     }
-    //   }
-    // })
-    // const marker = new google.maps.Marker({
-    //   position: { lat, lng },
-    //   map: this.map,
-    //   title: this.props.markerTitle,
-    //   icon: otherImage
-    // })
   }
 
   render() {

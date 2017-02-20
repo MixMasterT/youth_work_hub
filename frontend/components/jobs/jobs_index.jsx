@@ -47,30 +47,20 @@ class JobsIndex extends React.Component {
       </button>;
 
     let text = "Jobs You Have Posted";
-    if (this.props.currentUser) {
 
-      if(this.props.currentUser.isWorker) {
-        postJobButton = "";
-        text = "Jobs Available to You";
-      }
-      return (
-        <div className="jobs-index">
-          <h1>{text}</h1>
-          <h3>Click on each job for more information!</h3>
-          { postJobButton }
-          { jobsArray }
-
-        </div>
-      );
-    } else {
-      return (
-        <div className="empty">
-          <div className="workers-index">
-            <h1>Please log in or sign up to post or view jobs.</h1>
-          </div>
-        </div>
-      );
+    if(this.props.currentUser.isWorker) {
+      postJobButton = "";
+      text = "Jobs Available to You";
     }
+    return (
+      <div className="jobs-index">
+        <h1>{text}</h1>
+        <h3>Click on each job for more information!</h3>
+        { postJobButton }
+        { jobsArray }
+
+      </div>
+    );
   }
 }
 

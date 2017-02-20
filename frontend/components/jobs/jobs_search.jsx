@@ -7,23 +7,38 @@ import JobsMap from '../maps/jobs_map';
 class JobsSearch extends React.Component {
   constructor(props) {
     super(props);
+
+    this.state = ({
+      visibleJobs: this.props.jobsArray
+    })
   }
 
   render() {
-    return(
-    <div className='jobs-search'>
-      <JobsMap
-        jobs={this.props.jobs}
-        currentUser={this.props.currentUser}
-      />
-      <JobsIndex
-        jobsArray={this.props.jobsArray}
-        currentUser={this.props.currentUser}
-        openJobForm={this.props.openJobForm}
-        fetchJobs={this.props.fetchJobs}
-      />
-    </div>
-  )}
+    if (this.props.currentUser) {
+      return (
+        <div className='jobs-search'>
+          <JobsMap
+            jobs={this.props.jobs}
+            currentUser={this.props.currentUser}
+            />
+          <JobsIndex
+            jobsArray={this.state.visibleJobs}
+            currentUser={this.props.currentUser}
+            openJobForm={this.props.openJobForm}
+            fetchJobs={this.props.fetchJobs}
+            />
+        </div>
+      )
+    } else {
+      return (
+        <div className="empty">
+          <div className="workers-index">
+            <h1>Please log in or sign up to post or view jobs.</h1>
+          </div>
+        </div>
+      )
+    }
+  }
 }
 
 export default JobsSearch;
