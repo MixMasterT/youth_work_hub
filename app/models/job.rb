@@ -40,16 +40,20 @@ class Job < ActiveRecord::Base
             :start_time,
             :cost, presence: true
   validates :job_type, inclusion: { in: JOB_TYPES }
+
   validate :has_address_or_gps
 
   belongs_to :user
 
   has_one :review
 
-  def self.in_bounds(north_east, south_west)
+  def self.in_bounds(bounds)
     # Assuming North America
     Job.where("lat <= ? AND lat >= ? AND lng <= ? AND lng >= ?",
-                north_east.lat, south_west.lat, north_east.lng, south_west.lng)
+                bounds[:northEast][:lat],
+                bounds[:southWest][:lat],
+                bounds[:northEast][:lng],
+                bounds[:southWest][:lng])
   end
 
   def has_address_or_gps

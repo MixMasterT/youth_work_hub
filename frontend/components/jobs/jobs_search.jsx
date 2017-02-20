@@ -9,7 +9,7 @@ class JobsSearch extends React.Component {
     super(props);
 
     this.state = ({
-      visibleJobs: this.props.jobsArray
+      bounds: this.props.jobsArray
     })
   }
 
@@ -20,9 +20,10 @@ class JobsSearch extends React.Component {
           <JobsMap
             jobs={this.props.jobs}
             currentUser={this.props.currentUser}
+            fetchJobs={this.props.fetchJobs}
             />
           <JobsIndex
-            jobsArray={this.state.visibleJobs}
+            jobsArray={this.props.jobsArray}
             currentUser={this.props.currentUser}
             openJobForm={this.props.openJobForm}
             fetchJobs={this.props.fetchJobs}

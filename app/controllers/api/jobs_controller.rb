@@ -4,10 +4,14 @@ class Api::JobsController < ApplicationController
     if current_user
       @jobs = Job.all.where(user_id: current_user.id)
       render :index
+
     elsif current_worker
-      @jobs = Job.all.where(status: 'pending')
+      @jobs = bounds ? Job.in_bounds(bounds) : Job.all
+                  .where(status: 'pending')
+
       my_jobs = Job.all.where(status: 'designated')
                         .where(worker_id: current_worker.id)
+
       @jobs += my_jobs
       render :index
     else
@@ -62,6 +66,12 @@ class Api::JobsController < ApplicationController
         render json: ["No job record to modify"], status: 422
       end
     end
+  end
+
+  private
+
+  def bounds
+    params[:bounds]
   end
 
   def accept_job_params

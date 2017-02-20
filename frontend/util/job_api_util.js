@@ -1,6 +1,7 @@
-export const fetchJobs = () => (
+export const fetchJobs = (filters) => (
   $.ajax({
-    url: `/api/jobs`
+    url: `/api/jobs`,
+    filters
   })
 );
 

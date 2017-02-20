@@ -1,5 +1,7 @@
 import React from 'react';
 
+import { withRouter } from 'react-router';
+
 import MarkerManager from '../../util/marker_manager';
 
 const getCoordsObj = latLng => ({
@@ -21,13 +23,10 @@ class JobsMap extends React.Component {
   }
 
   componentDidMount() {
-    console.log(`Inside componentDidMount, props = ${this.props}`);
     let mapOptions = {
-      center: { lat: 37.7758, lng: -122.435 },
-      zoom: 13
+      center: { lat: 35.7, lng: -92.8 },
+      zoom: 3
     }
-
-    console.log(this.props);
 
     navigator.geolocation.getCurrentPosition((loc) => {
       if (loc.coords.latitude) {
@@ -40,9 +39,19 @@ class JobsMap extends React.Component {
     this.map = new google.maps.Map(this.mapNode, mapOptions)
 
     google.maps.event.addListener(this.map, 'idle', () => {
-      this.updateJobsMarkers(this.props.jobs, this.map)
+      const mapBounds = this.map.getBounds();
+      const northEast = mapBounds.getNorthEast();
+      const southWest = mapBounds.getSouthWest();
+      const bounds = {
+        northEast: getCoordsObj(northEast),
+        southWest: getCoordsObj(southWest)
+      }
+      console.log("fetching jobs...");
+      this.props.fetchJobs(bounds);
+      // console.log(bounds);
     })
     this.markerManager = new MarkerManager(this.map);
+    this.markerManager.updateMarkers(this.props.jobsArray);
   }
 
   addHomeMarker(lat, lng) {
@@ -56,6 +65,7 @@ class JobsMap extends React.Component {
       icon: image
     })
     this.setState({ homeMarker: otherImage })
+    this.map.setZoom(13);
   }
 
   addMarker(coords, title) {
@@ -84,7 +94,6 @@ class JobsMap extends React.Component {
       }
     })
     this.state.jobMarkers.concat(newMarkers);
-    console.log(this.state);
   }
 
   render() {
@@ -98,4 +107,4 @@ class JobsMap extends React.Component {
   }
 }
 
-export default JobsMap;
+export default withRouter(JobsMap);

@@ -2,8 +2,10 @@ export default class MarkerManager {
   constructor(map, handleClick) {
     this.map = map;
     this.markers = [];
+    this.jobs = [];
     this.handleClick = handleClick;
 
+    this.updateMarkers = this.updateMarkers.bind(this);
     this._createJobMarker = this._createJobMarker.bind(this);
     this._jobsToAdd = this._jobsToAdd.bind(this);
     this._removeMarker = this._removeMarker.bind(this);
@@ -11,7 +13,7 @@ export default class MarkerManager {
   }
 
   updateMarkers(jobs) {
-    this.jobs = jobs;
+    if(jobs) { this.jobs = jobs; }
     this._jobsToAdd().forEach(this._createJobMarker);
     this._markersToRemove().forEach(this._removeMarker);
   }
@@ -33,14 +35,18 @@ export default class MarkerManager {
   }
 
   _createJobMarker(job) {
+    const date = new Date(job.start_time);
+    const dateString = date.toDateString();
     const coords = new google.maps.LatLng(job.lat, job.lng);
     const marker = new google.maps.Marker({
       position: coords,
       map: this.map,
       jobId: job.id,
-      label: 'J'
+      label: 'J',
+      title: job.job_type + ", " + dateString
     });
     marker.addListener('click', () => this.handleClick(job));
+    marker.addListener('mouseover', () => this.handleHover(job));
     this.markers.push(marker);
   }
 }
