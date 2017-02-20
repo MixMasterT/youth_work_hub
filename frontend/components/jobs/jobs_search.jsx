@@ -18,7 +18,7 @@ class JobsSearch extends React.Component {
       return (
         <div className='jobs-search'>
           <JobsMap
-            jobs={this.props.jobs}
+            jobsArray={this.props.jobsArray}
             currentUser={this.props.currentUser}
             fetchJobs={this.props.fetchJobs}
             />

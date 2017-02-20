@@ -18,8 +18,6 @@ class JobsMap extends React.Component {
     }
 
     this.addHomeMarker = this.addHomeMarker.bind(this);
-    this.addMarker = this.addMarker.bind(this);
-    this.updateJobsMarkers = this.updateJobsMarkers.bind(this);
   }
 
   componentDidMount() {
@@ -48,10 +46,13 @@ class JobsMap extends React.Component {
       }
       console.log("fetching jobs...");
       this.props.fetchJobs(bounds);
-      // console.log(bounds);
     })
-    this.markerManager = new MarkerManager(this.map);
+    this.markerManager = new MarkerManager(this.map, this.handleMarkerClick.bind(this));
     this.markerManager.updateMarkers(this.props.jobsArray);
+  }
+
+  componentWillReceiveProps(newProps) {
+    this.markerManager.updateMarkers(newProps.jobsArray);
   }
 
   addHomeMarker(lat, lng) {
@@ -68,32 +69,8 @@ class JobsMap extends React.Component {
     this.map.setZoom(13);
   }
 
-  addMarker(coords, title) {
-    if (this.state.marker) { this.state.marker.setMap(null); }
-    const marker = new google.maps.Marker({
-      position: coords,
-      map: this.map,
-      title: title,
-      label: 'J'
-    })
-    return marker;
-  }
-
-  updateJobsMarkers(allJobs, map) {
-    const bounds = map.getBounds();
-    const jobs = this.props.jobs;
-
-    const newMarkers = [];
-    Object.keys(allJobs).forEach((key) => {
-      const job = jobs[key];
-      if(job.lat) {
-        const coords = {lat: job.lat, lng: job.lng}
-        if(bounds.contains(coords)) {
-          newMarkers.push(this.addMarker(coords, job.job_type));
-        }
-      }
-    })
-    this.state.jobMarkers.concat(newMarkers);
+  handleMarkerClick(job) {
+    this.props.router.push(`jobs/${job.id}`)
   }
 
   render() {

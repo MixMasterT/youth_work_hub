@@ -1,5 +1,5 @@
 export default class MarkerManager {
-  constructor(map, handleClick) {
+  constructor(map, handleClick, handleHover) {
     this.map = map;
     this.markers = [];
     this.jobs = [];
@@ -13,6 +13,8 @@ export default class MarkerManager {
   }
 
   updateMarkers(jobs) {
+    console.log("from Marker Manager");
+    console.log(jobs);
     if(jobs) { this.jobs = jobs; }
     this._jobsToAdd().forEach(this._createJobMarker);
     this._markersToRemove().forEach(this._removeMarker);
@@ -20,12 +22,12 @@ export default class MarkerManager {
 
   _markersToRemove() {
     const jobIds = this.jobs.map( job => job.id);
-    return this.markers.filter( marker => !markerIds.includes(marker.jobId))
+    return this.markers.filter( marker => !jobIds.includes(marker.jobId))
   }
 
   _jobsToAdd() {
-    const currentJobs = this.markers.map( marker => marker.marker.jobId);
-    return this.markers.filter( marker => !currentJobs.includes(marker.id))
+    const currentJobs = this.markers.map( marker => marker.jobId);
+    return this.jobs.filter( job => !currentJobs.includes(job.id))
   }
 
   _removeMarker(marker) {

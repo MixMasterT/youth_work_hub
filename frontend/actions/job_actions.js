@@ -43,8 +43,8 @@ const takeJob = (job) => ({
   job
 });
 
-export const fetchJobs = () => dispatch => (
-  JobUtils.fetchJobs().then((jobs) => dispatch(receiveJobs(jobs)))
+export const fetchJobs = (filters) => dispatch => (
+  JobUtils.fetchJobs(filters).then((jobs) => dispatch(receiveJobs(jobs)))
     .fail((err) => dispatch(receiveErrors(err.responseJSON)))
 );
 
