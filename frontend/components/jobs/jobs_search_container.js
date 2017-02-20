@@ -6,7 +6,7 @@ import { fetchJobs } from '../../actions/job_actions';
 
 import { jobsArray } from '../../reducers/selectors';
 
-import JobsIndex from './jobs_index';
+import JobsSearch from './jobs_search';
 
 const mapStateToProps = state => {
   return ({
@@ -24,4 +24,4 @@ const mapDispatchToProps = dispatch => ({
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(JobsIndex);
+)(JobsSearch);

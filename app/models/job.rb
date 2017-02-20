@@ -46,6 +46,12 @@ class Job < ActiveRecord::Base
 
   has_one :review
 
+  def self.in_bounds(north_east, south_west)
+    # Assuming North America
+    Job.where("lat <= ? AND lat >= ? AND lng <= ? AND lng >= ?",
+                north_east.lat, south_west.lat, north_east.lng, south_west.lng)
+  end
+
   def has_address_or_gps
     if address.blank? && (lat.blank? || lng.blank?)
       errors.add(:base, "Please provide either gps coords or an address for this job.")

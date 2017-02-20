@@ -16,16 +16,19 @@ class JobsMap extends React.Component {
     }
 
     this.addHomeMarker = this.addHomeMarker.bind(this);
-    this.updateJobsMarker = this.updateJobsMarker.bind(this);
+    this.addMarker = this.addMarker.bind(this);
+    this.updateJobsMarkers = this.updateJobsMarkers.bind(this);
   }
 
   componentDidMount() {
+    console.log(`Inside componentDidMount, props = ${this.props}`);
     let mapOptions = {
       center: { lat: 37.7758, lng: -122.435 },
       zoom: 13
     }
 
-    //set current position for user orientation
+    console.log(this.props);
+
     navigator.geolocation.getCurrentPosition((loc) => {
       if (loc.coords.latitude) {
         this.map.setCenter(new google.maps.LatLng(loc.coords.latitude,
@@ -34,20 +37,16 @@ class JobsMap extends React.Component {
       }
     });
 
+    this.map = new google.maps.Map(this.mapNode, mapOptions)
 
-    this.map = new google.maps.Map(this.mapNode, mapOptions);
-
-    // google.maps.event.addListener(this.map, 'click', event => {
-    //   this.addHomeMarker(event.latLng);
-    // });
-
+    google.maps.event.addListener(this.map, 'idle', () => {
+      this.updateJobsMarkers(this.props.jobs, this.map)
+    })
     this.markerManager = new MarkerManager(this.map);
   }
 
   addHomeMarker(lat, lng) {
-    if (this.state.marker) { this.state.marker.setMap(null); }
-    const color = "00GGFF";
-    const pin = new google.maps.MarkerImage("http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=%E2%80%A2|" + color);
+    if (this.state.homeMarker) { this.state.homeMarker.setMap(null); }
     const image = 'http://maps.google.com/mapfiles/ms/icons/blue-dot.png';
     const otherImage = new google.maps.Marker({
       map: this.map,
@@ -58,8 +57,52 @@ class JobsMap extends React.Component {
     this.setState({ homeMarker: otherImage })
   }
 
-  updateJobsMarkers(jobsArray) {
+  addMarker(coords, title) {
+    if (this.state.marker) { this.state.marker.setMap(null); }
+    const marker = new google.maps.Marker({
+      position: coords,
+      map: this.map,
+      title: title
+    })
+    return marker;
+  }
 
+  updateJobsMarkers(allJobs, map) {
+    const bounds = map.getBounds();
+    const jobs = this.props.jobs;
+
+    const newMarkers = [];
+    Object.keys(allJobs).forEach((key) => {
+      const job = jobs[key];
+      if(job.lat) {
+        const coords = {lat: job.lat, lng: job.lng}
+        if(bounds.contains(coords)) {
+          newMarkers.push(this.addMarker(coords, job.job_type));
+        }
+      }
+    })
+    this.state.jobsMarkers.concat(newMarkers);
+    console.log(this.state);
+    // console.log(allJobs);
+    // console.log("updateJobsMarkers called");
+    // console.log(bounds.b);
+    // console.log(this.props.currentUser);
+    // Object.keys(allJobs).forEach((key) => {
+    //   const job = this.props.jobs[key];
+    //   if (job.lat) {
+    //     const jobLoc = { lat: job.lat, lng: job.lng }
+    //     if bounds.contains(jobLoc) {
+    //       newJobs.push()
+    //       console.log(newJobs);
+    //     }
+    //   }
+    // })
+    // const marker = new google.maps.Marker({
+    //   position: { lat, lng },
+    //   map: this.map,
+    //   title: this.props.markerTitle,
+    //   icon: otherImage
+    // })
   }
 
   render() {

@@ -6,4 +6,6 @@ json.extract! job, :id,
                    :duration,
                    :wage,
                    :start_time,
-                   :cost
+                   :cost,
+                   :lat,
+                   :lng
