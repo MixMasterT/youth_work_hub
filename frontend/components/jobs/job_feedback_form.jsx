@@ -41,7 +41,6 @@ class JobFeedbackForm extends React.Component {
       rating: "5",
       job_status: this.props.job.status
     }), this.props.job.review);
-    console.log(this.state);
     this.update = this.update.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
@@ -73,7 +72,6 @@ class JobFeedbackForm extends React.Component {
   render() {
     const errors = errorsList(this.props);
     const rating = this.state.rating;
-    console.log(`The body is ${this.state.body}`);
     return (
       <div className='form'>
 

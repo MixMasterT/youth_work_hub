@@ -72,12 +72,12 @@
       flex-direction: row;
     }
   }
-  .accept-job {
+  .accept-job, .give-feedback {
     margin: 20px auto;
     width: 200px;
     background: linear-gradient(180deg, $contrast-light, $contrast-darkest);
   }
-  .accept-job:hover {
+  .accept-job:hover, .give-feedback:hover  {
     background: linear-gradient(180deg, $contrast-lighter, $contrast-darker);
   }
   .static-map {

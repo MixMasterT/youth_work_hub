@@ -24,6 +24,13 @@ class LocationInput extends React.Component {
 
     this.map = new google.maps.Map(this.mapNode, mapOptions);
 
+    navigator.geolocation.getCurrentPosition((loc) => {
+      if (loc.coords.latitude) {
+        this.map.setCenter(new google.maps.LatLng(loc.coords.latitude,
+                                                loc.coords.longitude));
+      }
+    });
+    
     google.maps.event.addListener(this.map, 'click', event => {
       this.addMarker(event.latLng);
     });
