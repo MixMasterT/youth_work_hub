@@ -47,7 +47,7 @@ class JobsSearch extends React.Component {
     } else {
       return (
         <div className="empty">
-          <div className="workers-index">
+          <div className="jobs-index">
             <h1>Please log in or sign up to post or view jobs.</h1>
           </div>
         </div>

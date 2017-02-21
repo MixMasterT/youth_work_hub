@@ -27,119 +27,131 @@ class JobShow extends React.Component {
 
   render() {
     const job = this.props.job;
-    if (job.id) {
-      const date = new Date(job.start_time);
-      const dateString = date.toDateString();
-      const time = date.toTimeString().split(/\s/)[0];
+    if (this.props.currentUser) {
 
-      let mapImage = "";
+      if (job.id) {
+        const date = new Date(job.start_time);
+        const dateString = date.toDateString();
+        const time = date.toTimeString().split(/\s/)[0];
 
-      if (job.lat) {
-        let url = "https://maps.googleapis.com/maps/api/staticmap?size=400x400&maptype=hibryd&markers=color:red%7Clabel:J%7C"
-        url += job.lat;
-        url += ",";
-        url += job.lng;
-        url += "&zoom=13&key=AIzaSyAn-cgC4Fw4G8rHDvZfbjUnjzzv-U7uefs"
-        mapImage = <img alt="map" src={url} />
-      }
+        let mapImage = "";
 
-      let acceptButton = "";
-      let isWorker = false;
-
-      if (this.props.currentUser) {
-        if (this.props.currentUser.isWorker) { isWorker = true; }
-        if (this.props.currentUser.isWorker &&
-            this.props.job.status === 'pending') {
-            acceptButton = <button className='accept-job'
-              onClick={this.takeJob}
-              >Accept Job</button>;
+        if (job.lat) {
+          let url = "https://maps.googleapis.com/maps/api/staticmap?size=400x400&maptype=road&markers=color:red%7Clabel:J%7C"
+          url += job.lat;
+          url += ",";
+          url += job.lng;
+          url += "&zoom=13&key=AIzaSyAn-cgC4Fw4G8rHDvZfbjUnjzzv-U7uefs"
+          mapImage = <img alt="map" src={url} />
         }
-      }
 
-      let feedbackButton = "";
+        let acceptButton = "";
+        let isWorker = false;
 
-      if (this.props.currentUser &&
-          this.props.job.status !== 'pending') {
-        feedbackButton = <button className='give-feedback'
-                          onClick={this.giveFeedback}
-                          >{this.props.job.review ?
-                           "Edit Review" :
-                           "Give Feedback"}
-                         </button>;
-      }
+        if (this.props.currentUser) {
+          if (this.props.currentUser.isWorker) { isWorker = true; }
+          if (this.props.currentUser.isWorker &&
+              this.props.job.status === 'pending') {
+              acceptButton = <button className='accept-job'
+                onClick={this.takeJob}
+                >Accept Job</button>;
+          }
+        }
 
-      let review = "";
-      if(this.props.job.review) {
-        review = <JobReview review={this.props.job.review} />;
-      }
+        let feedbackButton = "";
 
-      return (
-        <div className='job-show'>
-          <div className='job-show-details'>
-            <Link to="/jobs">Back to all Jobs</Link>
-            <h2><span>{job.job_type}
-            </span> Job <span>{dateString}</span></h2>
+        if (this.props.currentUser &&
+            this.props.job.status !== 'pending') {
+          feedbackButton = <button className='give-feedback'
+                            onClick={this.giveFeedback}
+                            >{this.props.job.review ?
+                             "Edit Review" :
+                             "Give Feedback"}
+                           </button>;
+        }
 
-            <table>
-              <tbody>
-                <tr>
-                  <th>Type of work</th>
-                  <th>{job.job_type}</th>
-                </tr>
+        let review = "";
+        if(this.props.job.review) {
+          review = <JobReview review={this.props.job.review} />;
+        }
 
-                <tr>
-                  <td>description: </td>
-                  <td>{job.description}</td>
-                </tr>
+        return (
+          <div className='job-show'>
+            <div className='job-show-details'>
+              <Link to="/jobs">Back to all Jobs</Link>
+              <h2><span>{job.job_type}
+              </span> Job <span>{dateString}</span></h2>
 
-                <tr>
-                  <td>address: </td>
-                  <td>{(job.address) ? job.address :
-                      "This job's address was not specified'."}</td>
+              <table>
+                <tbody>
+                  <tr>
+                    <th>Type of work</th>
+                    <th>{job.job_type}</th>
                   </tr>
 
                   <tr>
-                    <td>start time: </td>
-                    <td>{time}</td>
+                    <td>description: </td>
+                    <td>{job.description}</td>
                   </tr>
 
                   <tr>
-                    <td>hourly wage: </td>
-                    <td>${job.wage} per hour</td>
-                  </tr>
+                    <td>address: </td>
+                    <td>{(job.address) ? job.address :
+                        "This job's address was not specified'."}</td>
+                    </tr>
 
-                  <tr>
-                    <td>duration of job: </td>
-                    <td>{job.duration} hours</td>
-                  </tr>
+                    <tr>
+                      <td>start time: </td>
+                      <td>{time}</td>
+                    </tr>
 
-                  <tr>
-                    <td>total cost: </td>
-                    <td>${job.cost}</td>
-                  </tr>
-                  <tr>
-                    <td>status: </td>
-                    <td>{job.status}</td>
-                  </tr>
-              </tbody>
+                    <tr>
+                      <td>hourly wage: </td>
+                      <td>${job.wage} per hour</td>
+                    </tr>
 
-            </table>
+                    <tr>
+                      <td>duration of job: </td>
+                      <td>{job.duration} hours</td>
+                    </tr>
+
+                    <tr>
+                      <td>total cost: </td>
+                      <td>${job.cost}</td>
+                    </tr>
+                    <tr>
+                      <td>status: </td>
+                      <td>{job.status}</td>
+                    </tr>
+                </tbody>
+
+              </table>
+            </div>
+            <div className='static-map'>
+              {mapImage}
+            </div>
+            { review }
+            { isWorker ?
+              acceptButton :
+              feedbackButton }
           </div>
-          <div className='static-map'>
-            {mapImage}
+        );
+      } else {
+        return (
+          <div className="job-show empty">
+            <h2>Information about the job you seek is not available.</h2>
           </div>
-          { review }
-          { isWorker ?
-            acceptButton :
-            feedbackButton }
-        </div>
-      );
+        );
+      }
+
     } else {
       return (
-        <div className="job-show empty">
-          <h2>Information about the job you seek is not available.</h2>
+        <div className="empty">
+          <div className="workers-index">
+            <h1>Please log in or sign up to view jobs.</h1>
+          </div>
         </div>
-      );
+      )
     }
   }
 }
