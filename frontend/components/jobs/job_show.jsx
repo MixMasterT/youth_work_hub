@@ -32,9 +32,22 @@ class JobShow extends React.Component {
       const dateString = date.toDateString();
       const time = date.toTimeString().split(/\s/)[0];
 
+      let mapImage = "";
+
+      if (job.lat) {
+        let url = "https://maps.googleapis.com/maps/api/staticmap?size=400x400&maptype=hibryd&markers=color:red%7Clabel:J%7C"
+        url += job.lat;
+        url += ",";
+        url += job.lng;
+        url += "&zoom=13&key=AIzaSyAn-cgC4Fw4G8rHDvZfbjUnjzzv-U7uefs"
+        mapImage = <img alt="map" src={url} />
+      }
+
       let acceptButton = "";
+      let isWorker = false;
 
       if (this.props.currentUser) {
+        if (this.props.currentUser.isWorker) { isWorker = true; }
         if (this.props.currentUser.isWorker &&
             this.props.job.status === 'pending') {
             acceptButton = <button className='accept-job'
@@ -112,8 +125,11 @@ class JobShow extends React.Component {
 
             </table>
           </div>
+          <div className='static-map'>
+            {mapImage}
+          </div>
           { review }
-          { this.props.currentUser.isWorker ?
+          { isWorker ?
             acceptButton :
             feedbackButton }
         </div>

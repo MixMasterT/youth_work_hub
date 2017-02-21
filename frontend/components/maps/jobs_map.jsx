@@ -40,11 +40,15 @@ class JobsMap extends React.Component {
       const mapBounds = this.map.getBounds();
       const northEast = mapBounds.getNorthEast();
       const southWest = mapBounds.getSouthWest();
-      const bounds = {
-        northEast: getCoordsObj(northEast),
-        southWest: getCoordsObj(southWest)
+      const locFilter = {
+        bounds: {
+          northEast: getCoordsObj(northEast),
+          southWest: getCoordsObj(southWest)
+        }
       }
-      this.props.fetchJobs(bounds);
+
+
+      this.props.fetchJobs(locFilter);
     })
     this.markerManager = new MarkerManager(this.map, this.handleMarkerClick.bind(this));
     this.markerManager.updateMarkers(this.props.jobsArray);

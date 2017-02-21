@@ -2,7 +2,8 @@ export const fetchJobs = (data) => (
   $.ajax({
     method: 'GET',
     url: `/api/jobs`,
-    data
+    data,
+    dataType: 'json'
   })
 );
 

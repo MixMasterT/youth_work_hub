@@ -18,7 +18,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => ({
   openJobForm: () => dispatch(openModal('jobFormModal')),
-  fetchJobs: () => dispatch(fetchJobs())
+  fetchJobs: (filters) => dispatch(fetchJobs(filters))
 });
 
 export default connect(
