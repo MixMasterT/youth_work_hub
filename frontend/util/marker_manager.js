@@ -13,8 +13,6 @@ export default class MarkerManager {
   }
 
   updateMarkers(jobs) {
-    console.log("from Marker Manager");
-    console.log(jobs);
     if(jobs) { this.jobs = jobs; }
     this._jobsToAdd().forEach(this._createJobMarker);
     this._markersToRemove().forEach(this._removeMarker);
