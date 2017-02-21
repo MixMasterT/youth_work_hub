@@ -4,7 +4,7 @@ import { Link } from 'react-router';
 
 import { takeJob } from '../../util/job_api_util';
 
-import JobReview from './job_review';
+import Review from '../reviews/review.jsx';
 
 class JobShow extends React.Component {
   constructor(props) {
@@ -72,7 +72,7 @@ class JobShow extends React.Component {
 
         let review = "";
         if(this.props.job.review) {
-          review = <JobReview review={this.props.job.review} />;
+          review = <Review review={this.props.job.review} />;
         }
 
         return (
