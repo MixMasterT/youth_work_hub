@@ -33,6 +33,7 @@ class JobsIndex extends React.Component {
       const bDate = new Date(b.start_time);
       return  aDate > bDate;
     });
+
     const  jobsArray = orderedJobs.map((job) => (
       <JobsIndexItem className='jobs-index-item'
                      key={job.id}
@@ -52,13 +53,15 @@ class JobsIndex extends React.Component {
       postJobButton = "";
       text = "Jobs Available to You";
     }
+
     return (
-      <div className="jobs-index">
+      <div className="jobs-index-wrapper">
+        { postJobButton }
         <h1>{text}</h1>
         <h3>Click on each job for more information!</h3>
-        { postJobButton }
-        { jobsArray }
-
+        <div className="jobs-index">
+          { jobsArray }
+        </div>
       </div>
     );
   }

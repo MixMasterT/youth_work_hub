@@ -15,21 +15,35 @@ class JobsSearch extends React.Component {
 
   render() {
     if (this.props.currentUser) {
-      return (
-        <div className='jobs-search'>
-          <JobsMap
-            jobsArray={this.props.jobsArray}
-            currentUser={this.props.currentUser}
-            fetchJobs={this.props.fetchJobs}
-            />
-          <JobsIndex
-            jobsArray={this.props.jobsArray}
-            currentUser={this.props.currentUser}
-            openJobForm={this.props.openJobForm}
-            fetchJobs={this.props.fetchJobs}
-            />
-        </div>
-      )
+      if (this.props.currentUser.isWorker) {
+        return (
+          <div className='jobs-search'>
+            <JobsMap
+              jobsArray={this.props.jobsArray}
+              currentUser={this.props.currentUser}
+              fetchJobs={this.props.fetchJobs}
+              />
+            <JobsIndex
+              jobsArray={this.props.jobsArray}
+              currentUser={this.props.currentUser}
+              openJobForm={this.props.openJobForm}
+              fetchJobs={this.props.fetchJobs}
+              />
+          </div>
+        )
+      } else {
+        return (
+          <div className='jobs-search'>
+            <JobsIndex
+              jobsArray={this.props.jobsArray}
+              currentUser={this.props.currentUser}
+              openJobForm={this.props.openJobForm}
+              fetchJobs={this.props.fetchJobs}
+              />
+          </div>
+        )
+      }
+
     } else {
       return (
         <div className="empty">
