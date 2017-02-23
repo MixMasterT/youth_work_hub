@@ -3,6 +3,14 @@ import merge from 'lodash/merge';
 
 import LocationInput from '../maps/location_input';
 
+import { DateTimePicker } from 'react-widgets';
+
+import Moment from 'moment';
+
+import momentLocalizer from '../../../node_modules/react-widgets/lib/localizers/moment';
+
+momentLocalizer(Moment);
+
 class JobForm extends React.Component {
   constructor(props) {
     super(props);
@@ -25,6 +33,7 @@ class JobForm extends React.Component {
     this.update = this.update.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.setLocation = this.setLocation.bind(this);
+    this.setDate = this.setDate.bind(this);
   }
 
   componentDidMount() {
@@ -68,6 +77,11 @@ class JobForm extends React.Component {
     })
   }
 
+  setDate(name, value) {
+    const date = new Date(name);
+    this.setState({ start_time: date.toISOString() })
+  }
+
   handleSubmit(e) {
     if(   this.state.description === ""||
           this.state.job_type === ""||
@@ -98,6 +112,9 @@ class JobForm extends React.Component {
                       {errors.map((er) => <li key={er}>{er}</li>)}
                     </ul>;
     let text = this.props.currentJob ? "Update Job" : "Add Job";
+
+    const defaultDate = this.state.start_time === "" ? null :
+                              new Date(this.state.start_time);
 
     return (
       <div className='form'>
@@ -135,9 +152,9 @@ class JobForm extends React.Component {
             </select>
           </div>
 
-          <h3>Click on the map or type in address below</h3>
 
           <div className='location-input'>
+            <h3>Click on the map or type in address below</h3>
             <LocationInput
               markerTitle='Job Location'
               onMapClick={this.setLocation}
@@ -156,13 +173,12 @@ class JobForm extends React.Component {
             <label htmlFor='address'>Address</label>
           </div>
 
-          <div className='date-input'>
-            <input type="datetime-local"
-              id="start-time"
-              onChange={this.update('start_time')}
-              value={this.state.start_time}
-            />
+          <div className='react-widget'>
             <label htmlFor='start-time'>Start time</label>
+            <DateTimePicker
+              defaultValue={defaultDate}
+              onChange={this.setDate}
+            />
           </div>
 
           <div className='number-input'>
