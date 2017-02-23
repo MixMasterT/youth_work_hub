@@ -2,7 +2,6 @@ import React from 'react';
 
 import { Link } from 'react-router';
 
-// import JobReview from '../jobs/job_review';
 import ReviewList from '../reviews/review_list';
 
 class WorkerShow extends React.Component {
@@ -16,7 +15,12 @@ class WorkerShow extends React.Component {
 
   render() {
     const worker = this.props.worker;
-    console.log(worker.age);
+    let age = null;
+    if (worker.birth_date) {
+      let birthDate = new Date(worker.birth_date)
+      age = Math.floor( (new Date() - birthDate )/ 31557600000);
+    }
+
     let picUrl = worker.picture_url;
     if(picUrl === null) {
       picUrl = "http://res.cloudinary.com/youth-work-hub/image/upload/v1484946674/default-user_frye7s.png";
@@ -36,7 +40,7 @@ class WorkerShow extends React.Component {
               <h2>{worker.username}</h2>
               <img src={picUrl} alt='No picture provided' />
               <h3>Age:</h3>
-              <h4>{(worker.birth_date) ? worker.birth_date :
+              <h4>{age ? age :
                     "This worker's birth date is not in our records."}</h4>
               <h3>zipcode:</h3>
               <h4>{(worker.zip_code) ? worker.zip_code :
