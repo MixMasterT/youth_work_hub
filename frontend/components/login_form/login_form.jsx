@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router';
 import ReactDOM from 'react-dom';
 import Modal from 'react-modal';
 
@@ -28,6 +27,7 @@ class LoginForm extends React.Component {
 
   goToSignup() {
     this.props.closeLoginModal();
+    this.props.resetErrors();
     this.props.openModal('signupModal');
   }
 

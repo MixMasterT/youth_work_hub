@@ -1,5 +1,7 @@
 @import './base/colors.scss';
-
+.modal-wrapper, .ReactModal__Content {
+  background-color: $base-light !important;
+}
 .form {
   min-width: 440px;
   background-color: $base-light;

@@ -33,6 +33,7 @@ class SignupForm extends React.Component {
 
   goToLogin() {
     this.props.closeModal('signupModal');
+    this.props.resetErrors();
     this.props.openModal('loginModal');
   }
 

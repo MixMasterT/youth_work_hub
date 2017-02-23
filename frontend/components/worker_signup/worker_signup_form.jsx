@@ -63,6 +63,7 @@ class WorkerSignupForm extends React.Component {
 
   goToLogin() {
     this.props.closeModal('signupModal');
+    this.props.resetErrors();
     this.props.openModal('loginModal');
   }
 
@@ -136,11 +137,11 @@ class WorkerSignupForm extends React.Component {
           onClick={this.goToLogin}>login here</span>
         </p>
       </div>;
-    const today = new Date();
-    const minBirth = `${today.getFullYear()}-${today.getMonth()
-                      }-${today.getDate() + 1}`;
+    const date = new Date();
+    date.setYear(date.getFullYear() - 15);
     const birthDate = this.state.birth_date == "" ?
-                      new Date() : new Date(this.state.birth_date);
+                      date :
+                      new Date(this.state.birth_date);
 
     return (
       <div className='form'>
@@ -195,17 +196,6 @@ class WorkerSignupForm extends React.Component {
             <label htmlFor='bio'>Brief bio</label>
           </div>
 
-          <div className='date-input'>
-            <label htmlFor='date-of-birth'>Birthdate</label>
-            <input type="date"
-              id="date-of-birth"
-              onChange={this.update('birth_date')}
-              value={this.state.birth_date}
-              placeholder=" "
-              min={minBirth}
-            />
-          </div>
-
           <div className='react-widget'>
             <label htmlFor='date-of-birth'>Birthdate</label>
             <DateTimePicker
@@ -230,7 +220,7 @@ class WorkerSignupForm extends React.Component {
             <div>
               <label htmlFor='min-wage'>Min Wage ($/hr)</label>
             </div>
-            <div>              
+            <div>
               <input type="number"
                 id="min-wage"
                 placeholder=" "
