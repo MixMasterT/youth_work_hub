@@ -87,7 +87,7 @@ class JobFeedbackForm extends React.Component {
           </div>
 
           <div className='rating-clarifier'>
-            <h4>You are giving this job {rating} stars</h4>
+            <h4>You give this job {rating} star{rating === "1" ? "" : "s"}</h4>
           </div>
 
           <div className='rating-stars'>
