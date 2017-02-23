@@ -91,7 +91,7 @@ class SignupForm extends React.Component {
                 value={this.state.password}
                 required
                 />
-              <label for='password'>Password</label>
+              <label htmlFor='password'>Password</label>
             </div>
 
             <div className='text-input'>
@@ -101,7 +101,7 @@ class SignupForm extends React.Component {
                 value={this.state.passwordCheck}
                 required
                 />
-              <label for='passwordCheck'>Confirm Password</label>
+              <label htmlFor='passwordCheck'>Confirm Password</label>
             </div>
           </div>;
 
@@ -134,7 +134,7 @@ class SignupForm extends React.Component {
               value={this.state.username}
               required
               />
-            <label for='userame'>Name</label>
+            <label htmlFor='userame'>Name</label>
           </div>
 
           <div className='text-input'>
@@ -145,7 +145,7 @@ class SignupForm extends React.Component {
               value={this.state.email}
               required
               />
-            <label for='email'>Email</label>
+            <label htmlFor='email'>Email</label>
           </div>
 
           <div className='text-input'>
@@ -156,7 +156,7 @@ class SignupForm extends React.Component {
               value={this.state.phone_number}
               required
               />
-            <label for='phone_number'>Phone</label>
+            <label htmlFor='phone_number'>Phone</label>
           </div>
 
           <div className='photo-input'>

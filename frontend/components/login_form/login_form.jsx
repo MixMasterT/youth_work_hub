@@ -60,17 +60,17 @@ class LoginForm extends React.Component {
               value={this.state.username}
               required
             />
-            <label for='userame'>Name</label>
+          <label htmlFor='userame'>Name</label>
           </div>
 
           <div className='text-input'>
             <input type="password"
-              placeholder=" "              
+              placeholder=" "
               onChange={this.update('password')}
               value={this.state.password}
               required
               />
-            <label for='password'>Password</label>
+            <label htmlFor='password'>Password</label>
           </div>
 
           <button type="submit">Login</button>

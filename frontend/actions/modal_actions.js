@@ -1,3 +1,5 @@
+import resetErrors from './session_actions';
+
 export const CLOSE_ALL_MODALS = "CLOSE_ALL_MODALS";
 export const CLOSE_CURRENT_MODAL = "CLOSE_CURRENT_MODAL";
 export const OPEN_SINGLE = "OPEN_SINGLE";

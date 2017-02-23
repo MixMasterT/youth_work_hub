@@ -22,6 +22,7 @@ export const receiveErrors = (errors) => ({
 export const receiveLogout = () => ({
   type: RECEIVE_LOGOUT
 });
+
 export const resetErrors = () => ({
   type: RESET_ERRORS
 });
@@ -61,4 +62,8 @@ export const logout = () => dispatch => (
 
 export const frontendErrors = (errs) => dispatch => (
   dispatch(receiveErrors(errs))
+);
+
+export const clearAllErrors = (errs) => dispatch => (
+  dispatch(resetErrors())
 );

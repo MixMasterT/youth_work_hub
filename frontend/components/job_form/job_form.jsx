@@ -83,6 +83,8 @@ class JobForm extends React.Component {
   }
 
   handleSubmit(e) {
+    e.preventDefault();
+
     if(   this.state.description === ""||
           this.state.job_type === ""||
           this.state.address === ""||
@@ -91,9 +93,8 @@ class JobForm extends React.Component {
           this.state.start_time === ""||
           this.state.cost === "") {
       this.props.frontendErrors(["form field can't be blank"]);
+      
     } else {
-      e.preventDefault();
-
       const state = this.state;
       if (this.props.currentJob) {
         this.props.editJob(this.state)
