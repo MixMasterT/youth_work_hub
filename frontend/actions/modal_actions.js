@@ -19,10 +19,12 @@ export const openSingle = (modalName) => ({
 });
 
 export const closeModals = () => dispatch => (
+  dispatch(resetErrors())
   dispatch(closeAllModals())
 );
 
 export const closeModal = (modalName) => dispatch => (
+  dispatch(resetErrors())
   dispatch(closeThisModal(modalName))
 );
 

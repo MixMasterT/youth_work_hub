@@ -55,14 +55,14 @@ class JobFeedbackForm extends React.Component {
     if(this.props.job.review) {
       this.props.updateFeedback(this.state)
         .then(() => {
-          this.props.resetErrors();
+          // this.props.resetErrors();
           this.props.closeModal('jobFeedbackModal');
           this.props.fetchJob(this.props.job.id);
         });
     } else {
       this.props.giveFeedback(this.state)
       .then(() => {
-        this.props.resetErrors();
+        // this.props.resetErrors();
         this.props.closeModal('jobFeedbackModal');
         this.props.fetchJob(this.props.job.id);
       });

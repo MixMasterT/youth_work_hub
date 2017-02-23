@@ -38,22 +38,17 @@ class SignupForm extends React.Component {
   }
 
   handleSubmit(e) {
-    console.log(this.state.password);
-    console.log(this.state.passwordCheck);
+    e.preventDefault();
     if(this.state.password !== this.state.passwordCheck) {
       this.props.frontendErrors(["passwords do not match"]);
     } else {
-      e.preventDefault();
-
-      const state = this.state;
       if (this.props.currentUser) {
-        const paramsKeys = Object.keys(state).map((key) => {
+        const params = {};
+        Object.keys(this.state).forEach((key) => {
           if (state[key] !== "" && state[key] !== null) {
-            return key;
+            params[k] = this.statep[k];
           }
         });
-        const params = {};
-        paramsKeys.forEach((k) => { params[k] = state[k]; });
         params['id'] = this.state.id;
         this.props.editUser(params).then(() => {
           this.props.closeModal('signupModal');
