@@ -27,9 +27,8 @@ class SignupForm extends React.Component {
   }
 
   validatePassword() {
-    const passCheck = this.state.passwordCheck;
-    return (passCheck.length > 5 &&
-      this.state.password === this.state.passwordCheck);
+    return (this.state.passWordCheck.length > 5 &&
+      this.state.password === this.state.passWordCheck);
   }
 
   goToLogin() {
@@ -45,8 +44,8 @@ class SignupForm extends React.Component {
       if (this.props.currentUser) {
         const params = {};
         Object.keys(this.state).forEach((key) => {
-          if (state[key] !== "" && state[key] !== null) {
-            params[k] = this.statep[k];
+          if (this.state[key] !== "" && this.state[key] !== null) {
+            params[key] = this.state[key];
           }
         });
         params['id'] = this.state.id;
@@ -155,9 +154,10 @@ class SignupForm extends React.Component {
           </div>
 
           <div className='photo-input'>
-            <i class="fa fa-camera fa-3x" aria-hidden="true"></i>
+
             <button className='photo-button' onClick={this.activateCloudinaryWidget}>
-              Upload Photo
+              <i className="fa fa-camera fa-2x" aria-hidden="true"></i><br />
+              upload photo
             </button>
           </div>
 

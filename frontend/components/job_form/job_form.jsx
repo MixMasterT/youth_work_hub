@@ -77,32 +77,30 @@ class JobForm extends React.Component {
     })
   }
 
-  setDate(name, value) {
-    const date = new Date(name);
+  setDate(data) {
+    const date = new Date(data);
     this.setState({ start_time: date.toISOString() })
   }
 
   handleSubmit(e) {
     e.preventDefault();
 
-    if(   this.state.description === ""||
-          this.state.job_type === ""||
-          this.state.address === ""||
-          this.state.duration === ""||
-          this.state.wage === ""||
-          this.state.start_time === ""||
-          this.state.cost === "") {
-      this.props.frontendErrors(["form field can't be blank"]);
-      
+    if( this.state.description === ""||
+        this.state.job_type === ""||
+        this.state.address === ""||
+        this.state.duration === ""||
+        this.state.wage === ""||
+        this.state.start_time === ""||
+        this.state.cost === "") {
+          this.props.frontendErrors(["form field can't be blank"]);
     } else {
-      const state = this.state;
       if (this.props.currentJob) {
         this.props.editJob(this.state)
-        .then(this.props.closeModal('jobFormModal'));
+          .then(this.props.closeModal('jobFormModal'));
       } else {
         const id = this.props.currentUser.id;
         this.props.addJob(merge(this.state, { user_id: id}))
-        .then(this.props.closeModal('jobFormModal'));
+          .then(this.props.closeModal('jobFormModal'));
       }
     }
   }

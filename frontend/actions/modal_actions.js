@@ -1,5 +1,3 @@
-import resetErrors from './session_actions';
-
 export const CLOSE_ALL_MODALS = "CLOSE_ALL_MODALS";
 export const CLOSE_CURRENT_MODAL = "CLOSE_CURRENT_MODAL";
 export const OPEN_SINGLE = "OPEN_SINGLE";
@@ -19,12 +17,10 @@ export const openSingle = (modalName) => ({
 });
 
 export const closeModals = () => dispatch => (
-  dispatch(resetErrors())
   dispatch(closeAllModals())
 );
 
 export const closeModal = (modalName) => dispatch => (
-  dispatch(resetErrors())
   dispatch(closeThisModal(modalName))
 );
 

@@ -34,6 +34,7 @@ const mapDispatchToProps = dispatch => ({
 class JobFeedbackForm extends React.Component {
   constructor(props) {
     super(props);
+    console.log(this.props.job.review);
     this.state = merge(({
       user_id: this.props.currentUser ? this.props.currentUser.id : "",
       job_id: this.props.job.id,
@@ -128,10 +129,10 @@ class JobFeedbackForm extends React.Component {
             <label htmlFor='five' className="rating-star"></label>
 
           </div>
-
-
+          
           <div className='textarea-input'>
             <textarea id="body"
+              value={this.state.body}
               onChange={this.update('body')}
               placeholder=" "
             />

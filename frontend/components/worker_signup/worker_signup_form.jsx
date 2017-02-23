@@ -1,6 +1,14 @@
 import React from 'react';
 import merge from 'lodash/merge';
 
+import { DateTimePicker } from 'react-widgets';
+
+import Moment from 'moment';
+
+import momentLocalizer from '../../../node_modules/react-widgets/lib/localizers/moment';
+
+momentLocalizer(Moment);
+
 class WorkerSignupForm extends React.Component {
   constructor(props) {
     super(props);
@@ -20,7 +28,7 @@ class WorkerSignupForm extends React.Component {
     }, this.props.currentUser);
     this.update = this.update.bind(this);
     this.updateZip = this.updateZip.bind(this);
-    this.updateLoc = this.updateLoc.bind(this);
+    this.setBirthdate = this.setBirthdate.bind(this);
     this.validatePassword = this.validatePassword.bind(this);
     this.goToLogin = this.goToLogin.bind(this);
     this.activateCloudinaryWidget = this.activateCloudinaryWidget.bind(this);
@@ -33,23 +41,23 @@ class WorkerSignupForm extends React.Component {
 
   updateZip(e) {
     this.props.fetchLocation(e.target.value).then((res) => {
-      console.log(res.results[0].geometry.location.lat);
-      const latitude = res.results[0].geometry.location.lat;
-      const longitude = res.results[0].geometry.location.lng;
+      if(res) {
+        const latitude = res.results[0].geometry.location.lat;
+        const longitude = res.results[0].geometry.location.lng;
 
-      this.setState({ lat: latitude, lng: longitude })
-      console.log(latitude, longitude);
+        this.setState({ lat: latitude, lng: longitude })
+      }
     })
     this.setState({ zip_code: e.target.value })
   }
 
-  updateLoc(e) {
-
+  setBirthdate(data) {
+    const date = new Date(data);
+    this.setState({ birth_date: date.toDateString() })
   }
 
   validatePassword() {
-    const passCheck = this.state.passwordCheck;
-    return (passCheck.length > 5 &&
+    return (this.state.passWordCheck.length > 5 &&
       this.state.password === this.state.passwordCheck);
   }
 
@@ -59,38 +67,33 @@ class WorkerSignupForm extends React.Component {
   }
 
   handleSubmit(e) {
+    e.preventDefault();
 
     if(this.state.password !== this.state.passwordCheck) {
       this.props.frontendErrors(["Passwords do not match"]);
+    } else if(this.state.id) {
+      this.props.edit(this.state).then(() => {
+        this.props.closeModal();
+      })
     } else {
-      e.preventDefault();
 
-      const state = this.state;
-      if (this.props.currentUser) {
-        const paramsKeys = Object.keys(state).map((key) => {
-          if (state[key] !== "" && state[key] !== null) {
-            return key;
-          }
-        });
-        const params = {};
-        paramsKeys.forEach((k) => { params[k] = state[k]; });
-        params['id'] = this.state.id;
-        this.props.edit(params).then(() => {
-          this.props.closeModal();
-        });
-      } else {
-        this.props.signup(this.state).then((worker) => {
-          this.props.closeModal();
-        });
-      }
+      this.props.signup(this.state).then((worker) => {
+        this.props.closeModal();
+      })
     }
   }
 
   activateCloudinaryWidget() {
-    cloudinary.openUploadWidget({ cloud_name: 'youth-work-hub',
-                                  upload_preset: 'profile_pic' },
-                                  (error, result) => {
-        this.setState({picture_url: result[0].secure_url});
+    cloudinary.openUploadWidget(
+      { cloud_name: 'youth-work-hub',
+        upload_preset: 'profile_pic' },
+        (error, result) => {
+          if(result) {
+            this.setState({picture_url: result[0].secure_url});
+
+          } else if(error) {
+            console.log(error);
+          }
       });
   }
 
@@ -136,6 +139,8 @@ class WorkerSignupForm extends React.Component {
     const today = new Date();
     const minBirth = `${today.getFullYear()}-${today.getMonth()
                       }-${today.getDate() + 1}`;
+    const birthDate = this.state.birth_date == "" ?
+                      new Date() : new Date(this.state.birth_date);
 
     return (
       <div className='form'>
@@ -201,6 +206,15 @@ class WorkerSignupForm extends React.Component {
             />
           </div>
 
+          <div className='react-widget'>
+            <label htmlFor='date-of-birth'>Birthdate</label>
+            <DateTimePicker
+              time={false}
+              defaultValue={birthDate}
+              onChange={this.setBirthdate}
+            />
+          </div>
+
           <div className='text-input'>
             <input type="text"
               id="zipcode"
@@ -226,7 +240,8 @@ class WorkerSignupForm extends React.Component {
 
           <div className='photo-input'>
             <button className='photo-button' onClick={this.activateCloudinaryWidget}>
-              Upload Photo
+              <i className="fa fa-camera fa-2x" aria-hidden="true"></i><br />
+              upload photo
             </button>
           </div>
 
