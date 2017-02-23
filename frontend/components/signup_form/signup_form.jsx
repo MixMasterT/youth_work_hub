@@ -154,7 +154,6 @@ class SignupForm extends React.Component {
           </div>
 
           <div className='photo-input'>
-
             <button className='photo-button' onClick={this.activateCloudinaryWidget}>
               <i className="fa fa-camera fa-2x" aria-hidden="true"></i><br />
               upload photo

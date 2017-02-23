@@ -227,15 +227,19 @@ class WorkerSignupForm extends React.Component {
           </div>
 
           <div className='number-input'>
-            <label htmlFor='min-wage'>Min Wage ($/hr)</label>
-            <input type="number"
-              id="min-wage"
-              placeholder=" "
-              onChange={this.update('min_wage')}
-              value={this.state.min_wage}
-              min="0"
-              step="1"
-            />
+            <div>
+              <label htmlFor='min-wage'>Min Wage ($/hr)</label>
+            </div>
+            <div>              
+              <input type="number"
+                id="min-wage"
+                placeholder=" "
+                onChange={this.update('min_wage')}
+                value={this.state.min_wage}
+                min="0"
+                step="1"
+                />
+            </div>
           </div>
 
           <div className='photo-input'>

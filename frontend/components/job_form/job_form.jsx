@@ -181,25 +181,33 @@ class JobForm extends React.Component {
           </div>
 
           <div className='number-input'>
-            <input type="number"
-              id="duration"
-              onChange={this.update('duration')}
-              value={this.state.duration}
-              min="1"
-              step="1"
-            />
-            <label htmlFor='duration'>Duration (in hrs)</label>
+            <div>
+              <label htmlFor='duration'>Duration (in hrs)</label>
+            </div>
+            <div>
+              <input type="number"
+                id="duration"
+                onChange={this.update('duration')}
+                value={this.state.duration}
+                min="1"
+                step="1"
+                />
+            </div>
           </div>
 
           <div className='number-input'>
-            <input type="number"
-              id="wage"
-              onChange={this.update('wage')}
-              value={this.state.wage}
-              min="1"
-              step="1"
-            />
-            <label htmlFor='wage'>Wage ($/hr)</label>
+            <div>
+              <label htmlFor='wage'>Wage ($/hr)</label>
+            </div>
+            <div>
+              <input type="number"
+                id="wage"
+                onChange={this.update('wage')}
+                value={this.state.wage}
+                min="1"
+                step="1"
+              />
+            </div>
           </div>
 
           <div className='checkbox-input'>
