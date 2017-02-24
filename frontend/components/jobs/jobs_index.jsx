@@ -49,6 +49,12 @@ class JobsIndex extends React.Component {
       </button>;
 
     let text = "Jobs You Have Posted";
+    let subText = "Click on each job for more information!"
+
+    if(jobsArray.length === 0) {
+      text = "You have not yet posted any jobs.";
+      subText = "";
+    }
 
     if(this.props.currentUser.isWorker) {
       postJobButton = "";
@@ -59,7 +65,7 @@ class JobsIndex extends React.Component {
       <div className="jobs-index-wrapper">
         { postJobButton }
         <h1>{text}</h1>
-        <h3>Click on each job for more information!</h3>
+        <h3>{subText}</h3>
         <div className="jobs-index">
           { jobsArray }
         </div>
