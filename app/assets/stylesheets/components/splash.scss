@@ -2,17 +2,18 @@
 @import './base/fonts.scss';
 
 .splash {
-  width: 100%;
+  max-width: 1600px;
+  width: 100vw;
   height: 800px;
   position: relative;
   padding: 80px;
+  top: -100px;
   margin-top: 20px;
   z-index: 20;
 }
 .cb-slideshow,
 .cb-slideshow:after {
     position: relative;
-    width: 100%;
     height: 560px;
     top: 100px;
     left: 0px;
@@ -53,10 +54,10 @@
 }
 .cb-slideshow li div h3 {
     font-family: $handwritten;
-    font-size: 80px;
+    font-size: 60px;
     padding: 0;
     line-height: 200px;
-    color: $grey-lighter;
+    color: $base-lightest;
     text-shadow:
      -1px -1px 0 #000,
       1px -1px 0 #000,
@@ -343,7 +344,7 @@
 	}
 	100% { opacity: 0 }
 }
-/* Show at least something when animations not supported */
+/* Show when animations not supported */
 .no-cssanimations .cb-slideshow li span{
 	opacity: 1;
 }

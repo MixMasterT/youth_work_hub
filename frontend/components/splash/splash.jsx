@@ -13,21 +13,18 @@ class Splash extends React.Component {
 
   render() {
     return (
-      <div>
-          <div className="splash">
-            <div className="video-play">
-              <ul className="cb-slideshow">
-                <li><span>Image 01</span><div><h3>Help out your community</h3></div></li>
-                <li><span>Image 02</span><div><h3>Give young people opportunities</h3></div></li>
-                <li><span>Image 03</span><div><h3>Get you jobs done!</h3></div></li>
-                <li><span>Image 04</span><div><h3>Enjoy youthful creativity and spirit</h3></div></li>
-                <li><span>Image 05</span><div><h3>Help today's youth learn responsibilit</h3></div></li>
-                <li><span>Image 06</span><div><h3>Find the help you need</h3></div></li>
-              </ul>
-            </div>
+        <div className="splash">
+          <div className="video-play">
+            <ul className="cb-slideshow">
+              <li><span>Image 01</span><div><h3>Help out your community</h3></div></li>
+              <li><span>Image 02</span><div><h3>Give young people opportunities</h3></div></li>
+              <li><span>Image 03</span><div><h3>Get you jobs done!</h3></div></li>
+              <li><span>Image 04</span><div><h3>Enjoy youthful energy, creativity and spirit</h3></div></li>
+              <li><span>Image 05</span><div><h3>Help today's youth learn responsibility</h3></div></li>
+              <li><span>Image 06</span><div><h3>Find the help you need</h3></div></li>
+            </ul>
           </div>
-      </div>
-
+        </div>
     );
   }
 
