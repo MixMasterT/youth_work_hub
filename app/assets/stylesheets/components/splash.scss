@@ -2,8 +2,7 @@
 @import './base/fonts.scss';
 
 .splash {
-  max-width: 1600px;
-  width: 800px;
+  min-width: 600px;
   height: 800px;
   position: relative;
   padding: 80px;

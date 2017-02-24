@@ -6,25 +6,47 @@ footer {
   border-bottom: 2px solid black;
   border-top: 2px solid black;
   margin-top: 10px;
-  text-align: left;
+  text-align: center;
 
-  img {
-    float: left;
+  width: 100vw;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+  .logo-image {
     margin: 10px;
-    max-width: 220px;
-    max-height: 240px;
+    margin-left: 20px;
+    width: 200px;
+    height: 200px;
   }
 
   .footer-text {
     font-family: 'Fredoka One', cursive;
-    margin-top: 75px;
+    margin-top: 70px;
     position: relative;
-    left: 20px;
+
+    .tagline {
+      margin-top: 5px;
+      position: relative;
+    }
   }
 
-  .tagline {
-    margin-top: 5px;
-    position: relative;
-    left: 10%;
+  .footer-links {
+    margin-right: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    .top-link {
+      margin-bottom: 50%;
+    }
+
+    .top-link, .bottom-link {
+      border: solid black 1px;
+      border-radius: 15%;
+      padding: 5px;
+      box-shadow: 1px 2px $grey-darkest;
+    }
   }
 }
