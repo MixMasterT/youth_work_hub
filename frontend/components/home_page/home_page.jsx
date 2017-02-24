@@ -4,31 +4,22 @@ import classnames from 'classnames';
 
 const MissionStatement = () => (
   <div className="mission-statement">
-    <h2>Become an Employer</h2>
-    <p>At Youth Work Hub you can be an employer. Our standard users
-      understand the benefits of learning financial responsibility
-      from a young age. Help young people in your community earn, learn,
-      and grow... and get help with odd jobs that you need to have finished.
+    <p>Post odd jobs on Youth Work Hub to Help young people in your community
+      earn, learn, and grow... and get help with odd jobs that you need
+      to have finished.
       </p>
-    <h3>Help young people learn and get your jobs done!</h3>
+    <h3>Help the youth, and get your jobs done!</h3>
     <p>
       Youth Work Hub is a non-profit organization dedicated to enhancing
-      communities by hooking young people up with jobs that need to be
-      completed in their communities.
-    </p>
-    <p>
-      Our regular users are employers who hire young people from the
-      community to do odd jobs. Join up to become an employer. You can
-      post jobs that you need to get done, and let young people i
+      communities by hooking young people up with odd jobs in their communities.
     </p>
     <p>
       Do you need someone to mow your lawn? How about getting a baby-sitter
-      or a tutor for your children? Youth Work Hub makes it easy to find
-      young people in your community who are willing to help.
+      or a tutor for your children? Sign up as an employer on Youth Work
+      Hub and post those jobs!
     </p>
   </div>
 );
-
 
 const Testimonials = () => {
   const testimons = [
@@ -51,6 +42,7 @@ const Testimonials = () => {
       picture_url: "http://res.cloudinary.com/youth-work-hub/image/upload/v1484288385/lawnmower1_ip9bas.jpg"
     }
   ];
+
   const classes = classnames({'testimonial': true, 'clearfix': true});
   return (
     <div className="testimonials">
@@ -68,7 +60,9 @@ const Testimonials = () => {
 
 const HomePage = () => (
   <div className="home">
-    <h1>Build Your Community</h1>
+    <div className='headline'>
+      <h1>Build Your Community</h1>
+    </div>
     <div className="home-body">
       <MissionStatement />
       <Testimonials />
