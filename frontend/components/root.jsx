@@ -9,12 +9,14 @@ import WorkerShowContainer from './worker_show/worker_show_container';
 import JobsSearchContainer from './jobs/jobs_search_container';
 import JobShowContainer from './jobs/job_show_container';
 import MyJobsContainer from './jobs/my_jobs_container';
+import SplashContainer from './splash/splash_container';
 import LocationInput from './maps/location_input';
 
 const Root = ({ store }) => (
   <Provider store={ store }>
     <Router history={ hashHistory }>
       <Route path="/" component={ App } >
+        <IndexRoute component={ SplashContainer } />
         <Route path="/home" component={ HomePage } />
         <Route path="/workers/:workerId" component={ WorkerShowContainer } />
         <Route path="/workers" component={ WorkersIndexContainer } />
