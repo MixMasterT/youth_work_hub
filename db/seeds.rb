@@ -10,6 +10,7 @@
 User.create(username:"Joe Shmoe",
             password:"password",
             email:"joe@shmow.com",
+            phone_number: '415-361-2991',
             picture_url: "http://res.cloudinary.com/youth-work-hub/image/upload/v1484531943/ihtivxsbxovc8xo6xfva.png")
 
 
@@ -209,184 +210,25 @@ Worker.create( username: 'Melanie',
                lng: '',
                picture_url: '',
                zip_code: '94112',
-               birth_date: '2001-10-16',
+               birth_date: '1999-10-16',
                min_wage: 12)
 
 
-Job.create( description: 'Wash my dogs. I have two golden retrievers. They need to be washed once every week.',
-            user_id: 1,
-            job_type: 'cleaning',
-            status: 'pending',
-            address: '7445 Clarmount St. San Francisco',
-            duration: 1,
-            wage: 25,
-            start_time: '2017-01-28T18:00:00.000Z',
-            cost: 25)
 
-Job.create( description: 'Rake Leaves from our yard.',
-            user_id: 1,
-            worker_id: 1,
-            job_type: 'yard-work',
-            status: 'designated',
-            address: '6745 Rockmill dr. Oakland CA',
-            duration: 2,
-            wage: 10,
-            start_time: '2017-02-04T16:00:00.000Z',
-            cost: 20)
 
-Job.create( description: 'Take my dogs for a walk.',
-            user_id: 1,
-            worker_id: 1,
-            job_type: 'baby-sitting',
-            status: 'designated',
-            address: '7745 Woodsmill Dr.',
-            duration: 1,
-            wage: 15,
-            start_time: '2017-02-11T15:30:00.000Z',
-            cost: 15)
-
-Job.create( description: 'Clean my garage. There is lots of old stuff that you can have, including a 10-speed bicycle!',
-            user_id: 1,
-            job_type: 'cleaning',
-            status: 'pending',
-            address: '653 Raymont. San Francisco',
-            duration: 4,
-            wage: 10,
-            start_time: '2017-01-14T14:00:00.000Z',
-            cost: 40)
-
-Job.create( description: 'Play music for my daughters birthday party. You must be able to play a sing-along version of Happy Birthday!!!',
-            user_id: 1,
-            job_type: 'music',
-            status: 'pending',
-            address: '653 Mill Rd.',
-            duration: 2,
-            wage: 20,
-            start_time: '2017-02-18T15:00:00.000Z',
-            cost: 40)
-
-Job.create( description: 'Clean my kitchen',
-            user_id: 1,
-            job_type: 'cleaning',
-            status: 'pending',
-            address: '641 Renolds Dr',
-            duration: 2,
-            wage: 12,
-            start_time: '2017-02-04T16:00:00.000Z',
-            cost: 24)
-
-Job.create( description: 'Stay with my daughter, and play games with her while I go on a date with my wife.',
-            user_id: 1,
-            job_type: 'baby-sitting',
-            status: 'pending',
-            address: '7230 Hart. Rd. San Francisco',
-            duration: 5,
-            wage: 12,
-            start_time: '2017-02-14T17:30:00.000Z',
-            cost: 60)
-
-Job.create( description: 'Fix my website so that it looks nice. The functionality is OK, but the design really needs help. It would really help if you are good with CSS.',
-            job_type: 'computer work',
-            user_id: 1,
-            worker_id: 3,
-            status: 'designated',
-            address: '7461 Willis Dr.',
-            duration: 5,
-            wage: 20,
-            start_time: '2017-01-28T12:00:00.000Z',
-            cost: 100)
-
-Job.create( description: 'Wash my car. You will need to wash the outside, and vacuum out the inside. I have  a vacuum cleaner that works well.',
-            user_id: 1,
-            job_type: 'cleaning',
-            status: 'pending',
-            address: '8220 Lone Wolf Dr.',
-            duration: 1,
-            wage: 15,
-            start_time: '2017-02-11T12:00:00.000Z',
-            cost: 15)
-
-Job.create( description: 'Type a hand-written piece of writing that I have done into MS word.',
-            job_type: 'computer work',
-            user_id: 1,
-            worker_id: 3,
-            status: 'designated',
-            address: '5451 Lamont',
-            duration: 3,
-            wage: 12,
-            start_time: '2017-02-04T16:00:00.000Z',
-            cost: 36)
-
-Job.create( description: 'Make a giant card for my anniversary. My wife and I will be married for 25 years!',
-            user_id: 1,
-            job_type: 'art',
-            status: 'pending',
-            address: '6520 Hart Dr.',
-            duration: 3,
-            wage: 15,
-            start_time: '2017-03-10T17:00:00.000Z',
-            cost: 45)
-
-Job.create( description: 'Help me fix my roof',
-            user_id: 2,
-            worker_id: 2,
-            job_type: 'yard-work',
-            status: 'fulfilled',
-            address: '6520 Hart Dr.',
-            duration: 3,
-            wage: 15,
-            start_time: '2017-01-10T14:00:00.000Z',
-            cost: 45)
-
-Job.create( description: 'Walk my dogs',
-            user_id: 1,
-            worker_id: 1,
-            job_type: 'pet-care',
-            status: 'fulfilled',
-            address: '6520 Hart Dr.',
-            duration: 1,
-            wage: 15,
-            start_time: '2017-01-05T14:00:00.000Z',
-            cost: 15)
-
-Job.create( description: 'Rake leaves out of front and back yards',
-            user_id: 1,
-            worker_id: 1,
-            job_type: 'yard-work',
-            status: 'fulfilled',
-            address: '6520 Hart Dr.',
-            duration: 2,
-            wage: 15,
-            start_time: '2016-11-05T14:00:00.000Z',
-            cost: 30)
-
-Review.create( user_id: 2,
-               job_id: 12,
-               body: "He did a great job!",
-               rating: 5)
-
-Review.create( user_id: 1,
-               job_id: 13,
-               body: "Dogs seemed happy!",
-               rating: 5)
-
-Review.create( user_id: 1,
-               job_id: 14,
-               body: "Excellent work! Yard looks great...",
-               rating: 5)
-
-five_users = (1..5).to_a
-five_users.each do |n|
-  User.create(username: "U#{n}", password:"#{n.to_s * 6}", email:"u#{n}@u.com")
-end
-
-five_workers = (1..5).to_a
-five_workers.each do |n|
-  Worker.create(username: "W#{n}",
-                  password:"#{n.to_s * 6}",
-                  email:"W#{n}@w.com",
-                  zip_code: "94131")
-end
+# five_users = (1..5).to_a
+#
+# five_users.each do |n|
+#   User.create(username: "U#{n}", password:"#{n.to_s * 6}", email:"u#{n}@u.com")
+# end
+#
+# five_workers = (1..5).to_a
+# five_workers.each do |n|
+#   Worker.create(username: "W#{n}",
+#                   password:"#{n.to_s * 6}",
+#                   email:"W#{n}@w.com",
+#                   zip_code: "94131")
+# end
 
 # job_descriptions = { description: "clean my kicthen",
 #                      job_type: "cleaning",

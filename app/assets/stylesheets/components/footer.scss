@@ -38,6 +38,11 @@ footer {
     flex-direction: column;
     justify-content: center;
 
+    a:hover {
+      background-color: $base-lightest;
+      box-shadow: 2px 4px $grey-darkest;
+    }
+
     .top-link {
       margin-bottom: 50%;
     }
@@ -46,7 +51,7 @@ footer {
       border: solid black 1px;
       border-radius: 15%;
       padding: 5px;
-      box-shadow: 1px 2px $grey-darkest;
+      box-shadow: 1px 2px $grey-dark;
     }
   }
 }

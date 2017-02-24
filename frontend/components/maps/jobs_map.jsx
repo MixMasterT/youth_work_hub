@@ -78,6 +78,7 @@ class JobsMap extends React.Component {
     return (
       <div className='map-wrapper'>
         <h1> JOBS MAP </h1>
+        <h4>Adjust the map to see jobs in its range.</h4>
         <div className="map" ref={ map => this.mapNode = map }
         ></div>
       </div>
