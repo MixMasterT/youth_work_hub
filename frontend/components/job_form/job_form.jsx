@@ -177,6 +177,7 @@ class JobForm extends React.Component {
             <DateTimePicker
               defaultValue={defaultDate}
               onChange={this.setDate}
+              min={ new Date() }
             />
           </div>
 
@@ -215,14 +216,16 @@ class JobForm extends React.Component {
               <h3>total cost: ${this.state.cost}</h3>
             </div>
 
-            <input type="checkbox"
-              id="accept-cost"
-              required
-            />
+            <div className='accept-cost'>
+              <input type="checkbox"
+                id="accept-cost"
+                required
+              />
+              <label htmlFor='accept-cost'>Check to agree: you will pay
+                this amount when the service is rendered.
+              </label>
+            </div>
 
-            <label htmlFor='accept-cost'>Check to agree: you will pay
-              this amount when the service is rendered.
-            </label>
           </div>
 
           <button type="submit">{text}</button>

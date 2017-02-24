@@ -164,8 +164,15 @@
   }
 
   .select-input, .textarea-input, .text-input, .location-input,
-  .react-widget, .number-input, .checkbox-input, .photo-input {
+  .react-widget, .number-input, .checkbox-input, .photo-input,
+  .checkbox, .accept-cost {
     margin-top: 30px;
+  }
+
+  #accept-cost {
+    position: relative;
+    top: -2px;
+    margin-right: 10px;
   }
 
   .react-widget {
@@ -329,6 +336,16 @@
     .rw-btn-time span::before {
       font-family: FontAwesome;
       content: "\f017"
+    }
+    .rw-empty-cell {
+      text-align: center;
+      padding: 6px;
+    }
+
+    .rw-empty-cell:before {
+      content: '-';
+      position: relative;
+      left: 3px;
     }
   }
 }
