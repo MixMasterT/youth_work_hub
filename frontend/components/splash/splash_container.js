@@ -9,3 +9,5 @@ export default connect(
   null,
   mapDispatchToProps
 )(Splash);
+
+//THIS FILE IS NOT NECESSARY

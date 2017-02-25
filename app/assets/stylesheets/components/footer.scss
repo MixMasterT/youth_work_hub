@@ -38,9 +38,14 @@ footer {
     flex-direction: column;
     justify-content: center;
 
+    a {
+      transition: width .2s ease-in-out;
+    }
+
     a:hover {
       background-color: $base-lightest;
       box-shadow: 2px 4px $grey-darkest;
+      transform: scale(1.05);
     }
 
     .top-link {

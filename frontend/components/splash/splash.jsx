@@ -19,14 +19,12 @@ class Splash extends React.Component {
               <span>Image 01</span>
               <div>
                 <h3>Help out your community</h3>
-
                 </div>
-
               </li>
             <li>
               <span>Image 02</span>
               <div>
-                <h3>Give young people opportunities</h3>                
+                <h3>Give young people opportunities</h3>
                 </div>
               </li>
             <li>
