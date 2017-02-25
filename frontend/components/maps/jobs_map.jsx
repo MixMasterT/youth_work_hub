@@ -22,8 +22,8 @@ class JobsMap extends React.Component {
 
   componentDidMount() {
     let mapOptions = {
-      center: { lat: 35.7, lng: -92.8 },
-      zoom: 3
+      center: { lat: 37.773972, lng: -122.431297 },
+      zoom: 12
     }
 
     navigator.geolocation.getCurrentPosition((loc) => {
