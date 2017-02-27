@@ -2,7 +2,7 @@ import React from 'react';
 import { hashHistory } from 'react-router';
 
 const Logo = () => {
-  const handleClick = () => { hashHistory.push('/home'); };
+  const handleClick = () => { hashHistory.push('/'); };
   return (
     <img
       onClick={handleClick}

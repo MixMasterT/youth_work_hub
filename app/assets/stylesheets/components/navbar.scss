@@ -27,6 +27,10 @@ nav {
       position: relative;
     }
 
+    .logo:hover {
+      cursor: pointer;
+    }
+
     ul {
       min-width: 40%;
       display: flex;
