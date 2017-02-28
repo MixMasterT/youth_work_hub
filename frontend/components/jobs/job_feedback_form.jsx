@@ -35,7 +35,6 @@ const mapDispatchToProps = dispatch => ({
 class JobFeedbackForm extends React.Component {
   constructor(props) {
     super(props);
-    console.log(this.props.worker);
     this.state = merge(({
       user_id: this.props.currentUser ? this.props.currentUser.id : "",
       job_id: this.props.job.id,
@@ -171,7 +170,6 @@ class JobFeedbackForm extends React.Component {
             </div>
 
           </div>
-
 
           <button type="submit">Leave Review</button>
 
