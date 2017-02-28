@@ -20,7 +20,8 @@ const mapStateToProps = (state, {params}) => ({
   currentUser: state.session.currentUser,
   errors: state.session.errors,
   jobFeedbackModalIsOpen: state.modals.jobFeedbackModal,
-  job: state.jobDetail
+  job: state.jobDetail,
+  worker: state.workerDetail
 });
 
 const mapDispatchToProps = dispatch => ({
@@ -34,7 +35,7 @@ const mapDispatchToProps = dispatch => ({
 class JobFeedbackForm extends React.Component {
   constructor(props) {
     super(props);
-    console.log(this.props.job.review);
+    console.log(this.props.worker);
     this.state = merge(({
       user_id: this.props.currentUser ? this.props.currentUser.id : "",
       job_id: this.props.job.id,
@@ -153,7 +154,7 @@ class JobFeedbackForm extends React.Component {
 
           <div className="completion-checkboxes">
 
-            <h5>Please indicate whether or not {this.props.worker} did the job:</h5>
+            <h5>Please indicate whether or not {this.props.worker.username} did the job:</h5>
             <div className='completed-input'>
               <input type="radio" className="rad" id="completed"
                 onChange={this.update('completion')} value="fulfilled"

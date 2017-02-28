@@ -30,8 +30,6 @@ class JobFeedbackModal extends React.Component {
   update(field) {
     return e => {
       if(field === 'rating') {
-        console.log(e.target.value);
-
         this.setState({[field]: e.target.value})}
       }
   }

@@ -12,7 +12,7 @@ const mapStateToProps = (state, { params })=> ({
   jobId: params['jobId'],
   job: state.jobDetail,
   currentUser: state.session.currentUser,
-  currentWorker: state.workerDetail
+  worker: state.workerDetail
 });
 
 const mapDispatchToProps = (dispatch, { params }) => ({
