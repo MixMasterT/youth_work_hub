@@ -13,7 +13,6 @@ class JobsMap extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      homeMarker: null,
       jobMarkers: []
     }
 
@@ -66,7 +65,6 @@ class JobsMap extends React.Component {
       label: 'H',
       icon: image
     })
-    this.setState({ homeMarker: otherImage })
     this.map.setZoom(13);
   }
 

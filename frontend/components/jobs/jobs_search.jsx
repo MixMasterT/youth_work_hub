@@ -7,10 +7,6 @@ import JobsMap from '../maps/jobs_map';
 class JobsSearch extends React.Component {
   constructor(props) {
     super(props);
-
-    this.state = ({
-      bounds: this.props.jobsArray
-    })
   }
 
   render() {

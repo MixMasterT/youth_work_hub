@@ -11,7 +11,8 @@ import JobShow from './job_show';
 const mapStateToProps = (state, { params })=> ({
   jobId: params['jobId'],
   job: state.jobDetail,
-  currentUser: state.session.currentUser
+  currentUser: state.session.currentUser,
+  currentWorker: state.workerDetail
 });
 
 const mapDispatchToProps = (dispatch, { params }) => ({

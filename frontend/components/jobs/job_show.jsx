@@ -15,11 +15,12 @@ class JobShow extends React.Component {
 
   componentDidMount() {
     this.props.fetchJob().then(() => {
-      if (this.props.job.worker_id) {
-        console.log("fetched job had worker id");
-        this.props.fetchWorker(this.props.job.worker_id);
-      } else {
-        this.props.clearWorker()
+      if (!this.props.currentUser.isWorker) {
+        if (this.props.job.worker_id) {
+          this.props.fetchWorker(this.props.job.worker_id);
+        } else {
+          this.props.clearWorker()
+        }
       }
     });
   }
