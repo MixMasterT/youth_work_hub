@@ -8,4 +8,5 @@ json.extract! job, :id,
                    :start_time,
                    :cost,
                    :lat,
-                   :lng
+                   :lng,
+                   :worker_id

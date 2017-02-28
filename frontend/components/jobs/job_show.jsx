@@ -14,8 +14,23 @@ class JobShow extends React.Component {
   }
 
   componentDidMount() {
-    this.props.fetchJob();
+    this.props.fetchJob().then(() => {
+      if (this.props.job.worker_id) {
+        console.log("fetched job had worker id");
+        this.props.fetchWorker(this.props.job.worker_id);
+      } else {
+        this.props.clearWorker()
+      }
+    });
   }
+
+  // componentWillReceiveProps(nextProps) {
+  //   if (nextProps.job.worker_id) {
+  //     console.log("worker id recognized.");
+  //     console.log(nextProps.job.worker_id);
+  //     this.props.fetchWorker(nextProps.job.worker_id);
+  //   }
+  // }
 
   takeJob() {
     this.props.openModal('acceptJobModal');
