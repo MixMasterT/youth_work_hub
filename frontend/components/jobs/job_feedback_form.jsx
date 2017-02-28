@@ -40,7 +40,8 @@ class JobFeedbackForm extends React.Component {
       job_id: this.props.job.id,
       body: "",
       rating: "5",
-      job_status: this.props.job.status
+      job_status: this.props.job.status,
+      completion: ""
     }), this.props.job.review);
     this.update = this.update.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -73,6 +74,17 @@ class JobFeedbackForm extends React.Component {
   render() {
     const errors = errorsList(this.props);
     const rating = this.state.rating;
+    const completion = this.state.completion;
+
+    const ratingStars = ['one', 'two', 'three', 'four', 'five'].map((str, i) => {
+      return (
+          <input type="radio" className="rating-input" id={str} key={i}
+            onChange={this.update('rating')} value={i + 1}  name="rating-score"
+            defaultChecked={rating === {i}}>
+          </input>
+
+      )
+    })
     return (
       <div className='form'>
 
@@ -129,7 +141,7 @@ class JobFeedbackForm extends React.Component {
             <label htmlFor='five' className="rating-star"></label>
 
           </div>
-          
+
           <div className='textarea-input'>
             <textarea id="body"
               value={this.state.body}
@@ -138,6 +150,28 @@ class JobFeedbackForm extends React.Component {
             />
             <label htmlFor='body'>Review Comment</label>
           </div>
+
+          <div className="completion-checkboxes">
+
+            <h5>Please indicate whether or not {this.props.worker} did the job:</h5>
+            <div className='completed-input'>
+              <input type="radio" className="rad" id="completed"
+                onChange={this.update('completion')} value="fulfilled"
+                checked={completion === "fulfilled"}
+                />
+              <label htmlFor='completed'>Yes</label>
+            </div>
+
+            <div className='completed-input'>
+              <input type="radio" className="rad" id="incomplete"
+                onChange={this.update('completion')} value="unfulfilled"
+                checked={completion === "unfulfilled"}
+                />
+              <label htmlFor='incomplete'>No</label>
+            </div>
+
+          </div>
+
 
           <button type="submit">Leave Review</button>
 
