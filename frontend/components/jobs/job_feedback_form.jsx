@@ -42,7 +42,6 @@ class JobFeedbackForm extends React.Component {
       body: "",
       rating: "5",
       job_status: this.props.job.status,
-      completion: ""
     }), this.props.job.review);
     this.update = this.update.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -75,7 +74,7 @@ class JobFeedbackForm extends React.Component {
   render() {
     const errors = errorsList(this.props);
     const rating = this.state.rating;
-    const completion = this.state.completion;
+    const completion = this.state.job_status;
 
     const ratingStars = ['one', 'two', 'three', 'four', 'five'].map((str, i) => {
       return (
@@ -157,7 +156,7 @@ class JobFeedbackForm extends React.Component {
             <h5>Please indicate whether or not {this.props.worker.username} did the job:</h5>
             <div className='completed-input'>
               <input type="radio" className="rad" id="completed"
-                onChange={this.update('completion')} value="fulfilled"
+                onChange={this.update('job_status')} value="fulfilled"
                 checked={completion === "fulfilled"}
                 />
               <label htmlFor='completed'>Yes</label>
@@ -165,7 +164,7 @@ class JobFeedbackForm extends React.Component {
 
             <div className='completed-input'>
               <input type="radio" className="rad" id="incomplete"
-                onChange={this.update('completion')} value="unfulfilled"
+                onChange={this.update('job_status')} value="unfulfilled"
                 checked={completion === "unfulfilled"}
                 />
               <label htmlFor='incomplete'>No</label>
