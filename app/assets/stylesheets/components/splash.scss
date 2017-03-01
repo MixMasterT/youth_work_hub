@@ -4,6 +4,7 @@
 .splash {
   width: 80%;
   min-width: 600px;
+  height: auto;
   // height: 800px;
   position: relative;
   padding: 80px;
@@ -16,6 +17,9 @@
   //   max-height: 800px !important;
   //   max-width: 800px !important;
   // }
+}
+ul .cb-slideshow {
+  border-radius: 20px;
 }
 .cb-slideshow,
 .cb-slideshow:after {
@@ -37,7 +41,6 @@
     background-size: cover;
     background-position: 50% 50%;
     background-repeat: none;
-    border-radius: 20px;
     opacity: 0;
     z-index: 0;
 	  -webkit-backface-visibility: hidden;
@@ -76,6 +79,9 @@
       -1px 1px 0 #000,
        1px 1px 0 #000;
 }
+// .cb-slidewhow li span {
+//     border-radius: 20px;
+// }
 .cb-slideshow li:nth-child(1) span {
   background-image: url("https://res.cloudinary.com/youth-work-hub/image/upload/v1487891808/youth-service-project_ve5miv.jpg")
 }

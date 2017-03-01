@@ -113,6 +113,9 @@ nav {
       }
     }
   }
+  #login-box div:hover {
+    color: $grey-light;
+  }
 
   #login-box div:hover .popup-buttons,
   #login-box div:hover .popup {

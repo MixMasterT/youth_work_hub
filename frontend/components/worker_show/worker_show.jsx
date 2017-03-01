@@ -16,7 +16,7 @@ class WorkerShow extends React.Component {
   render() {
     const worker = this.props.worker;
     let age = null;
-    if (worker.birth_date) {
+    if (worker) {
       let birthDate = new Date(worker.birth_date)
       age = Math.floor( (new Date() - birthDate )/ 31557600000);
     }
@@ -47,7 +47,7 @@ class WorkerShow extends React.Component {
                   "information unavailable."}</h4>
             </div>
             <div className="wage-bio">
-              <h2>{worker.username}'s bio:</h2>
+              <h2>{worker.username}s bio:</h2>
               <p className="bio">{(worker.bio) ? worker.bio :
                     "This worker has not provided a biography."}</p>
 

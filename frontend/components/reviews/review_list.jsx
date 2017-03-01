@@ -42,7 +42,7 @@ class ReviewList extends React.Component {
 }
 
 const mapStateToProps = state => ({
-  reviewArray: state.workerDetail.reviews
+  reviewArray: state.workerDetail.reviews.reverse()
 });
 
 export default connect(mapStateToProps)(ReviewList);

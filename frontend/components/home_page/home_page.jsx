@@ -32,7 +32,7 @@ const Testimonials = () => {
 
     {title: "We Got Much Needed Help",
       user: "Debrah Rennolds",
-      text: "Our Campaign was having a lot of trouble reaching diverse members of our community. We found some great workers to help use bridge the gap on Youth Work Hub. We have been very impressed with their work ethic. These bright young men and women represent our future!",
+      text: "Our Campaign was having a lot of trouble reaching diverse members of our community. We found some great workers to help us bridge the gap on Youth Work Hub. We have been very impressed with their work ethic. These bright young men and women represent our future!",
       picture_url: "http://res.cloudinary.com/youth-work-hub/image/upload/v1484287815/YouthBuild-Guest-post-1_vaby6h.jpg"
     },
 
