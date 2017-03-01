@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Modal from 'react-modal';
-import { largeModalStyles, errorsList } from '../../util/form_util';
+import { smallModalStyles, errorsList } from '../../util/form_util';
 
 
 class AcceptJobForm extends React.Component {
@@ -34,7 +34,7 @@ class AcceptJobForm extends React.Component {
           isOpen={this.props.acceptJobModalIsOpen}
           onAfterOpen={this.afterOpenModal}
           onRequestClose={this.closeModal.bind(this)}
-          style={largeModalStyles}
+          style={smallModalStyles}
           contentLabel="Job Form"
         >
           <div className='form'>
@@ -53,7 +53,7 @@ class AcceptJobForm extends React.Component {
                   id="accept-cost"
                   required
                 />
-              <label for='accept-cost'>Check to confirm that you will be
+              <label htmlFor='accept-cost'>Check to confirm that you will be
                 there for this job on {this.props.job.date}.
                 </label>
               </div>

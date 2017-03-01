@@ -1,8 +1,8 @@
 import React from 'react';
 
-import JobsIndexItem from './jobs_index_item';
-
 import { hashHistory } from 'react-router';
+
+import JobsList from './jobs_list';
 
 class MyJobs extends React.Component {
   constructor(props) {
@@ -32,25 +32,40 @@ class MyJobs extends React.Component {
       const bDate = new Date(b.start_time);
       return  aDate > bDate;
     });
-    const  myJobsArray = myOrderedJobs.map((job) => (
-      <JobsIndexItem className='jobs-index-item'
-                     key={job.id}
-                     job={job}
-                     onClick={this.redirectTo(job.id)}/>
-    ));
 
-    let text = "You haven't accepted any jobs yet.";
+    const past = [];
+    const future = [];
+
+    const now = new Date();
+
+    myOrderedJobs.forEach((job) => {
+      if (new Date(job.start_time) < now) {
+        past.push(job);
+      } else {
+        future.push(job);
+      }
+    })
+
+    let text = "Your Upcoming Jobs";
+    let pastText = "Past Jobs You Have Accepted"
     if (this.props.currentUser) {
-      if(this.props.currentUser.isWorker) {
-        if(myJobsArray.length > 0) {
-          text = "Jobs You Have Agreed to Do";
+      if (this.props.currentUser.isWorker) {
+        if (future.length === 0) {
+          text = "You haven't accepted any upcoming jobs.";
+        }
+        if (past.length === 0) {
+          pastText = "";
         }
       }
       return (
-        <div className="jobs-index">
-          <h1>{text}</h1>
-          <h3>Click on each job for more information!</h3>
-          { myJobsArray }
+        <div className="jobs-index-wrapper">
+          <h1>Your Jobs</h1>
+          <div className="jobs-index">
+            <h2>{text}</h2>
+            <JobsList jobs={future} onClick={this.redirectTo} />
+            <h2>{pastText}</h2>
+            <JobsList jobs={past} onClick={this.redirectTo} />
+          </div>
         </div>
       );
     } else {

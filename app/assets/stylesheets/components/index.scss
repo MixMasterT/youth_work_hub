@@ -19,14 +19,29 @@
     margin: 1em auto;
   }
 
-  .jobs-index-item, .workers-index-item {
+  .jobs-index:first-child {
+    margin-top: 20px;
+  }
+
+  .workers-index-item, .jobs-index-item, .jobs-list .jobs-index-item {
     border-radius: 5px;
+    min-height: 400px;
+    min-width: 400px;
+    box-sizing: border-box;
     background: linear-gradient(45deg, $base-lighter, $base-dark);
   }
 
-  .jobs-index-item {
+  .workers-index-item:hover, .jobs-index-item:hover,
+  .jobs-list .jobs-index-item:hover {
+    background: linear-gradient(45deg, $base-lightest, $base-dark);
+    cursor: pointer;
+  }
+
+  .jobs-list, .jobs-index-item {
     padding: 2em;
     min-height: 250px;
+    margin: auto;
+    margin-top: 15px;
 
     width: 80%;
     display: flex;
@@ -106,9 +121,4 @@
       height: auto;
     }
   }
-}
-
-.workers-index-item:hover, .jobs-index-item:hover {
-  background: linear-gradient(45deg, $base-lightest, $base-dark);
-  cursor: pointer;
 }

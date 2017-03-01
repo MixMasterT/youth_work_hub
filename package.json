@@ -1,7 +1,7 @@
 {
   "name": "youth_work_hub",
   "version": "1.0.0",
-  "description": "YouthWorkHub",
+  "description": "http://http://youth-work-hub.herokuapp.com/",
   "main": "index.js",
   "directories": {
     "doc": "docs"

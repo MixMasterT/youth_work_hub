@@ -2,9 +2,7 @@ import React from 'react';
 
 import { hashHistory } from 'react-router';
 
-import JobsIndexItem from './jobs_index_item';
-
-import JobsMap from '../maps/jobs_map';
+import JobsList from './jobs_list';
 
 class JobsIndex extends React.Component {
   constructor(props) {
@@ -29,19 +27,24 @@ class JobsIndex extends React.Component {
   }
 
   render() {
+    const pastJobs = [];
+    const futureJobs = [];
+
     const orderedJobs = this.props.jobsArray.sort((a, b) => {
       const aDate = new Date(a.start_time);
       const bDate = new Date(b.start_time);
       return  aDate > bDate;
     });
 
-    const  jobsArray = orderedJobs.map((job) => (
-      <JobsIndexItem className='jobs-index-item'
-                     key={job.id}
-                     job={job}
-                     onClick={this.redirectTo(job.id)}
-      />
-    ));
+    const now = new Date();
+
+    orderedJobs.forEach((job) => {
+      if (new Date(job.start_time) < now) {
+        pastJobs.push(job);
+      } else {
+        futureJobs.push(job);
+      }
+    })
 
     let postJobButton =
       <button className='add-job'
@@ -50,24 +53,32 @@ class JobsIndex extends React.Component {
 
     let text = "Jobs You Have Posted";
     let subText = "Click on each job for more information!"
+    let pastText = "Past jobs you have posted"
 
-    if(jobsArray.length === 0) {
-      text = "You have not yet posted any jobs.";
+    if(futureJobs.length === 0) {
+      text = "You do not have any upcoming jobs posted.";
       subText = "";
     }
 
     if(this.props.currentUser.isWorker) {
       postJobButton = "";
       text = "Jobs Available to You";
+      pastText = "Your past jobs";
+
+      if(futureJobs.length === 0) {
+        text = "Sorry, there are no jobs available in your area."
+      }
     }
 
     return (
       <div className="jobs-index-wrapper">
         { postJobButton }
-        <h1>{text}</h1>
-        <h3>{subText}</h3>
         <div className="jobs-index">
-          { jobsArray }
+          <h2>{text}</h2>
+          <h3>{subText}</h3>
+          <JobsList jobs={futureJobs} onClick={this.redirectTo} />
+          <h2>{pastText}</h2>
+          <JobsList jobs={pastJobs} onClick={this.redirectTo} />
         </div>
       </div>
     );
