@@ -16,12 +16,13 @@ class WorkerShow extends React.Component {
   render() {
     const worker = this.props.worker;
     let age = null;
+    let picUrl = "";
     if (worker) {
       let birthDate = new Date(worker.birth_date)
       age = Math.floor( (new Date() - birthDate )/ 31557600000);
+      picUrl = worker.picture_url;
     }
 
-    let picUrl = worker.picture_url;
     if(picUrl === null) {
       picUrl = "http://res.cloudinary.com/youth-work-hub/image/upload/v1484946674/default-user_frye7s.png";
     }
