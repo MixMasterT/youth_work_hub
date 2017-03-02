@@ -23,6 +23,7 @@ const Root = ({ store }) => (
         <Route path="/jobs/myJobs" component={ MyJobsContainer } />
         <Route path="/jobs/:jobId" component={ JobShowContainer } />
         <Route path="/jobs" component={ JobsSearchContainer } />
+        <Route path="*" component={SplashContainer} />
       </Route>
     </Router>
   </Provider>
