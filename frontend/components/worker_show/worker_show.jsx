@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Link } from 'react-router';
+import { Link, Router } from 'react-router';
 
 import ReviewList from '../reviews/review_list';
 
@@ -14,21 +14,21 @@ class WorkerShow extends React.Component {
   }
 
   render() {
+    const currentId = parseInt(this.props.params.workerId)
     const worker = this.props.worker;
     let age = null;
     let picUrl = "";
-    if (worker) {
+    if (worker && worker.id === currentId) {
       let birthDate = new Date(worker.birth_date)
       age = Math.floor( (new Date() - birthDate )/ 31557600000);
       picUrl = worker.picture_url;
-    }
 
-    if(picUrl === null) {
-      picUrl = "http://res.cloudinary.com/youth-work-hub/image/upload/v1484946674/default-user_frye7s.png";
-    }
-    let reviews = "";
 
-    if (worker.id) {
+      if(picUrl === null) {
+        picUrl = "http://res.cloudinary.com/youth-work-hub/image/upload/v1484946674/default-user_frye7s.png";
+      }
+      let reviews = "";
+
       if(worker.reviews.length > 0) {
         reviews = <ReviewList />
       }
