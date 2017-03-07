@@ -25,13 +25,13 @@ class JobsMap extends React.Component {
       zoom: 12
     }
 
-    navigator.geolocation.getCurrentPosition((loc) => {
-      if (loc.coords.latitude) {
-        this.map.setCenter(new google.maps.LatLng(loc.coords.latitude,
-                                                loc.coords.longitude));
-        this.addHomeMarker(loc.coords.latitude, loc.coords.longitude);
-      }
-    });
+    // navigator.geolocation.getCurrentPosition((loc) => {
+    //   if (loc.coords.latitude) {
+    //     this.map.setCenter(new google.maps.LatLng(loc.coords.latitude,
+    //                                             loc.coords.longitude));
+    //     this.addHomeMarker(loc.coords.latitude, loc.coords.longitude);
+    //   }
+    // }); THIS IS FOR ACTUAL USAGE, NOT DEMO; IT CENTERS THE MAP ON USER LOCATION
 
     this.map = new google.maps.Map(this.mapNode, mapOptions)
 
