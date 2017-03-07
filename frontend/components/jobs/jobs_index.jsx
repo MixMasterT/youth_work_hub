@@ -47,7 +47,6 @@ class JobsIndex extends React.Component {
         }
       })
     } else {
-      console.log("else ran");
       orderedJobs.forEach((job) => {
         if (new Date(job.start_time) < now) {
           pastJobs.unshift(job);
