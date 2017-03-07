@@ -10,6 +10,8 @@ const WorkersIndexItem = ({worker, onClick}) => {
   if (worker.bio) {
     bioStart = worker.bio.slice(0, 30) + "..."
   }
+  const chop = "/w_300,h_300,c_fill/";
+  picUrl = picUrl.replace(/upload/, "/upload/w_300,h_300,c_fill/")
   return(
     <div className="workers-index-item" onClick={onClick}>
       <img src={picUrl} />
