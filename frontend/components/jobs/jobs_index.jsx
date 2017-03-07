@@ -38,19 +38,24 @@ class JobsIndex extends React.Component {
 
     const now = new Date();
 
-    orderedJobs.forEach((job) => {
-      if (currentUser.isWorker) {
+    if (this.props.currentUser.isWorker) {
+      orderedJobs.forEach((job) => {
         if (job.status === 'pending') {
           if (new Date(job.start_time) >= now) {
             futureJobs.push(job);
           }
         }
-      } else if (new Date(job.start_time) < now) {
-        pastJobs.push(job);
-      } else {
-        futureJobs.push(job);
-      }
-    })
+      })
+    } else {
+      console.log("else ran");
+      orderedJobs.forEach((job) => {
+        if (new Date(job.start_time) < now) {
+          pastJobs.unshift(job);
+        } else {
+          futureJobs.push(job);
+        }
+      })
+    }
 
     let postJobButton =
       <button className='add-job'
@@ -84,7 +89,9 @@ class JobsIndex extends React.Component {
           <h3>{subText}</h3>
           <JobsList jobs={futureJobs} onClick={this.redirectTo} />
           <h2>{pastText}</h2>
-          { pastJobs.length > 0 ? <JobsList jobs={pastJobs} onClick={this.redirectTo} /> : "" }
+          { pastJobs.length > 0 ?
+            <JobsList jobs={pastJobs} onClick={this.redirectTo} /> : ""
+          }
         </div>
       </div>
     );
