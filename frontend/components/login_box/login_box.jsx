@@ -60,7 +60,7 @@ class LoginBox extends React.Component {
               <button
                 className='highlight'
                 onClick={this.props.guestLogin.bind(this)}
-                >Guest Employer
+                >Employer Demo
               </button>
               <button
                 onClick={this.openModal('signupModal')}
@@ -73,7 +73,7 @@ class LoginBox extends React.Component {
               <button
                 className='highlight'
                 onClick={this.props.guestWorkerLogin.bind(this)}
-                >Guest Worker
+                >Worker Demo
               </button>
             </div>
           </div>
