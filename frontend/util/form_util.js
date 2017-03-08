@@ -15,7 +15,8 @@ export const errorsList = ({ errors }) => {
 
 export const largeModalStyles = {
   overlay : {
-    backgroundColor   : 'rgba(0, 0, 0, 0.75)'
+    backgroundColor   : 'rgba(0, 0, 0, 0.75)',
+    zIndex            : 200
   },
   content : {
     height                     : 'auto',
@@ -35,7 +36,8 @@ export const largeModalStyles = {
 };
 export const smallModalStyles = {
   overlay : {
-    backgroundColor   : 'rgba(0, 0, 0, 0.75)'
+    backgroundColor   : 'rgba(0, 0, 0, 0.75)',
+    zIndex            : 200
   },
   content : {
     height                     : 'auto',

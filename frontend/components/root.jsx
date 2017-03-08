@@ -11,6 +11,7 @@ import JobShowContainer from './jobs/job_show_container';
 import MyJobsContainer from './jobs/my_jobs_container';
 import SplashContainer from './splash/splash_container';
 import LocationInput from './maps/location_input';
+import NavbarContainer from './navbar_container';
 
 const Root = ({ store }) => (
   <Provider store={ store }>

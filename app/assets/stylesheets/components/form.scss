@@ -1,15 +1,15 @@
 @import './base/colors.scss';
+
 .modal-wrapper, .ReactModal__Content {
   background-color: $base-light !important;
-  z-index: 300;
 }
+
 .form {
   min-width: 440px;
   background-color: $base-light;
   text-align: center;
   padding: 25px;
   border-radius: 5%;
-  z-index: 301;
 
   .close-modal, .close-modal:hover {
     background: transparent;
