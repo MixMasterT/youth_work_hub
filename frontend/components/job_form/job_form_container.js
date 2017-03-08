@@ -18,7 +18,7 @@ const mapStateToProps = (state, {params}) => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  closeModal: (modalName) => dispatch(closeModal(modalName)),
+  closeModal: (modalName) => dispatch(closeModal('jobFormModal')),
   resetErrors: () => dispatch(resetErrors()),
   frontendErrors: (err) => dispatch(frontendErrors(err)),
   addJob: (job) => dispatch(addJob(job)),

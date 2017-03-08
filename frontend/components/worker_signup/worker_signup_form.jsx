@@ -146,6 +146,11 @@ class WorkerSignupForm extends React.Component {
     return (
       <div className='form'>
 
+        <button
+          className='close-modal'
+          onClick={this.props.closeModal}
+        >X</button>
+
         {this.props.currentUser ? "" : modalLink}
 
         <h2>{text}</h2>

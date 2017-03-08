@@ -89,6 +89,11 @@ class JobFeedbackForm extends React.Component {
 
         <h2>Leave Feedback</h2>
 
+        <button
+          className='close-modal'
+          onClick={this.props.closeModal}
+        >X</button>
+
         {(this.props.errors.length > 0) ? errors : null }
 
         <form onSubmit={this.handleSubmit} id='job-feedback-form'>

@@ -13,7 +13,7 @@ class AcceptJobForm extends React.Component {
 
   closeModal() {
     this.props.resetErrors();
-    this.props.closeModal('acceptJobModal');
+    this.props.closeModal();
   }
 
   handleSubmit(e) {
@@ -21,7 +21,7 @@ class AcceptJobForm extends React.Component {
     this.props.acceptJob(this.props.job, this.props.currentUser.id)
       .then(() => {
         this.props.resetErrors();
-        this.props.closeModal('acceptJobModal');
+        this.props.closeModal();
         this.props.fetchJob(this.props.job.id);
       });
   }
@@ -39,6 +39,11 @@ class AcceptJobForm extends React.Component {
           contentLabel="Job Form"
         >
           <div className='form'>
+
+            <button
+              className='close-modal'
+              onClick={this.props.closeModal}
+            >X</button>
 
             <h2>Agree to Accept</h2>
 

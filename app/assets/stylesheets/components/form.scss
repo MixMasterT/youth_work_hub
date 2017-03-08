@@ -1,6 +1,7 @@
 @import './base/colors.scss';
 .modal-wrapper, .ReactModal__Content {
   background-color: $base-light !important;
+  z-index: 300;
 }
 .form {
   min-width: 440px;
@@ -8,6 +9,26 @@
   text-align: center;
   padding: 25px;
   border-radius: 5%;
+  z-index: 301;
+
+  .close-modal, .close-modal:hover {
+    background: transparent;
+    float: left;
+    width: 1.2em;
+    height: 1.2em;
+    position: relative;
+    color: white;
+    border-radius: 50%;
+    box-shadow: none;
+    border: white solid 2px;
+    top: -4.5em;
+    left: -3em;
+  }
+
+  .close-modal:hover {
+    color: $contrast-light;
+    border: $contrast-light solid 2px;
+  }
 
   .error-list {
     background-color: white;

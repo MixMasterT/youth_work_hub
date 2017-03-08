@@ -32,7 +32,7 @@ class SignupForm extends React.Component {
   }
 
   goToLogin() {
-    this.props.closeModal('signupModal');
+    this.props.closeModal();
     this.props.resetErrors();
     this.props.openModal('loginModal');
   }
@@ -43,6 +43,8 @@ class SignupForm extends React.Component {
       this.props.frontendErrors(["passwords do not match"]);
     } else {
       if (this.props.currentUser) {
+        //This little params bit is a workaround to avoid sending
+        // an empty password in on edit user
         const params = {};
         Object.keys(this.state).forEach((key) => {
           if (this.state[key] !== "" && this.state[key] !== null) {
@@ -51,11 +53,11 @@ class SignupForm extends React.Component {
         });
         params['id'] = this.state.id;
         this.props.editUser(params).then(() => {
-          this.props.closeModal('signupModal');
+          this.props.closeModal();
         });
       } else {
         this.props.signup(this.state).then(() => {
-          this.props.closeModal('signupModal');
+          this.props.closeModal();
         });
       }
     }
@@ -114,6 +116,11 @@ class SignupForm extends React.Component {
 
     return (
       <div className='form'>
+
+        <button
+          className='close-modal'
+          onClick={this.props.closeModal}
+        >X</button>
 
         {this.props.currentUser ? "" : modalLink}
 

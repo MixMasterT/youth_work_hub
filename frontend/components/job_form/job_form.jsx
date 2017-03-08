@@ -96,11 +96,11 @@ class JobForm extends React.Component {
     } else {
       if (this.props.currentJob) {
         this.props.editJob(this.state)
-          .then(this.props.closeModal('jobFormModal'));
+          .then(this.props.closeModal());
       } else {
         const id = this.props.currentUser.id;
         this.props.addJob(merge(this.state, { user_id: id}))
-          .then(this.props.closeModal('jobFormModal'));
+          .then(this.props.closeModal());
       }
     }
   }
@@ -117,6 +117,11 @@ class JobForm extends React.Component {
 
     return (
       <div className='form'>
+
+        <button
+          className='close-modal'
+          onClick={this.props.closeModal}
+        >X</button>
 
         <h2>{text}</h2>
 

@@ -24,7 +24,7 @@ class JobFeedbackModal extends React.Component {
 
   closeModal() {
     this.props.resetErrors();
-    this.props.closeModal('jobFeedbackModal');
+    this.props.closeModal();
   }
 
   update(field) {
@@ -40,13 +40,13 @@ class JobFeedbackModal extends React.Component {
       this.props.updateFeedback(this.state)
         .then(() => {
           this.props.resetErrors();
-          this.props.closeModal('jobFeedbackModal');
+          this.props.closeModal();
         });
     } else {
       this.props.giveFeedback(this.state)
       .then(() => {
         this.props.resetErrors();
-        this.props.closeModal('jobFeedbackModal');
+        this.props.closeModal();
       });
     }
   }

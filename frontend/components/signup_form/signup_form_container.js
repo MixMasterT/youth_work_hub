@@ -19,7 +19,7 @@ const mapDispatchToProps = (dispatch) => ({
   editUser: (user) => dispatch(editUser(user)),
   signup: (user) => dispatch(signup(user)),
   openModal: (modalName) => dispatch(openModal(modalName)),
-  closeModal: (modalName) => dispatch(closeModal(modalName)),
+  closeModal: () => dispatch(closeModal("signupModal")),
   resetErrors: () => dispatch(resetErrors())
 });
 
