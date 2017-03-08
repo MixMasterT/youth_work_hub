@@ -94,7 +94,7 @@ nav {
     }
 
     button {
-      border-radius: 15%;
+      border-radius: 8%;
     }
 
     .popup, .popup-buttons {
@@ -104,7 +104,7 @@ nav {
       .highlight {
         background: linear-gradient(180deg,
                                     $contrast-light,
-                                    $contrast-darkest);
+                                    $contrast-darker);
       }
       .highlight:hover {
         background: linear-gradient(180deg,
@@ -132,6 +132,40 @@ nav {
       width: 50%;
       min-width: 120px;
       padding: 20px;
+    }
+
+    .flag {
+      display: inline;
+      position: relative;
+    }
+    .flag:after, .flag:before {
+    	border: solid transparent;
+      right: 0.5em;
+      bottom: -0.5em;
+      position: absolute;
+      z-index: 90;
+    	pointer-events: none;
+    }
+
+    .flag:after {
+      width: 1px;
+      height: 1px;
+      position: absolute;
+      content: "";
+      bottom: 1.3em;
+      left: -0.5em;
+      border: 15px transparent solid;
+      border-left: 15px solid $contrast-light;
+      z-index: 91;
+    }
+    .flag:before {
+      background-color: white;
+      border: solid;
+      border-color: $contrast-light;
+      border-width: 8px;
+      border-radius: 5px;
+      padding: 0.3em;
+      content: "Trail Account";
     }
   }
 }

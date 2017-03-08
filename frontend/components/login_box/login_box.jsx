@@ -62,6 +62,7 @@ class LoginBox extends React.Component {
                 onClick={this.props.guestLogin.bind(this)}
                 >Employer Demo
               </button>
+              <span className="flag" title="Trial Account to test out the functionality"></span>
               <button
                 onClick={this.openModal('signupModal')}
                 >Employer Signup
@@ -75,6 +76,7 @@ class LoginBox extends React.Component {
                 onClick={this.props.guestWorkerLogin.bind(this)}
                 >Worker Demo
               </button>
+              <div className="flag" title="Trial Account to test out the functionality"></div>
             </div>
           </div>
         </div>
