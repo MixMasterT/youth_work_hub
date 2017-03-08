@@ -22,6 +22,7 @@ class AcceptJobForm extends React.Component {
       .then(() => {
         this.props.resetErrors();
         this.props.closeModal('acceptJobModal');
+        this.props.fetchJob(this.props.job.id);
       });
   }
 

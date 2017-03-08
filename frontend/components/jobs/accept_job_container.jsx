@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 
-import { acceptJob } from '../../actions/job_actions';
+import { acceptJob, fetchJob } from '../../actions/job_actions';
 
 import { closeModal } from '../../actions/modal_actions';
 
@@ -18,7 +18,8 @@ const mapStateToProps = (state, {params}) => ({
 const mapDispatchToProps = dispatch => ({
   closeModal: (modalName) => dispatch(closeModal(modalName)),
   resetErrors: () => dispatch(resetErrors()),
-  acceptJob: (jobId, workerId) => dispatch(acceptJob(jobId, workerId))
+  acceptJob: (jobId, workerId) => dispatch(acceptJob(jobId, workerId)),
+  fetchJob: (id) => dispatch(fetchJob(id))
 });
 
 export default connect(

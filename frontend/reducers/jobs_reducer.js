@@ -28,6 +28,7 @@ const JobsReducer = (state = {}, action) => {
 
     case ACCEPT_JOB:
       const acceptedJob = { [action.job.id]: action.job };
+      acceptedJob.status = 'designated';
       return merge(newState, acceptedJob);
 
     default:
