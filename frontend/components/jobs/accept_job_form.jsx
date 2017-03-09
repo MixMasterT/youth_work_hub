@@ -28,6 +28,9 @@ class AcceptJobForm extends React.Component {
 
   render() {
     const errors = errorsList(this.props);
+    const date = new Date(this.props.job.start_time);
+    const dateString = date.toDateString();
+    const time = date.toTimeString().split(/\s/)[0];
     return (
       <div>
         <Modal
@@ -60,7 +63,7 @@ class AcceptJobForm extends React.Component {
                   required
                 />
               <label htmlFor='accept-cost'>Check to confirm that you will be
-                there for this job on {this.props.job.date}.
+                there for this job at {time} on {dateString}.
                 </label>
               </div>
 
