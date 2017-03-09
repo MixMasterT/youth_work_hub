@@ -78,12 +78,12 @@ class JobShow extends React.Component {
 
         if (this.props.currentUser &&
             this.props.job.status !== 'pending') {
-          feedbackButton = <button className='give-feedback'
-                            onClick={this.giveFeedback}
-                            >{this.props.job.review ?
-                             "Edit Review" :
-                             "Give Feedback"}
-                           </button>;
+            feedbackButton = <button className='give-feedback'
+                              onClick={this.giveFeedback}
+                              >{this.props.job.review ?
+                               "Edit Review" :
+                               "Give Feedback"}
+                             </button>;
         }
 
         let review = "";

@@ -80,7 +80,12 @@
     background: linear-gradient(180deg, $contrast-lighter, $contrast-darker);
   }
   .static-map {
-    width: 70%;
+    width: 50%;
     margin: 0 auto;
+  }
+  @media screen and (max-width: 800px) {
+    .static-map {
+      width: 70%;
+    }
   }
 }
