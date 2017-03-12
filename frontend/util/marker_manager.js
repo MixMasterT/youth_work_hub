@@ -38,13 +38,40 @@ export default class MarkerManager {
     const date = new Date(job.start_time);
     const dateString = date.toDateString();
     const coords = new google.maps.LatLng(job.lat, job.lng);
-    const marker = new google.maps.Marker({
-      position: coords,
-      map: this.map,
-      jobId: job.id,
-      label: 'J',
-      title: job.job_type + ", " + dateString
-    });
+    let marker;
+    if (job.status === 'pending') {
+      marker = new google.maps.Marker({
+        position: coords,
+        map: this.map,
+        jobId: job.id,
+        title: job.job_type + ", " + dateString,
+        icon: 'http://maps.google.com/mapfiles/ms/icons/green-dot.png'
+      });
+    } else if (job.status === 'designated') {
+      marker = new google.maps.Marker({
+        position: coords,
+        map: this.map,
+        jobId: job.id,
+        title: job.job_type + ", " + dateString,
+        icon: 'http://maps.google.com/mapfiles/ms/icons/yellow-dot.png'
+      });
+    } else if (job.status === 'fulfilled') {
+      marker = new google.maps.Marker({
+        position: coords,
+        map: this.map,
+        jobId: job.id,
+        title: job.job_type + ", " + dateString,
+        icon: 'http://maps.google.com/mapfiles/ms/icons/blue-dot.png'
+      });
+    } else if (job.status === 'unfulfilled') {
+      marker = new google.maps.Marker({
+        position: coords,
+        map: this.map,
+        jobId: job.id,
+        title: job.job_type + ", " + dateString,
+        icon: 'http://maps.google.com/mapfiles/ms/icons/orange-dot.png'
+      });
+    }
     marker.addListener('click', () => this.handleClick(job));
     this.markers.push(marker);
   }
