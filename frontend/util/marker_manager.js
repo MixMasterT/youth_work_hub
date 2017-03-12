@@ -45,7 +45,7 @@ export default class MarkerManager {
         map: this.map,
         jobId: job.id,
         title: job.job_type + ", " + dateString,
-        icon: 'http://maps.google.com/mapfiles/ms/icons/green-dot.png'
+        icon: 'http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=%24|00FF00'
       });
     } else if (job.status === 'designated') {
       marker = new google.maps.Marker({
@@ -53,7 +53,7 @@ export default class MarkerManager {
         map: this.map,
         jobId: job.id,
         title: job.job_type + ", " + dateString,
-        icon: 'http://maps.google.com/mapfiles/ms/icons/yellow-dot.png'
+        icon: 'http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=J|FFFF00'
       });
     } else if (job.status === 'fulfilled') {
       marker = new google.maps.Marker({
@@ -61,7 +61,7 @@ export default class MarkerManager {
         map: this.map,
         jobId: job.id,
         title: job.job_type + ", " + dateString,
-        icon: 'http://maps.google.com/mapfiles/ms/icons/blue-dot.png'
+        icon: 'http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=F|FF00FF'
       });
     } else if (job.status === 'unfulfilled') {
       marker = new google.maps.Marker({
@@ -69,7 +69,7 @@ export default class MarkerManager {
         map: this.map,
         jobId: job.id,
         title: job.job_type + ", " + dateString,
-        icon: 'http://maps.google.com/mapfiles/ms/icons/orange-dot.png'
+        icon: 'http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=U|FF0000'
       });
     }
     marker.addListener('click', () => this.handleClick(job));
