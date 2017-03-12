@@ -134,10 +134,17 @@ nav {
       padding: 20px;
     }
 
+
     .flag {
       display: inline;
       position: relative;
+      display: none;
     }
+
+    button:hover + .flag {
+      display: block;
+    }
+
     .flag:after, .flag:before {
     	border: solid transparent;
       right: 0.5em;

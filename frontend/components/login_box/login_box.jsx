@@ -76,7 +76,7 @@ class LoginBox extends React.Component {
                 onClick={this.props.guestWorkerLogin.bind(this)}
                 >Worker Demo
               </button>
-              <div className="flag" title="Trial Account to test out the functionality"></div>
+              <span className="flag" title="Trial Account to test out the functionality"></span>
             </div>
           </div>
         </div>
