@@ -1,9 +1,10 @@
 export default class MarkerManager {
-  constructor(map, handleClick) {
+  constructor(map, handleClick, marks) {
     this.map = map;
     this.markers = [];
     this.jobs = [];
     this.handleClick = handleClick;
+    this.marks = marks;
 
     this.updateMarkers = this.updateMarkers.bind(this);
     this._createJobMarker = this._createJobMarker.bind(this);
@@ -45,7 +46,7 @@ export default class MarkerManager {
         map: this.map,
         jobId: job.id,
         title: job.job_type + ", " + dateString,
-        icon: 'http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=%24|00FF00'
+        icon: this.marks['pending']
       });
     } else if (job.status === 'designated') {
       marker = new google.maps.Marker({
@@ -53,7 +54,7 @@ export default class MarkerManager {
         map: this.map,
         jobId: job.id,
         title: job.job_type + ", " + dateString,
-        icon: 'http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=J|FFFF00'
+        icon: this.marks['designated']
       });
     } else if (job.status === 'fulfilled') {
       marker = new google.maps.Marker({
@@ -61,7 +62,7 @@ export default class MarkerManager {
         map: this.map,
         jobId: job.id,
         title: job.job_type + ", " + dateString,
-        icon: 'http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=F|FF00FF'
+        icon: this.marks['fulfilled']
       });
     } else if (job.status === 'unfulfilled') {
       marker = new google.maps.Marker({
@@ -69,7 +70,7 @@ export default class MarkerManager {
         map: this.map,
         jobId: job.id,
         title: job.job_type + ", " + dateString,
-        icon: 'http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=U|FF0000'
+        icon: this.marks['unfulfilled']
       });
     }
     marker.addListener('click', () => this.handleClick(job));

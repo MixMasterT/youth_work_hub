@@ -47,7 +47,15 @@ class JobsMap extends React.Component {
       }
       this.props.fetchJobs(locFilter);
     })
-    this.markerManager = new MarkerManager(this.map, this.handleMarkerClick.bind(this));
+    const markers = {
+      'pending': 'http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=%24|00FF00',
+      'designated': 'http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=J|FFFF00',
+      'fulfilled': 'http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=F|FF00FF',
+      'unfulfilled': 'http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=U|FF0000',
+    }
+    this.markerManager = new MarkerManager(this.map,
+                                           this.handleMarkerClick.bind(this),
+                                           markers);
     this.markerManager.updateMarkers(this.props.jobsArray);
   }
 
