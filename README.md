@@ -13,6 +13,8 @@ Postgres for its backend, and React/Redux for its front end.
 
 YouthWorkHub is a practice coding project by Torah Oglander.
 
+![welcome screen](docs/images/promo_landing_2.gif)
+
 ## Features
 
 - Secure Signup and Login for two different types of users: Employers and workers
@@ -25,6 +27,7 @@ YouthWorkHub is a practice coding project by Torah Oglander.
 - Employers can post jobs. Newly posted jobs start with a status of 'pending'
 - Google Maps API reverse-geolocation is used to suggest addresses and drop
 pins in the correct location on the form where Employers can post jobs
+![map features](docs/images/wash_my_car.gif)
 
 ### Worker Features
 - Workers have a drop-down 'my-jobs' link in the navigation to view jobs they have accepted
