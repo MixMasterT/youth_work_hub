@@ -18,16 +18,20 @@ YouthWorkHub is a practice coding project by Torah Oglander.
 - Secure Signup and Login for two different types of users: Employers and workers
 - Index and Show views of all worker profiles are available to any visitor to the site
 - Profile pictures can be uploaded and appear in the login dialogue once logged in. Profile pictures also appear on the worker's profile
-- Employers can post jobs. Newly posted jobs start with a status of 'pending'
 - All forms appear in 'modal' overlays that demand user focus
-- Workers can view jobs, and an accept button allows them to 'take' the job
 - pop-up menus for login/signup/logout are implemented in pure CSS
-- Workers have a drop-down 'my-jobs' link in the navigation to view jobs
-they have accepted
-- Google Maps API is used for geolocation to place posted Jobs on the map
-and enable searching for jobs by location
+
+### Employer Features
+- Employers can post jobs. Newly posted jobs start with a status of 'pending'
 - Google Maps API reverse-geolocation is used to suggest addresses and drop
 pins in the correct location on the form where Employers can post jobs
+
+### Worker Features
+- Workers have a drop-down 'my-jobs' link in the navigation to view jobs they have accepted
+- Workers can view jobs, and an accept button allows them to 'take' the job
+- Google Maps API is used for geolocation to place posted Jobs on the map
+and enable searching for jobs by location
+
 
 ## Project Design
 
@@ -67,7 +71,5 @@ Youth Work Hub is a work in progress. It has been a great learning experience,
 but obviously a lot is left to do.
 
 The following features will be added in the near future:
-- Employers will be able to click buttons to confirm that jobs have been done by the designated worker
-- Employers will be able to leave a review of the jobs that workers have done
 - Worker's show page will show a list of reviews left for their work, and their average ratings
 - Workers and Employers will be able to leave comments on jobs
