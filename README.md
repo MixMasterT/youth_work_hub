@@ -22,6 +22,12 @@ YouthWorkHub is a practice coding project by Torah Oglander.
 - All forms appear in 'modal' overlays that demand user focus
 - Workers can view jobs, and an accept button allows them to 'take' the job
 - pop-up menus for login/signup/logout are implemented in pure CSS
+- Workers have a drop-down 'my-jobs' link in the navigation to view jobs
+they have accepted
+- Google Maps API is used for geolocation to place posted Jobs on the map
+and enable searching for jobs by location
+- Google Maps API reverse-geolocation is used to suggest addresses and drop
+pins in the correct location on the form where Employers can post jobs
 
 ## Project Design
 
@@ -51,6 +57,8 @@ for better javascript support.
 - All frontend views are React elements
 - Redux manages the frontend data
 - 'react-modal' is used to implement the modal forms
+- Google Maps API is used to locate jobs on a map and enable search-by-location
+- Cloudinary is used to manage profile pictures in the app
 
 
 ## Future Implementations
@@ -59,8 +67,6 @@ Youth Work Hub is a work in progress. It has been a great learning experience,
 but obviously a lot is left to do.
 
 The following features will be added in the near future:
-- A My Jobs page will be added to the worker's interface so that workers can keep track of jobs that they have signed up for
-- maps and address support will be linked up via Google geolocation and reverse-geolocation
 - Employers will be able to click buttons to confirm that jobs have been done by the designated worker
 - Employers will be able to leave a review of the jobs that workers have done
 - Worker's show page will show a list of reviews left for their work, and their average ratings
