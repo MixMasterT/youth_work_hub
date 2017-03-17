@@ -210,7 +210,7 @@ class JobForm extends React.Component {
                 id="wage"
                 onChange={this.update('wage')}
                 value={this.state.wage}
-                min="1"
+                min="8"
                 step="1"
               />
             </div>
