@@ -27,6 +27,7 @@
     min-height: 400px;
     min-width: 400px;
     box-sizing: border-box;
+    position: relative;
     background: linear-gradient(45deg, $base-lighter, $base-dark);
   }
 
@@ -120,4 +121,8 @@
       height: auto;
     }
   }
+}
+
+.job-index-item {
+
 }

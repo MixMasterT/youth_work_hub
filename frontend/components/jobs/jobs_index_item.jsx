@@ -6,8 +6,12 @@ const JobsIndexItem = ({job, onClick}) => {
   const time = date.toTimeString().split(/\s/)[0];
   const hrs = job.duration === 1 ? 'hr' : 'hrs';
   const typeStr = job.job_type.charAt(0).toUpperCase() + job.job_type.slice(1);
+  let classStr = "jobs-index-item";
+  if (new Date() > date && job.status === 'designated') {
+    classStr += " needs-review";
+  }
   return (
-    <div className="jobs-index-item" onClick={onClick}>
+    <div className={classStr} onClick={onClick}>
       <div className="top">
           <h3>{typeStr} Job</h3>
           <h3>Total: ${job.cost}</h3>
