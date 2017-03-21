@@ -25,7 +25,7 @@
   .workers-index-item, .jobs-index-item, .jobs-list .jobs-index-item {
     border-radius: 5px;
     min-height: 400px;
-    min-width: 400px;
+    min-width: 600px;
     box-sizing: border-box;
     position: relative;
     background: linear-gradient(45deg, $base-lighter, $base-dark);
@@ -123,6 +123,25 @@
   }
 }
 
-.job-index-item {
+.flag-wrapper {
+  width: 14em;
+  height: 10em;
+  overflow: hidden;
+  position: absolute;
+  top: -0.1em;
+  left: -0.1em;
 
+  .flag {
+    position: absolute;
+    width: 100%;
+    padding: 1em;
+    font-weight: bolder;
+    font-size: 1.2em;
+    transform: rotate(315deg);
+    left: -3em;
+    top: 1em;
+    background-color: $contrast-light;
+    background: linear-gradient(315deg, $contrast-dark, $contrast-lighter);
+    box-shadow: 0 0 3px rgba(0,0,0,0.8);
+  }
 }
