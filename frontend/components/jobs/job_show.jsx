@@ -83,6 +83,15 @@ class JobShow extends React.Component {
           review = <Review review={this.props.job.review} />;
         }
 
+        let status = 'pending';
+        if (this.props.job.status !== 'pending') {
+          if (this.props.job.status === 'designated') {
+            status = `designated to ${this.props.worker.username}`;
+          } else {
+            status = `${this.props.job.status} by ${this.props.worker.username}`;
+          }
+        }
+
         return (
           <div className='job-show'>
             <div className='job-show-details'>
@@ -129,7 +138,7 @@ class JobShow extends React.Component {
                     </tr>
                     <tr>
                       <td>status: </td>
-                      <td>{job.status}</td>
+                      <td>{status}</td>
                     </tr>
                 </tbody>
 
