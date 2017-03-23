@@ -25,14 +25,6 @@ class JobShow extends React.Component {
     });
   }
 
-  // componentWillReceiveProps(nextProps) {
-  //   if (nextProps.job.worker_id) {
-  //     console.log("worker id recognized.");
-  //     console.log(nextProps.job.worker_id);
-  //     this.props.fetchWorker(nextProps.job.worker_id);
-  //   }
-  // }
-
   takeJob() {
     this.props.openModal('acceptJobModal');
   }
