@@ -391,5 +391,15 @@
       position: relative;
       left: 3px;
     }
+    .jobs-filter-form {
+      label {
+        background: yellow;
+
+        input[type='checkbox'] {
+          font-family: FontAwesome;
+          content: "\f060"
+        }
+      }
+    }
   }
 }

@@ -19,7 +19,7 @@ class JobsFilterForm extends React.Component {
                  "yard-work"];
 
     const inputs = job_types.map((job_type) => (
-      <label key={job_type}>{job_type}
+      <label key={job_type}>
         <input
           type='ckeckbox'
           name='job_type[]'
