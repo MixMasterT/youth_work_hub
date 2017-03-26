@@ -87,7 +87,9 @@ class JobShow extends React.Component {
         let status = this.props.job.status;
         if (this.props.worker && status !== 'pending') {
           if (this.props.worker && status === 'designated') {
-            status = `designated to ${this.props.worker.username}`;
+            status = `designated to ${this.props.currentUser.isWorker ?
+                                      this.props.currentUser.username :
+                                      this.props.worker.username}`;
           } else if (this.props.worker){
             status = `${status} by ${this.props.worker.username}`;
           }
