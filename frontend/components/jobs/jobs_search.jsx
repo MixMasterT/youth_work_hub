@@ -1,6 +1,7 @@
 import React from 'react';
 
 import JobsIndex from './jobs_index';
+import JobsFilterForm from './jobs_filter_form';
 
 import JobsMap from '../maps/jobs_map';
 
@@ -14,6 +15,7 @@ class JobsSearch extends React.Component {
       if (this.props.currentUser.isWorker) {
         return (
           <div className='jobs-search'>
+            <JobsFilterForm />
             <JobsMap
               jobsArray={this.props.jobsArray}
               currentUser={this.props.currentUser}
