@@ -19,17 +19,18 @@ class JobsFilterForm extends React.Component {
                  "yard-work"];
 
     const inputs = job_types.map((job_type) => (
-      <label key={job_type}>
+      <label key={job_type}>{job_type}
         <input
-          type='ckeckbox'
+          type='checkbox'
           name='job_type[]'
+          defaultChecked={false}
           defaultValue={job_type}
           onChange={this.props.updateFilter}
         />
       </label>
     ))
     return (
-      <form className='jobs-filter-form'>
+      <form id='jobs-filter-form'>
         {inputs}
       </form>
     );
