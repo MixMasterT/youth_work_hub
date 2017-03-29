@@ -5,7 +5,6 @@ export const validatePassword = (password, passCheck) => (
 );
 
 export const errorsList = ({ errors }) => {
-  // console.log("erros = ", errors);
   return (
     <ul className="error-list">
       {errors.map((er) => <li key={er}>{er}</li>)}

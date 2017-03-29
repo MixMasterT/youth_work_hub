@@ -39,6 +39,7 @@ class Job < ActiveRecord::Base
             :wage,
             :start_time,
             :cost, presence: true
+            
   validates :job_type, inclusion: { in: JOB_TYPES }
 
   validate :has_address_or_gps

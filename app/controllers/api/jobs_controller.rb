@@ -70,6 +70,10 @@ class Api::JobsController < ApplicationController
 
   private
 
+  def filters
+    params[:filters]
+  end
+
   def bounds
     params[:bounds]
   end
