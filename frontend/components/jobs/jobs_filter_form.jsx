@@ -13,16 +13,14 @@ class JobsFilterForm extends React.Component {
 
   setFilter(e) {
     if (this.state.filters.includes(e.target.value)) {
-      // console.log("target in filters");
       const mutibleFilters = this.state.filters;
       const itemIdx = mutibleFilters.indexOf(e.target.value);
       mutibleFilters.splice(itemIdx, 1);
-      this.setState({ filters: mutibleFilters }, () => {console.log(this.state.filters);});
+      this.setState({ filters: mutibleFilters });
     } else {
-      // console.log("target not in filters");
       const modFilters = this.state.filters;
       modFilters.push(e.target.value);
-      this.setState({ filters: modFilters }, () => {console.log(this.state.filters);});
+      this.setState({ filters: modFilters });
     }
   }
 

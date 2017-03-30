@@ -21,6 +21,7 @@
   },
   "homepage": "https://github.com/MixMasterT/youth_work_hub#readme",
   "dependencies": {
+    "nouislider": "file:./app/assets/javascripts/nouislider",
     "babel-core": "^6.21.0",
     "babel-loader": "^6.2.10",
     "babel-preset-es2015": "^6.18.0",
