@@ -37,7 +37,7 @@ class JobsFilterForm extends React.Component {
                        "tutoring",
                        "yard-work"];
 
-    const inputs = job_types.map((job_type) => (
+    const jobTypeCheckboxes = job_types.map((job_type) => (
       <label key={job_type}>{job_type}
         <input
           type='checkbox'
@@ -49,7 +49,7 @@ class JobsFilterForm extends React.Component {
     ))
     return (
       <form id='jobs-filter-form'>
-        {inputs}
+        {jobTypeCheckboxes}
       </form>
     );
   }

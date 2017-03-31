@@ -9,7 +9,7 @@ class Api::JobsController < ApplicationController
       @jobs = bounds ? Job.in_bounds(bounds) : Job.all
                   .where(status: 'pending')
 
-      my_jobs = Job.all.where(status: 'designated')
+      my_jobs = Job.where(status: 'designated')
                         .where(worker_id: current_worker.id)
 
       @jobs += my_jobs
@@ -70,9 +70,9 @@ class Api::JobsController < ApplicationController
 
   private
 
-  def filters
-    params[:filters]
-  end
+  # def filters
+  #   params[:filters]
+  # end
 
   def bounds
     params[:bounds]
