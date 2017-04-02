@@ -17,6 +17,7 @@ class JobsMap extends React.Component {
     }
 
     this.addHomeMarker = this.addHomeMarker.bind(this);
+    this.filterForFutureOrMyJob = this.filterForFutureOrMyJob.bind(this);
   }
 
   componentDidMount() {
@@ -47,6 +48,9 @@ class JobsMap extends React.Component {
       }
       this.props.fetchJobs(locFilter);
     })
+
+    // Marker images are pulled from the google Charts API
+    // each visual marker corresponds to a specific job status
     const markers = {
       'pending': 'http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=%24|00FF00',
       'designated': 'http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=J|FFFF00',
@@ -56,11 +60,14 @@ class JobsMap extends React.Component {
     this.markerManager = new MarkerManager(this.map,
                                            this.handleMarkerClick.bind(this),
                                            markers);
-    this.markerManager.updateMarkers(this.props.jobsArray);
+    console.log(this.props.jobsArray);
+    const filteredJobs = this.filterForFutureOrMyJob(this.props.jobsArray);
+    console.log('filtered jobs came back as ', filteredJobs);
+    this.markerManager.updateMarkers(filteredJobs);
   }
 
   componentWillReceiveProps(newProps) {
-    this.markerManager.updateMarkers(newProps.jobsArray);
+    this.markerManager.updateMarkers(this.filterForFutureOrMyJob(newProps.jobsArray));
   }
 
   addHomeMarker(lat, lng) {
@@ -78,6 +85,14 @@ class JobsMap extends React.Component {
 
   handleMarkerClick(job) {
     this.props.router.push(`jobs/${job.id}`)
+  }
+
+  filterForFutureOrMyJob(jobs) {
+    const now = new Date();
+    return jobs.filter((job) => (
+      now <= new Date(job.start_time) && job.status === 'pending' ||
+      (this.props.currentUser.isWorker && job.worker_id === this.props.currentUser.id)
+    ));
   }
 
   render() {

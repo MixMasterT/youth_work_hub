@@ -91,7 +91,9 @@ class JobShow extends React.Component {
                                       this.props.currentUser.username :
                                       this.props.worker.username}`;
           } else if (this.props.worker){
-            status = `${status} by ${this.props.worker.username}`;
+            status = `${status} by ${this.props.currentUser.isWorker ?
+                                      this.props.currentUser.username :
+                                      this.props.worker.username}`;
           }
         }
 
