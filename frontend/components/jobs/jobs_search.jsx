@@ -15,12 +15,14 @@ class JobsSearch extends React.Component {
       if (this.props.currentUser.isWorker) {
         return (
           <div className='jobs-search'>
-            <JobsFilterForm />
-            <JobsMap
-              jobsArray={this.props.jobsArray}
-              currentUser={this.props.currentUser}
-              fetchJobs={this.props.fetchJobs}
-              />
+            <div className='filters'>
+              <JobsFilterForm />
+              <JobsMap
+                jobsArray={this.props.jobsArray}
+                currentUser={this.props.currentUser}
+                fetchJobs={this.props.fetchJobs}
+                />
+            </div>
             <JobsIndex
               jobsArray={this.props.jobsArray}
               currentUser={this.props.currentUser}
