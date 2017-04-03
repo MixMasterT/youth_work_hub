@@ -1,0 +1,26 @@
+.jobs-search {
+  .filters {
+    display: flex;
+    flex-direction: row;
+
+    .jobs-filter-form {
+      width: 30%;
+      display: flex;
+      flex-direction: column;
+      padding: 2em;
+
+      .job-types {
+        text-align: left;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-between;
+
+        .filter-checkbox {
+          width: 8em;
+          height: 2em;
+        }
+      }
+    }
+  }
+}

@@ -60,9 +60,9 @@ class JobsMap extends React.Component {
     this.markerManager = new MarkerManager(this.map,
                                            this.handleMarkerClick.bind(this),
                                            markers);
-    console.log(this.props.jobsArray);
+
     const filteredJobs = this.filterForFutureOrMyJob(this.props.jobsArray);
-    console.log('filtered jobs came back as ', filteredJobs);
+
     this.markerManager.updateMarkers(filteredJobs);
   }
 
@@ -99,7 +99,7 @@ class JobsMap extends React.Component {
     return (
       <div className='map-wrapper'>
         <h1> JOBS MAP </h1>
-        <h4>Adjust the map to see jobs in its range.</h4>
+        <h4>Adjust the map to filter jobs by location.</h4>
         <div className="map" ref={ map => this.mapNode = map }
         ></div>
       </div>
