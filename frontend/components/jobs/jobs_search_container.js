@@ -4,6 +4,9 @@ import { openModal } from '../../actions/modal_actions';
 
 import { fetchJobs } from '../../actions/job_actions';
 
+import { updateLocation,
+         updateJobTypes } from '../../actions/filter_actions';
+
 import { jobsArray } from '../../reducers/selectors';
 
 import JobsSearch from './jobs_search';
@@ -12,13 +15,15 @@ const mapStateToProps = state => {
   return ({
     jobsArray: jobsArray(state),
     jobs: state.jobs,
-    currentUser: state.session.currentUser
+    currentUser: state.session.currentUser,
   });
 };
 
 const mapDispatchToProps = dispatch => ({
   openJobForm: () => dispatch(openModal('jobFormModal')),
-  fetchJobs: (filters) => dispatch(fetchJobs(filters))
+  fetchJobs: (filters) => dispatch(fetchJobs(filters)),
+  updateJobTypes: (jobTypes) => dispatch(updateJobTypes(jobTypes)),
+  updateLocation: (bounds) => dispatch(updateLocation(bounds))
 });
 
 export default connect(

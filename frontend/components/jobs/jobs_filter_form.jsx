@@ -22,6 +22,8 @@ class JobsFilterForm extends React.Component {
       modFilters.push(e.target.value);
       this.setState({ filters: modFilters });
     }
+    console.log('JobTypes Filter set');
+    this.props.updateJobTypes(this.state.filters);
   }
 
   render() {
@@ -45,7 +47,7 @@ class JobsFilterForm extends React.Component {
           <input
             type='checkbox'
             defaultChecked={false}
-            defaultValue={job_type + ' '}
+            defaultValue={job_type}
             onChange={this.setFilter}
             />
         </label>

@@ -40,12 +40,13 @@ class JobsMap extends React.Component {
       const mapBounds = this.map.getBounds();
       const northEast = mapBounds.getNorthEast();
       const southWest = mapBounds.getSouthWest();
-      const locFilter = {
-        bounds: {
-          northEast: getCoordsObj(northEast),
-          southWest: getCoordsObj(southWest)
-        }
+      const bounds = {
+        northEast: getCoordsObj(northEast),
+        southWest: getCoordsObj(southWest)
       }
+      const locFilter = { bounds };
+
+      this.props.updateLocation(bounds);
       this.props.fetchJobs(locFilter);
     })
 

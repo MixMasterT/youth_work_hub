@@ -16,8 +16,11 @@ class JobsSearch extends React.Component {
         return (
           <div className='jobs-search'>
             <div className='filters'>
-              <JobsFilterForm />
+              <JobsFilterForm
+                updateJobTypes={this.props.updateJobTypes}
+              />
               <JobsMap
+                updateLocation={this.props.updateLocation}
                 jobsArray={this.props.jobsArray}
                 currentUser={this.props.currentUser}
                 fetchJobs={this.props.fetchJobs}

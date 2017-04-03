@@ -11,15 +11,18 @@ const _defaultFilters = {
 
 const FiltersReducer = (state = _defaultFilters, action) => {
   Object.freeze(state);
+  let newState = merge({}, state);
 
   switch(action.type) {
     case UPDATE_JOB_TYPES:
       const jobTypes = action.jobTypes;
-      return merge({ jobTypes }, state);
+      newState = merge(newState, { jobTypes });
+      return newState;
 
     case UPDATE_LOCATION:
       const bounds = action.bounds;
-      return merge({ bounds }, state);
+      newState = merge(newState, { bounds });
+      return newState;
 
     default:
       return state;
