@@ -1,7 +1,8 @@
 import merge from 'lodash/merge';
 
 import { UPDATE_JOB_TYPES,
-         UPDATE_LOCATION} from '../actions/filter_actions';
+         UPDATE_LOCATION,
+         CLEAR_FILTERS } from '../actions/filter_actions';
 
 const _defaultFilters = {
   bounds: null,
@@ -23,6 +24,9 @@ const FiltersReducer = (state = _defaultFilters, action) => {
       const bounds = action.bounds;
       newState = merge(newState, { bounds });
       return newState;
+
+    case CLEAR_FILTERS:
+      return _defaultFilters;
 
     default:
       return state;

@@ -24,14 +24,15 @@ class JobsSearch extends React.Component {
                 jobsArray={this.props.jobsArray}
                 currentUser={this.props.currentUser}
                 fetchJobs={this.props.fetchJobs}
-                />
+              />
             </div>
             <JobsIndex
               jobsArray={this.props.jobsArray}
               currentUser={this.props.currentUser}
               openJobForm={this.props.openJobForm}
               fetchJobs={this.props.fetchJobs}
-              />
+              clearFilters={this.props.clearFilters}
+            />
           </div>
         )
       } else {

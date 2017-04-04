@@ -5,7 +5,8 @@ import { openModal } from '../../actions/modal_actions';
 import { fetchJobs } from '../../actions/job_actions';
 
 import { updateLocation,
-         updateJobTypes } from '../../actions/filter_actions';
+         updateJobTypes,
+         clearFilters } from '../../actions/filter_actions';
 
 import { jobsArray } from '../../reducers/selectors';
 
@@ -23,7 +24,8 @@ const mapDispatchToProps = dispatch => ({
   openJobForm: () => dispatch(openModal('jobFormModal')),
   fetchJobs: (filters) => dispatch(fetchJobs(filters)),
   updateJobTypes: (jobTypes) => dispatch(updateJobTypes(jobTypes)),
-  updateLocation: (bounds) => dispatch(updateLocation(bounds))
+  updateLocation: (bounds) => dispatch(updateLocation(bounds)),
+  clearFilters: () => dispatch(clearFilters()),
 });
 
 export default connect(

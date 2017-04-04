@@ -20,6 +20,11 @@ class JobsIndex extends React.Component {
     }
   }
 
+  componentWillUnmount() {
+    console.log("unmount called");
+    this.props.clearFilters();
+  }
+
   redirectTo(str) {
     return () => {
       hashHistory.push(`/jobs/${str}`);
