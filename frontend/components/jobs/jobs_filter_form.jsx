@@ -43,14 +43,14 @@ class JobsFilterForm extends React.Component {
       <div className='filter-checkbox'
            key={job_type}
       >
-        <label>{job_type}
-          <input
-            type='checkbox'
-            defaultChecked={false}
-            defaultValue={job_type}
-            onChange={this.setFilter}
-            />
-        </label>
+        <input
+          id={job_type}
+          type='checkbox'
+          defaultChecked={false}
+          defaultValue={job_type}
+          onChange={this.setFilter}
+          />
+        <label htmlFor={job_type}>{job_type}</label>
       </div>
     ))
     return (
