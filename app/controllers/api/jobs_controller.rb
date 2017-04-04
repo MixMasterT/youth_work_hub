@@ -75,6 +75,7 @@ class Api::JobsController < ApplicationController
   # end
 
   def bounds
+    return false if params[:bounds].blank?
     params[:bounds]
   end
 

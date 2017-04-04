@@ -17,6 +17,7 @@ const mapStateToProps = state => {
     jobsArray: jobsArray(state),
     jobs: state.jobs,
     currentUser: state.session.currentUser,
+    filters: state.filters,
   });
 };
 
