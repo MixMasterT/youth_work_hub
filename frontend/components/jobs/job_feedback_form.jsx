@@ -25,7 +25,7 @@ const mapStateToProps = (state, {params}) => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  closeModal: (modalName) => dispatch(closeModal(modalName)),
+  closeJobFeedbackForm: () => dispatch(closeModal('jobFeedbackModal')),
   resetErrors: () => dispatch(resetErrors()),
   giveFeedback: (feedback) => dispatch(giveFeedback(feedback)),
   updateFeedback: (feedback) => dispatch(updateFeedback(feedback)),
@@ -57,7 +57,7 @@ class JobFeedbackForm extends React.Component {
       this.props.updateFeedback(this.state)
         .then(() => {
           // this.props.resetErrors();
-          this.props.closeModal('jobFeedbackModal');
+          this.props.closeJobFeedbackForm;
           this.props.fetchJob(this.props.job.id);
         });
     } else {
@@ -87,12 +87,14 @@ class JobFeedbackForm extends React.Component {
     return (
       <div className='form'>
 
-        <h2>Leave Feedback</h2>
-
         <button
           className='close-modal'
-          onClick={this.props.closeModal}
-        >X</button>
+          onClick={this.props.closeJobFeedbackForm}
+          >X
+        </button>
+
+        <h2>Leave Feedback</h2>
+
 
         {(this.props.errors.length > 0) ? errors : null }
 
