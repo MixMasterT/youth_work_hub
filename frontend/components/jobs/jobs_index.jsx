@@ -17,9 +17,12 @@ class JobsIndex extends React.Component {
   componentWillReceiveProps(newProps) {
     if(this.props.currentUser === null && newProps.currentUser !== null) {
       newProps.fetchJobs();
-    } else if (this.props.filters.bounds !== newProps.filters.bounds ||
-               this.props.filters.jobTypes !== newProps.filters.jobTypes) {
-      newProps.fetchJobs(this.props.filters);
+    } else if (this.props.currentUser !== null && newProps.currentUser === null){
+      newProps.clearFilters();
+    } else if (this.props.currentUser.isWorker &&
+              (this.props.filters.bounds !== newProps.filters.bounds ||
+               this.props.filters.jobTypes !== newProps.filters.jobTypes)) {
+      newProps.fetchJobs(newProps.filters);
     }
   }
 

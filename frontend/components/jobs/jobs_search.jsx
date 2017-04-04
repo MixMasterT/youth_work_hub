@@ -44,6 +44,7 @@ class JobsSearch extends React.Component {
               currentUser={this.props.currentUser}
               openJobForm={this.props.openJobForm}
               fetchJobs={this.props.fetchJobs}
+              clearFilters={this.props.clearFilters}
               />
           </div>
         )

@@ -9,6 +9,10 @@ class Api::JobsController < ApplicationController
       @jobs = bounds ? Job.in_bounds(bounds) : Job.all
                   .where(status: 'pending')
 
+      if job_types_filter
+        @jobs = @jobs.where(job_type: job_types_filter)
+      end
+
       my_jobs = Job.where(status: 'designated')
                         .where(worker_id: current_worker.id)
 
@@ -77,6 +81,11 @@ class Api::JobsController < ApplicationController
   def bounds
     return false if params[:bounds].blank?
     params[:bounds]
+  end
+
+  def job_types_filter
+    return false if params[:jobTypes].blank?
+    params[:jobTypes]
   end
 
   def accept_job_params
