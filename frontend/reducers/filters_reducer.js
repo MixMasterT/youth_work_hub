@@ -17,7 +17,7 @@ const FiltersReducer = (state = _defaultFilters, action) => {
   switch(action.type) {
     case UPDATE_JOB_TYPES:
       const jobTypes = action.jobTypes;
-      newState = merge(newState, { jobTypes });
+      newState['jobTypes'] = jobTypes;
       return newState;
 
     case UPDATE_LOCATION:
