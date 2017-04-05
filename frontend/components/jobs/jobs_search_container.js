@@ -6,6 +6,7 @@ import { fetchJobs } from '../../actions/job_actions';
 
 import { updateLocation,
          updateJobTypes,
+         updateWageFilter,
          clearFilters } from '../../actions/filter_actions';
 
 import { jobsArray } from '../../reducers/selectors';
@@ -27,6 +28,7 @@ const mapDispatchToProps = dispatch => ({
   updateJobTypes: (jobTypes) => dispatch(updateJobTypes(jobTypes)),
   updateLocation: (bounds) => dispatch(updateLocation(bounds)),
   clearFilters: () => dispatch(clearFilters()),
+  updateWageFilter: (wage) => dispatch(updateWageFilter(wage)),
 });
 
 export default connect(

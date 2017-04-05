@@ -13,6 +13,10 @@ class Api::JobsController < ApplicationController
         @jobs = @jobs.where(job_type: job_types_filter)
       end
 
+      if wage_filter
+        @jobs = @jobs.where("wage >= ?", wage_filter)
+      end
+
       my_jobs = Job.where(status: 'designated')
                         .where(worker_id: current_worker.id)
 
@@ -74,10 +78,6 @@ class Api::JobsController < ApplicationController
 
   private
 
-  # def filters
-  #   params[:filters]
-  # end
-
   def bounds
     return false if params[:bounds].blank?
     params[:bounds]
@@ -86,6 +86,11 @@ class Api::JobsController < ApplicationController
   def job_types_filter
     return false if params[:jobTypes].blank?
     params[:jobTypes]
+  end
+
+  def wage_filter
+    return false if params[:minWage].blank?
+    params[:minWage]
   end
 
   def accept_job_params

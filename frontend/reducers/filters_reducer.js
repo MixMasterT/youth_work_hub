@@ -2,12 +2,14 @@ import merge from 'lodash/merge';
 
 import { UPDATE_JOB_TYPES,
          UPDATE_LOCATION,
-         CLEAR_FILTERS } from '../actions/filter_actions';
+         CLEAR_FILTERS,
+         UPDATE_WAGES } from '../actions/filter_actions';
 
 const _defaultFilters = {
   bounds: null,
   jobTypes: null,
-  dates: null
+  dates: null,
+  minWage: null,
 };
 
 const FiltersReducer = (state = _defaultFilters, action) => {
@@ -18,6 +20,11 @@ const FiltersReducer = (state = _defaultFilters, action) => {
     case UPDATE_JOB_TYPES:
       const jobTypes = action.jobTypes;
       newState['jobTypes'] = jobTypes;
+      return newState;
+
+    case UPDATE_WAGES:
+      const minWage = action.minWage;
+      newState['minWage'] = minWage;
       return newState;
 
     case UPDATE_LOCATION:

@@ -1,27 +1,42 @@
 import React from 'react';
+import debounce from 'lodash/debounce';
 
 class JobsFilterForm extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      filters: []
+      jobTypeFilters: [],
+      minWage: 8,
     }
 
     this.setFilter = this.setFilter.bind(this);
+    this.setWage = this.setWage.bind(this);
+    this.handleWageChange = debounce(this.handleWageChange, 300).bind(this);
   }
 
   setFilter(e) {
-    let mutibleFilters = this.state.filters;
-    if (this.state.filters.includes(e.target.value)) {
+    let mutibleFilters = this.state.jobTypeFilters;
+    if (this.state.jobTypeFilters.includes(e.target.value)) {
       const itemIdx = mutibleFilters.indexOf(e.target.value);
       mutibleFilters.splice(itemIdx, 1);
-      this.setState({ filters: mutibleFilters });
+      this.setState({ jobTypeFilters: mutibleFilters });
     } else {
       mutibleFilters.push(e.target.value);
-      this.setState({ filters: mutibleFilters });
+      this.setState({ jobTypeFilters: mutibleFilters });
     }
     this.props.updateJobTypes(mutibleFilters);
+  }
+
+  setWage(e) {
+    // console.log(e.target.value);
+    const minWage = e.target.value
+    this.setState({ minWage: minWage })
+    this.handleWageChange(minWage);
+  }
+
+  handleWageChange(wage) {
+    this.props.updateWageFilter(wage);
   }
 
   render() {
@@ -54,9 +69,27 @@ class JobsFilterForm extends React.Component {
     return (
       <form className='jobs-filter-form'>
         <h2>Filter by...</h2>
-        <h3>Job Type</h3>
+        <h4>Job Type</h4>
         <div className='job-types'>
           {jobTypeCheckboxes}
+        </div>
+        <h4>Minimum Wage</h4>
+        <div className='wage'>
+          <label
+            htmlFor='min-wage'
+            >${this.state.minWage}/hr</label><br />
+          <input
+            id='min-wage'
+            type='range'
+            min='8'
+            max='25'
+            defaultValue={8}
+            onChange={this.setWage}
+          />
+        </div>
+        <h4>Date</h4>
+        <div className='job-types'>
+          date filter here
         </div>
       </form>
     );

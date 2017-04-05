@@ -18,6 +18,7 @@ class JobsSearch extends React.Component {
             <div className='filters'>
               <JobsFilterForm
                 updateJobTypes={this.props.updateJobTypes}
+                updateWageFilter={this.props.updateWageFilter}
               />
               <JobsMap
                 updateLocation={this.props.updateLocation}

@@ -1,16 +1,33 @@
 .jobs-search {
+
   .filters {
+    min-width: 45em;
     display: flex;
     flex-direction: row;
+    justify-content: center;
 
     .jobs-filter-form {
-      width: 30%;
+      position: fixed;
+
+      left: 0.2em;
+
+      text-align: left;
+
+      width: 15em;
+
       display: flex;
       flex-direction: column;
       padding: 2em;
 
+      h2 {
+        text-decoration: underline;
+      }
+
+      h4 {
+        margin-top: 0.5em;
+      }
+
       .job-types {
-        text-align: left;
         display: flex;
         flex-direction: row;
         flex-wrap: wrap;
@@ -20,32 +37,6 @@
           width: 8em;
           height: 2em;
 
-          input[type='checkbox'] {
-            display: none;
-          }
-
-          input[type=checkbox] {
-            display:none;
-          }
-          
-          input[type=checkbox] + label:before {
-            font-family: FontAwesome;
-            display: inline-block;
-          }
-
-          input[type=checkbox] + label:before {
-            content: "\f096"; // empty box
-          }
-          input[type=checkbox] + label:before {
-            letter-spacing: 0.4em;
-          }
-
-          input[type=checkbox]:checked + label:before {
-            content: "\f046"; // checked box
-          }
-          input[type=checkbox]:checked + label:before {
-            letter-spacing: 0.2em;
-          }
         }
       }
     }
