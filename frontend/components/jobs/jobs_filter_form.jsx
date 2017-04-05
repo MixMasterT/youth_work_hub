@@ -87,10 +87,6 @@ class JobsFilterForm extends React.Component {
             onChange={this.setWage}
           />
         </div>
-        <h4>Date</h4>
-        <div className='job-types'>
-          date filter here
-        </div>
       </form>
     );
   }

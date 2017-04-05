@@ -1,5 +1,5 @@
 .jobs-search {
-
+  min-width: 50em;
   .filters {
     min-width: 45em;
     display: flex;
@@ -7,13 +7,15 @@
     justify-content: center;
 
     .jobs-filter-form {
+      z-index: -1;
+      border: 1px solid black;
       position: fixed;
 
       left: 0.2em;
 
       text-align: left;
 
-      width: 15em;
+      width: 10em;
 
       display: flex;
       flex-direction: column;
@@ -37,6 +39,11 @@
           width: 8em;
           height: 2em;
 
+        }
+      }
+      .wage {
+        label {
+          margin-left: 2.8em;
         }
       }
     }
