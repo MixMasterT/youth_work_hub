@@ -11,13 +11,12 @@ const Review = ({review}) => {
   for (let j = 0; j < 5 - review.rating; j++) {
     stars.push( <i className="fa fa-star-o"
                    aria-hidden="true"
-                   key={j + (5 - review.rating)}
+                   key={'0' + (j + (5 - review.rating))}
                 ></i>);
   }
 
   return (
-  <div className='review'
-       key={review.job_id}>
+  <div className='review'>
     <h3>{stars}</h3>
     <p>{review.body}</p>
   </div>
