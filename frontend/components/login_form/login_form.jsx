@@ -2,6 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import Modal from 'react-modal';
 
+import CloseModalButton from '../close_modal_button/close_modal_button';
+
 class LoginForm extends React.Component {
   constructor(props) {
     super(props);
@@ -44,10 +46,7 @@ class LoginForm extends React.Component {
     return(
       <div className='form'>
 
-        <button
-          className='close-modal'
-          onClick={this.props.closeLoginModal}
-        >X</button>
+        <CloseModalButton modalName={'loginModal'} />
 
         <div className='modal-link'>
           <p>Not yet a member? <span onClick={this.goToSignup}>signup here</span></p>

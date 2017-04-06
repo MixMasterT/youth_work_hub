@@ -1,15 +1,16 @@
 import React from 'react';
 import merge from 'lodash/merge';
 
-import LocationInput from '../maps/location_input';
-
 import { DateTimePicker } from 'react-widgets';
 
 import Moment from 'moment';
 
 import momentLocalizer from '../../../node_modules/react-widgets/lib/localizers/moment';
-
 momentLocalizer(Moment);
+
+import LocationInput from '../maps/location_input';
+
+import CloseModalButton from '../close_modal_button/close_modal_button';
 
 class JobForm extends React.Component {
   constructor(props) {
@@ -118,10 +119,7 @@ class JobForm extends React.Component {
     return (
       <div className='form'>
 
-        <button
-          className='close-modal'
-          onClick={this.props.closeModal}
-        >X</button>
+        <CloseModalButton modalName={'jobFormModal'} />
 
         <h2>{text}</h2>
 
@@ -224,6 +222,7 @@ class JobForm extends React.Component {
             <div className='accept-cost'>
               <input type="checkbox"
                 id="accept-cost"
+                defaultChecked={false}
                 required
               />
               <label htmlFor='accept-cost'>Check to agree: you will pay

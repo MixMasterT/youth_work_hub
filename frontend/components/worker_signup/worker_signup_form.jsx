@@ -9,6 +9,8 @@ import momentLocalizer from '../../../node_modules/react-widgets/lib/localizers/
 
 momentLocalizer(Moment);
 
+import CloseModalButton from '../close_modal_button/close_modal_button';
+
 class WorkerSignupForm extends React.Component {
   constructor(props) {
     super(props);
@@ -146,10 +148,7 @@ class WorkerSignupForm extends React.Component {
     return (
       <div className='form'>
 
-        <button
-          className='close-modal'
-          onClick={this.props.closeModal}
-        >X</button>
+        <CloseModalButton modalName={'workerSignupModal'} />
 
         {this.props.currentUser ? "" : modalLink}
 

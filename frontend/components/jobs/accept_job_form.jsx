@@ -1,8 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Modal from 'react-modal';
+
 import { smallModalStyles, errorsList } from '../../util/form_util';
 
+import CloseModalButton from '../close_modal_button/close_modal_button';
 
 class AcceptJobForm extends React.Component {
   constructor(props) {
@@ -43,10 +45,7 @@ class AcceptJobForm extends React.Component {
         >
           <div className='form'>
 
-            <button
-              className='close-modal'
-              onClick={this.props.closeModal}
-            >X</button>
+            <CloseModalButton modalName={'acceptJobModal'} />
 
             <h2>Agree to Accept</h2>
 
@@ -61,6 +60,7 @@ class AcceptJobForm extends React.Component {
                 <input type="checkbox"
                   id="accept-cost"
                   required
+                  defaultChecked={false}
                 />
               <label htmlFor='accept-cost'>Check to confirm that you will be
                 there for this job at {time} on {dateString}.

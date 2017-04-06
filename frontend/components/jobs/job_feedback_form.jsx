@@ -16,6 +16,8 @@ import { resetErrors, receiveErrors } from '../../actions/session_actions';
 
 import JobFeedbackModal from './job_feedback_modal';
 
+import CloseModalButton from '../close_modal_button/close_modal_button';
+
 const mapStateToProps = (state, {params}) => ({
   currentUser: state.session.currentUser,
   errors: state.session.errors,
@@ -87,11 +89,7 @@ class JobFeedbackForm extends React.Component {
     return (
       <div className='form'>
 
-        <button
-          className='close-modal'
-          onClick={this.props.closeJobFeedbackForm}
-          >X
-        </button>
+        <CloseModalButton modalName={'jobFeedbackModal'} />
 
         <h2>Leave Feedback</h2>
 

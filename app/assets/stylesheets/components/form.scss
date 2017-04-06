@@ -406,7 +406,9 @@ form #jobs-filter-form {
   }
 }
 input[type=checkbox] {
-  display:none;
+  appearance: none;
+  -webkit-appearance: none;
+   -moz-appearance: none;
 }
 
 input[type=checkbox] + label:before {

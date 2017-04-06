@@ -2,6 +2,8 @@ import React from 'react';
 import { Link, hashHistory } from 'react-router';
 import merge from 'lodash/merge';
 
+import CloseModalButton from '../close_modal_button/close_modal_button';
+
 class SignupForm extends React.Component {
   constructor(props) {
     super(props);
@@ -117,10 +119,7 @@ class SignupForm extends React.Component {
     return (
       <div className='form'>
 
-        <button
-          className='close-modal'
-          onClick={this.props.closeModal}
-        >X</button>
+        <CloseModalButton modalName={'signupModal'} />
 
         {this.props.currentUser ? "" : modalLink}
 

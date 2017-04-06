@@ -22,7 +22,8 @@
     margin-top: 20px;
   }
 
-  .workers-index-item, .jobs-index-item, .jobs-list .jobs-index-item {
+  .workers-index-item, .jobs-list .jobs-index-item {
+    z-index: 2;
     border-radius: 5px;
     min-height: 400px;
     min-width: 450px;
