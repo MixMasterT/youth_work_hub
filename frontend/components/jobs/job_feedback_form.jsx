@@ -56,18 +56,20 @@ class JobFeedbackForm extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     if(this.props.job.review) {
+      console.log('review was found');
       this.props.updateFeedback(this.state)
         .then(() => {
-          // this.props.resetErrors();
-          this.props.closeJobFeedbackForm;
+          this.props.resetErrors();
+          this.props.closeJobFeedbackForm();
           this.props.fetchJob(this.props.job.id);
         });
     } else {
+      console.log('no review was found');
       this.props.giveFeedback(this.state)
-      .then(() => {
-        // this.props.resetErrors();
-        this.props.closeModal('jobFeedbackModal');
-        this.props.fetchJob(this.props.job.id);
+        .then(() => {
+          this.props.resetErrors();
+          this.props.closeJobFeedbackForm();
+          this.props.fetchJob(this.props.job.id);
       });
     }
   }

@@ -202,16 +202,10 @@ Worker.create( username: 'Melanie',
                zip_code: '94112',
                birth_date: '2001-10-16',
                min_wage: 12)
+
 now = DateTime.now
+
 Job.create!([
-  {user_id: 1, description: "Wash my dogs. I have two golden retrievers. They need to be washed once every week.", job_type: "cleaning", address: "7445 Clarmount St. San Francisco", duration: 1, wage: 25, start_time: (now + 30 + (14 / 24.0)), lat: nil, lng: nil, cost: 25, status: "pending", worker_id: nil},
-  {user_id: 1, description: "Clean my garage. There is lots of old stuff that you can have, including a 10-speed bicycle!", job_type: "cleaning", address: "653 Raymont. San Francisco", duration: 4, wage: 10, start_time: (now + 18 + (16 / 24.0)), lat: nil, lng: nil, cost: 40, status: "pending", worker_id: nil},
-  {user_id: 1, description: "Play music for my daughters birthday party. You must be able to play a sing-along version of Happy Birthday!!!", job_type: "music", address: "653 Mill Rd.", duration: 2, wage: 20, start_time: (now - 8 + (12 / 24.0)), lat: nil, lng: nil, cost: 40, status: "pending", worker_id: nil},
-  {user_id: 1, description: "Clean my kitchen", job_type: "cleaning", address: "641 Renolds Dr", duration: 2, wage: 12, start_time: (now - 7), lat: nil, lng: nil, cost: 24, status: "pending", worker_id: nil},
-  {user_id: 1, description: "Stay with my daughter, and play games with her while I go on a date with my wife.", job_type: "baby-sitting", address: "7230 Hart. Rd. San Francisco", duration: 5, wage: 12, start_time: (now - 3 + (18 / 24.0)), lat: nil, lng: nil, cost: 60, status: "designated", worker_id: 1},
-  {user_id: 1, description: "Wash my car. You will need to wash the outside, and vacuum out the inside. I have  a vacuum cleaner that works well.", job_type: "cleaning", address: "8220 Lone Wolf Dr.", duration: 1, wage: 15, start_time: (now + 10 + (16 / 24.0)), lat: nil, lng: nil, cost: 15, status: "pending", worker_id: nil},
-  {user_id: 1, description: "Make a giant card for my anniversary. My wife and I will be married for 25 years!", job_type: "art", address: "6520 Hart Dr.", duration: 3, wage: 15, start_time: (now + 5 + (15 / 24.0)), lat: nil, lng: nil, cost: 45, status: "pending", worker_id: nil},
-  {user_id: 2, description: "Help me fix my roof", job_type: "yard-work", address: "6520 Hart Dr.", duration: 3, wage: 15, start_time: (now - 18 + (15 / 24.0)), lat: nil, lng: nil, cost: 45, status: "fulfilled", worker_id: 2},
   {user_id: 1, description: "Play music for my daughters birthday party. You must be able to play a sing-along version of Happy Birthday!!!", job_type: "music", address: "608 Folsom St, San Francisco, CA 94107, USA", duration: 2, wage: 25, start_time: (now + 36 + (16 / 24.0)), lat: 37.7854825827638, lng: -122.397437095642, cost: 50, status: "pending", worker_id: nil},
   {user_id: 1, description: "Take my grandma fishing.", job_type: "baby-sitting", address: "Pier 35, San Francisco, CA 94133, USA", duration: 3, wage: 10, start_time: (now + 44 + (15 / 24.0)), lat: 37.8091524644281, lng: -122.406363487244, cost: 30, status: "pending", worker_id: nil},
   {user_id: 1, description: "Type a hand-written piece of writing that I have done into MS word.", job_type: "computer work", address: "284 Brannan St, San Francisco, CA 94107, USA", duration: 3, wage: 10, start_time: (now + 14 + (15 / 24.0)), lat: 37.7824978759638, lng: -122.392029762268, cost: 30, status: "designated", worker_id: 1},
@@ -229,8 +223,11 @@ Job.create!([
   {user_id: 1, description: "Help me fix my roof", job_type: "yard-work", address: "657 Haight St, San Francisco, CA 94117, USA", duration: 4, wage: 15, start_time: (now + 12 + (15 / 24.0)), lat: 37.7717578699714, lng: -122.433099746704, cost: 60, status: "designated", worker_id: 1},
   {user_id: 1, description: "Rake leaves from our yard", job_type: "yard-work", address: "337 Hermann St, San Francisco, CA 94117, USA", duration: 2, wage: 10, start_time: (now + 7 + (15 / 24.0)), lat: 37.7700871563722, lng: -122.430782318115, cost: 20, status: "fulfilled", worker_id: 1},
   {user_id: 1, description: "Clean my garage. There is lots of old stuff that you can have, including a 10-speed bicycle!", job_type: "cleaning", address: "680-690 Greenwich St, San Francisco, CA 94133, USA", duration: 4, wage: 12, start_time: (now - 19 + (15 / 24.0)), lat: 37.8021675862207, lng: -122.410912513733, cost: 48, status: "fulfilled", worker_id: 1},
-  {user_id: 1, description: "Clean my kitchen", job_type: "cleaning", address: "351 California St, San Francisco, CA 94104, USA", duration: 2, wage: 12, start_time: (now - 5 + (15 / 24.0)), lat: 37.7928081702316, lng: -122.400784492493, cost: 24, status: "unfulfilled", worker_id: 1},
-  {user_id: 1, description: "Take my dogs for a walk.", job_type: "baby-sitting", address: "7745 Woodsmill Dr.", duration: 1, wage: 15, start_time: (now - 8 + (15 / 24.0)), lat: nil, lng: nil, cost: 15, status: "fulfilled", worker_id: 1}
+  {user_id: 1, description: "Clean my kitchen", job_type: "cleaning", address: "351 California St, San Francisco, CA 94104, USA", duration: 2, wage: 12, start_time: (now - 5 + (15 / 24.0)), lat: 37.7928081702316, lng: -122.400784492493, cost: 24, status: "designated", worker_id: 1},
+  {user_id: 1, description: "Take my dogs for a good walk, and then give them a bath.", job_type: "pet-care", address: "2150 Folsom St, San Francisco, CA 94110, USA", duration: 4, wage: 15, start_time: (now + 17 + (15 / 24.0)), lat: 37.7627402330309, lng: -122.415375706914, cost: 60, status: "pending", worker_id: nil},
+  {user_id: 1, description: "Make me a full-stack website that connects my business data with an AI backend to calculate what I need to prioritize to maximize profits.", job_type: "computer work", address: "164-194 Fremont St, San Francisco, CA 94105, USA", duration: 10, wage: 60, start_time: (now + 22.5), lat: 37.7895895372891, lng: -122.395699022891, cost: 600, status: "pending", worker_id: nil},
+  {user_id: 1, description: "Pull weeds up out of my garden", job_type: "gardening", address: "135-145 Laurel St, San Francisco, CA 94118, USA", duration: 3, wage: 12, start_time: (now + 21 + (14 / 24.0)), lat: 37.7898608532149, lng: -122.450802326202, cost: 36, status: "pending", worker_id: nil},
+  {user_id: 1, description: "Rake leaves", job_type: "yard-work", address: "135-145 Laurel St, San Francisco, CA 94118, USA", duration: 3, wage: 12, start_time: (now - 21 + (14 / 24.0)), lat: 37.7898608532149, lng: -122.450802326202, cost: 36, status: "designated", worker_id: 1},
 ])
 Review.create!([
   {user_id: 2, job_id: 12, rating: 5, body: "He did a great job!"},
@@ -239,7 +236,6 @@ Review.create!([
   {user_id: 1, job_id: 13, rating: 1, body: "My dog seemed terrified of Timmy."},
   {user_id: 1, job_id: 8, rating: 5, body: "She fixed all of my problems very quickly!"},
   {user_id: 1, job_id: 16, rating: 5, body: "Great Job Timmy!"},
-  {user_id: 1, job_id: 18, rating: 4, body: "Timmy showed up five minutes late, but he did a pretty good job. I appreciate his help!"},
   {user_id: 1, job_id: 10, rating: 5, body: "Wow, Sam was really helpful. She is a real computer wiz!"},
   {user_id: 1, job_id: 21, rating: 2, body: "Timmy was very late. He was not very helpful."}
 ])
