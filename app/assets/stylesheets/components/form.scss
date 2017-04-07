@@ -113,10 +113,46 @@
 
   /* Make checkboxes appear as stars for ratings */
   .rating-stars {
+    cursor: pointer;
     margin-top: 15px;
     position: relative;
     left: 7px;
     display: inline-block;
+
+    .stars {
+    	direction: rtl;
+    	margin: 0 auto;
+
+    	label {
+    		cursor: pointer;
+    		padding: 0.5em;
+    		margin: 0;
+    	}
+
+    	.fa {
+    		color: $contrast-light;
+    		text-shadow: 0 0 2px $contrast-darkest;
+    		font-size: 2em;
+    	}
+
+      input:not(:checked) ~ label:not([for="difficulty-1"]) > .fa-star { display: none; }
+
+      label:hover > .fa-star-o,
+      label:hover ~ label > .fa-star-o,
+      .checked > .fa-star-o,
+      .checked ~ label > .fa-star-o { display: none; }
+
+    	label:hover > .fa-star,
+    	label:hover ~ label > .fa-star,
+      .checked > .fa-star,
+      .checked ~ label > .fa-star { display: inline-block !important;}
+
+      // label:hover > .fa-star-o,
+      // label:hover ~ label > .fa-star-o,
+      //
+      // .checked > .fa-star-o,
+      // .checked ~ label > .fa-star-o { display: none; }
+    }
 
     input[type="radio"] {
       opacity: 0;
@@ -128,7 +164,9 @@
       z-index: 2;
     }
 
+
     input[type="radio"] + span:before {
+      cursor: pointer;
       position: relative;
       left: -20px;
       font-family: 'FontAwesome';
@@ -138,11 +176,17 @@
     }
 
     input[type="radio"]:checked ~ input[type="radio"] + span:before {
+      cursor: pointer;
       content: "\f006"; /* hollow star for stars after checked star */
+    }
+
+    input[type="radio"]:hover, input[type="radio"] + span:before:hover {
+      cursor: pointer;
+      content: "\f005";
     }
   }
 
-  .completed-input {
+  .completed-input { // checkbox to indicate if job was completed
     display: inline-block;
     input[type="radio"] {
       opacity: 0;
@@ -153,10 +197,10 @@
       height: 20px;
       font-family: "FontAwesome";
       font-size: 1.2em;
-      content: "\f096";
+      content: "\f096"; // empty box
     }
     input[type="radio"]:checked ~ label:before {
-      content: "\f046";
+      content: "\f046"; // checked box
     }
   }
 
