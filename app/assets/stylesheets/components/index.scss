@@ -132,7 +132,7 @@
   top: -0.1em;
   left: -0.1em;
 
-  .flag {
+  .review-flag, .job-taken-flag {
     position: absolute;
     width: 100%;
     padding: 1em;
@@ -141,8 +141,16 @@
     transform: rotate(315deg);
     left: -3em;
     top: 1em;
+    box-shadow: 0 0 3px rgba(0,0,0,0.8);
+  }
+
+  .job-taken-flag {
     background-color: $contrast-light;
     background: linear-gradient(315deg, $contrast-dark, $contrast-lighter);
-    box-shadow: 0 0 3px rgba(0,0,0,0.8);
+  }
+
+  .review-flag {
+    background-color: $red-light;
+    background: linear-gradient(315deg, $red-light, $red-lightest, $red-light);
   }
 }

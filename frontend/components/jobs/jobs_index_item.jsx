@@ -9,12 +9,19 @@ const JobsIndexItem = ({job, onClick}) => {
   let reviewFlag = "";
   if (new Date() > date && job.status === 'designated') {
     reviewFlag = <div className='flag-wrapper'>
-                   <div className='flag'>Needs Review</div>
+                   <div className='review-flag'>Needs Review</div>
+                 </div>;
+  }
+  let jobTakenFlag = "";
+  if (new Date() < date && job.status === 'designated') {
+    jobTakenFlag = <div className='flag-wrapper'>
+                   <div className='job-taken-flag'>Job Taken</div>
                  </div>;
   }
   return (
     <div className={"jobs-index-item"} onClick={onClick}>
       {reviewFlag}
+      {jobTakenFlag}
       <div className="top">
           <h3>{typeStr} Job</h3>
           <h3>Total: ${job.cost}</h3>
