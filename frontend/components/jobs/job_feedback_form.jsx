@@ -41,7 +41,7 @@ class JobFeedbackForm extends React.Component {
       user_id: this.props.currentUser ? this.props.currentUser.id : "",
       job_id: this.props.job.id,
       body: "",
-      rating: "5",
+      rating: "1",
       job_status: this.props.job.status,
     }), this.props.job.review);
 
@@ -114,7 +114,7 @@ class JobFeedbackForm extends React.Component {
             	<input
                 type="radio"
                 id="difficulty-5"
-                defaultChecked={this.state.rating === 5}
+                defaultChecked={this.state.rating === "5"}
                 onChange={this.update('rating')}
                 value="5"
               />
@@ -127,7 +127,7 @@ class JobFeedbackForm extends React.Component {
             	<input
                 type="radio"
                 id="difficulty-4"
-                defaultChecked={this.state.rating === 4}
+                defaultChecked={this.state.rating === "4"}
                 onChange={this.update('rating')}
                 value="4"
               />
@@ -140,7 +140,7 @@ class JobFeedbackForm extends React.Component {
             	<input
                 type="radio"
                 id="difficulty-3"
-                defaultChecked={this.state.rating === 3}
+                defaultChecked={this.state.rating === "3"}
                 onChange={this.update('rating')}
                 value="3"
               />
@@ -153,7 +153,7 @@ class JobFeedbackForm extends React.Component {
             	<input
                 type="radio"
                 id="difficulty-2"
-                defaultChecked={this.state.rating === 2}
+                defaultChecked={this.state.rating === "2"}
                 onChange={this.update('rating')}
                 value="2"
               />
@@ -166,7 +166,7 @@ class JobFeedbackForm extends React.Component {
             	<input
                 type="radio"
                 id="difficulty-1"
-                defaultChecked={this.state.rating === 1}
+                defaultChecked={this.state.rating === "1"}
                 onChange={this.update('rating')}
                 value="1"
               />

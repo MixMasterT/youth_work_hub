@@ -135,23 +135,62 @@
     		font-size: 2em;
     	}
 
-      input:not(:checked) ~ label:not([for="difficulty-1"]) > .fa-star { display: none; }
-
-      label:hover > .fa-star-o,
-      label:hover ~ label > .fa-star-o,
-      .checked > .fa-star-o,
-      .checked ~ label > .fa-star-o { display: none; }
-
-    	label:hover > .fa-star,
-    	label:hover ~ label > .fa-star,
-      .checked > .fa-star,
-      .checked ~ label > .fa-star { display: inline-block !important;}
+      // input:not(:checked) ~ label:not([for="difficulty-1"]) > .fa-star { display: none; }
 
       // label:hover > .fa-star-o,
       // label:hover ~ label > .fa-star-o,
-      //
       // .checked > .fa-star-o,
-      // .checked ~ label > .fa-star-o { display: none; }
+      // .checked ~ label > .fa-star-o { display: none !important; }
+      //
+      // .checked > .fa-star { display: none !important; }
+      //
+    	// label:hover > .fa-star,
+    	// label:hover ~ label > .fa-star,
+      // .checked > .fa-star { display: inline-block !important;}
+
+      // .checked ~ label > .fa-star, .checked > .fa-star {
+      //   display: inline-block;
+      // }
+      //
+      // .checked ~ label > .fa-star-o {
+      //   display: none;
+      // }
+      //
+      // .checked ~ label:last-of-type > .fa-star-o {
+      //   display: inline-block;
+      // }
+
+      // .checked {
+      //   .fa-star {
+      //     display: inline-block;
+      //   }
+      //
+      //   .fa-star-o {
+      //     display: none;
+      //   }
+      // }
+
+      // .checked ~ label > .fa-star-o, .checked > .fa-star-o {
+      //   display: none;
+      // }
+
+      label > .fa-star {
+        display: none;
+      }
+
+      .checked ~ label > .fa-star-o,
+      .checked > .fa-star-o,
+      label:hover > .fa-star-o,
+      label:hover ~ label > .fa-star-o {
+        display: none;
+      }
+
+      .checked ~ label > .fa-star,
+      .checked > .fa-star,
+      label:hover > .fa-star,
+      label:hover ~ label > .fa-star {
+        display: inline-block;
+      }
     }
 
     input[type="radio"] {
