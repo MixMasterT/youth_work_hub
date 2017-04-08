@@ -113,12 +113,12 @@ class JobFeedbackForm extends React.Component {
             <div className="stars">
             	<input
                 type="radio"
-                id="difficulty-5"
+                id="rating-5"
                 defaultChecked={this.state.rating === "5"}
                 onChange={this.update('rating')}
                 value="5"
               />
-            	<label htmlFor="difficulty-5"
+            <label htmlFor="rating-5"
                 className={(this.state.rating==="5" ? "checked" : "")}
               >
             		<i className="fa fa-star"></i>
@@ -126,12 +126,12 @@ class JobFeedbackForm extends React.Component {
             	</label>
             	<input
                 type="radio"
-                id="difficulty-4"
+                id="rating-4"
                 defaultChecked={this.state.rating === "4"}
                 onChange={this.update('rating')}
                 value="4"
               />
-            	<label htmlFor="difficulty-4"
+            <label htmlFor="rating-4"
                 className={(this.state.rating==="4" ? "checked" : "")}
               >
                  <i className="fa fa-star"></i>
@@ -139,12 +139,12 @@ class JobFeedbackForm extends React.Component {
               </label>
             	<input
                 type="radio"
-                id="difficulty-3"
+                id="rating-3"
                 defaultChecked={this.state.rating === "3"}
                 onChange={this.update('rating')}
                 value="3"
               />
-            	<label htmlFor="difficulty-3"
+            <label htmlFor="rating-3"
                 className={(this.state.rating==="3" ? "checked" : "")}
               >
                  <i className="fa fa-star"></i>
@@ -152,12 +152,12 @@ class JobFeedbackForm extends React.Component {
               </label>
             	<input
                 type="radio"
-                id="difficulty-2"
+                id="rating-2"
                 defaultChecked={this.state.rating === "2"}
                 onChange={this.update('rating')}
                 value="2"
               />
-            	<label htmlFor="difficulty-2"
+            <label htmlFor="rating-2"
                 className={(this.state.rating==="2" ? "checked" : "")}
               >
               	 <i className="fa fa-star"></i>
@@ -165,52 +165,17 @@ class JobFeedbackForm extends React.Component {
               </label>
             	<input
                 type="radio"
-                id="difficulty-1"
+                id="rating-1"
                 defaultChecked={this.state.rating === "1"}
                 onChange={this.update('rating')}
                 value="1"
               />
-            	<label htmlFor="difficulty-1"
+            <label htmlFor="rating-1"
                 className={(this.state.rating==="1" ? "checked" : "")}
               >
               	 <i className="fa fa-star"></i>
               </label>
             </div>
-
-            <input type="radio" className="rating-input" id='one'
-              onChange={this.update('rating')} value="1"  name="rating-score"
-              defaultChecked={rating === 1}>
-            </input>
-            <span></span>
-            <label htmlFor="one" className="rating-star"></label>
-
-            <input type="radio" className="rating-input" id='two'
-              onChange={this.update('rating')} value="2" name="rating-score"
-              defaultChecked={rating === 2}>
-            </input>
-            <span></span>
-            <label htmlFor="two" className="rating-star"></label>
-
-            <input type="radio" className="rating-input" id='three'
-              onChange={this.update('rating')} value="3" name="rating-score"
-              defaultChecked={rating === 3}>
-            </input>
-            <span></span>
-            <label htmlFor='three' className="rating-star"></label>
-
-            <input type="radio" className="rating-input" id='four'
-              onChange={this.update('rating')} value="4"  name="rating-score"
-              defaultChecked={rating === 4}>
-            </input>
-            <span></span>
-            <label htmlFor='four' className="rating-star"></label>
-
-            <input type="radio" className="rating-input" id='five'
-              onChange={this.update('rating')} value="5" name="rating-score"
-              defaultChecked={rating === 5 || rating === ""}>
-            </input>
-            <span></span>
-            <label htmlFor='five' className="rating-star"></label>
 
           </div>
 
