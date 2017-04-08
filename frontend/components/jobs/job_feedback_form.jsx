@@ -41,7 +41,7 @@ class JobFeedbackForm extends React.Component {
       user_id: this.props.currentUser ? this.props.currentUser.id : "",
       job_id: this.props.job.id,
       body: "",
-      rating: "1",
+      rating: "5",
       job_status: this.props.job.status,
     }), this.props.job.review);
 
@@ -78,31 +78,16 @@ class JobFeedbackForm extends React.Component {
     const rating = this.state.rating;
     const completion = this.state.job_status;
 
-    // const ratingStars = ['one', 'two', 'three', 'four', 'five'].map((str, i) => {
-    //   return (
-    //       <input type="radio" className="rating-input" id={str} key={i}
-    //         onChange={this.update('rating')} value={i + 1}  name="rating-score"
-    //         defaultChecked={rating === {i}}>
-    //       </input>
-    //
-    //   )
-    // })
     return (
       <div className='form'>
 
         <CloseModalButton modalName={'jobFeedbackModal'} />
 
-        <h2>Leave Feedback</h2>
-
+        <h4>Leave Feedback</h4>
 
         {(this.props.errors.length > 0) ? errors : null }
 
         <form onSubmit={this.handleSubmit} id='job-feedback-form'>
-
-          <div className='fulfillment'>
-
-
-          </div>
 
           <div className='rating-clarifier'>
             <h4>You give this job {rating} star{rating === "1" ? "" : "s"}</h4>

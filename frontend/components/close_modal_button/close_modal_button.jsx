@@ -17,10 +17,12 @@ class CloseModalButton extends React.Component {
   }
   render() {
     return (
-      <button
-        className='close-modal'
-        onClick={this.closeModal}
-      >X</button>
+      <div className='close-modal'>
+        <button id='close-modal-button'
+          onClick={this.closeModal}
+        >X</button>
+        <div className='clearfix'></div>
+      </div>
     );
   }
 }

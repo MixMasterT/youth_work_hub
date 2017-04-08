@@ -12,20 +12,24 @@
   border-radius: 5%;
 
   .close-modal, .close-modal:hover {
-    background: transparent;
     float: left;
-    width: 1.2em;
-    height: 1.2em;
     position: relative;
-    color: white;
-    border-radius: 50%;
-    box-shadow: none;
-    border: white solid 2px;
     top: -4.5em;
     left: -3em;
   }
 
-  .close-modal:hover {
+  #close-modal-button {
+    position: absolute;
+    width: 1.2em;
+    height: 1.2em;
+    background: $base-light;
+    color: white;
+    border-radius: 50%;
+    box-shadow: none;
+    border: white solid 2px;
+  }
+
+  #close-modal-button:hover {
     color: $contrast-light;
     border: $contrast-light solid 2px;
   }
@@ -125,7 +129,7 @@
 
     	label {
     		cursor: pointer;
-    		padding: 0.5em;
+    		padding: 0.2em;
     		margin: 0;
     	}
 
@@ -134,45 +138,6 @@
     		text-shadow: 0 0 2px $contrast-darkest;
     		font-size: 2em;
     	}
-
-      // input:not(:checked) ~ label:not([for="difficulty-1"]) > .fa-star { display: none; }
-
-      // label:hover > .fa-star-o,
-      // label:hover ~ label > .fa-star-o,
-      // .checked > .fa-star-o,
-      // .checked ~ label > .fa-star-o { display: none !important; }
-      //
-      // .checked > .fa-star { display: none !important; }
-      //
-    	// label:hover > .fa-star,
-    	// label:hover ~ label > .fa-star,
-      // .checked > .fa-star { display: inline-block !important;}
-
-      // .checked ~ label > .fa-star, .checked > .fa-star {
-      //   display: inline-block;
-      // }
-      //
-      // .checked ~ label > .fa-star-o {
-      //   display: none;
-      // }
-      //
-      // .checked ~ label:last-of-type > .fa-star-o {
-      //   display: inline-block;
-      // }
-
-      .checked {
-        .fa-star {
-          display: inline-block;
-        }
-
-        .fa-star-o {
-          display: none;
-        }
-      }
-
-      .checked ~ label > .fa-star-o, .checked > .fa-star-o {
-        display: none;
-      }
 
       label > .fa-star { // make all full stars hidden...only hollow stars show
         display: none;
@@ -448,18 +413,7 @@
     }
   }
 }
-form #jobs-filter-form {
-  background-color: yellow;
 
-  label {
-    background: yellow;
-
-    // input[type='checkbox'] {
-    //   font-family: FontAwesome;
-    //   content: "\f060"
-    // }
-  }
-}
 input[type=checkbox] {
   appearance: none;
   -webkit-appearance: none;
