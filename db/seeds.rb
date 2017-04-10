@@ -252,8 +252,9 @@ Job.create!([
       lng: -122.39376068289857,
       worker_id: nil},
   #id 4 - 21
-  {user_id: 1, description: "Help me add a new feature to my website. I want to add front-end data management with redux.", job_type: "computer work", address: "284 Brannan St, San Francisco, CA 94107, USA", duration: 5, wage: 30, start_time: (now - 14 + (15 / 24.0)), lat: 37.7824978759638, lng: -122.392029762268, cost: 30, status: "pending", worker_id: 3},
+  {user_id: 1, description: "Help me add a new feature to my website. I want to add front-end data management with redux.", job_type: "computer work", address: "284 Brannan St, San Francisco, CA 94107, USA", duration: 5, wage: 30, start_time: (now - 14 + (15 / 24.0)), lat: 37.7824978759638, lng: -122.392029762268, cost: 150, status: "pending", worker_id: 3},
   {user_id: 1, description: "Rake leaves", job_type: "yard-work", address: "135-145 Laurel St, San Francisco, CA 94118, USA", duration: 3, wage: 12, start_time: (now - 21 + (14 / 24.0)), lat: 37.7898608532149, lng: -122.450802326202, cost: 36, status: "fulfilled", worker_id: 1},
+  {user_id: 1, description: "Pull some weeds", job_type: "yard-work", address: "135-145 Laurel St, San Francisco, CA 94118, USA", duration: 3, wage: 12, start_time: (now - 14 + (14 / 24.0)), lat: 37.7898608532149, lng: -122.450802326202, cost: 36, status: "designated", worker_id: 1},
   {user_id: 1, description: "Clean my kitchen", job_type: "cleaning", address: "351 California St, San Francisco, CA 94104, USA", duration: 2, wage: 12, start_time: (now - 5 + (15 / 24.0)), lat: 37.7928081702316, lng: -122.400784492493, cost: 24, status: "fulfilled", worker_id: 1},
   {user_id: 1, description: "Stay with my daughter, and play games with her while I go on a date with my wife.", job_type: "baby-sitting", address: "230 Turk St, San Francisco, CA 94102, USA", duration: 5, wage: 12, start_time: (now - 24 + (15 / 24.0)), lat: 37.7833118988631, lng: -122.413229942322, cost: 60, status: "unfulfilled", worker_id: 1},
   {user_id: 1, description: "Clean my garage. There is lots of old stuff that you can have, including a 10-speed bicycle!", job_type: "cleaning", address: "680-690 Greenwich St, San Francisco, CA 94133, USA", duration: 4, wage: 12, start_time: (now - 19 + (15 / 24.0)), lat: 37.8021675862207, lng: -122.410912513733, cost: 48, status: "fulfilled", worker_id: 1},
@@ -272,9 +273,10 @@ Job.create!([
   {user_id: 1, description: "Pull weeds up out of my garden", job_type: "gardening", address: "135-145 Laurel St, San Francisco, CA 94118, USA", duration: 3, wage: 12, start_time: (now + 21 + (14 / 24.0)), lat: 37.7898608532149, lng: -122.450802326202, cost: 36, status: "pending", worker_id: nil},
 ])
 Review.create!([
-  {user_id: 2, job_id: 6, rating: 5, body: "She got the job done fast"},
+  {user_id: 2, job_id: 4, rating: 5, body: "She got the job done fast"},
   {user_id: 1, job_id: 5, rating: 5, body: "Excellent work! Yard looks great..."},
-  {user_id: 1, job_id: 7, rating: 3, body: "Timmy arrived late. That was a bit of a problem"},
-  {user_id: 1, job_id: 8, rating: 5, body: "Timmy took care of business in that garage!"},
-  {user_id: 1, job_id: 9, rating: 5, body: "Timmy did a great job... I love this kid"},
+  {user_id: 2, job_id: 7, rating: 5, body: "Excellent work! The kitchen looks great..."},
+  {user_id: 1, job_id: 8, rating: 3, body: "Timmy arrived late. That was a bit of a problem"},
+  {user_id: 1, job_id: 9, rating: 5, body: "Timmy took care of business in that garage!"},
+  {user_id: 1, job_id: 10, rating: 5, body: "Timmy did a great job... I love this kid"},
 ])
