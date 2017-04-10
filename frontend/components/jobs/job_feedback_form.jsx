@@ -51,7 +51,8 @@ class JobFeedbackForm extends React.Component {
 
   update(field) {
     return e => {
-      this.setState({[field]: parseInt(e.target.value)})}
+      const value = (field === 'rating') ? parseInt(e.target.value) : e.target.value
+      this.setState({ [field]: value })}
   }
 
   handleSubmit(e) {
@@ -172,7 +173,7 @@ class JobFeedbackForm extends React.Component {
 
             <h5>Please indicate whether or not {this.props.worker.username} did the job:</h5>
             <div className='completed-input'>
-              <input type="radio" className="rad" id="completed"
+              <input type="radio" id="completed"
                 onChange={this.update('job_status')} value="fulfilled"
                 checked={completion === "fulfilled"}
                 />
@@ -180,7 +181,7 @@ class JobFeedbackForm extends React.Component {
             </div>
 
             <div className='completed-input'>
-              <input type="radio" className="rad" id="incomplete"
+              <input type="radio" id="incomplete"
                 onChange={this.update('job_status')} value="unfulfilled"
                 checked={completion === "unfulfilled"}
                 />

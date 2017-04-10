@@ -273,7 +273,7 @@ Job.create!([
   {user_id: 1, description: "Pull weeds up out of my garden", job_type: "gardening", address: "135-145 Laurel St, San Francisco, CA 94118, USA", duration: 3, wage: 12, start_time: (now + 21 + (14 / 24.0)), lat: 37.7898608532149, lng: -122.450802326202, cost: 36, status: "pending", worker_id: nil},
 ])
 Review.create!([
-  {user_id: 2, job_id: 4, rating: 5, body: "She got the job done fast"},
+  {user_id: 1, job_id: 4, rating: 5, body: "She got the job done fast"},
   {user_id: 1, job_id: 5, rating: 5, body: "Excellent work! Yard looks great..."},
   {user_id: 2, job_id: 7, rating: 5, body: "Excellent work! The kitchen looks great..."},
   {user_id: 1, job_id: 8, rating: 3, body: "Timmy arrived late. That was a bit of a problem"},
