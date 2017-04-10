@@ -41,7 +41,7 @@ class JobFeedbackForm extends React.Component {
       user_id: this.props.currentUser ? this.props.currentUser.id : "",
       job_id: this.props.job.id,
       body: "",
-      rating: "5",
+      rating: 5,
       job_status: this.props.job.status,
     }), this.props.job.review);
 
@@ -51,7 +51,7 @@ class JobFeedbackForm extends React.Component {
 
   update(field) {
     return e => {
-      this.setState({[field]: e.target.value})}
+      this.setState({[field]: parseInt(e.target.value)})}
   }
 
   handleSubmit(e) {
@@ -99,25 +99,23 @@ class JobFeedbackForm extends React.Component {
             	<input
                 type="radio"
                 id="rating-5"
-                defaultChecked={this.state.rating === "5"}
                 onChange={this.update('rating')}
-                value="5"
+                value={5}
               />
-            <label htmlFor="rating-5"
-                className={(this.state.rating==="5" ? "checked" : "")}
+              <label htmlFor="rating-5"
+                className={(this.state.rating===5 ? "checked" : "")}
               >
             		<i className="fa fa-star"></i>
              		<i className="fa fa-star-o"></i>
-            	</label>
+              </label>
             	<input
                 type="radio"
                 id="rating-4"
-                defaultChecked={this.state.rating === "4"}
                 onChange={this.update('rating')}
-                value="4"
+                value={4}
               />
-            <label htmlFor="rating-4"
-                className={(this.state.rating==="4" ? "checked" : "")}
+              <label htmlFor="rating-4"
+                className={(this.state.rating===4 ? "checked" : "")}
               >
                  <i className="fa fa-star"></i>
                  <i className="fa fa-star-o"></i>
@@ -125,12 +123,11 @@ class JobFeedbackForm extends React.Component {
             	<input
                 type="radio"
                 id="rating-3"
-                defaultChecked={this.state.rating === "3"}
                 onChange={this.update('rating')}
-                value="3"
+                value={3}
               />
-            <label htmlFor="rating-3"
-                className={(this.state.rating==="3" ? "checked" : "")}
+              <label htmlFor="rating-3"
+                className={(this.state.rating=== 3 ? "checked" : "")}
               >
                  <i className="fa fa-star"></i>
                  <i className="fa fa-star-o"></i>
@@ -138,12 +135,11 @@ class JobFeedbackForm extends React.Component {
             	<input
                 type="radio"
                 id="rating-2"
-                defaultChecked={this.state.rating === "2"}
                 onChange={this.update('rating')}
-                value="2"
+                value={2}
               />
-            <label htmlFor="rating-2"
-                className={(this.state.rating==="2" ? "checked" : "")}
+              <label htmlFor="rating-2"
+                className={(this.state.rating=== 2 ? "checked" : "")}
               >
               	 <i className="fa fa-star"></i>
                  <i className="fa fa-star-o"></i>
@@ -151,12 +147,11 @@ class JobFeedbackForm extends React.Component {
             	<input
                 type="radio"
                 id="rating-1"
-                defaultChecked={this.state.rating === "1"}
                 onChange={this.update('rating')}
-                value="1"
+                value={1}
               />
-            <label htmlFor="rating-1"
-                className={(this.state.rating==="1" ? "checked" : "")}
+              <label htmlFor="rating-1"
+                className={(this.state.rating=== 1 ? "checked" : "")}
               >
               	 <i className="fa fa-star"></i>
               </label>
