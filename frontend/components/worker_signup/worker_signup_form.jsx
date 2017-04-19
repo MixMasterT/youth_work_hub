@@ -1,8 +1,6 @@
 import React from 'react';
 import merge from 'lodash/merge';
 
-// import { hashHistory } from 'react-router';
-
 import { DateTimePicker } from 'react-widgets';
 
 import Moment from 'moment';

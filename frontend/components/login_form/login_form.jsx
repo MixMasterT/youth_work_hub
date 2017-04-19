@@ -2,6 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import Modal from 'react-modal';
 
+import { hashHistory } from 'react-router';
+
 import CloseModalButton from '../close_modal_button/close_modal_button';
 
 class LoginForm extends React.Component {
@@ -35,7 +37,8 @@ class LoginForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    this.props.login(this.state).then(() => this.props.history.push('/jobs'));
+    this.props.login(this.state)
+      .then(() => hashHistory.push('/jobs'));
   }
 
   render() {
