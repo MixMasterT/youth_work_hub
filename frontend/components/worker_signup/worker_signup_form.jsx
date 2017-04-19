@@ -1,6 +1,8 @@
 import React from 'react';
 import merge from 'lodash/merge';
 
+// import { hashHistory } from 'react-router';
+
 import { DateTimePicker } from 'react-widgets';
 
 import Moment from 'moment';
@@ -77,11 +79,13 @@ class WorkerSignupForm extends React.Component {
     } else if(this.state.id) {
       this.props.edit(this.state).then(() => {
         this.props.closeModal();
+        this.props.history.push('/jobs');
       })
     } else {
 
       this.props.signup(this.state).then((worker) => {
         this.props.closeModal();
+        this.props.history.push('/jobs');
       })
     }
   }

@@ -1,16 +1,30 @@
 import React from 'react';
-import { Link } from 'react-router';
+import { Link, hashHistory } from 'react-router';
 
 class LoginBox extends React.Component {
   constructor(props) {
     super(props);
     this.openModal = this.openModal.bind(this);
     this.handleLogout = this.handleLogout.bind(this);
+    this.handleGuestLogin = this.handleGuestLogin.bind(this);
+    this.handleGuestWorkerLogin = this.handleGuestWorkerLogin.bind(this);
   }
 
   handleLogout() {
     this.props.logout();
     this.props.resetJobs();
+  }
+
+  handleGuestLogin(e) {
+    e.preventDefault();
+    this.props.guestLogin(this.state)
+    hashHistory.push('/jobs');
+  }
+
+  handleGuestWorkerLogin(e) {
+    e.preventDefault();
+    this.props.guestWorkerLogin(this.state)
+    hashHistory.push('/jobs');
   }
 
   openModal(modalName) {
@@ -59,7 +73,7 @@ class LoginBox extends React.Component {
               </button>
               <button
                 className='highlight'
-                onClick={this.props.guestLogin.bind(this)}
+                onClick={this.handleGuestLogin}
                 >Employer Demo
               </button>
               <span className="flag" title="Trial Account to test out the functionality"></span>
@@ -73,7 +87,7 @@ class LoginBox extends React.Component {
               </button>
               <button
                 className='highlight'
-                onClick={this.props.guestWorkerLogin.bind(this)}
+                onClick={this.handleGuestWorkerLogin}
                 >Worker Demo
               </button>
               <span className="flag" title="Trial Account to test out the functionality"></span>
