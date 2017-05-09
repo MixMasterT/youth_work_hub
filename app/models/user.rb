@@ -15,6 +15,7 @@
 
 class User < ActiveRecord::Base
   validates :username, null: false
+  validates :email, uniqueness: true
   validates :email, :password_digest, :session_token, null: false
   validates :username, length: { minimum: 1 }
   validates :email, length: { minimum: 7 }
