@@ -28,7 +28,6 @@ class Worker < ActiveRecord::Base
 
   validate :has_zip_or_gps
 
-  validates :username, length: { minimum: 1 }
   validates :email, length: { minimum: 7 }
   validates :password, length: { minimum: 6, allow_nil: true }
 
