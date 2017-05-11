@@ -14,6 +14,9 @@ RSpec.describe Job, type: :model do
     it { should_not allow_value("play").for(:job_type) }
   end
 
-
+  describe 'assocations' do
+    it { should belong_to(:user) }
+    it { should have_one(:review) }
+  end
 
 end
