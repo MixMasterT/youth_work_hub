@@ -9,7 +9,6 @@ RSpec.describe User, type: :model do
   let!(:user) { create(:user) }
 
   describe 'validations' do
-    User.create(username: 'testy', password: 'password', email: 'three@test.com')
 
     it { is_expected.to validate_presence_of(:username) }
     it { should validate_presence_of(:email) }
@@ -45,6 +44,14 @@ RSpec.describe User, type: :model do
           no_user = User.check_cred('ghost', 'in_the_shell')
           expect(no_user).to eq(nil)
         end
+      end
+    end
+
+    describe 'instance methods' do
+      it 'resets session token' do
+        old_token = user.session_token
+        new_token = user.reset_token!
+        expect(old_token).not_to eq(new_token)
       end
     end
   end
