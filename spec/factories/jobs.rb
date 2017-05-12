@@ -6,5 +6,7 @@ FactoryGirl.define do
     start_time "43437814780"
     cost "22"
     user_id "2"
+    lat "43"
+    lng "23"
   end
 end
