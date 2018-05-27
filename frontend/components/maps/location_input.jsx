@@ -18,7 +18,7 @@ class LocationInput extends React.Component {
 
   componentDidMount() {
     const mapOptions = {
-      center: { lat: 37.7758, lng: -122.435 },
+      center: { lat: 38.6398693, lng: -90.2934337 },
       zoom: 13
     }
 
@@ -30,7 +30,7 @@ class LocationInput extends React.Component {
                                                 loc.coords.longitude));
       }
     });
-    
+
     google.maps.event.addListener(this.map, 'click', event => {
       this.addMarker(event.latLng);
     });

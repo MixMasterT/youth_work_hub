@@ -22,7 +22,7 @@ class JobsMap extends React.Component {
 
   componentDidMount() {
     let mapOptions = {
-      center: { lat: 37.773972, lng: -122.431297 },
+      center: { lat: 38.6398693, lng: -90.2934337 },
       zoom: 12
     }
 
