@@ -40,7 +40,7 @@ class JobShow extends React.Component {
       if (job.id) {
         const date = new Date(job.start_time);
         const dateString = date.toDateString();
-        const time = date.
+        const time = date
           .toLocaleTimeString('US-en')
           .replace(/:(\d{2}) (?=[AP]M)/, " ");
 
