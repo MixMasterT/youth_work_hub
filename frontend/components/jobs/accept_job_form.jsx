@@ -32,7 +32,9 @@ class AcceptJobForm extends React.Component {
     const errors = errorsList(this.props);
     const date = new Date(this.props.job.start_time);
     const dateString = date.toDateString();
-    const time = date.toTimeString().split(/\s/)[0];
+    const time = date
+      .toLocaleTimeString('US-en')
+      .replace(/:(\d{2}) (?=[AP]M)/, " ");
     return (
       <div>
         <Modal
