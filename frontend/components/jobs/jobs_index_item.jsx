@@ -3,7 +3,9 @@ import React from 'react';
 const JobsIndexItem = ({job, onClick}) => {
   const date = new Date(job.start_time);
   const dateString = date.toDateString();
-  const time = date.toTimeString().split(/\s/)[0];
+  const time = date
+    .toLocaleTimeString('US-en')
+    .replace(/:(\d{2}) (?=[AP]M)/, " ");
   const hrs = job.duration === 1 ? 'hr' : 'hrs';
   const typeStr = job.job_type.charAt(0).toUpperCase() + job.job_type.slice(1);
   let reviewFlag = "";

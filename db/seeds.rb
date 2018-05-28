@@ -206,7 +206,7 @@ Worker.create( username: 'Melanie',
                birth_date: '2002-10-16',
                min_wage: 12)
 
-now = DateTime.now
+now = DateTime.now.beginning_of_day
 
 Job.create!([
   #id 1
